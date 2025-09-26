@@ -11,11 +11,16 @@ html {
 }
 
 body {
-  @apply bg-slate-50 text-slate-900 antialiased font-sans;
+  background-color: #f8fafc; /* slate-50 */
+  color: #0f172a; /* slate-900 */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500;
+a:focus-visible {
+  outline: 2px solid #0ea5e9; /* sky-500 */
+  outline-offset: 2px;
 }
 
 .skip-link {
