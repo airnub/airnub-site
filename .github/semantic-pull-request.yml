@@ -1,0 +1,8 @@
+# Allow natural-language PR titles by treating the whole header as the subject
+# while still requiring non-empty text.
+headerPattern: '^(.+)$'
+headerPatternCorrespondence:
+  - subject
+subjectPattern: '^(?!\s*$).+'
+subjectPatternError: >-
+  PR titles must include a short description (e.g. "Update pnpm setup configuration").
