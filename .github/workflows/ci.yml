@@ -10,8 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
-        with:
-          version: 9
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -27,6 +25,12 @@ jobs:
         uses: amannn/action-semantic-pull-request@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          headerPattern: '^(.+)$'
+          headerPatternCorrespondence: subject
+          subjectPattern: '^(?!\s*$).+'
+          subjectPatternError: >-
+            PR titles must include a short description (e.g. "Update pnpm setup configuration").
       - name: Turbo remote cache
         env:
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
