@@ -30,6 +30,10 @@ jobs:
           headerPatternCorrespondence: type
           types: |
             .+
+          headerPatternCorrespondence: subject
+          subjectPattern: '^(?!\s*$).+'
+          subjectPatternError: >-
+            PR titles must include a short description (e.g. "Update pnpm setup configuration").
       - name: Turbo remote cache
         env:
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
