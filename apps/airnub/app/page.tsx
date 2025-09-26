@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Button, Container } from "@airnub/ui";
 import { PageHero } from "../components/PageHero";
 
+export const revalidate = 86_400;
+
 export const metadata: Metadata = {
   title: "Airnub builds governed, enterprise-ready developer platforms",
 };

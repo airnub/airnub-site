@@ -17,6 +17,16 @@ jobs:
           node-version: 20
           cache: pnpm
       - run: pnpm i -w
+      - name: Commitlint (PR commits)
+        if: github.event_name == 'pull_request'
+        uses: wagoid/commitlint-github-action@v6
+        with:
+          configFile: .commitlintrc.cjs
+      - name: Semantic PR title
+        if: github.event_name == 'pull_request'
+        uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Turbo remote cache
         env:
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
@@ -24,4 +34,6 @@ jobs:
         run: echo "Turbo cache configured"
       - run: pnpm lint
       - run: pnpm typecheck
+      - name: SSR guard
+        run: node scripts/assert-no-client.mjs
       - run: pnpm build

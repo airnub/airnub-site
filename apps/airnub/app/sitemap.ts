@@ -8,6 +8,7 @@ const routes = [
   "/resources",
   "/company",
   "/contact",
+  "/trust",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

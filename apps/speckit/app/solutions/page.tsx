@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Container } from "@airnub/ui";
 import { PageHero } from "../../components/PageHero";
 
+export const revalidate = 604_800;
+
 export const metadata: Metadata = {
   title: "Solutions",
   description: "Choose tailored Speckit playbooks for CISOs and DevSecOps leaders.",

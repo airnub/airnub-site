@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { clsx } from "clsx";
 import type { ReactNode } from "react";
-import { Container } from "./Container";
+import { Container } from "../../Container";
 
 export type NavItem = {
   href: string;

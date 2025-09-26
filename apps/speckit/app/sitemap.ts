@@ -10,6 +10,7 @@ const routes = [
   "/template",
   "/pricing",
   "/contact",
+  "/trust",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
