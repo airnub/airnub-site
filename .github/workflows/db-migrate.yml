@@ -11,8 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
-        with:
-          version: 9
       - run: pnpm i -w
       - name: Link staging
         run: supabase link --project-ref ${{ secrets.SUPABASE_STAGING_REF }}
@@ -26,8 +24,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
-        with:
-          version: 9
       - run: pnpm i -w
       - name: Link prod
         run: supabase link --project-ref ${{ secrets.SUPABASE_PROD_REF }}

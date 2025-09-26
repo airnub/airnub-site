@@ -7,8 +7,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
-        with:
-          version: 9
       - run: pnpm i -w
       - name: Run pa11y-ci (targets defined per app)
         run: pnpm a11y
