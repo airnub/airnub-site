@@ -11,5 +11,6 @@ module.exports = {
     'type-case': [0],
     'type-enum': [0],
     'subject-empty': [2, 'never'],
+    'subject-case': [0],
   },
 };
