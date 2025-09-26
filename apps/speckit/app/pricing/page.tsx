@@ -3,6 +3,8 @@ import { Button, Container } from "@airnub/ui";
 import { PageHero } from "../../components/PageHero";
 import Link from "next/link";
 
+export const revalidate = 3_600;
+
 export const metadata: Metadata = {
   title: "Pricing",
   description: "Transparent pricing aligned to platform maturity stages.",

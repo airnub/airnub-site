@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Container } from "@airnub/ui";
 import { PageHero } from "../../../components/PageHero";
 
+export const revalidate = 604_800;
+
 export const metadata: Metadata = {
   title: "Solutions for DevSecOps",
   description: "Empower DevSecOps to embed guardrails and evidence in every pipeline.",

@@ -1,41 +1,38 @@
 "use server";
 
-import type { Database } from "@airnub/db";
-import { createServerSupabase } from "../../lib/supabase";
+import { cookies } from "next/headers";
+import { getServerClient } from "@airnub/db";
 
-type LeadInsert = Database["public"]["Tables"]["contact_leads"]["Insert"];
-
-type ContactFormState = {
-  status: "idle" | "success" | "error";
+type LeadInput = {
+  full_name?: string;
+  email: string;
+  company?: string;
   message?: string;
 };
 
-export const initialFormState: ContactFormState = { status: "idle" };
-
-export async function submitSpeckitLead(_previous: ContactFormState, formData: FormData): Promise<ContactFormState> {
-  const payload: LeadInsert = {
-    full_name: formData.get("full_name")?.toString() || null,
-    email: formData.get("email")?.toString() || "",
-    company: formData.get("company")?.toString() || null,
-    message: formData.get("message")?.toString() || null,
-    consent: formData.get("consent") === "on",
-    source: "speckit",
+export async function submitLead(formData: FormData) {
+  const input: LeadInput = {
+    full_name: formData.get("full_name")?.toString().trim() || undefined,
+    email: formData.get("email")?.toString().trim() || "",
+    company: formData.get("company")?.toString().trim() || undefined,
+    message: formData.get("message")?.toString().trim() || undefined,
   };
 
-  if (!payload.email) {
-    return { status: "error", message: "Email is required." };
+  if (!input.email) {
+    throw new Error("Email is required.");
   }
 
-  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-    return { status: "error", message: "Lead capture temporarily unavailable." };
-  }
+  const db = getServerClient(cookies);
+  const { error } = await db.from("contact_leads").insert({
+    full_name: input.full_name ?? null,
+    email: input.email,
+    company: input.company ?? null,
+    message: input.message ?? null,
+    source: "speckit",
+    consent: false,
+  });
 
-  const supabase = createServerSupabase();
-  const { error } = await supabase.from("contact_leads").insert(payload);
   if (error) {
-    console.error("speckit lead error", error);
-    return { status: "error", message: "We couldn't save your message. Please retry." };
+    throw new Error(error.message);
   }
-
-  return { status: "success" };
 }

@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Container } from "@airnub/ui";
 import { PageHero } from "../../components/PageHero";
 
+export const revalidate = 21_600;
+
 export const metadata: Metadata = {
   title: "Resources",
   description: "Guides, changelog, and enablement materials that help platform teams operationalize trust.",

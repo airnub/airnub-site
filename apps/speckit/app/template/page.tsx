@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Container } from "@airnub/ui";
 import { PageHero } from "../../components/PageHero";
 
+export const revalidate = 604_800;
+
 export const metadata: Metadata = {
   title: "Rollout template",
   description: "Kickstart your Speckit implementation with a ready-to-run rollout plan.",

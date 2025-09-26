@@ -1,6 +1,6 @@
 # Airnub‑Site Monorepo
 
-Monorepo for public‑facing sites using **one shared Supabase database** and a **single migrations directory**. Built with **Next.js (App Router) + TypeScript + Tailwind**, **PNPM workspaces + Turborepo**, and **SSR‑first** rendering.
+Monorepo for public‑facing sites using **one shared Supabase database** and a **single migrations directory**. Built with **Next.js (App Router) + TypeScript + Tailwind**, **PNPM workspaces + Turborepo**, and a **hybrid ISR/SSR** rendering model.
 
 ---
 
@@ -47,19 +47,47 @@ airnub-site/
 
 ---
 
-## SSR‑first policy
+## Hybrid rendering policy
 
-Render everything on the **server** unless absolutely unavoidable.
+All layouts stay Server Components. Marketing and content routes use **Incremental Static Regeneration** with per-route refresh schedules, and we only opt into request-time rendering when a page truly requires `cookies()`/`headers()` access.
 
-Add this at each app root layout (or top segment layout):
+### Airnub revalidate schedule
 
-```ts
-export const dynamic = "force-dynamic";   // disable static optimization
-export const revalidate = 0;               // no ISR by default
-export const fetchCache = "force-no-store"; // server fetch = no-store
-```
+| Route | Revalidate |
+| --- | --- |
+| `/` | 86,400s (24h) |
+| `/products` | 86,400s |
+| `/solutions` | 604,800s (7d) |
+| `/services` | 86,400s |
+| `/resources` | 21,600s (6h) |
+| `/company` | 604,800s |
+| `/contact` | 86,400s |
+| `/trust` | static redirect |
 
-Use **Server Actions** for forms; avoid client data fetching. Only small UI widgets should be Client Components (`"use client"`), and never call Supabase from the client.
+### Speckit revalidate schedule
+
+| Route | Revalidate |
+| --- | --- |
+| `/` | 86,400s |
+| `/product` | 86,400s |
+| `/how-it-works` | 604,800s |
+| `/solutions` | 604,800s |
+| `/solutions/ciso` | 604,800s |
+| `/solutions/devsecops` | 604,800s |
+| `/template` | 604,800s |
+| `/pricing` | 3,600s |
+| `/contact` | 86,400s |
+| `/trust` | static redirect |
+
+> Need true SSR? Set `export const dynamic = 'force-dynamic'` (and `fetchCache = 'force-no-store'` if you must read per-request data) **per route** instead of globally.
+
+### Forms & Supabase
+
+* Contact forms in both apps post to Server Actions (`submitLead`) that call `getServerClient(cookies)` from `@airnub/db`.
+* Inserts happen on the server only; no Supabase client is shipped to the browser.
+* Client Components belong under `components/client/`. The repo ships `scripts/assert-no-client.mjs`, which CI runs to prevent stray `"use client"` directives elsewhere.
+
+JSON-LD, Metadata API, sitemaps, robots.txt, and OG image routes are part of every app’s surface.
 
 ---
 
@@ -182,9 +210,19 @@ Root `package.json` (scripts use Turbo):
     "db:link:prod": "supabase link --project-ref $SUPABASE_PROD_REF",
     "db:push": "supabase db push",
     "db:diff": "supabase db diff --use-mig-dir supabase/migrations",
-    "db:reset:local": "supabase stop || true && supabase start && supabase db reset"
+    "db:reset:local": "supabase stop || true && supabase start && supabase db reset",
+    "prepare": "husky"
   },
-  "devDependencies": { "turbo": "^2.0.0" }
+  "devDependencies": {
+    "@commitlint/cli": "^20.0.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "globby": "^14.1.0",
+    "husky": "^9.1.7",
+    "pa11y-ci": "^3.1.0",
+    "turbo": "^2.0.0"
+  }
 }
 ```
 
@@ -218,10 +256,12 @@ Root `package.json` (scripts use Turbo):
 
 ---
 
-## CI
+## CI & commit rules
 
-* **App CI:** lint, typecheck, build (Turbo); pa11y‑ci; link checker
-* **DB CI:** `db-migrate.yml` pushes migrations to **staging** on merge; **prod** requires manual approval
+* **Conventional commits:** Husky installs a `commit-msg` hook (`pnpm prepare`) that runs `pnpm commitlint --edit $1`.
+* **Semantic PR title:** `amannn/action-semantic-pull-request` enforces PR titles that follow Conventional Commits.
+* **CI pipeline (`ci.yml`):** checkout → install → commitlint (PRs) → semantic title (PRs) → lint → typecheck → `node scripts/assert-no-client.mjs` → build (Turbo remote cache ready).
+* **Additional workflows:** pa11y (`a11y.yml`), link checking (`links.yml`), and Supabase staging deploys (`db-migrate.yml`).
 
 ---
 

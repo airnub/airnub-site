@@ -5,6 +5,8 @@ import { itemListJsonLd } from "@airnub/seo";
 import { PageHero } from "../../components/PageHero";
 import { JsonLd } from "../../components/JsonLd";
 
+export const revalidate = 86_400;
+
 export const metadata: Metadata = {
   title: "Products",
   description: "Discover Airnub offerings including Speckit, reference architectures, and trust accelerators.",

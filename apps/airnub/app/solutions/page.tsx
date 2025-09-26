@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Container } from "@airnub/ui";
 import { PageHero } from "../../components/PageHero";
 
+export const revalidate = 604_800;
+
 export const metadata: Metadata = {
   title: "Solutions",
   description: "Industry-specific pathways to govern developer platforms for financial services, public sector, and SaaS.",

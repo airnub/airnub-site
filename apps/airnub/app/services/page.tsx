@@ -3,6 +3,8 @@ import { Button, Container } from "@airnub/ui";
 import Link from "next/link";
 import { PageHero } from "../../components/PageHero";
 
+export const revalidate = 86_400;
+
 export const metadata: Metadata = {
   title: "Services",
   description: "Advisory and enablement services that align platform strategy, delivery, and compliance outcomes.",
