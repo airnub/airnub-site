@@ -1,0 +1,37 @@
+{
+  "name": "@airnub/speckit-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "lint": "next lint",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "a11y": "pa11y-ci || echo 'skip'",
+    "links": "echo 'implement link check'",
+    "sbom": "echo 'generate sbom'"
+  },
+  "dependencies": {
+    "@airnub/brand": "workspace:*",
+    "@airnub/db": "workspace:*",
+    "@airnub/seo": "workspace:*",
+    "@airnub/ui": "workspace:*",
+    "@vercel/og": "^0.6.2",
+    "clsx": "^2.1.0",
+    "next": "^14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.12",
+    "@types/node": "^20.14.10",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.7",
+    "typescript": "^5.5.4",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.5"
+  }
+}

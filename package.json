@@ -1,0 +1,26 @@
+{
+  "name": "airnub-site",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev": "turbo run dev --parallel --no-cache",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "a11y": "turbo run a11y",
+    "links": "turbo run links",
+    "sbom": "turbo run sbom",
+    "db:types": "supabase gen types typescript --local --schema public > packages/db/src/types.ts",
+    "db:link:staging": "supabase link --project-ref $SUPABASE_STAGING_REF",
+    "db:link:prod": "supabase link --project-ref $SUPABASE_PROD_REF",
+    "db:push": "supabase db push",
+    "db:diff": "supabase db diff --use-mig-dir supabase/migrations",
+    "db:reset:local": "supabase stop || true && supabase start && supabase db reset"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "pa11y-ci": "^3.1.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0"
+  }
+}

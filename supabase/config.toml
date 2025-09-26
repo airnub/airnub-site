@@ -1,0 +1,9 @@
+[project]
+api_url = "http://127.0.0.1:54321"
+project_id = "airnub-site-local"
+
+[db]
+port = 54322
+
+[studio]
+port = 54323
