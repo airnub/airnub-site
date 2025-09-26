@@ -1,6 +1,7 @@
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   parserPreset: {
+    name: '@commitlint/parse',
     parserOpts: {
       headerPattern: /^(?:(?<type>[\w-]+)(?:\((?<scope>.*)\))?!?:\s)?(?<subject>.+)$/,
       headerCorrespondence: ['type', 'scope', 'subject'],

@@ -26,7 +26,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          configurationPath: .github/semantic-pull-request.yml
+          headerPattern: '^(.+)$'
+          headerPatternCorrespondence: subject
+          subjectPattern: '^(?!\s*$).+'
+          subjectPatternError: >-
+            PR titles must include a short description (e.g. "Update pnpm setup configuration").
       - name: Turbo remote cache
         env:
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
