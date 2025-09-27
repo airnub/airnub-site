@@ -1,36 +1,42 @@
 "use server";
 
 import { cookies } from "next/headers";
-import { getServerClient } from "@airnub/db";
+import { getServerClient, insertContactLead } from "@airnub/db";
+import type { SupabaseDatabaseClient, TablesInsert } from "@airnub/db";
 
-type LeadInput = {
+export type LeadInput = {
   full_name?: string;
   email: string;
   company?: string;
   message?: string;
 };
 
-export async function submitLead(formData: FormData) {
-  const input: LeadInput = {
-    full_name: formData.get("full_name")?.toString().trim() || undefined,
-    email: formData.get("email")?.toString().trim() || "",
-    company: formData.get("company")?.toString().trim() || undefined,
-    message: formData.get("message")?.toString().trim() || undefined,
+export async function leadInputFromFormData(formData: FormData): Promise<LeadInput> {
+  const toValue = (field: string) => formData.get(field)?.toString().trim();
+  return {
+    full_name: toValue("full_name") || undefined,
+    email: toValue("email") || "",
+    company: toValue("company") || undefined,
+    message: toValue("message") || undefined,
   };
+}
 
+export async function submitLead(input: LeadInput) {
   if (!input.email) {
     throw new Error("Email is required.");
   }
 
-  const db = getServerClient(cookies);
-  const { error } = await db.from("contact_leads").insert({
+  const db: SupabaseDatabaseClient = getServerClient(cookies);
+  const payload: TablesInsert<"contact_leads"> = {
     full_name: input.full_name ?? null,
     email: input.email,
     company: input.company ?? null,
     message: input.message ?? null,
-    source: "airnub",
+    source: "airnub" as const,
     consent: false,
-  });
+  };
+
+  const { error } = await insertContactLead(db, payload);
 
   if (error) {
     throw new Error(error.message);
