@@ -1,9 +1,9 @@
-import { ogTemplateUrl } from "@airnub/brand";
+import { promises as fs } from "node:fs";
 
-export const runtime = "edge";
+import { ogTemplate } from "@airnub/brand";
 
 export async function GET() {
-  const template = await fetch(ogTemplateUrl).then((response) => response.arrayBuffer());
+  const template = await fs.readFile(ogTemplate);
 
   return new Response(template, {
     headers: {
