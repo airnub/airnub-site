@@ -1,61 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import "./globals.css";
-import { Footer, Header } from "@airnub/ui";
+import { FooterAirnub, HeaderAirnub } from "@airnub/ui";
 import type { ReactNode } from "react";
-import { AirnubWordmark } from "@airnub/brand";
-import { GithubIcon } from "../components/icons";
 import { organizationJsonLd } from "@airnub/seo";
-
-const navItems = [
-  { label: "Products", href: "/products" },
-  { label: "Solutions", href: "/solutions" },
-  { label: "Services", href: "/services" },
-  { label: "Resources", href: "/resources" },
-  { label: "Trust", href: "/trust" },
-  { label: "Company", href: "/company" },
-  { label: "Contact", href: "/contact" },
-];
-
-const footerColumns = [
-  {
-    heading: "Products",
-    links: [{ label: "Speckit", href: "https://speckit.airnub.io", external: true }],
-  },
-  {
-    heading: "Resources",
-    links: [
-      { label: "Docs", href: "https://docs.speckit.dev", external: true },
-      { label: "Blog", href: "/resources#blog" },
-      { label: "Changelog", href: "/resources#changelog" },
-    ],
-  },
-  {
-    heading: "Open Source",
-    links: [
-      { label: "GitHub org", href: "https://github.com/airnub", external: true },
-      { label: "Speckit", href: "https://github.com/airnub/speckit", external: true },
-      { label: "Infrastructure templates", href: "https://github.com/airnub/landing-zones", external: true },
-    ],
-  },
-  {
-    heading: "Trust",
-    links: [
-      { label: "Trust Center", href: "https://trust.airnub.io", external: true },
-      { label: "VDP", href: "https://trust.airnub.io/vdp", external: true },
-      { label: "security.txt", href: "https://trust.airnub.io/.well-known/security.txt", external: true },
-    ],
-  },
-  {
-    heading: "Company",
-    links: [
-      { label: "About", href: "/company" },
-      { label: "Careers", href: "/company#careers" },
-      { label: "Press", href: "/company#press" },
-      { label: "Legal", href: "/company#legal" },
-    ],
-  },
-];
 
 const jsonLd = organizationJsonLd({
   name: "Airnub",
@@ -126,37 +73,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <a href="#content" className="skip-link">
           Skip to content
         </a>
-        <Header
-          logo={<AirnubWordmark className="h-6" />}
-          navItems={navItems}
-          homeAriaLabel="Airnub home"
-          rightSlot={
-            <Link
-              href="https://github.com/airnub"
-              className="hidden rounded-full border border-slate-200 p-2 text-slate-600 transition hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 lg:inline-flex"
-              aria-label="Airnub on GitHub"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <GithubIcon className="h-4 w-4" />
-            </Link>
-          }
-        />
+        <HeaderAirnub />
         <main id="content" className="flex-1">
           {children}
         </main>
-        <Footer
-          logo={<AirnubWordmark className="h-6" />}
-          columns={footerColumns}
-          copyright={`© ${new Date().getFullYear()} Airnub. All rights reserved.`}
-          bottomSlot={
-            <div className="flex items-center gap-3">
-              <Link href="/company#privacy">Privacy</Link>
-              <Link href="/company#terms">Terms</Link>
-              <Link href="mailto:hello@airnub.io">hello@airnub.io</Link>
-            </div>
-          }
-        />
+        <FooterAirnub />
       </body>
     </html>
   );
