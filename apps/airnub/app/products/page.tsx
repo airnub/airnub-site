@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button, Container } from "@airnub/ui";
-import { itemListJsonLd } from "@airnub/seo";
 import { PageHero } from "../../components/PageHero";
 import { JsonLd } from "../../components/JsonLd";
+import { buildAirnubProductPortfolioJsonLd } from "../../lib/jsonld";
 
 export const revalidate = 86_400;
 
@@ -32,26 +32,7 @@ const offerings = [
   },
 ];
 
-const jsonLd = itemListJsonLd({
-  name: "Airnub product portfolio",
-  items: [
-    {
-      name: "Speckit",
-      url: "https://speckit.airnub.io",
-      description: "Developer workflow governance and evidence automation.",
-    },
-    {
-      name: "Platform blueprints",
-      url: "https://airnub.io/services#platform",
-      description: "Reference architectures and paved roads for platform teams.",
-    },
-    {
-      name: "Trust accelerators",
-      url: "https://airnub.io/services#trust",
-      description: "Compliance artifacts with automated evidence capture.",
-    },
-  ],
-});
+const jsonLd = buildAirnubProductPortfolioJsonLd();
 
 export default function ProductsPage() {
   return (
