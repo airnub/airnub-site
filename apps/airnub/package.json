@@ -8,7 +8,7 @@
     "lint": "next lint",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "a11y": "pa11y-ci || echo 'skip'",
-    "links": "echo 'implement link check'",
+    "links": "node ../../scripts/check-links.mjs",
     "sbom": "echo 'generate sbom'"
   },
   "dependencies": {
