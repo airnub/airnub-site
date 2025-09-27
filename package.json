@@ -1,6 +1,9 @@
 {
   "name": "airnub-site",
   "private": true,
+  "engines": {
+    "node": ">=24.0.0 <25"
+  },
   "packageManager": "pnpm@10.17.1",
   "scripts": {
     "dev": "turbo run dev --parallel --cache=local:r,remote:r",
