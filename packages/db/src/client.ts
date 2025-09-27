@@ -21,7 +21,7 @@ export function getBrowserClient(
   url = process.env.NEXT_PUBLIC_SUPABASE_URL!,
   anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 ): TypedClient {
-  return createBrowserClient<Database, "public", Database["public"]>(url, anon) as unknown as TypedClient;
+  return createBrowserClient<Database, "public">(url, anon) as unknown as TypedClient;
 }
 
 export function getServerClient(
@@ -29,7 +29,7 @@ export function getServerClient(
   url = process.env.NEXT_PUBLIC_SUPABASE_URL!,
   anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 ): TypedClient {
-  return createServerClient<Database, "public", Database["public"]>(url, anon, {
+  return createServerClient<Database, "public">(url, anon, {
     cookies: {
       async getAll() {
         const store = await getCookies();
