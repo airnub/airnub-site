@@ -21,7 +21,9 @@ export async function leadInputFromFormData(formData: FormData): Promise<LeadInp
   };
 }
 
-export async function submitLead(input: LeadInput) {
+export async function submitLead(formData: FormData) {
+  const input = await leadInputFromFormData(formData);
+
   if (!input.email) {
     throw new Error("Email is required.");
   }
