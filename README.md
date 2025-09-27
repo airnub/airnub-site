@@ -166,7 +166,7 @@ supabase stop && supabase start
 
 ## Environment
 
-Create `.env.local` in each app with the **same** Supabase project keys:
+Copy `.env.example` to `.env.local` (for each app if you maintain separate files) and update it with your Supabase project keys:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=...
