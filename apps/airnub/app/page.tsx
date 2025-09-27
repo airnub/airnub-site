@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Button, Container } from "@airnub/ui";
+import { serverFetch } from "@airnub/seo";
 import { PageHero } from "../components/PageHero";
 
 export const revalidate = 86_400;
@@ -10,28 +11,37 @@ export const metadata: Metadata = {
   title: "Airnub builds governed, enterprise-ready developer platforms",
 };
 
-const highlights = [
-  {
-    title: "Unified governance",
-    description: "Automate policy checks across SDLC gates with contextual guardrails for every team.",
-  },
-  {
-    title: "Evidence on demand",
-    description: "Capture SBOMs, attestations, and traceability artifacts as part of your delivery workflow.",
-  },
-  {
-    title: "Platform accelerators",
-    description: "Blueprints for platform teams to onboard products faster without sacrificing trust or velocity.",
-  },
-];
+const airnubHomeContent = {
+  highlights: [
+    {
+      title: "Unified governance",
+      description: "Automate policy checks across SDLC gates with contextual guardrails for every team.",
+    },
+    {
+      title: "Evidence on demand",
+      description: "Capture SBOMs, attestations, and traceability artifacts as part of your delivery workflow.",
+    },
+    {
+      title: "Platform accelerators",
+      description: "Blueprints for platform teams to onboard products faster without sacrificing trust or velocity.",
+    },
+  ],
+  customers: [
+    { name: "Forge Labs", logo: "/logos/forge.svg" },
+    { name: "Cloudyard", logo: "/logos/cloudyard.svg" },
+    { name: "Northbeam", logo: "/logos/northbeam.svg" },
+  ],
+} as const;
 
-const customers = [
-  { name: "Forge Labs", logo: "/logos/forge.svg" },
-  { name: "Cloudyard", logo: "/logos/cloudyard.svg" },
-  { name: "Northbeam", logo: "/logos/northbeam.svg" },
-];
+const airnubHomeContentUrl = `data:application/json,${encodeURIComponent(JSON.stringify(airnubHomeContent))}`;
 
-export default function HomePage() {
+type AirnubHomeContent = typeof airnubHomeContent;
+
+export default async function HomePage() {
+  const { highlights, customers } = await serverFetch<AirnubHomeContent>(airnubHomeContentUrl, {
+    revalidate,
+  });
+
   return (
     <div className="space-y-24 pb-20">
       <PageHero

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button, Container } from "@airnub/ui";
+import { serverFetch } from "@airnub/seo";
 import { PageHero } from "../components/PageHero";
 
 export const revalidate = 86_400;
@@ -9,37 +10,50 @@ export const metadata: Metadata = {
   title: "End vibe-coding. Ship secure, auditable releases.",
 };
 
-const features = [
-  {
-    title: "Governed spec loop",
-    description: "Model architecture decisions, risk reviews, and policy checks in a living spec that maps to every commit.",
-  },
-  {
-    title: "Policy gates",
-    description: "Codify approvals across CI/CD, infrastructure, and runtime with reusable controls and transparent history.",
-  },
-  {
-    title: "Continuous evidence",
-    description: "Generate SBOMs, attestations, and RTMs automatically so audits, customer reviews, and leadership updates are no-drama.",
-  },
-];
+const speckitHomeContent = {
+  features: [
+    {
+      title: "Governed spec loop",
+      description:
+        "Model architecture decisions, risk reviews, and policy checks in a living spec that maps to every commit.",
+    },
+    {
+      title: "Policy gates",
+      description:
+        "Codify approvals across CI/CD, infrastructure, and runtime with reusable controls and transparent history.",
+    },
+    {
+      title: "Continuous evidence",
+      description:
+        "Generate SBOMs, attestations, and RTMs automatically so audits, customer reviews, and leadership updates are no-drama.",
+    },
+  ],
+  workflows: [
+    {
+      name: "Risk-aware release approvals",
+      description: "Dynamic checklists tied to spec changes, risk posture, and policy owners.",
+    },
+    {
+      name: "Supply chain attestation",
+      description: "SLSA-aligned attestations from source to deploy, with artifact lineage graphing.",
+    },
+    {
+      name: "Control reporting",
+      description: "Real-time dashboards for SOC 2, ISO 27001, HIPAA, and FedRAMP evidence gaps.",
+    },
+  ],
+  integrations: ["GitHub", "GitLab", "Jira", "ServiceNow", "Supabase", "AWS", "Azure"],
+} as const;
 
-const workflows = [
-  {
-    name: "Risk-aware release approvals",
-    description: "Dynamic checklists tied to spec changes, risk posture, and policy owners.",
-  },
-  {
-    name: "Supply chain attestation",
-    description: "SLSA-aligned attestations from source to deploy, with artifact lineage graphing.",
-  },
-  {
-    name: "Control reporting",
-    description: "Real-time dashboards for SOC 2, ISO 27001, HIPAA, and FedRAMP evidence gaps.",
-  },
-];
+const speckitHomeContentUrl = `data:application/json,${encodeURIComponent(JSON.stringify(speckitHomeContent))}`;
 
-export default function SpeckitHome() {
+type SpeckitHomeContent = typeof speckitHomeContent;
+
+export default async function SpeckitHome() {
+  const { features, workflows, integrations } = await serverFetch<SpeckitHomeContent>(speckitHomeContentUrl, {
+    revalidate,
+  });
+
   return (
     <div className="space-y-24 pb-24">
       <PageHero
@@ -166,15 +180,7 @@ export default function SpeckitHome() {
         <Container className="text-center">
           <p className="text-sm font-semibold uppercase tracking-wide text-indigo-300">Works with your stack</p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-slate-300">
-            {[
-              "GitHub",
-              "GitLab",
-              "Jira",
-              "ServiceNow",
-              "Supabase",
-              "AWS",
-              "Azure",
-            ].map((logo) => (
+            {integrations.map((logo) => (
               <div key={logo} className="flex h-16 w-36 items-center justify-center rounded-2xl border border-white/10 bg-white/5">
                 <span className="text-sm font-semibold text-slate-200">{logo}</span>
               </div>
