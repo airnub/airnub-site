@@ -22,7 +22,18 @@
       "next",
       "next/image-types/global",
       "next/navigation"
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@airnub/brand": ["packages/brand/src/index.ts"],
+      "@airnub/brand/*": ["packages/brand/src/*"],
+      "@airnub/ui": ["packages/ui/src/index.ts"],
+      "@airnub/ui/*": ["packages/ui/src/*"],
+      "@airnub/seo": ["packages/seo/src/index.ts"],
+      "@airnub/seo/*": ["packages/seo/src/*"],
+      "@airnub/db": ["packages/db/src/index.ts"],
+      "@airnub/db/*": ["packages/db/src/*"]
+    }
   },
   "include": [
     "apps",
