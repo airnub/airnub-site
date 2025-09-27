@@ -1,12 +1,5 @@
-import path from "path";
-import { fileURLToPath } from "url";
+import { defineMonorepoNextConfig } from "../../next.shared-config.mjs";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const config = {
-  outputFileTracingRoot: path.join(__dirname, "../../"),
-  transpilePackages: ["@airnub/ui", "@airnub/brand", "@airnub/seo"],
-};
+const config = defineMonorepoNextConfig(import.meta);
 
 export default config;
