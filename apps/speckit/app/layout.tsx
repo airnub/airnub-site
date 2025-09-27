@@ -5,25 +5,17 @@ import "./globals.css";
 import { Footer, Header } from "@airnub/ui";
 import { SpeckitWordmark } from "@airnub/brand";
 import { GithubIcon, StarIcon } from "../components/icons";
-import { softwareApplicationJsonLd } from "@airnub/seo";
 import { JsonLd } from "../components/JsonLd";
-
-const navItems = [
-  { label: "Product", href: "/product" },
-  { label: "How it works", href: "/how-it-works" },
-  { label: "Solutions", href: "/solutions" },
-  { label: "Docs", href: "https://docs.speckit.dev", external: true },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Trust", href: "https://trust.airnub.io", external: true },
-];
+import { SPECKIT_BASE_URL, SPECKIT_NAV_ITEMS, SPECKIT_ROUTES } from "../lib/routes";
+import { buildSpeckitSoftwareJsonLd } from "../lib/jsonld";
 
 const footerColumns = [
   {
     heading: "Product",
     links: [
-      { label: "Overview", href: "/" },
-      { label: "How it works", href: "/how-it-works" },
-      { label: "Integrations", href: "/product#integrations" },
+      { label: "Overview", href: SPECKIT_ROUTES.home },
+      { label: "How it works", href: SPECKIT_ROUTES.howItWorks },
+      { label: "Integrations", href: `${SPECKIT_ROUTES.product}#integrations` },
     ],
   },
   {
@@ -53,17 +45,10 @@ const footerColumns = [
   },
 ];
 
-const jsonLd = softwareApplicationJsonLd({
-  name: "Speckit",
-  url: "https://speckit.airnub.io",
-  applicationCategory: "DevSecOps Application",
-  description: "End vibe-coding. Ship secure, auditable releases with governed workflows and continuous evidence.",
-  softwareHelp: "https://docs.speckit.dev",
-  sameAs: ["https://github.com/airnub/speckit", "https://airnub.io"],
-});
+const jsonLd = buildSpeckitSoftwareJsonLd();
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://speckit.airnub.io"),
+  metadataBase: new URL(SPECKIT_BASE_URL),
   title: {
     default: "Speckit — Governed release workflows",
     template: "%s | Speckit",
@@ -72,7 +57,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Speckit",
     description: "Governed release workflows with evidence automation.",
-    url: "https://speckit.airnub.io",
+    url: SPECKIT_BASE_URL,
     siteName: "Speckit",
     locale: "en_US",
     type: "website",
@@ -89,7 +74,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Speckit",
     description: "Governed release workflows with evidence automation.",
-    images: ["https://speckit.airnub.io/api/og"],
+    images: [`${SPECKIT_BASE_URL}/api/og`],
   },
   icons: {
     icon: "/favicon.ico",
@@ -111,7 +96,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </a>
         <Header
           logo={<SpeckitWordmark className="h-6" />}
-          navItems={navItems}
+          navItems={SPECKIT_NAV_ITEMS}
           homeAriaLabel="Speckit home"
           rightSlot={
             <div className="hidden items-center gap-3 lg:flex">
@@ -146,7 +131,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <div className="flex items-center gap-3 text-slate-400">
               <Link href="mailto:speckit@airnub.io">speckit@airnub.io</Link>
               <span aria-hidden="true">•</span>
-              <Link href="/pricing">Pricing</Link>
+              <Link href={SPECKIT_ROUTES.pricing}>Pricing</Link>
             </div>
           }
         />

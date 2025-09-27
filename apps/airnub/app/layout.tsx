@@ -5,17 +5,8 @@ import { Footer, Header } from "@airnub/ui";
 import type { ReactNode } from "react";
 import { AirnubWordmark } from "@airnub/brand";
 import { GithubIcon } from "../components/icons";
-import { organizationJsonLd } from "@airnub/seo";
-
-const navItems = [
-  { label: "Products", href: "/products" },
-  { label: "Solutions", href: "/solutions" },
-  { label: "Services", href: "/services" },
-  { label: "Resources", href: "/resources" },
-  { label: "Trust", href: "/trust" },
-  { label: "Company", href: "/company" },
-  { label: "Contact", href: "/contact" },
-];
+import { AIRNUB_BASE_URL, AIRNUB_NAV_ITEMS } from "../lib/routes";
+import { buildAirnubOrganizationJsonLd } from "../lib/jsonld";
 
 const footerColumns = [
   {
@@ -57,27 +48,10 @@ const footerColumns = [
   },
 ];
 
-const jsonLd = organizationJsonLd({
-  name: "Airnub",
-  url: "https://airnub.io",
-  logo: "https://airnub.io/api/og",
-  sameAs: [
-    "https://github.com/airnub",
-    "https://www.linkedin.com/company/airnub",
-  ],
-  contactPoint: [
-    {
-      telephone: "+1-415-555-0163",
-      contactType: "sales",
-      email: "hello@airnub.io",
-      areaServed: "Global",
-      availableLanguage: ["English"],
-    },
-  ],
-});
+const jsonLd = buildAirnubOrganizationJsonLd();
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://airnub.io"),
+  metadataBase: new URL(AIRNUB_BASE_URL),
   title: {
     default: "Airnub — Governed developer platforms",
     template: "%s | Airnub",
@@ -86,7 +60,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Airnub",
     description: "Airnub builds governed, enterprise-ready developer platforms.",
-    url: "https://airnub.io",
+    url: AIRNUB_BASE_URL,
     siteName: "Airnub",
     locale: "en_US",
     type: "website",
@@ -103,7 +77,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Airnub",
     description: "Airnub builds governed, enterprise-ready developer platforms.",
-    images: ["https://airnub.io/api/og"],
+    images: [`${AIRNUB_BASE_URL}/api/og`],
   },
   icons: {
     icon: "/favicon.ico",
@@ -128,7 +102,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </a>
         <Header
           logo={<AirnubWordmark className="h-6" />}
-          navItems={navItems}
+          navItems={AIRNUB_NAV_ITEMS}
           homeAriaLabel="Airnub home"
           rightSlot={
             <Link
