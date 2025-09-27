@@ -26,11 +26,18 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          headerPattern: '^(.+)$'
-          headerPatternCorrespondence: type
           types: |
-            .+
-          headerPatternCorrespondence: subject
+            build
+            chore
+            ci
+            docs
+            feat
+            fix
+            perf
+            refactor
+            revert
+            style
+            test
           subjectPattern: '^(?!\s*$).+'
           subjectPatternError: >-
             PR titles must include a short description (e.g. "Update pnpm setup configuration").
