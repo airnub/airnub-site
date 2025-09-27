@@ -55,7 +55,13 @@ export function defineMonorepoNextConfig(importMeta, overrides = {}) {
           : config;
 
       if (nextConfig?.optimization) {
-        nextConfig.optimization.sideEffects = options.dev ? false : true;
+        if (options.dev) {
+          if ("sideEffects" in nextConfig.optimization) {
+            delete nextConfig.optimization.sideEffects;
+          }
+        } else {
+          nextConfig.optimization.sideEffects = true;
+        }
       }
 
       return nextConfig;
