@@ -2,20 +2,14 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
 import { FooterSpeckit, HeaderSpeckit } from "@airnub/ui";
-import { softwareApplicationJsonLd } from "@airnub/seo";
 import { JsonLd } from "../components/JsonLd";
+import { buildSpeckitSoftwareJsonLd } from "../lib/jsonld";
+import { SPECKIT_BASE_URL } from "../lib/routes";
 
-const jsonLd = softwareApplicationJsonLd({
-  name: "Speckit",
-  url: "https://speckit.airnub.io",
-  applicationCategory: "DevSecOps Application",
-  description: "End vibe-coding. Ship secure, auditable releases with governed workflows and continuous evidence.",
-  softwareHelp: "https://docs.speckit.dev",
-  sameAs: ["https://github.com/airnub/speckit", "https://airnub.io"],
-});
+const jsonLd = buildSpeckitSoftwareJsonLd();
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://speckit.airnub.io"),
+  metadataBase: new URL(SPECKIT_BASE_URL),
   title: {
     default: "Speckit — Governed release workflows",
     template: "%s | Speckit",
@@ -24,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Speckit",
     description: "Governed release workflows with evidence automation.",
-    url: "https://speckit.airnub.io",
+    url: SPECKIT_BASE_URL,
     siteName: "Speckit",
     locale: "en_US",
     type: "website",
@@ -41,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Speckit",
     description: "Governed release workflows with evidence automation.",
-    images: ["https://speckit.airnub.io/api/og"],
+    images: [`${SPECKIT_BASE_URL}/api/og`],
   },
   icons: {
     icon: "/favicon.ico",

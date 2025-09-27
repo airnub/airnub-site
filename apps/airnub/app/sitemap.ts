@@ -1,19 +1,9 @@
 import type { MetadataRoute } from "next";
-
-const routes = [
-  "",
-  "/products",
-  "/solutions",
-  "/services",
-  "/resources",
-  "/company",
-  "/contact",
-  "/trust",
-];
+import { AIRNUB_BASE_URL, airnubRoutes } from "../lib/routes";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return routes.map((route) => ({
-    url: `https://airnub.io${route}`,
+  return airnubRoutes.map((route) => ({
+    url: `${AIRNUB_BASE_URL}${route}`,
     changefreq: "weekly",
     priority: route === "" ? 1 : 0.7,
   }));
