@@ -22,3 +22,10 @@ else
   echo "[post-create] Skipping Supabase CLI installation; script not found or not executable." >&2
 fi
 
+if command -v npm >/dev/null 2>&1; then
+  echo "[post-create] Installing @openai/codex CLI..."
+  npm install -g @openai/codex@latest
+else
+  echo "[post-create] Skipping @openai/codex installation; npm not found on PATH." >&2
+fi
+

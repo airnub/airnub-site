@@ -34,7 +34,9 @@
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "streetsidesoftware.code-spell-checker",
-        "bradlc.vscode-tailwindcss"
+        "bradlc.vscode-tailwindcss",
+        "openai.chatgpt",
+        "Supabase.vscode-supabase-extension"
       ]
     }
   }
