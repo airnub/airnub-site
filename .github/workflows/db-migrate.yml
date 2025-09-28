@@ -10,8 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - run: pnpm i -w
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - name: Setup pnpm
+        run: |
+          corepack enable
+          corepack use pnpm@10.17.1
+      - uses: supabase/setup-cli@v1
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
       - name: Link staging
         run: supabase link --project-ref ${{ secrets.SUPABASE_STAGING_REF }}
       - name: Push migrations (staging)
@@ -23,8 +32,17 @@ jobs:
     environment: production
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - run: pnpm i -w
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - name: Setup pnpm
+        run: |
+          corepack enable
+          corepack use pnpm@10.17.1
+      - uses: supabase/setup-cli@v1
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
       - name: Link prod
         run: supabase link --project-ref ${{ secrets.SUPABASE_PROD_REF }}
       - name: Push migrations (prod)
