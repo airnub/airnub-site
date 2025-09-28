@@ -178,9 +178,15 @@ Copy `.env.example` to `.env.local` (for each app if you maintain separate files
 ```env
 NEXT_PUBLIC_SUPABASE_URL=...
 NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+SUPABASE_SERVICE_ROLE_KEY=...
+SUPABASE_DB_URL_LOCAL=...
+SUPABASE_DB_PASSWORD_LOCAL=...
+SUPABASE_STORAGE_S3_ACCESS_KEY=...
+SUPABASE_STORAGE_S3_SECRET_KEY=...
+SUPABASE_STORAGE_S3_REGION=...
 ```
 
-(Use different keys per environment.)
+(Use different keys per environment.) The Codespace post-start hook automatically runs `supabase start` followed by `pnpm db:env:local` to sync the latest keys into `.env.local`, `apps/airnub/.env.local`, and `apps/speckit/.env.local`. The sync script now parses the human-readable Supabase CLI summary (the one printed at the end of `supabase start`/`supabase status`) so the publishable key, service role key, database URL/password, and local S3 credentials stay current without copying and pasting. Rerun `pnpm db:env:local` manually any time you restart Supabase or need to refresh the keys.
 
 ## GitHub Codespaces
 
@@ -195,14 +201,13 @@ The repo ships with a `.devcontainer/` that provisions Node 24, pnpm, and the Su
    cp .env.example apps/speckit/.env.local
    ```
 
-3. Start the local Supabase services and capture the generated keys:
+3. Let the post-start hook finish booting Supabase and syncing `.env.local` files (watch the Codespace terminal for `[post-start]` logs). If you need to rerun the sync later, execute:
 
    ```bash
-   supabase start
-   supabase status --local
+   pnpm db:env:local
    ```
 
-   Use the printed `anon` and `service_role` keys to update the `.env.local` files. Set `NEXT_PUBLIC_SUPABASE_URL` to the forwarded Codespace URL for port **54321** (for example, `https://<codespace-id>-54321.app.github.dev`) so that browser requests reach the local Supabase API. Keep the Postgres connection string values pointing at `127.0.0.1` for server-side access.
+   The script reads the local Supabase status and writes the keys into each `.env.local` file automatically. Set `NEXT_PUBLIC_SUPABASE_URL` to the forwarded Codespace URL for port **54321** (for example, `https://<codespace-id>-54321.app.github.dev`) so that browser requests reach the local Supabase API. Keep the Postgres connection string values pointing at `127.0.0.1` for server-side access.
 
 4. Forward the dev servers and Supabase ports:
    * 3000 → Airnub app (`apps/airnub`)

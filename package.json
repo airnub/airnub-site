@@ -18,6 +18,7 @@
     "db:link:prod": "supabase link --project-ref $SUPABASE_PROD_REF",
     "db:push": "supabase db push",
     "db:diff": "supabase db diff --use-mig-dir supabase/migrations",
+    "db:env:local": "node scripts/sync-supabase-env.mjs",
     "db:reset:local": "supabase stop || true && supabase start && supabase db reset",
     "prepare": "husky"
   },
