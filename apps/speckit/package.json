@@ -6,8 +6,8 @@
     "node": ">=24.0.0 <25"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build -p 3001",
+    "dev": "next dev -p 3001",
+    "build": "next build",
     "lint": "next lint",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "a11y": "pa11y-ci || echo 'skip'",
