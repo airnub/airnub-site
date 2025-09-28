@@ -45,6 +45,87 @@
     "company": "Unternehmen",
     "contact": "Kontakt"
   },
+  "home": {
+    "hero": {
+      "eyebrow": "Airnub entwickelt gesteuerte, unternehmensreife Entwicklerplattformen.",
+      "title": "Operationalisieren Sie Vertrauen in jeder Release-Pipeline",
+      "description": "Wir helfen Plattform- und Sicherheitsteams, Tabellen durch codifizierte Leitplanken, Evidence-Automatisierung und entwicklernahe Workflows zu ersetzen.",
+      "primaryCta": "Mit unserem Team sprechen",
+      "secondaryCta": "Produkte entdecken"
+    },
+    "highlights": {
+      "unifiedGovernance": {
+        "title": "Vereinheitlichte Governance",
+        "description": "Automatisieren Sie Richtlinienprüfungen über SDLC-Gates hinweg mit kontextbezogenen Leitplanken für jedes Team."
+      },
+      "evidenceOnDemand": {
+        "title": "Nachweise auf Abruf",
+        "description": "Erfassen Sie SBOMs, Bescheinigungen und Nachvollziehbarkeitsartefakte direkt im Auslieferungsworkflow."
+      },
+      "platformAccelerators": {
+        "title": "Plattform-Beschleuniger",
+        "description": "Blueprints, mit denen Plattformteams Produkte schneller und dennoch vertrauenswürdig onboarden."
+      }
+    },
+    "customers": {
+      "eyebrow": "Vertraut von führenden Plattformteams",
+      "items": {
+        "forgeLabs": "Forge Labs",
+        "cloudyard": "Cloudyard",
+        "northbeam": "Northbeam"
+      }
+    },
+    "speckit": {
+      "title": "Sichern Sie den Spec-Loop mit Speckit",
+      "description": "Speckit vereint Change-Management, Lieferketten-Kontrollen und Laufzeit-Attestierungen. Steuern Sie Policy-Gates mit programmierbaren Workflows und liefern Sie Auditor:innen sowie Stakeholdern sofort die richtigen Nachweise.",
+      "primaryCta": "Speckit besuchen",
+      "secondaryCta": "Produktangebot ansehen",
+      "outcomes": {
+        "title": "Ergebnisse",
+        "items": {
+          "governedSpecLoop": "Ein gesteuerter Spec-Loop hält Architektur, Sicherheit und Compliance im Einklang.",
+          "policyGates": "Policy-Gates kodifizieren Freigaben über CI/CD, Cloud und Servicekataloge hinweg.",
+          "automatedEvidence": "Nachweise werden automatisch erfasst: SBOMs, Attestierungen und Rückverfolgbarkeit."
+        }
+      }
+    },
+    "services": {
+      "title": "Services für jede Phase Ihrer Plattformreise",
+      "description": "Vom ersten Landing-Zone-Konzept bis zur regulierten Skalierung begleitet unser Serviceteam Plattform-, Sicherheits- und Compliance-Führungskräfte mit schnellen Erfolgen und nachhaltiger Reife.",
+      "steps": {
+        "assessment": {
+          "label": "Bewertung:",
+          "description": "aktuelle Kontrollen regulatorischen Erwartungen zuordnen."
+        },
+        "blueprint": {
+          "label": "Blueprint:",
+          "description": "Referenzarchitekturen mit Leitplanken für Teams und Services bereitstellen."
+        },
+        "adoption": {
+          "label": "Adoption:",
+          "description": "Playbooks, um Plattformoperationen mit Zuversicht zu skalieren."
+        }
+      },
+      "cards": {
+        "operatingModel": {
+          "title": "Plattform-Betriebsmodell",
+          "description": "Teamstrukturen, KPIs und Governance-Routinen, die Handwerk und Compliance verbinden."
+        },
+        "regulatedCloud": {
+          "title": "Beschleunigung regulierter Clouds",
+          "description": "Sichere Baselines für FedRAMP, SOC 2 und ISO 27001 bereitstellen, ohne die Lieferung zu verlangsamen."
+        },
+        "innerSource": {
+          "title": "InnerSource-Einführung",
+          "description": "Produktteams mit Paved Roads, Golden Paths und klaren Leitplanken befähigen."
+        },
+        "trustReadiness": {
+          "title": "Trust- & Assurance-Bereitschaft",
+          "description": "Nachweise für Auditor:innen, Partner und Führungskräfte ohne Hektik vorbereiten."
+        }
+      }
+    }
+  },
   "contact": {
     "metadata": {
       "title": "Kontakt",

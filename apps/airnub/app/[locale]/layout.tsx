@@ -104,7 +104,12 @@ export default async function LocaleLayout({
   };
 
   return (
-    <html lang={locale} className="font-sans antialiased" suppressHydrationWarning>
+    <html
+      lang={locale}
+      className="font-sans antialiased"
+      suppressHydrationWarning
+      data-scroll-behavior="smooth"
+    >
       <head>
         <script
           type="application/ld+json"

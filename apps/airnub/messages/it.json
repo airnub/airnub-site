@@ -45,6 +45,87 @@
     "company": "Azienda",
     "contact": "Contatti"
   },
+  "home": {
+    "hero": {
+      "eyebrow": "Airnub crea piattaforme per sviluppatori governate e pronte per l'azienda.",
+      "title": "Operationalizza la fiducia in ogni pipeline di rilascio",
+      "description": "Aiutiamo i team di piattaforma e sicurezza a sostituire i fogli di calcolo con guardrail codificati, automazione delle evidenze e workflow nativi per gli sviluppatori.",
+      "primaryCta": "Parla con il nostro team",
+      "secondaryCta": "Esplora i prodotti"
+    },
+    "highlights": {
+      "unifiedGovernance": {
+        "title": "Governance unificata",
+        "description": "Automatizza i controlli di policy in ogni fase del SDLC con guardrail contestuali per ogni team."
+      },
+      "evidenceOnDemand": {
+        "title": "Evidenza on demand",
+        "description": "Acquisisci SBOM, attestazioni e artefatti di tracciabilità all'interno del flusso di delivery."
+      },
+      "platformAccelerators": {
+        "title": "Acceleratori di piattaforma",
+        "description": "Blueprint per permettere ai team di piattaforma di avviare prodotti più rapidamente senza rinunciare a fiducia e velocità."
+      }
+    },
+    "customers": {
+      "eyebrow": "Scelto dai leader di piattaforma",
+      "items": {
+        "forgeLabs": "Forge Labs",
+        "cloudyard": "Cloudyard",
+        "northbeam": "Northbeam"
+      }
+    },
+    "speckit": {
+      "title": "Proteggi il ciclo delle specifiche con Speckit",
+      "description": "Speckit riunisce gestione del cambiamento, controlli della supply chain e attestazioni runtime. Governa i gate di policy con workflow programmabili e fornisci subito i segnali giusti ad auditor e stakeholder.",
+      "primaryCta": "Visita Speckit",
+      "secondaryCta": "Vedi l'offerta prodotti",
+      "outcomes": {
+        "title": "Risultati",
+        "items": {
+          "governedSpecLoop": "Un ciclo delle specifiche governato mantiene allineate architettura, sicurezza e conformità.",
+          "policyGates": "I gate di policy codificano le approvazioni attraverso CI/CD, cloud e cataloghi di servizi.",
+          "automatedEvidence": "Le evidenze vengono raccolte automaticamente: SBOM, attestazioni e tracciabilità."
+        }
+      }
+    },
+    "services": {
+      "title": "Servizi allineati al tuo percorso di piattaforma",
+      "description": "Dalle prime landing zone alla scala regolamentata, il nostro team affianca i leader di piattaforma, sicurezza e compliance per ottenere vittorie rapide e maturità nel lungo termine.",
+      "steps": {
+        "assessment": {
+          "label": "Assessment:",
+          "description": "mappare i controlli attuali alle aspettative normative."
+        },
+        "blueprint": {
+          "label": "Blueprint:",
+          "description": "fornire architetture di riferimento con guardrail per team e servizi."
+        },
+        "adoption": {
+          "label": "Adoption:",
+          "description": "playbook per scalare le operazioni di piattaforma con sicurezza."
+        }
+      },
+      "cards": {
+        "operatingModel": {
+          "title": "Modello operativo di piattaforma",
+          "description": "Strutture di team, KPI e rituali di governance che allineano eccellenza tecnica e conformità."
+        },
+        "regulatedCloud": {
+          "title": "Accelerazione cloud regolamentato",
+          "description": "Distribuisci baseline sicure per FedRAMP, SOC 2 e ISO 27001 senza rallentare la delivery."
+        },
+        "innerSource": {
+          "title": "Abilitazione InnerSource",
+          "description": "Offri ai team di prodotto percorsi pavimentati, golden path e guardrail chiari."
+        },
+        "trustReadiness": {
+          "title": "Preparazione a fiducia e assurance",
+          "description": "Prepara le evidenze per auditor, partner e leadership senza corse all'ultimo minuto."
+        }
+      }
+    }
+  },
   "contact": {
     "metadata": {
       "title": "Contatti",

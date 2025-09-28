@@ -45,6 +45,87 @@
     "company": "Empresa",
     "contact": "Contacto"
   },
+  "home": {
+    "hero": {
+      "eyebrow": "Airnub crea plataformas de desarrolladores gobernadas y listas para la empresa.",
+      "title": "Operativiza la confianza en cada canal de lanzamiento",
+      "description": "Ayudamos a los equipos de plataforma y seguridad a reemplazar hojas de cálculo por barandillas codificadas, automatización de evidencias y flujos de trabajo nativos para desarrolladores.",
+      "primaryCta": "Habla con nuestro equipo",
+      "secondaryCta": "Explorar productos"
+    },
+    "highlights": {
+      "unifiedGovernance": {
+        "title": "Gobernanza unificada",
+        "description": "Automatiza las comprobaciones de políticas en las etapas del SDLC con barandillas contextuales para cada equipo."
+      },
+      "evidenceOnDemand": {
+        "title": "Evidencia bajo demanda",
+        "description": "Captura SBOM, atestaciones y artefactos de trazabilidad dentro de tu flujo de entrega."
+      },
+      "platformAccelerators": {
+        "title": "Aceleradores de plataforma",
+        "description": "Planos para que los equipos de plataforma incorporen productos más rápido sin sacrificar confianza ni velocidad."
+      }
+    },
+    "customers": {
+      "eyebrow": "Confiado por líderes de plataforma",
+      "items": {
+        "forgeLabs": "Forge Labs",
+        "cloudyard": "Cloudyard",
+        "northbeam": "Northbeam"
+      }
+    },
+    "speckit": {
+      "title": "Asegura el ciclo de especificaciones con Speckit",
+      "description": "Speckit reúne la gestión de cambios, los controles de la cadena de suministro y las atestaciones en ejecución. Gobierna los puntos de control con flujos de trabajo programables y entrega de inmediato las señales adecuadas a auditores y partes interesadas.",
+      "primaryCta": "Visitar Speckit",
+      "secondaryCta": "Ver catálogo de productos",
+      "outcomes": {
+        "title": "Resultados",
+        "items": {
+          "governedSpecLoop": "Un ciclo de especificaciones gobernado mantiene alineadas arquitectura, seguridad y cumplimiento.",
+          "policyGates": "Los puntos de control codifican aprobaciones en CI/CD, la nube y los catálogos de servicios.",
+          "automatedEvidence": "La evidencia se captura automáticamente: SBOM, atestaciones y trazabilidad."
+        }
+      }
+    },
+    "services": {
+      "title": "Servicios alineados con tu viaje de plataforma",
+      "description": "Desde las primeras landing zones hasta la escala regulada, nuestro equipo se integra con líderes de plataforma, seguridad y cumplimiento para lograr victorias rápidas y madurez sostenible.",
+      "steps": {
+        "assessment": {
+          "label": "Evaluación:",
+          "description": "mapear los controles actuales con las expectativas regulatorias."
+        },
+        "blueprint": {
+          "label": "Plano:",
+          "description": "ofrecer arquitecturas de referencia con barandillas para equipos y servicios."
+        },
+        "adoption": {
+          "label": "Adopción:",
+          "description": "guías para escalar las operaciones de plataforma con confianza."
+        }
+      },
+      "cards": {
+        "operatingModel": {
+          "title": "Modelo operativo de plataforma",
+          "description": "Estructuras de equipo, KPI y rituales de gobernanza que alinean ejecución y cumplimiento."
+        },
+        "regulatedCloud": {
+          "title": "Aceleración de nubes reguladas",
+          "description": "Implementa bases seguras para FedRAMP, SOC 2 e ISO 27001 sin frenar la entrega."
+        },
+        "innerSource": {
+          "title": "Impulso a InnerSource",
+          "description": "Empodera a los equipos de producto con caminos pavimentados, rutas doradas y barandillas claras."
+        },
+        "trustReadiness": {
+          "title": "Preparación de confianza y aseguramiento",
+          "description": "Prepara evidencia para auditores, socios y liderazgo sin contratiempos."
+        }
+      }
+    }
+  },
   "contact": {
     "metadata": {
       "title": "Contacto",

@@ -45,6 +45,87 @@
     "company": "Cuideachta",
     "contact": "Teagmháil"
   },
+  "home": {
+    "hero": {
+      "eyebrow": "Tógann Airnub ardáin forbróirí rialaithe atá réidh don fhiontar.",
+      "title": "Cuir muinín i bhfeidhm ar gach píblíne eisiúna",
+      "description": "Cuidímid le foirne ardáin agus slándála bileoga oibre a athrú go cosaintí códaithe, uathoibriú fianaise agus sreafaí oibre dúchasacha d'fhorbróirí.",
+      "primaryCta": "Labhair lenár bhfoireann",
+      "secondaryCta": "Fiosraigh na táirgí"
+    },
+    "highlights": {
+      "unifiedGovernance": {
+        "title": "Rialachas aontaithe",
+        "description": "Uathoibrigh seiceálacha polasaí trasna chéimeanna an SDLC le cosaintí comhthéacsúla do gach foireann."
+      },
+      "evidenceOnDemand": {
+        "title": "Fianaise ar éileamh",
+        "description": "Bailigh SBOManna, dearbhuithe agus déantáin inrianaitheachta mar chuid de do shreabhadh seachadta."
+      },
+      "platformAccelerators": {
+        "title": "Luasairí ardáin",
+        "description": "Pleananna treoracha chun táirgí nua a thabhairt isteach níos tapúla gan muinín ná luas a chailleadh."
+      }
+    },
+    "customers": {
+      "eyebrow": "Muintear ag ceannairí ardáin",
+      "items": {
+        "forgeLabs": "Forge Labs",
+        "cloudyard": "Cloudyard",
+        "northbeam": "Northbeam"
+      }
+    },
+    "speckit": {
+      "title": "Daingnigh lúb na sonraíochta le Speckit",
+      "description": "Tugann Speckit bainistíocht athraithe, rialuithe slabhra soláthair agus dearbhuithe ama reatha le chéile. Rialú geataí polasaí le sreafaí oibre in-ríomhchláraithe agus soláthair na comharthaí cearta d'iniúchóirí agus do pháirtithe leasmhara láithreach.",
+      "primaryCta": "Tabhair cuairt ar Speckit",
+      "secondaryCta": "Féach ar líne táirgí",
+      "outcomes": {
+        "title": "Torthaí",
+        "items": {
+          "governedSpecLoop": "Coinníonn lúb sonraíochta rialaithe ailtireacht, slándáil agus comhlíonadh ar aon dul.",
+          "policyGates": "Códálann geataí polasaí ceaduithe trasna CI/CD, na néalaí agus catalóga seirbhíse.",
+          "automatedEvidence": "Bailítear an fhianaise go huathoibríoch: SBOManna, dearbhuithe agus inrianaitheacht."
+        }
+      }
+    },
+    "services": {
+      "title": "Seirbhísí ailínithe le do thuras ardáin",
+      "description": "Ó chéad chriosanna tuirlingthe go scála rialáilte, oibríonn ár bhfoireann le ceannairí ardáin, slándála agus comhlíonta chun buaiteoirí tapa agus aibíocht fadtéarmach a sholáthar.",
+      "steps": {
+        "assessment": {
+          "label": "Measúnú:",
+          "description": "mapáil na rialuithe reatha le hionchais rialála."
+        },
+        "blueprint": {
+          "label": "Blaupriont:",
+          "description": "ailtireachtaí tagartha a thabhairt le cosaintí do fhoirne agus do sheirbhísí."
+        },
+        "adoption": {
+          "label": "Glacadh:",
+          "description": "leabhair súgartha chun oibríochtaí ardáin a scálú le muinín."
+        }
+      },
+      "cards": {
+        "operatingModel": {
+          "title": "Múnla oibriúcháin ardáin",
+          "description": "Struchtúir foirne, KPIanna agus deasghnátha rialachais chun ceird agus comhlíonadh a ailíniú."
+        },
+        "regulatedCloud": {
+          "title": "Luasghéarú néal rialáilte",
+          "description": "Cuir bonnslacha slána i bhfeidhm do FedRAMP, SOC 2 agus ISO 27001 gan seachadadh a mhoilliú."
+        },
+        "innerSource": {
+          "title": "Cumhachtú InnerSource",
+          "description": "Cumasaigh foirne táirge le bóithre pábháilte, cosáin órga agus cosaintí soiléire."
+        },
+        "trustReadiness": {
+          "title": "Ullmhacht iontaobhais & dearbhaithe",
+          "description": "Ullmhaigh fianaise d'iniúchóirí, do chomhpháirtithe agus don cheannaireacht gan aon scuaine phráinneach."
+        }
+      }
+    }
+  },
   "contact": {
     "metadata": {
       "title": "Teagmháil",

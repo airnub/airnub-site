@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SpeckitWordmark } from "@airnub/brand";
 import { Header, type HeaderProps, type NavItem } from "./components/client/Header";
+import { ThemeToggle } from "./components/client/ThemeToggle";
 import type { ReactNode } from "react";
 
 const navItems: NavItem[] = [
@@ -50,6 +51,7 @@ type HeaderSpeckitProps = Omit<HeaderProps, "logo" | "navItems" | "rightSlot" | 
   githubHref?: string;
   starHref?: string;
   starLabel?: string;
+  themeToggleLabel?: string;
 };
 
 export function HeaderSpeckit({
@@ -58,6 +60,7 @@ export function HeaderSpeckit({
   githubHref = "https://github.com/airnub/speckit",
   starHref = "https://github.com/airnub/speckit",
   starLabel = "Star project",
+  themeToggleLabel = "Toggle theme",
   ...props
 }: HeaderSpeckitProps) {
   return (
@@ -66,10 +69,10 @@ export function HeaderSpeckit({
       navItems={navItems}
       homeAriaLabel={homeAriaLabel}
       rightSlot={
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="flex items-center gap-3">
           <Link
             href={githubHref}
-            className="rounded-full border border-white/10 p-2 text-slate-100 transition hover:text-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+            className="hidden rounded-full border border-slate-200 p-2 text-slate-600 transition hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-white/10 dark:text-slate-200 dark:hover:text-white lg:inline-flex"
             aria-label="Speckit on GitHub"
             target="_blank"
             rel="noreferrer"
@@ -78,12 +81,13 @@ export function HeaderSpeckit({
           </Link>
           <Link
             href={starHref}
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-speckit-indigo to-speckit-violet px-4 py-2 text-sm font-semibold text-white shadow-lg transition hover:opacity-90"
+            className="hidden items-center gap-2 rounded-full bg-gradient-to-r from-speckit-indigo to-speckit-violet px-4 py-2 text-sm font-semibold text-white shadow-lg transition hover:opacity-90 lg:inline-flex"
             target="_blank"
             rel="noreferrer"
           >
             <StarIcon className="h-4 w-4" /> {starLabel}
           </Link>
+          <ThemeToggle className="inline-flex" label={themeToggleLabel} />
           {additionalRightSlot}
         </div>
       }
