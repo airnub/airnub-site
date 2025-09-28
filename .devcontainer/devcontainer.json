@@ -10,7 +10,7 @@
     }
   },
   "updateContentCommand": "pnpm install",
-  "postCreateCommand": ".devcontainer/scripts/install-supabase-cli.sh",
+  "postCreateCommand": ".devcontainer/scripts/post-create.sh",
   "forwardPorts": [54321, 54322, 54323],
   "portsAttributes": {
     "54321": {
