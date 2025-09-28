@@ -11,6 +11,7 @@
   },
   "updateContentCommand": "pnpm install",
   "postCreateCommand": ".devcontainer/scripts/post-create.sh",
+  "postStartCommand": ".devcontainer/scripts/post-start.sh",
   "forwardPorts": [54321, 54322, 54323],
   "portsAttributes": {
     "54321": {
