@@ -1,0 +1,28 @@
+{
+  "name": "Airnub Monorepo Codespace",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "24"
+    },
+    "ghcr.io/devcontainers/features/pnpm:1": {
+      "version": "10.17.1"
+    },
+    "ghcr.io/devcontainers-contrib/features/supabase-cli:2": {}
+  },
+  "updateContentCommand": "pnpm install",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "typescript.tsdk": "node_modules/typescript/lib",
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "streetsidesoftware.code-spell-checker",
+        "bradlc.vscode-tailwindcss"
+      ]
+    }
+  }
+}
