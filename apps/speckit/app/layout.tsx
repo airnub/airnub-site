@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="font-sans">
+    <html lang="en" className="font-sans" suppressHydrationWarning>
       <head>
         <JsonLd data={jsonLd} />
       </head>
