@@ -36,7 +36,9 @@
         "streetsidesoftware.code-spell-checker",
         "bradlc.vscode-tailwindcss",
         "openai.chatgpt",
-        "Supabase.vscode-supabase-extension"
+        "Supabase.vscode-supabase-extension",
+        "github.vscode-github-actions",
+        "GitHub.vscode-pull-request-github"
       ]
     }
   }
