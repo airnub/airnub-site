@@ -45,6 +45,87 @@
     "company": "Empresa",
     "contact": "Contacto"
   },
+  "home": {
+    "hero": {
+      "eyebrow": "A Airnub cria plataformas governadas e prontas para empresas.",
+      "title": "Operacionalize a confiança em cada pipeline de lançamento",
+      "description": "Ajudamos as equipas de plataforma e segurança a substituir folhas de cálculo por guardrails codificados, automação de evidências e fluxos de trabalho nativos para developers.",
+      "primaryCta": "Fale com a nossa equipa",
+      "secondaryCta": "Explorar produtos"
+    },
+    "highlights": {
+      "unifiedGovernance": {
+        "title": "Governança unificada",
+        "description": "Automatize verificações de políticas em todas as fases do SDLC com guardrails contextuais para cada equipa."
+      },
+      "evidenceOnDemand": {
+        "title": "Evidência sob pedido",
+        "description": "Capture SBOM, atestações e artefactos de rastreabilidade dentro do fluxo de entrega."
+      },
+      "platformAccelerators": {
+        "title": "Aceleradores de plataforma",
+        "description": "Blueprints para que as equipas de plataforma lancem produtos mais rápido sem perder confiança nem velocidade."
+      }
+    },
+    "customers": {
+      "eyebrow": "Confiado por líderes de plataforma",
+      "items": {
+        "forgeLabs": "Forge Labs",
+        "cloudyard": "Cloudyard",
+        "northbeam": "Northbeam"
+      }
+    },
+    "speckit": {
+      "title": "Proteja o ciclo de especificações com a Speckit",
+      "description": "A Speckit reúne gestão de mudança, controlos da cadeia de fornecimento e atestações em runtime. Governe os checkpoints com workflows programáveis e entregue rapidamente os sinais certos a auditores e stakeholders.",
+      "primaryCta": "Visitar Speckit",
+      "secondaryCta": "Ver portefólio de produtos",
+      "outcomes": {
+        "title": "Resultados",
+        "items": {
+          "governedSpecLoop": "Um ciclo de especificações governado mantém arquitetura, segurança e compliance alinhadas.",
+          "policyGates": "Os checkpoints codificam aprovações em CI/CD, na cloud e em catálogos de serviços.",
+          "automatedEvidence": "A evidência é capturada automaticamente: SBOM, atestações e rastreabilidade."
+        }
+      }
+    },
+    "services": {
+      "title": "Serviços alinhados à sua jornada de plataforma",
+      "description": "Das primeiras landing zones à escala regulada, a nossa equipa acompanha líderes de plataforma, segurança e compliance para garantir vitórias rápidas e maturidade sustentável.",
+      "steps": {
+        "assessment": {
+          "label": "Avaliação:",
+          "description": "mapear os controlos atuais para as exigências regulamentares."
+        },
+        "blueprint": {
+          "label": "Blueprint:",
+          "description": "fornecer arquiteturas de referência com guardrails para equipas e serviços."
+        },
+        "adoption": {
+          "label": "Adoção:",
+          "description": "playbooks para escalar operações de plataforma com confiança."
+        }
+      },
+      "cards": {
+        "operatingModel": {
+          "title": "Modelo operacional de plataforma",
+          "description": "Estruturas de equipa, KPI e rituais de governança que alinham execução e conformidade."
+        },
+        "regulatedCloud": {
+          "title": "Aceleração de cloud regulada",
+          "description": "Implemente bases seguras para FedRAMP, SOC 2 e ISO 27001 sem atrasar a entrega."
+        },
+        "innerSource": {
+          "title": "Capacitação de InnerSource",
+          "description": "Dê às equipas de produto caminhos pavimentados, percursos dourados e guardrails claros."
+        },
+        "trustReadiness": {
+          "title": "Preparação para confiança e assurance",
+          "description": "Prepare evidências para auditores, parceiros e liderança sem correrias."
+        }
+      }
+    }
+  },
   "contact": {
     "metadata": {
       "title": "Contacto",

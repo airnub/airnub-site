@@ -45,6 +45,87 @@
     "company": "Entreprise",
     "contact": "Contact"
   },
+  "home": {
+    "hero": {
+      "eyebrow": "Airnub conçoit des plateformes développeurs gouvernées et prêtes pour l'entreprise.",
+      "title": "Opérationnalisez la confiance sur chaque pipeline de livraison",
+      "description": "Nous aidons les équipes plateforme et sécurité à remplacer les tableurs par des garde-fous codifiés, une automatisation des preuves et des workflows natifs pour les développeurs.",
+      "primaryCta": "Parler avec notre équipe",
+      "secondaryCta": "Explorer les produits"
+    },
+    "highlights": {
+      "unifiedGovernance": {
+        "title": "Gouvernance unifiée",
+        "description": "Automatisez les contrôles de politiques à chaque étape du SDLC avec des garde-fous contextuels pour chaque équipe."
+      },
+      "evidenceOnDemand": {
+        "title": "Preuves à la demande",
+        "description": "Capturez SBOM, attestations et artefacts de traçabilité dans votre flux de livraison."
+      },
+      "platformAccelerators": {
+        "title": "Accélérateurs de plateforme",
+        "description": "Plans de référence pour permettre aux équipes plateforme d'intégrer plus vite des produits sans sacrifier la confiance ni la vélocité."
+      }
+    },
+    "customers": {
+      "eyebrow": "Plébiscité par les leaders plateforme",
+      "items": {
+        "forgeLabs": "Forge Labs",
+        "cloudyard": "Cloudyard",
+        "northbeam": "Northbeam"
+      }
+    },
+    "speckit": {
+      "title": "Sécurisez la boucle des specs avec Speckit",
+      "description": "Speckit réunit gestion du changement, contrôles supply-chain et attestations runtime. Gouvernez les points de contrôle avec des workflows programmables et fournissez instantanément les bons signaux aux auditeurs et parties prenantes.",
+      "primaryCta": "Visiter Speckit",
+      "secondaryCta": "Voir l'offre produits",
+      "outcomes": {
+        "title": "Résultats",
+        "items": {
+          "governedSpecLoop": "Une boucle de specs gouvernée maintient architecture, sécurité et conformité alignées.",
+          "policyGates": "Les points de contrôle codifient les validations à travers CI/CD, le cloud et les catalogues de services.",
+          "automatedEvidence": "Les preuves sont capturées automatiquement : SBOM, attestations et traçabilité."
+        }
+      }
+    },
+    "services": {
+      "title": "Des services alignés sur votre parcours plateforme",
+      "description": "Des premières landing zones jusqu'à la montée en charge réglementée, notre équipe accompagne les responsables plateforme, sécurité et conformité pour livrer des gains rapides et une maturité durable.",
+      "steps": {
+        "assessment": {
+          "label": "Évaluation :",
+          "description": "cartographier les contrôles actuels aux exigences réglementaires."
+        },
+        "blueprint": {
+          "label": "Blueprint :",
+          "description": "proposer des architectures de référence avec des garde-fous pour équipes et services."
+        },
+        "adoption": {
+          "label": "Adoption :",
+          "description": "playbooks pour faire évoluer les opérations plateforme en toute confiance."
+        }
+      },
+      "cards": {
+        "operatingModel": {
+          "title": "Modèle opérationnel de plateforme",
+          "description": "Structures d'équipe, KPI et rituels de gouvernance pour aligner excellence technique et conformité."
+        },
+        "regulatedCloud": {
+          "title": "Accélération cloud réglementé",
+          "description": "Déployer des bases sécurisées pour FedRAMP, SOC 2 et ISO 27001 sans ralentir la livraison."
+        },
+        "innerSource": {
+          "title": "Activation InnerSource",
+          "description": "Donnez aux équipes produit des voies aménagées, des parcours dorés et des garde-fous clairs."
+        },
+        "trustReadiness": {
+          "title": "Préparation confiance & assurance",
+          "description": "Préparez des preuves pour auditeurs, partenaires et direction sans urgence inutile."
+        }
+      }
+    }
+  },
   "contact": {
     "metadata": {
       "title": "Contact",

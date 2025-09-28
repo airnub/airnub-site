@@ -45,6 +45,87 @@
     "company": "Company",
     "contact": "Contact"
   },
+  "home": {
+    "hero": {
+      "eyebrow": "Airnub builds governed, enterprise-ready developer platforms.",
+      "title": "Operationalize trust across every release pipeline",
+      "description": "We help platform and security teams replace spreadsheets with codified guardrails, evidence automation, and developer-native workflows.",
+      "primaryCta": "Talk to our team",
+      "secondaryCta": "Explore products"
+    },
+    "highlights": {
+      "unifiedGovernance": {
+        "title": "Unified governance",
+        "description": "Automate policy checks across SDLC gates with contextual guardrails for every team."
+      },
+      "evidenceOnDemand": {
+        "title": "Evidence on demand",
+        "description": "Capture SBOMs, attestations, and traceability artifacts as part of your delivery workflow."
+      },
+      "platformAccelerators": {
+        "title": "Platform accelerators",
+        "description": "Blueprints for platform teams to onboard products faster without sacrificing trust or velocity."
+      }
+    },
+    "customers": {
+      "eyebrow": "Trusted by platform leaders",
+      "items": {
+        "forgeLabs": "Forge Labs",
+        "cloudyard": "Cloudyard",
+        "northbeam": "Northbeam"
+      }
+    },
+    "speckit": {
+      "title": "Secure the spec loop with Speckit",
+      "description": "Speckit brings change management, supply-chain controls, and runtime attestations together. Govern policy gates with programmable workflows and surface the right signals to auditors and stakeholders instantly.",
+      "primaryCta": "Visit Speckit",
+      "secondaryCta": "See product lineup",
+      "outcomes": {
+        "title": "Outcomes",
+        "items": {
+          "governedSpecLoop": "Governed spec loop keeps architecture, security, and compliance in sync.",
+          "policyGates": "Policy gates codify approvals across CI/CD, cloud, and service catalogs.",
+          "automatedEvidence": "Evidence captured automatically: SBOMs, attestations, and traceability."
+        }
+      }
+    },
+    "services": {
+      "title": "Services aligned to your platform journey",
+      "description": "From first landing zones to regulated scale, our services team embeds with platform, security, and compliance leaders to deliver quick wins and long-term maturity.",
+      "steps": {
+        "assessment": {
+          "label": "Assessment:",
+          "description": "map current controls to regulatory expectations."
+        },
+        "blueprint": {
+          "label": "Blueprint:",
+          "description": "reference architectures with guardrails for teams and services."
+        },
+        "adoption": {
+          "label": "Adoption:",
+          "description": "playbooks to scale platform operations with confidence."
+        }
+      },
+      "cards": {
+        "operatingModel": {
+          "title": "Platform operating model",
+          "description": "Team structures, KPIs, and governance rituals to align craft and compliance."
+        },
+        "regulatedCloud": {
+          "title": "Regulated cloud acceleration",
+          "description": "Deploy secure baselines for FedRAMP, SOC 2, and ISO 27001 without slowing delivery."
+        },
+        "innerSource": {
+          "title": "InnerSource enablement",
+          "description": "Empower product teams with paved roads, golden paths, and clear guardrails."
+        },
+        "trustReadiness": {
+          "title": "Trust & assurance readiness",
+          "description": "Prepare evidence for auditors, partners, and leadership with zero scramble."
+        }
+      }
+    }
+  },
   "contact": {
     "metadata": {
       "title": "Contact",
