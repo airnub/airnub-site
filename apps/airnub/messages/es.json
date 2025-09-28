@@ -2,6 +2,19 @@
   "common": {
     "skipToContent": "Saltar al contenido",
     "githubLabel": "Airnub en GitHub",
+    "locale": {
+      "label": "Idioma",
+      "options": {
+        "en-US": "Inglés (EE. UU.)",
+        "en-GB": "Inglés (Reino Unido)",
+        "ga": "Irlandés",
+        "fr": "Francés",
+        "es": "Español",
+        "de": "Alemán",
+        "pt": "Portugués",
+        "it": "Italiano"
+      }
+    },
     "theme": {
       "toggle": "Cambiar tema"
     },

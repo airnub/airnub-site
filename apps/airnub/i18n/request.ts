@@ -1,24 +1,29 @@
 import { getRequestConfig } from "next-intl/server";
-import { defaultLocale, locales } from "./routing";
+import { defaultLocale, locales, type Locale } from "./routing";
 
-type Messages = typeof import("../messages/en.json");
+type Messages = typeof import("../messages/en-US.json");
+
+type MessageModule = { default: Messages };
+
+const loaders: Record<Locale, () => Promise<MessageModule>> = {
+  "en-US": () => import("../messages/en-US.json"),
+  "en-GB": () => import("../messages/en-GB.json"),
+  ga: () => import("../messages/ga.json"),
+  fr: () => import("../messages/fr.json"),
+  es: () => import("../messages/es.json"),
+  de: () => import("../messages/de.json"),
+  pt: () => import("../messages/pt.json"),
+  it: () => import("../messages/it.json"),
+};
 
 export default getRequestConfig(async ({ requestLocale }) => {
   const locale = await requestLocale;
-  const normalizedLocale =
-    locale && locales.includes(locale as (typeof locales)[number]) ? locale : defaultLocale;
+  const normalizedLocale: Locale = locales.includes(locale as Locale)
+    ? (locale as Locale)
+    : defaultLocale;
 
-  let messages: Messages;
-
-  switch (normalizedLocale) {
-    case "es":
-      messages = (await import("../messages/es.json")).default;
-      break;
-    case "en":
-    default:
-      messages = (await import("../messages/en.json")).default;
-      break;
-  }
+  const loadMessages = loaders[normalizedLocale] ?? loaders[defaultLocale];
+  const { default: messages } = await loadMessages();
 
   return {
     locale: normalizedLocale,

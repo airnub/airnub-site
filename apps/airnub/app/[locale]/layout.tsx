@@ -7,15 +7,22 @@ import type { ReactNode } from "react";
 import { buildAirnubOrganizationJsonLd } from "../../lib/jsonld";
 import { AIRNUB_BASE_URL } from "../../lib/routes";
 import { localeHref } from "../../lib/locale";
-import { assertLocale, locales } from "../../i18n/routing";
+import { assertLocale, locales, type Locale } from "../../i18n/routing";
 import { MaintenanceGate } from "./maintenance/MaintenanceGate";
+import { LocaleSwitcher } from "../../components/LocaleSwitcher";
 
 const jsonLd = buildAirnubOrganizationJsonLd();
 
-const localeToOg = {
-  en: "en_US",
+const localeToOg: Record<Locale, string> = {
+  "en-US": "en_US",
+  "en-GB": "en_GB",
+  ga: "ga_IE",
+  fr: "fr_FR",
   es: "es_ES",
-} as const;
+  de: "de_DE",
+  pt: "pt_PT",
+  it: "it_IT",
+};
 
 export async function generateMetadata({
   params,
@@ -60,6 +67,7 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `/${locale}`,
+      languages: Object.fromEntries(locales.map((code) => [code, `/${code}`])),
     },
   };
 }
@@ -116,6 +124,7 @@ export default async function LocaleLayout({
                 homeAriaLabel="Airnub home"
                 githubLabel={common("githubLabel")}
                 themeToggleLabel={common("theme.toggle")}
+                additionalRightSlot={<LocaleSwitcher />}
               />
               <main id="content" className="flex-1">
                 <MaintenanceGate

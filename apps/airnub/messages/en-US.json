@@ -1,0 +1,94 @@
+{
+  "common": {
+    "skipToContent": "Skip to content",
+    "githubLabel": "Airnub on GitHub",
+    "locale": {
+      "label": "Language",
+      "options": {
+        "en-US": "English (US)",
+        "en-GB": "English (UK)",
+        "ga": "Irish",
+        "fr": "French",
+        "es": "Spanish",
+        "de": "German",
+        "pt": "Portuguese",
+        "it": "Italian"
+      }
+    },
+    "theme": {
+      "toggle": "Toggle color theme"
+    },
+    "maintenance": {
+      "title": "We\u2019re getting ready",
+      "description": "Airnub is preparing something new. Check back soon or subscribe for launch updates.",
+      "cta": "Email us at hello@airnub.io"
+    }
+  },
+  "layout": {
+    "metadata": {
+      "titleDefault": "Airnub \u2014 Governed developer platforms",
+      "titleTemplate": "%s | Airnub",
+      "description": "Airnub builds governed, enterprise-ready developer platforms that connect compliance, delivery, and trust.",
+      "ogDescription": "Airnub builds governed, enterprise-ready developer platforms.",
+      "twitterDescription": "Airnub builds governed, enterprise-ready developer platforms."
+    }
+  },
+  "toast": {
+    "dismiss": "Dismiss notification"
+  },
+  "nav": {
+    "products": "Products",
+    "solutions": "Solutions",
+    "services": "Services",
+    "resources": "Resources",
+    "trust": "Trust",
+    "company": "Company",
+    "contact": "Contact"
+  },
+  "contact": {
+    "metadata": {
+      "title": "Contact",
+      "description": "Get in touch with Airnub for product demos, partnerships, or media inquiries."
+    },
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Let\u2019s build your trust-forward platform",
+      "description": "Tell us about your goals and we will connect you with the right Airnub experts."
+    },
+    "form": {
+      "title": "Send us a note",
+      "description": "We typically reply within one business day.",
+      "fields": {
+        "name": "Full name",
+        "email": "Work email",
+        "company": "Company",
+        "message": "What can we help with?"
+      },
+      "required": "Required",
+      "submit": "Send message",
+      "success": {
+        "title": "Message sent",
+        "description": "Thanks for reaching out. Our team will contact you shortly."
+      },
+      "error": {
+        "title": "Something went wrong",
+        "description": "We couldn\u2019t submit your request. Please try again or email hello@airnub.io."
+      },
+      "validation": {
+        "email": "Please enter a valid work email."
+      }
+    },
+    "shortcuts": {
+      "email": {
+        "title": "Email",
+        "sales": "Sales & partnerships",
+        "security": "Security reports"
+      },
+      "officeHours": {
+        "title": "Office hours",
+        "description": "Join a weekly live session to see how Airnub and Speckit can accelerate your platform roadmap.",
+        "cta": "Book office hours"
+      }
+    }
+  }
+}

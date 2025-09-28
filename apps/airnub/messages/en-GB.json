@@ -2,8 +2,21 @@
   "common": {
     "skipToContent": "Skip to content",
     "githubLabel": "Airnub on GitHub",
+    "locale": {
+      "label": "Language",
+      "options": {
+        "en-US": "English (US)",
+        "en-GB": "English (UK)",
+        "ga": "Irish",
+        "fr": "French",
+        "es": "Spanish",
+        "de": "German",
+        "pt": "Portuguese",
+        "it": "Italian"
+      }
+    },
     "theme": {
-      "toggle": "Toggle color theme"
+      "toggle": "Toggle colour theme"
     },
     "maintenance": {
       "title": "We\u2019re getting ready",
@@ -15,7 +28,7 @@
     "metadata": {
       "titleDefault": "Airnub \u2014 Governed developer platforms",
       "titleTemplate": "%s | Airnub",
-      "description": "Airnub builds governed, enterprise-ready developer platforms that connect compliance, delivery, and trust.",
+      "description": "Airnub builds governed, enterprise-ready developer platforms that connect compliance, delivery and trust.",
       "ogDescription": "Airnub builds governed, enterprise-ready developer platforms.",
       "twitterDescription": "Airnub builds governed, enterprise-ready developer platforms."
     }
