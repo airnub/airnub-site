@@ -2,6 +2,7 @@
   "name": "Airnub Monorepo Codespace",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
   "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/devcontainers/features/node:1": {
       "version": "24"
     },
@@ -11,6 +12,18 @@
     "ghcr.io/devcontainers-contrib/features/supabase-cli:2": {}
   },
   "updateContentCommand": "pnpm install",
+  "forwardPorts": [54321, 54322, 54323],
+  "portsAttributes": {
+    "54321": {
+      "label": "Supabase API"
+    },
+    "54322": {
+      "label": "Supabase Postgres"
+    },
+    "54323": {
+      "label": "Supabase Studio"
+    }
+  },
   "customizations": {
     "vscode": {
       "settings": {
