@@ -33,9 +33,9 @@ export default async function LeadsPage() {
         <h1 className="text-3xl font-semibold">Admin configuration missing</h1>
         <p className="text-sm text-slate-300">
           Add <code className="rounded bg-slate-800 px-1 py-0.5 text-xs">SUPABASE_SERVICE_ROLE_KEY</code>,
-          <code className="ml-1 rounded bg-slate-800 px-1 py-0.5 text-xs">ADMIN_DASHBOARD_USER</code>, and
-          <code className="ml-1 rounded bg-slate-800 px-1 py-0.5 text-xs">ADMIN_DASHBOARD_PASSWORD</code> to your environment
-          variables to unlock the remote operations console.
+          <code className="ml-1 rounded bg-slate-800 px-1 py-0.5 text-xs">NEXT_PUBLIC_SUPABASE_URL</code>, and
+          <code className="ml-1 rounded bg-slate-800 px-1 py-0.5 text-xs">NEXT_PUBLIC_SUPABASE_ANON_KEY</code> to your
+          environment variables to unlock the remote operations console.
         </p>
       </div>
     );
