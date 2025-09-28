@@ -14,10 +14,9 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: pnpm
-      - name: Setup pnpm
-        run: |
-          corepack enable
-          corepack use pnpm@10.17.1
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.17.1
       - uses: supabase/setup-cli@v1
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -36,10 +35,9 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: pnpm
-      - name: Setup pnpm
-        run: |
-          corepack enable
-          corepack use pnpm@10.17.1
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.17.1
       - uses: supabase/setup-cli@v1
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
