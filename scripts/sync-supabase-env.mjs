@@ -7,22 +7,103 @@ import path from 'node:path';
 
 const execFileAsync = promisify(execFile);
 
-const SOURCE_TO_ENV = new Map([
-  ['api.url', 'NEXT_PUBLIC_SUPABASE_URL'],
-  ['api.anon_key', 'NEXT_PUBLIC_SUPABASE_ANON_KEY'],
-  ['api.service_role_key', 'SUPABASE_SERVICE_ROLE_KEY'],
-  ['db.password', 'SUPABASE_DB_PASSWORD_LOCAL'],
-]);
-
 const TARGET_FILES = [
   '.env.local',
   path.join('apps', 'airnub', '.env.local'),
   path.join('apps', 'speckit', '.env.local'),
 ];
 
-function parseEnvOutput(envText) {
-  const result = new Map();
-  for (const rawLine of envText.split(/\r?\n/)) {
+const LABEL_TO_ENV_KEY = new Map([
+  ['api url', 'NEXT_PUBLIC_SUPABASE_URL'],
+  ['rest url', 'NEXT_PUBLIC_SUPABASE_URL'],
+  ['graphql url', 'NEXT_PUBLIC_SUPABASE_GRAPHQL_URL'],
+  ['database url', 'SUPABASE_DB_URL_LOCAL'],
+  ['database password', 'SUPABASE_DB_PASSWORD_LOCAL'],
+  ['publishable key', 'NEXT_PUBLIC_SUPABASE_ANON_KEY'],
+  ['anon key', 'NEXT_PUBLIC_SUPABASE_ANON_KEY'],
+  ['secret key', 'SUPABASE_SERVICE_ROLE_KEY'],
+  ['service role key', 'SUPABASE_SERVICE_ROLE_KEY'],
+  ['studio url', 'SUPABASE_STUDIO_URL'],
+  ['studio api url', 'SUPABASE_STUDIO_URL'],
+  ['mailpit url', 'SUPABASE_MAILPIT_URL'],
+  ['inbucket url', 'SUPABASE_MAILPIT_URL'],
+  ['storage url', 'SUPABASE_STORAGE_URL'],
+  ['storage api url', 'SUPABASE_STORAGE_URL'],
+  ['storage s3 url', 'SUPABASE_STORAGE_URL'],
+  ['s3 storage url', 'SUPABASE_STORAGE_URL'],
+  ['s3 access key', 'SUPABASE_S3_ACCESS_KEY'],
+  ['s3 secret key', 'SUPABASE_S3_SECRET_KEY'],
+  ['s3 region', 'SUPABASE_S3_REGION'],
+  ['s3 access key id', 'SUPABASE_S3_ACCESS_KEY'],
+  ['storage access key', 'SUPABASE_S3_ACCESS_KEY'],
+  ['storage secret key', 'SUPABASE_S3_SECRET_KEY'],
+  ['storage s3 access key', 'SUPABASE_S3_ACCESS_KEY'],
+  ['storage s3 secret key', 'SUPABASE_S3_SECRET_KEY'],
+  ['realtime url', 'SUPABASE_REALTIME_URL'],
+  ['functions url', 'SUPABASE_FUNCTIONS_URL'],
+  ['edge functions url', 'SUPABASE_FUNCTIONS_URL'],
+]);
+
+const KNOWN_ENV_KEYS = new Set([
+  'NEXT_PUBLIC_SUPABASE_URL',
+  'NEXT_PUBLIC_SUPABASE_ANON_KEY',
+  'NEXT_PUBLIC_SUPABASE_GRAPHQL_URL',
+  'SUPABASE_SERVICE_ROLE_KEY',
+  'SUPABASE_DB_URL_LOCAL',
+  'SUPABASE_DB_PASSWORD_LOCAL',
+  'SUPABASE_STUDIO_URL',
+  'SUPABASE_MAILPIT_URL',
+  'SUPABASE_STORAGE_URL',
+  'SUPABASE_S3_ACCESS_KEY',
+  'SUPABASE_S3_SECRET_KEY',
+  'SUPABASE_S3_REGION',
+  'SUPABASE_REALTIME_URL',
+  'SUPABASE_FUNCTIONS_URL',
+]);
+
+const REQUIRED_KEYS = [
+  'NEXT_PUBLIC_SUPABASE_URL',
+  'NEXT_PUBLIC_SUPABASE_ANON_KEY',
+  'SUPABASE_SERVICE_ROLE_KEY',
+];
+
+function normalizeLabel(label) {
+  return label.toLowerCase().replace(/[_\s]+/g, ' ').trim();
+}
+
+function parsePrettyStatus(output) {
+  const envValues = new Map();
+  for (const rawLine of output.split(/\r?\n/)) {
+    const match = rawLine.match(/^\s*([^:]+):\s*(.+)$/);
+    if (!match) {
+      continue;
+    }
+    const labelKey = normalizeLabel(match[1]);
+    const value = match[2].trim();
+    if (!value) {
+      continue;
+    }
+    const envKey = LABEL_TO_ENV_KEY.get(labelKey);
+    if (envKey) {
+      envValues.set(envKey, value);
+    }
+    if (labelKey === 'database url') {
+      try {
+        const parsedUrl = new URL(value);
+        if (!envValues.has('SUPABASE_DB_PASSWORD_LOCAL') && parsedUrl.password) {
+          envValues.set('SUPABASE_DB_PASSWORD_LOCAL', parsedUrl.password);
+        }
+      } catch (error) {
+        console.warn('[sync-supabase-env] Unable to parse database URL for password extraction:', error.message);
+      }
+    }
+  }
+  return envValues;
+}
+
+function parseEnvBlock(output) {
+  const envValues = new Map();
+  for (const rawLine of output.split(/\r?\n/)) {
     const line = rawLine.trim();
     if (!line || line.startsWith('#')) {
       continue;
@@ -36,9 +117,35 @@ function parseEnvOutput(envText) {
     if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
       value = value.slice(1, -1);
     }
-    result.set(key, value);
+    envValues.set(key, value);
   }
-  return result;
+  return envValues;
+}
+
+function mapStatusKeysToEnv(statusValues) {
+  const mapped = new Map();
+  for (const [key, value] of statusValues) {
+    const normalized = normalizeLabel(key);
+    const envKey = LABEL_TO_ENV_KEY.get(normalized);
+    if (envKey) {
+      mapped.set(envKey, value);
+      continue;
+    }
+    if (KNOWN_ENV_KEYS.has(key)) {
+      mapped.set(key, value);
+    }
+  }
+  if (mapped.has('SUPABASE_DB_URL_LOCAL') && !mapped.has('SUPABASE_DB_PASSWORD_LOCAL')) {
+    try {
+      const parsedUrl = new URL(mapped.get('SUPABASE_DB_URL_LOCAL'));
+      if (parsedUrl.password) {
+        mapped.set('SUPABASE_DB_PASSWORD_LOCAL', parsedUrl.password);
+      }
+    } catch (error) {
+      console.warn('[sync-supabase-env] Unable to parse database URL for password extraction:', error.message);
+    }
+  }
+  return mapped;
 }
 
 function formatEnvValue(value) {
@@ -127,39 +234,61 @@ async function ensureFileUpdated(filePath, updates) {
   }
 }
 
-async function main() {
-  const args = ['status', '-o', 'env'];
-  for (const [source, target] of SOURCE_TO_ENV) {
-    args.push('--override-name', `${source}=${target}`);
-  }
-
-  let envOutput;
+async function readSupabaseStatus() {
+  let output = '';
   try {
-    const { stdout } = await execFileAsync('supabase', args, {
+    const { stdout, stderr } = await execFileAsync('supabase', ['status'], {
       encoding: 'utf8',
       maxBuffer: 10 * 1024 * 1024,
     });
-    envOutput = stdout;
+    output = `${stdout}\n${stderr}`;
   } catch (error) {
     if (error.code === 'ENOENT') {
       console.error('[sync-supabase-env] Supabase CLI is not installed or not on PATH.');
-    } else {
-      console.error('[sync-supabase-env] Failed to run `supabase status`:', error.message || error);
+      return null;
     }
+    output = `${error.stdout ?? ''}\n${error.stderr ?? ''}`;
+    if (!output.trim()) {
+      console.error('[sync-supabase-env] Failed to run `supabase status`:', error.message || error);
+      return null;
+    }
+  }
+  return output;
+}
+
+function buildUpdateMap(rawOutput) {
+  if (!rawOutput || !rawOutput.trim()) {
+    return null;
+  }
+
+  const envStyle = parseEnvBlock(rawOutput);
+  if (envStyle.size > 0) {
+    return mapStatusKeysToEnv(envStyle);
+  }
+
+  const prettyValues = parsePrettyStatus(rawOutput);
+  if (prettyValues.size > 0) {
+    return prettyValues;
+  }
+
+  return null;
+}
+
+async function main() {
+  const statusOutput = await readSupabaseStatus();
+  if (!statusOutput) {
     process.exitCode = 1;
     return;
   }
 
-  const parsed = parseEnvOutput(envOutput);
-  const updates = new Map();
-  for (const targetKey of SOURCE_TO_ENV.values()) {
-    if (parsed.has(targetKey)) {
-      updates.set(targetKey, parsed.get(targetKey));
-    }
+  const updates = buildUpdateMap(statusOutput);
+  if (!updates || updates.size === 0) {
+    console.error('[sync-supabase-env] Unable to parse Supabase status output.');
+    process.exitCode = 1;
+    return;
   }
 
-  const requiredKeys = ['NEXT_PUBLIC_SUPABASE_URL', 'NEXT_PUBLIC_SUPABASE_ANON_KEY'];
-  const missingRequired = requiredKeys.filter((key) => !updates.has(key));
+  const missingRequired = REQUIRED_KEYS.filter((key) => !updates.has(key));
   if (missingRequired.length > 0) {
     console.error(
       `[sync-supabase-env] Missing required keys from Supabase status output: ${missingRequired.join(', ')}`,
@@ -171,7 +300,9 @@ async function main() {
   for (const targetFile of TARGET_FILES) {
     try {
       const result = await ensureFileUpdated(targetFile, updates);
-      console.log(`[sync-supabase-env] ${result.status === 'created' ? 'Created' : 'Updated'} ${result.filePath}`);
+      console.log(
+        `[sync-supabase-env] ${result.status === 'created' ? 'Created' : 'Updated'} ${result.filePath}`,
+      );
     } catch (error) {
       console.error(`[sync-supabase-env] Failed to update ${targetFile}:`, error.message || error);
       process.exitCode = 1;

@@ -101,7 +101,10 @@ JSON-LD, Metadata API, sitemaps, robots.txt, and OG image routes are part of eve
 ## Supabase
 
 * **Migrations:** live in `/supabase/migrations/` (single source of truth)
-* **Local dev:** `supabase start` → edit schema → `pnpm db:diff -m "change"`
+* **Local dev:** `supabase start` → `pnpm db:env:local` (sync keys) → edit schema → `pnpm db:diff -m "change"`
+* **Env sync helper:** `pnpm db:env:local` reads `supabase status` and updates `.env.local`, `apps/airnub/.env.local`, and
+  `apps/speckit/.env.local` without clobbering any other variables. Re-run after Supabase regenerates credentials (for example,
+  after `supabase start` or `supabase stop && supabase start`). The Codespaces devcontainer runs this automatically on boot.
 * **Types:** `pnpm db:types` → writes to `packages/db/src/types.ts`
 * **Remote apply:** `pnpm db:link:staging && pnpm db:push` (CI handles staging/prod)
 
@@ -173,14 +176,15 @@ supabase stop && supabase start
 
 ## Environment
 
-Copy `.env.example` to `.env.local` (for each app if you maintain separate files) and update it with your Supabase project keys:
+Copy `.env.example` to `.env.local` (and to each app if you maintain separate files) and update it with your Supabase project keys:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_GRAPHQL_URL=...
 NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 ```
 
-(Use different keys per environment.) After `supabase start` you can run `pnpm db:env:local` to sync the latest keys into `.env.local`, `apps/airnub/.env.local`, and `apps/speckit/.env.local` directly from the Supabase CLI output.
+(Use different keys per environment.) After `supabase start`, run `pnpm db:env:local` to sync the latest keys—including the GraphQL endpoint, Studio/Mailpit URLs, and S3 credentials—into `.env.local`, `apps/airnub/.env.local`, and `apps/speckit/.env.local`. The helper parses `supabase status` and preserves any existing variables or comments. Codespaces runs the command automatically after the workspace boots; rerun it whenever you restart the local Supabase stack so rotated keys stay current.
 
 ## GitHub Codespaces
 
@@ -195,14 +199,14 @@ The repo ships with a `.devcontainer/` that provisions Node 24, pnpm, and the Su
    cp .env.example apps/speckit/.env.local
    ```
 
-3. Start the local Supabase services and capture the generated keys:
+3. The devcontainer post-start hook automatically runs `supabase start` and `pnpm db:env:local` so the Docker services boot and every `.env.local` file picks up the current keys. If you need to refresh them later (for example, after `supabase stop`), rerun:
 
    ```bash
    supabase start
    pnpm db:env:local
    ```
 
-   The script reads the local Supabase status and writes the keys into each `.env.local` file automatically. Set `NEXT_PUBLIC_SUPABASE_URL` to the forwarded Codespace URL for port **54321** (for example, `https://<codespace-id>-54321.app.github.dev`) so that browser requests reach the local Supabase API. Keep the Postgres connection string values pointing at `127.0.0.1` for server-side access.
+   Set `NEXT_PUBLIC_SUPABASE_URL` to the forwarded Codespace URL for port **54321** (for example, `https://<codespace-id>-54321.app.github.dev`) so that browser requests reach the local Supabase API. Keep the Postgres connection string values pointing at `127.0.0.1` for server-side access.
 
 4. Forward the dev servers and Supabase ports:
    * 3000 → Airnub app (`apps/airnub`)
