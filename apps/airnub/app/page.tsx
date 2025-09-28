@@ -43,7 +43,7 @@ export default async function HomePage() {
   });
 
   return (
-    <div className="space-y-24 pb-20">
+    <div className="space-y-24 pb-24 text-slate-300">
       <PageHero
         eyebrow="Airnub builds governed, enterprise-ready developer platforms."
         title="Operationalize trust across every release pipeline"
@@ -63,9 +63,12 @@ export default async function HomePage() {
       <section>
         <Container className="grid gap-10 lg:grid-cols-3">
           {highlights.map((item) => (
-            <div key={item.title} className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
-              <h3 className="text-xl font-semibold text-slate-900">{item.title}</h3>
-              <p className="mt-3 text-sm text-slate-600">{item.description}</p>
+            <div
+              key={item.title}
+              className="rounded-3xl border border-slate-800 bg-slate-900/60 p-8 shadow-lg shadow-slate-950/40 backdrop-blur"
+            >
+              <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+              <p className="mt-3 text-sm text-slate-300">{item.description}</p>
             </div>
           ))}
         </Container>
@@ -73,10 +76,13 @@ export default async function HomePage() {
 
       <section>
         <Container className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">Trusted by platform leaders</p>
+          <p className="text-sm font-semibold uppercase tracking-wide text-slate-400">Trusted by platform leaders</p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-8">
             {customers.map((customer) => (
-              <div key={customer.name} className="flex h-16 w-40 items-center justify-center rounded-xl border border-slate-200 bg-white">
+              <div
+                key={customer.name}
+                className="flex h-16 w-40 items-center justify-center rounded-xl border border-slate-800 bg-slate-900/70 shadow-inner shadow-slate-950/40"
+              >
                 <Image src={customer.logo} alt={customer.name} width={120} height={40} className="object-contain" />
               </div>
             ))}
@@ -84,13 +90,12 @@ export default async function HomePage() {
         </Container>
       </section>
 
-      <section className="bg-slate-900 py-20 text-slate-100">
-        <Container className="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <section>
+        <Container className="grid gap-12 rounded-3xl border border-slate-800 bg-slate-900/80 p-12 shadow-xl shadow-slate-950/40 lg:grid-cols-2 lg:items-center">
           <div>
-            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Secure the spec loop with Speckit</h2>
+            <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Secure the spec loop with Speckit</h2>
             <p className="mt-4 text-base text-slate-300">
-              Speckit brings change management, supply-chain controls, and runtime attestations together. Govern policy gates
-              with programmable workflows and surface the right signals to auditors and stakeholders instantly.
+              Speckit brings change management, supply-chain controls, and runtime attestations together. Govern policy gates with programmable workflows and surface the right signals to auditors and stakeholders instantly.
             </p>
             <div className="mt-6 flex flex-wrap gap-4">
               <Button asChild>
@@ -125,33 +130,41 @@ export default async function HomePage() {
 
       <section>
         <Container className="grid gap-12 lg:grid-cols-[2fr,3fr] lg:items-center">
-          <div>
-            <h2 className="text-3xl font-semibold text-slate-900">Services aligned to your platform journey</h2>
-            <p className="mt-4 text-base text-slate-600">
-              From first landing zones to regulated scale, our services team embeds with platform, security, and compliance leaders to deliver quick wins and long-term maturity.
-            </p>
-            <ul className="mt-6 space-y-3 text-sm text-slate-600">
-              <li><strong className="font-semibold text-slate-900">Assessment:</strong> map current controls to regulatory expectations.</li>
-              <li><strong className="font-semibold text-slate-900">Blueprint:</strong> reference architectures with guardrails for teams and services.</li>
-              <li><strong className="font-semibold text-slate-900">Adoption:</strong> playbooks to scale platform operations with confidence.</li>
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-3xl font-semibold text-white">Services aligned to your platform journey</h2>
+              <p className="mt-4 text-base text-slate-300">
+                From first landing zones to regulated scale, our services team embeds with platform, security, and compliance leaders to deliver quick wins and long-term maturity.
+              </p>
+            </div>
+            <ul className="space-y-3 text-sm text-slate-300">
+              <li>
+                <strong className="font-semibold text-white">Assessment:</strong> map current controls to regulatory expectations.
+              </li>
+              <li>
+                <strong className="font-semibold text-white">Blueprint:</strong> reference architectures with guardrails for teams and services.
+              </li>
+              <li>
+                <strong className="font-semibold text-white">Adoption:</strong> playbooks to scale platform operations with confidence.
+              </li>
             </ul>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-slate-900">Platform operating model</h3>
-              <p className="mt-2 text-sm text-slate-600">Team structures, KPIs, and governance rituals to align craft and compliance.</p>
+            <div className="rounded-3xl border border-slate-800 bg-slate-900/60 p-6 shadow-lg shadow-slate-950/40">
+              <h3 className="text-lg font-semibold text-white">Platform operating model</h3>
+              <p className="mt-2 text-sm text-slate-300">Team structures, KPIs, and governance rituals to align craft and compliance.</p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-slate-900">Regulated cloud acceleration</h3>
-              <p className="mt-2 text-sm text-slate-600">Deploy secure baselines for FedRAMP, SOC 2, and ISO 27001 without slowing delivery.</p>
+            <div className="rounded-3xl border border-slate-800 bg-slate-900/60 p-6 shadow-lg shadow-slate-950/40">
+              <h3 className="text-lg font-semibold text-white">Regulated cloud acceleration</h3>
+              <p className="mt-2 text-sm text-slate-300">Deploy secure baselines for FedRAMP, SOC 2, and ISO 27001 without slowing delivery.</p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-slate-900">InnerSource enablement</h3>
-              <p className="mt-2 text-sm text-slate-600">Empower product teams with paved roads, golden paths, and clear guardrails.</p>
+            <div className="rounded-3xl border border-slate-800 bg-slate-900/60 p-6 shadow-lg shadow-slate-950/40">
+              <h3 className="text-lg font-semibold text-white">InnerSource enablement</h3>
+              <p className="mt-2 text-sm text-slate-300">Empower product teams with paved roads, golden paths, and clear guardrails.</p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-slate-900">Trust & assurance readiness</h3>
-              <p className="mt-2 text-sm text-slate-600">Prepare evidence for auditors, partners, and leadership with zero scramble.</p>
+            <div className="rounded-3xl border border-slate-800 bg-slate-900/60 p-6 shadow-lg shadow-slate-950/40">
+              <h3 className="text-lg font-semibold text-white">Trust & assurance readiness</h3>
+              <p className="mt-2 text-sm text-slate-300">Prepare evidence for auditors, partners, and leadership with zero scramble.</p>
             </div>
           </div>
         </Container>

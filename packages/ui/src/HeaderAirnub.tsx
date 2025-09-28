@@ -46,7 +46,7 @@ export function HeaderAirnub({ homeAriaLabel = "Airnub home", additionalRightSlo
         <div className="flex items-center gap-3">
           <Link
             href="https://github.com/airnub"
-            className="hidden rounded-full border border-slate-200 p-2 text-slate-600 transition hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 lg:inline-flex"
+            className="hidden rounded-full border border-slate-200 p-2 text-slate-600 transition hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:border-slate-700 dark:text-slate-200 dark:hover:text-white lg:inline-flex"
             aria-label="Airnub on GitHub"
             target="_blank"
             rel="noreferrer"

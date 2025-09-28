@@ -36,7 +36,7 @@ const jsonLd = buildAirnubProductPortfolioJsonLd();
 
 export default function ProductsPage() {
   return (
-    <div className="space-y-16 pb-20">
+    <div className="space-y-16 pb-24 text-slate-300">
       <PageHero
         eyebrow="Products"
         title="Everything you need to govern modern software delivery"
@@ -47,22 +47,25 @@ export default function ProductsPage() {
       <section>
         <Container className="grid gap-8 md:grid-cols-2">
           {offerings.map((offering) => (
-            <article key={offering.name} className="flex h-full flex-col justify-between rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <article
+              key={offering.name}
+              className="flex h-full flex-col justify-between rounded-3xl border border-slate-800 bg-slate-900/60 p-8 shadow-lg shadow-slate-950/40"
+            >
               <div>
                 <div className="flex items-center gap-3">
-                  <h2 className="text-2xl font-semibold text-slate-900">{offering.name}</h2>
+                  <h2 className="text-2xl font-semibold text-white">{offering.name}</h2>
                   {offering.badge ? (
-                    <span className="rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-sky-700">
+                    <span className="rounded-full border border-sky-500/40 bg-sky-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-sky-300">
                       {offering.badge}
                     </span>
                   ) : null}
                 </div>
-                <p className="mt-3 text-sm text-slate-600">{offering.description}</p>
+                <p className="mt-3 text-sm text-slate-300">{offering.description}</p>
               </div>
               <div className="mt-8">
                 <Link
                   href={offering.href}
-                  className="text-sm font-semibold text-sky-600 hover:text-sky-500"
+                  className="text-sm font-semibold text-sky-400 transition hover:text-sky-300"
                   target={offering.href.startsWith("http") ? "_blank" : undefined}
                   rel={offering.href.startsWith("http") ? "noreferrer" : undefined}
                 >
@@ -76,28 +79,29 @@ export default function ProductsPage() {
 
       <section>
         <Container className="grid gap-8 lg:grid-cols-2">
-          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-            <h3 className="text-xl font-semibold text-slate-900">Built with trust as a feature</h3>
-            <p className="mt-3 text-sm text-slate-600">
+          <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-8 shadow-lg shadow-slate-950/40">
+            <h3 className="text-xl font-semibold text-white">Built with trust as a feature</h3>
+            <p className="mt-3 text-sm text-slate-300">
               Every product ships with compliance guardrails, audit-ready evidence, and API-first integrations that slot into your delivery stack.
             </p>
-            <ul className="mt-4 space-y-2 text-sm text-slate-600">
+            <ul className="mt-4 space-y-2 text-sm text-slate-300">
               <li>→ SLSA-aligned attestations and SBOM automation</li>
               <li>→ Role-aware workflows for platform, security, and compliance leads</li>
               <li>→ Open APIs and adapters for the tools you already use</li>
             </ul>
           </div>
-          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-            <h3 className="text-xl font-semibold text-slate-900">Shared Supabase foundations</h3>
-            <p className="mt-3 text-sm text-slate-600">
+          <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-8 shadow-lg shadow-slate-950/40">
+            <h3 className="text-xl font-semibold text-white">Shared Supabase foundations</h3>
+            <p className="mt-3 text-sm text-slate-300">
               Both the Airnub corporate site and Speckit microsite capture leads into the same Supabase project, keeping GTM signals aligned and secure.
             </p>
-            <p className="mt-3 text-sm text-slate-600">
+            <p className="mt-3 text-sm text-slate-300">
               Row-level security ensures visitor submissions stay private while platform teams can analyze performance via service-role access.
             </p>
           </div>
         </Container>
       </section>
+
       <JsonLd data={jsonLd} />
     </div>
   );

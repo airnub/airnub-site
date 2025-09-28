@@ -41,7 +41,7 @@ const sectors = [
 
 export default function SolutionsPage() {
   return (
-    <div className="space-y-16 pb-20">
+    <div className="space-y-16 pb-24 text-slate-300">
       <PageHero
         eyebrow="Solutions"
         title="Governance blueprints tailored to your sector"
@@ -51,10 +51,10 @@ export default function SolutionsPage() {
       <section>
         <Container className="grid gap-8 lg:grid-cols-3">
           {sectors.map((sector) => (
-            <div key={sector.name} className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-              <h2 className="text-xl font-semibold text-slate-900">{sector.name}</h2>
-              <p className="mt-3 text-sm text-slate-600">{sector.summary}</p>
-              <ul className="mt-4 space-y-2 text-sm text-slate-600">
+            <div key={sector.name} className="rounded-3xl border border-slate-800 bg-slate-900/60 p-8 shadow-lg shadow-slate-950/40">
+              <h2 className="text-xl font-semibold text-white">{sector.name}</h2>
+              <p className="mt-3 text-sm text-slate-300">{sector.summary}</p>
+              <ul className="mt-4 space-y-2 text-sm text-slate-300">
                 {sector.bullets.map((bullet) => (
                   <li key={bullet}>→ {bullet}</li>
                 ))}
@@ -65,15 +65,15 @@ export default function SolutionsPage() {
       </section>
 
       <section>
-        <Container className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-10 text-slate-100">
+        <Container className="rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 p-10 text-slate-100 shadow-xl shadow-slate-950/40">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
-              <h2 className="text-3xl font-semibold tracking-tight">Partner with platform strategists and compliance engineers</h2>
+              <h2 className="text-3xl font-semibold tracking-tight text-white">Partner with platform strategists and compliance engineers</h2>
               <p className="mt-4 text-sm text-slate-300">
                 Our cross-functional pods pair product, platform, and trust roles to deliver value from the first sprint. We co-design operating models, deliver automation, and upskill your teams.
               </p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/10 p-6 text-sm text-slate-200">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-slate-200">
               <p className="font-semibold text-white">What to expect:</p>
               <ul className="mt-3 space-y-2">
                 <li>→ Capability assessments mapped to maturity curves</li>

@@ -48,7 +48,7 @@ const updates = [
 
 export default function ResourcesPage() {
   return (
-    <div className="space-y-16 pb-20">
+    <div className="space-y-16 pb-24 text-slate-300">
       <PageHero
         eyebrow="Resources"
         title="Enablement, updates, and research for platform and security teams"
@@ -57,17 +57,17 @@ export default function ResourcesPage() {
 
       <section>
         <Container>
-          <h2 className="text-xl font-semibold text-slate-900">Featured guides</h2>
+          <h2 className="text-xl font-semibold text-white">Featured guides</h2>
           <div className="mt-6 grid gap-6 md:grid-cols-3">
             {guides.map((guide) => (
               <Link
                 key={guide.title}
                 href={guide.href}
-                className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-sky-200"
+                className="group rounded-3xl border border-slate-800 bg-slate-900/60 p-6 shadow-lg shadow-slate-950/40 transition hover:-translate-y-1 hover:border-sky-500/40"
               >
-                <p className="text-sm font-semibold text-sky-600 group-hover:text-sky-500">Guide</p>
-                <h3 className="mt-2 text-lg font-semibold text-slate-900">{guide.title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{guide.description}</p>
+                <p className="text-sm font-semibold text-sky-400 group-hover:text-sky-300">Guide</p>
+                <h3 className="mt-2 text-lg font-semibold text-white">{guide.title}</h3>
+                <p className="mt-2 text-sm text-slate-300">{guide.description}</p>
               </Link>
             ))}
           </div>
@@ -76,17 +76,17 @@ export default function ResourcesPage() {
 
       <section>
         <Container>
-          <h2 className="text-xl font-semibold text-slate-900">Latest updates</h2>
+          <h2 className="text-xl font-semibold text-white">Latest updates</h2>
           <div className="mt-6 space-y-4">
             {updates.map((update) => (
               <Link
                 key={update.title}
                 href={update.href}
-                className="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-sky-200"
+                className="flex flex-col rounded-3xl border border-slate-800 bg-slate-900/60 p-6 shadow-lg shadow-slate-950/40 transition hover:border-sky-500/40"
               >
                 <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">{update.date}</span>
-                <h3 className="mt-2 text-lg font-semibold text-slate-900">{update.title}</h3>
-                <span className="mt-2 text-sm text-sky-600">Read →</span>
+                <h3 className="mt-2 text-lg font-semibold text-white">{update.title}</h3>
+                <span className="mt-2 text-sm font-semibold text-sky-400">Read →</span>
               </Link>
             ))}
           </div>
@@ -94,11 +94,11 @@ export default function ResourcesPage() {
       </section>
 
       <section>
-        <Container className="rounded-3xl border border-slate-200 bg-white p-10 shadow-sm">
+        <Container className="rounded-3xl border border-slate-800 bg-slate-900/70 p-10 shadow-lg shadow-slate-950/40">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div>
-              <h2 className="text-2xl font-semibold text-slate-900">Prefer a live walkthrough?</h2>
-              <p className="mt-3 text-sm text-slate-600">
+              <h2 className="text-2xl font-semibold text-white">Prefer a live walkthrough?</h2>
+              <p className="mt-3 text-sm text-slate-300">
                 Join a monthly office hour to see how teams automate policy gates, evidence capture, and release governance with Speckit.
               </p>
             </div>
