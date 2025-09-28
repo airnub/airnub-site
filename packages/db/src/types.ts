@@ -48,6 +48,65 @@ export type Database = {
         };
         Relationships: [];
       };
+      lead_actions: {
+        Row: {
+          id: string;
+          lead_id: string;
+          status: "new" | "replied" | "ignored" | "handoff";
+          assignee: string | null;
+          note: string | null;
+          created_at: string;
+          created_by: string | null;
+        };
+        Insert: {
+          id?: string;
+          lead_id: string;
+          status: "new" | "replied" | "ignored" | "handoff";
+          assignee?: string | null;
+          note?: string | null;
+          created_at?: string;
+          created_by?: string | null;
+        };
+        Update: {
+          id?: string;
+          lead_id?: string;
+          status?: "new" | "replied" | "ignored" | "handoff";
+          assignee?: string | null;
+          note?: string | null;
+          created_at?: string;
+          created_by?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "lead_actions_lead_id_fkey";
+            columns: ["lead_id"];
+            isOneToOne: false;
+            referencedRelation: "contact_leads";
+            referencedColumns: ["id"];
+          }
+        ];
+      };
+      runtime_flags: {
+        Row: {
+          key: string;
+          value: Json;
+          updated_at: string;
+          updated_by: string | null;
+        };
+        Insert: {
+          key: string;
+          value: Json;
+          updated_at?: string;
+          updated_by?: string | null;
+        };
+        Update: {
+          key?: string;
+          value?: Json;
+          updated_at?: string;
+          updated_by?: string | null;
+        };
+        Relationships: [];
+      };
     };
     Views: {};
     Functions: {};

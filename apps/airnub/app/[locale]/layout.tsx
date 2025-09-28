@@ -9,6 +9,7 @@ import { AIRNUB_BASE_URL } from "../../lib/routes";
 import { localeHref } from "../../lib/locale";
 import { assertLocale, locales, type Locale } from "../../i18n/routing";
 import { MaintenanceGate } from "./maintenance/MaintenanceGate";
+import { isMaintenanceModeEnabled } from "../../lib/runtime-flags";
 import { LocaleSwitcher } from "../../components/LocaleSwitcher";
 
 const jsonLd = buildAirnubOrganizationJsonLd();
@@ -96,7 +97,7 @@ export default async function LocaleLayout({
     { label: nav("contact"), href: withLocale("/contact") },
   ];
 
-  const maintenanceEnabled = process.env.MAINTENANCE_MODE === "true";
+  const maintenanceEnabled = await isMaintenanceModeEnabled();
   const maintenanceCopy = {
     title: common("maintenance.title"),
     description: common("maintenance.description"),
