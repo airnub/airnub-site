@@ -1,0 +1,94 @@
+{
+  "common": {
+    "skipToContent": "Léim go dtí an t-ábhar",
+    "githubLabel": "Airnub ar GitHub",
+    "locale": {
+      "label": "Teanga",
+      "options": {
+        "en-US": "Béarla (SAM)",
+        "en-GB": "Béarla (RA)",
+        "ga": "Gaeilge",
+        "fr": "Fraincis",
+        "es": "Spáinnis",
+        "de": "Gearmáinis",
+        "pt": "Portaingéilis",
+        "it": "Iodáilis"
+      }
+    },
+    "theme": {
+      "toggle": "Athraigh téama datha"
+    },
+    "maintenance": {
+      "title": "Táimid ag ullmhú",
+      "description": "Tá Airnub ag ullmhú rud éigin nua. Fill ar ais go luath nó cláraigh le haghaidh nuashonruithe seolta.",
+      "cta": "Seol ríomhphost chugainn ag hello@airnub.io"
+    }
+  },
+  "layout": {
+    "metadata": {
+      "titleDefault": "Airnub \u2014 Ardáin forbróirí rialaithe",
+      "titleTemplate": "%s | Airnub",
+      "description": "Tógann Airnub ardáin forbróirí rialaithe atá réidh don fhiontar agus a nascann comhlíonadh, seachadadh agus muinín.",
+      "ogDescription": "Tógann Airnub ardáin forbróirí rialaithe atá réidh don fhiontar.",
+      "twitterDescription": "Tógann Airnub ardáin forbróirí rialaithe atá réidh don fhiontar."
+    }
+  },
+  "toast": {
+    "dismiss": "Dún fógra"
+  },
+  "nav": {
+    "products": "Táirgí",
+    "solutions": "Réitigh",
+    "services": "Seirbhísí",
+    "resources": "Acmhainní",
+    "trust": "Iontaobhas",
+    "company": "Cuideachta",
+    "contact": "Teagmháil"
+  },
+  "contact": {
+    "metadata": {
+      "title": "Teagmháil",
+      "description": "Déan teagmháil le Airnub le haghaidh taispeántais táirge, comhpháirtíochtaí nó fiosrúcháin na meán."
+    },
+    "hero": {
+      "eyebrow": "Teagmháil",
+      "title": "Tógaimis do ardán lárnach ar mhuinín",
+      "description": "Inis dúinn faoi do spriocanna agus cuirfimid na saineolaithe Airnub cuí i dteagmháil leat."
+    },
+    "form": {
+      "title": "Seol teachtaireacht chugainn",
+      "description": "Freagraímid de ghnáth laistigh de lá oibre amháin.",
+      "fields": {
+        "name": "Ainm iomlán",
+        "email": "Ríomhphost oibre",
+        "company": "Cuideachta",
+        "message": "Conas is féidir linn cabhrú?"
+      },
+      "required": "Riachtanach",
+      "submit": "Seol teachtaireacht",
+      "success": {
+        "title": "Teachtaireacht seolta",
+        "description": "Go raibh maith agat as teagmháil a dhéanamh linn. Rachaidh ár bhfoireann i dteagmháil leat go luath."
+      },
+      "error": {
+        "title": "Tharla earráid",
+        "description": "Níor éirigh linn d’iarratas a sheoladh. Bain triail eile as nó seol ríomhphost chuig hello@airnub.io."
+      },
+      "validation": {
+        "email": "Iontráil ríomhphost oibre bailí le do thoil."
+      }
+    },
+    "shortcuts": {
+      "email": {
+        "title": "Ríomhphost",
+        "sales": "Díolacháin & comhpháirtíochtaí",
+        "security": "Tuairiscí slándála"
+      },
+      "officeHours": {
+        "title": "Uaireanta oifige",
+        "description": "Glac páirt i seisiún seachtainiúil beo chun a fheiceáil conas is féidir le Airnub agus Speckit do bhóthar treorach a luathú.",
+        "cta": "Cuir uaireanta oifige in áirithe"
+      }
+    }
+  }
+}

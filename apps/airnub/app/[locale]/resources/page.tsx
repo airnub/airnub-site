@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@airnub/ui";
-import { PageHero } from "../../components/PageHero";
+import { LocaleLink } from "../../../components/LocaleLink";
+import { PageHero } from "../../../components/PageHero";
 
 export const revalidate = 21_600;
 
@@ -103,12 +104,12 @@ export default function ResourcesPage() {
               </p>
             </div>
             <div>
-              <Link
+              <LocaleLink
                 href="/contact"
                 className="inline-flex items-center rounded-full bg-sky-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-sky-500"
               >
                 Save my seat
-              </Link>
+              </LocaleLink>
             </div>
           </div>
         </Container>

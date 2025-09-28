@@ -21,6 +21,7 @@
     "@airnub/ui": "workspace:*",
     "@vercel/og": "^0.8.5",
     "clsx": "^2.1.1",
+    "next-intl": "^3.17.3",
     "next": "^15.5.4",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"

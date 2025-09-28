@@ -21,11 +21,26 @@ export async function leadInputFromFormData(formData: FormData): Promise<LeadInp
   };
 }
 
-export async function submitLead(formData: FormData) {
+export type LeadFormState = {
+  status: "idle" | "success" | "error";
+  message?: string;
+  errors?: {
+    email?: string;
+  };
+};
+
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+export async function submitLead(_: LeadFormState, formData: FormData): Promise<LeadFormState> {
   const input = await leadInputFromFormData(formData);
 
-  if (!input.email) {
-    throw new Error("Email is required.");
+  if (!input.email || !emailPattern.test(input.email)) {
+    return {
+      status: "error",
+      errors: {
+        email: "validation.email",
+      },
+    };
   }
 
   const db: SupabaseDatabaseClient = getServerClient(cookies);
@@ -41,6 +56,12 @@ export async function submitLead(formData: FormData) {
   const { error } = await insertContactLead(db, payload);
 
   if (error) {
-    throw new Error(error.message);
+    return {
+      status: "error",
+    };
   }
+
+  return {
+    status: "success",
+  };
 }

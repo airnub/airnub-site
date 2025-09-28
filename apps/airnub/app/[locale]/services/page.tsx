@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Button, Container } from "@airnub/ui";
 import Link from "next/link";
-import { PageHero } from "../../components/PageHero";
+import { LocaleLink } from "../../../components/LocaleLink";
+import { PageHero } from "../../../components/PageHero";
 
 export const revalidate = 86_400;
 
@@ -50,7 +51,7 @@ export default function ServicesPage() {
         eyebrow="Services"
         title="Embedded experts for every stage of your platform journey"
         description="We combine product thinking with compliance and platform engineering so you can unlock reliable, trusted delivery."
-        actions={<Button asChild><Link href="/contact">Book an intro call</Link></Button>}
+        actions={<Button asChild><LocaleLink href="/contact">Book an intro call</LocaleLink></Button>}
       />
 
       <section>

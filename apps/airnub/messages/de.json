@@ -1,0 +1,94 @@
+{
+  "common": {
+    "skipToContent": "Zum Hauptinhalt springen",
+    "githubLabel": "Airnub auf GitHub",
+    "locale": {
+      "label": "Sprache",
+      "options": {
+        "en-US": "Englisch (USA)",
+        "en-GB": "Englisch (UK)",
+        "ga": "Irisch",
+        "fr": "Französisch",
+        "es": "Spanisch",
+        "de": "Deutsch",
+        "pt": "Portugiesisch",
+        "it": "Italienisch"
+      }
+    },
+    "theme": {
+      "toggle": "Farbschema wechseln"
+    },
+    "maintenance": {
+      "title": "Wir bereiten uns vor",
+      "description": "Airnub bereitet etwas Neues vor. Schau bald wieder vorbei oder abonniere Updates zum Start.",
+      "cta": "Schreib uns an hello@airnub.io"
+    }
+  },
+  "layout": {
+    "metadata": {
+      "titleDefault": "Airnub — Kontrollierte Entwicklerplattformen",
+      "titleTemplate": "%s | Airnub",
+      "description": "Airnub entwickelt kontrollierte, unternehmensreife Entwicklerplattformen, die Compliance, Auslieferung und Vertrauen verbinden.",
+      "ogDescription": "Airnub entwickelt kontrollierte, unternehmensreife Entwicklerplattformen.",
+      "twitterDescription": "Airnub entwickelt kontrollierte, unternehmensreife Entwicklerplattformen."
+    }
+  },
+  "toast": {
+    "dismiss": "Benachrichtigung schließen"
+  },
+  "nav": {
+    "products": "Produkte",
+    "solutions": "Lösungen",
+    "services": "Services",
+    "resources": "Ressourcen",
+    "trust": "Vertrauen",
+    "company": "Unternehmen",
+    "contact": "Kontakt"
+  },
+  "contact": {
+    "metadata": {
+      "title": "Kontakt",
+      "description": "Kontaktiere Airnub für Produktdemos, Partnerschaften oder Presseanfragen."
+    },
+    "hero": {
+      "eyebrow": "Kontakt",
+      "title": "Lasst uns eure vertrauenswürdige Plattform aufbauen",
+      "description": "Erzähl uns von euren Zielen und wir verbinden euch mit den richtigen Airnub-Expert:innen."
+    },
+    "form": {
+      "title": "Schicke uns eine Nachricht",
+      "description": "Wir antworten in der Regel innerhalb eines Werktags.",
+      "fields": {
+        "name": "Vollständiger Name",
+        "email": "Geschäftliche E-Mail",
+        "company": "Unternehmen",
+        "message": "Wobei können wir helfen?"
+      },
+      "required": "Pflichtfeld",
+      "submit": "Nachricht senden",
+      "success": {
+        "title": "Nachricht gesendet",
+        "description": "Danke für deine Anfrage. Unser Team meldet sich in Kürze."
+      },
+      "error": {
+        "title": "Etwas ist schiefgelaufen",
+        "description": "Wir konnten deine Anfrage nicht übermitteln. Bitte versuche es erneut oder schreibe an hello@airnub.io."
+      },
+      "validation": {
+        "email": "Bitte gib eine gültige geschäftliche E-Mail ein."
+      }
+    },
+    "shortcuts": {
+      "email": {
+        "title": "E-Mail",
+        "sales": "Vertrieb & Partnerschaften",
+        "security": "Sicherheitsmeldungen"
+      },
+      "officeHours": {
+        "title": "Sprechstunden",
+        "description": "Nimm an einer wöchentlichen Live-Session teil und sieh, wie Airnub und Speckit eure Roadmap beschleunigen.",
+        "cta": "Sprechstunde buchen"
+      }
+    }
+  }
+}

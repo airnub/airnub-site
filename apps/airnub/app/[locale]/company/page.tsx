@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@airnub/ui";
-import { PageHero } from "../../components/PageHero";
+import { LocaleLink } from "../../../components/LocaleLink";
+import { PageHero } from "../../../components/PageHero";
 
 export const revalidate = 604_800;
 
@@ -94,16 +95,16 @@ export default function CompanyPage() {
             <div>
               <h3 className="text-lg font-semibold text-white">Privacy Notice</h3>
               <p className="mt-2 text-sm text-slate-300">We collect only the information required to respond to inquiries and improve our services.</p>
-              <Link href="/resources#privacy" className="mt-3 inline-flex text-sm font-semibold text-sky-400">
+              <LocaleLink href="/resources#privacy" className="mt-3 inline-flex text-sm font-semibold text-sky-400">
                 Read more →
-              </Link>
+              </LocaleLink>
             </div>
             <div>
               <h3 className="text-lg font-semibold text-white">Terms of Service</h3>
               <p className="mt-2 text-sm text-slate-300">Our terms set expectations for customers, partners, and community contributors.</p>
-              <Link href="/resources#terms" className="mt-3 inline-flex text-sm font-semibold text-sky-400">
+              <LocaleLink href="/resources#terms" className="mt-3 inline-flex text-sm font-semibold text-sky-400">
                 View terms →
-              </Link>
+              </LocaleLink>
             </div>
           </div>
         </Container>

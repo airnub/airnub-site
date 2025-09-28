@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { AirnubWordmark } from "@airnub/brand";
 import { Header, type HeaderProps, type NavItem } from "./components/client/Header";
+import { ThemeToggle } from "./components/client/ThemeToggle";
 import type { ReactNode } from "react";
 
-const navItems: NavItem[] = [
+const defaultNavItems: NavItem[] = [
   { label: "Products", href: "/products" },
   { label: "Solutions", href: "/solutions" },
   { label: "Services", href: "/services" },
@@ -33,10 +34,20 @@ function GithubIcon({ className }: { className?: string }) {
 
 type HeaderAirnubProps = Omit<HeaderProps, "logo" | "navItems" | "rightSlot" | "homeAriaLabel"> & {
   homeAriaLabel?: string;
+  navItems?: NavItem[];
   additionalRightSlot?: ReactNode;
+  themeToggleLabel?: string;
+  githubLabel?: string;
 };
 
-export function HeaderAirnub({ homeAriaLabel = "Airnub home", additionalRightSlot, ...props }: HeaderAirnubProps) {
+export function HeaderAirnub({
+  homeAriaLabel = "Airnub home",
+  additionalRightSlot,
+  navItems = defaultNavItems,
+  themeToggleLabel = "Toggle theme",
+  githubLabel = "Airnub on GitHub",
+  ...props
+}: HeaderAirnubProps) {
   return (
     <Header
       logo={<AirnubWordmark className="h-6" />}
@@ -47,12 +58,13 @@ export function HeaderAirnub({ homeAriaLabel = "Airnub home", additionalRightSlo
           <Link
             href="https://github.com/airnub"
             className="hidden rounded-full border border-slate-200 p-2 text-slate-600 transition hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:border-slate-700 dark:text-slate-200 dark:hover:text-white lg:inline-flex"
-            aria-label="Airnub on GitHub"
+            aria-label={githubLabel}
             target="_blank"
             rel="noreferrer"
           >
             <GithubIcon className="h-4 w-4" />
           </Link>
+          <ThemeToggle className="inline-flex" label={themeToggleLabel} />
           {additionalRightSlot}
         </div>
       }

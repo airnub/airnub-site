@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button, Container } from "@airnub/ui";
-import { PageHero } from "../../components/PageHero";
-import { JsonLd } from "../../components/JsonLd";
-import { buildAirnubProductPortfolioJsonLd } from "../../lib/jsonld";
+import { PageHero } from "../../../components/PageHero";
+import { JsonLd } from "../../../components/JsonLd";
+import { buildAirnubProductPortfolioJsonLd } from "../../../lib/jsonld";
+import { LocaleLink } from "../../../components/LocaleLink";
 
 export const revalidate = 86_400;
 
@@ -41,7 +42,7 @@ export default function ProductsPage() {
         eyebrow="Products"
         title="Everything you need to govern modern software delivery"
         description="Airnub packages products, playbooks, and trusted services to help platform teams scale without slowing down developers."
-        actions={<Button asChild><Link href="/contact">Schedule a demo</Link></Button>}
+        actions={<Button asChild><LocaleLink href="/contact">Schedule a demo</LocaleLink></Button>}
       />
 
       <section>
@@ -63,14 +64,22 @@ export default function ProductsPage() {
                 <p className="mt-3 text-sm text-slate-300">{offering.description}</p>
               </div>
               <div className="mt-8">
-                <Link
-                  href={offering.href}
-                  className="text-sm font-semibold text-sky-400 transition hover:text-sky-300"
-                  target={offering.href.startsWith("http") ? "_blank" : undefined}
-                  rel={offering.href.startsWith("http") ? "noreferrer" : undefined}
-                >
-                  Learn more →
-                </Link>
+                {(() => {
+                  const isExternal = offering.href.startsWith("http");
+                  const LinkComponent = isExternal ? Link : LocaleLink;
+                  const linkProps = isExternal
+                    ? { target: "_blank", rel: "noreferrer" as const }
+                    : {};
+                  return (
+                    <LinkComponent
+                      href={offering.href}
+                      className="text-sm font-semibold text-sky-400 transition hover:text-sky-300"
+                      {...linkProps}
+                    >
+                      Learn more →
+                    </LinkComponent>
+                  );
+                })()}
               </div>
             </article>
           ))}

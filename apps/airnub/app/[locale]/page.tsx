@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
 import { Button, Container } from "@airnub/ui";
 import { serverFetch } from "@airnub/seo";
-import { PageHero } from "../components/PageHero";
+import { PageHero } from "../../components/PageHero";
+import { LocaleLink } from "../../components/LocaleLink";
+import Link from "next/link";
 
 export const revalidate = 86_400;
 
@@ -51,10 +52,10 @@ export default async function HomePage() {
         actions={
           <>
             <Button asChild>
-              <Link href="/contact">Talk to our team</Link>
+              <LocaleLink href="/contact">Talk to our team</LocaleLink>
             </Button>
             <Button variant="ghost" asChild>
-              <Link href="/products">Explore products</Link>
+              <LocaleLink href="/products">Explore products</LocaleLink>
             </Button>
           </>
         }
@@ -104,7 +105,7 @@ export default async function HomePage() {
                 </Link>
               </Button>
               <Button variant="ghost" asChild>
-                <Link href="/products">See product lineup</Link>
+                <LocaleLink href="/products">See product lineup</LocaleLink>
               </Button>
             </div>
           </div>

@@ -1,0 +1,94 @@
+{
+  "common": {
+    "skipToContent": "Vai al contenuto principale",
+    "githubLabel": "Airnub su GitHub",
+    "locale": {
+      "label": "Lingua",
+      "options": {
+        "en-US": "Inglese (USA)",
+        "en-GB": "Inglese (Regno Unito)",
+        "ga": "Irlandese",
+        "fr": "Francese",
+        "es": "Spagnolo",
+        "de": "Tedesco",
+        "pt": "Portoghese",
+        "it": "Italiano"
+      }
+    },
+    "theme": {
+      "toggle": "Cambia tema colore"
+    },
+    "maintenance": {
+      "title": "Ci stiamo preparando",
+      "description": "Airnub sta preparando qualcosa di nuovo. Torna presto o iscriviti per gli aggiornamenti sul lancio.",
+      "cta": "Scrivici a hello@airnub.io"
+    }
+  },
+  "layout": {
+    "metadata": {
+      "titleDefault": "Airnub — Piattaforme per sviluppatori governate",
+      "titleTemplate": "%s | Airnub",
+      "description": "Airnub crea piattaforme per sviluppatori governate, pronte per l'azienda, che uniscono conformità, delivery e fiducia.",
+      "ogDescription": "Airnub crea piattaforme per sviluppatori governate, pronte per l'azienda.",
+      "twitterDescription": "Airnub crea piattaforme per sviluppatori governate, pronte per l'azienda."
+    }
+  },
+  "toast": {
+    "dismiss": "Chiudi notifica"
+  },
+  "nav": {
+    "products": "Prodotti",
+    "solutions": "Soluzioni",
+    "services": "Servizi",
+    "resources": "Risorse",
+    "trust": "Fiducia",
+    "company": "Azienda",
+    "contact": "Contatti"
+  },
+  "contact": {
+    "metadata": {
+      "title": "Contatti",
+      "description": "Contatta Airnub per demo prodotto, partnership o richieste stampa."
+    },
+    "hero": {
+      "eyebrow": "Contatti",
+      "title": "Costruiamo la tua piattaforma orientata alla fiducia",
+      "description": "Raccontaci i tuoi obiettivi e ti metteremo in contatto con gli esperti Airnub giusti."
+    },
+    "form": {
+      "title": "Inviaci un messaggio",
+      "description": "Rispondiamo di solito entro un giorno lavorativo.",
+      "fields": {
+        "name": "Nome e cognome",
+        "email": "Email di lavoro",
+        "company": "Azienda",
+        "message": "In cosa possiamo aiutarti?"
+      },
+      "required": "Obbligatorio",
+      "submit": "Invia messaggio",
+      "success": {
+        "title": "Messaggio inviato",
+        "description": "Grazie per averci scritto. Il nostro team ti contatterà a breve."
+      },
+      "error": {
+        "title": "Si è verificato un errore",
+        "description": "Non è stato possibile inviare la richiesta. Riprova o scrivi a hello@airnub.io."
+      },
+      "validation": {
+        "email": "Inserisci un'email di lavoro valida."
+      }
+    },
+    "shortcuts": {
+      "email": {
+        "title": "Email",
+        "sales": "Vendite e partnership",
+        "security": "Segnalazioni di sicurezza"
+      },
+      "officeHours": {
+        "title": "Orari di consulenza",
+        "description": "Partecipa a una sessione live settimanale per vedere come Airnub e Speckit accelerano la tua roadmap.",
+        "cta": "Prenota una consulenza"
+      }
+    }
+  }
+}
