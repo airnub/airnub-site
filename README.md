@@ -175,6 +175,44 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 
 (Use different keys per environment.)
 
+## GitHub Codespaces
+
+The repo ships with a `.devcontainer/` that provisions Node 24, pnpm, and the Supabase CLI. To spin up a Codespace with a fully local Supabase stack:
+
+1. Create a Codespace from the repository (the first boot runs `pnpm install` automatically).
+2. Copy environment files inside the Codespace:
+
+   ```bash
+   cp .env.example .env.local
+   cp .env.example apps/airnub/.env.local
+   cp .env.example apps/speckit/.env.local
+   ```
+
+3. Start the local Supabase services and capture the generated keys:
+
+   ```bash
+   supabase start
+   supabase status --local
+   ```
+
+   Use the printed `anon` and `service_role` keys to update the `.env.local` files. Set `NEXT_PUBLIC_SUPABASE_URL` to the forwarded Codespace URL for port **54321** (for example, `https://<codespace-id>-54321.app.github.dev`) so that browser requests reach the local Supabase API. Keep the Postgres connection string values pointing at `127.0.0.1` for server-side access.
+
+4. Forward the dev servers and Supabase ports:
+   * 3000 → Airnub app (`apps/airnub`)
+   * 3001 → Speckit app (`apps/speckit`)
+   * 54321 → Supabase API
+   * 54323 → Supabase Studio (optional, if you want the GUI)
+
+5. In one terminal tab, run both apps concurrently:
+
+   ```bash
+   pnpm dev
+   ```
+
+   Turborepo starts `next dev` in parallel for both apps; accept the port prompt if Next.js asks to increment from 3000. If you prefer isolated processes, use `pnpm --filter ./apps/airnub dev` and `pnpm --filter ./apps/speckit dev` in separate terminals.
+
+6. The Supabase containers continue running in the background once started; keep the Codespace alive while you work, and run `supabase stop` when you are finished to free resources.
+
 ---
 
 ## Getting started
