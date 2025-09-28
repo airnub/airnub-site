@@ -45,6 +45,54 @@
     "company": "Empresa",
     "contact": "Contacto"
   },
+  "footer": {
+    "columns": {
+      "products": {
+        "heading": "Productos",
+        "links": {
+          "speckit": "Speckit"
+        }
+      },
+      "resources": {
+        "heading": "Recursos",
+        "links": {
+          "docs": "Documentación",
+          "blog": "Blog",
+          "changelog": "Registro de cambios"
+        }
+      },
+      "openSource": {
+        "heading": "Código abierto",
+        "links": {
+          "org": "Organización de GitHub",
+          "speckit": "Speckit",
+          "templates": "Plantillas de infraestructura"
+        }
+      },
+      "trust": {
+        "heading": "Confianza",
+        "links": {
+          "trustCenter": "Centro de confianza",
+          "vdp": "VDP",
+          "securityTxt": "security.txt"
+        }
+      },
+      "company": {
+        "heading": "Empresa",
+        "links": {
+          "about": "Acerca de",
+          "careers": "Carreras",
+          "press": "Prensa",
+          "legal": "Legal"
+        }
+      }
+    },
+    "bottom": {
+      "privacy": "Privacidad",
+      "terms": "Términos",
+      "email": "hello@airnub.io"
+    }
+  },
   "home": {
     "hero": {
       "eyebrow": "Airnub crea plataformas de desarrolladores gobernadas y listas para la empresa.",

@@ -51,22 +51,30 @@ export default function HowItWorksPage() {
       <section>
         <Container className="grid gap-8 lg:grid-cols-3">
           {stages.map((stage, index) => (
-            <div key={stage.name} className="rounded-3xl border border-white/10 bg-white/10 p-8 shadow-lg">
-              <span className="text-xs font-semibold uppercase tracking-wide text-indigo-300">Step {index + 1}</span>
-              <h2 className="mt-4 text-xl font-semibold text-white">{stage.name}</h2>
-              <p className="mt-3 text-sm text-slate-300">{stage.description}</p>
+            <div
+              key={stage.name}
+              className="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg dark:border-white/10 dark:bg-white/10"
+            >
+              <span className="text-xs font-semibold uppercase tracking-wide text-indigo-600 dark:text-indigo-300">
+                Step {index + 1}
+              </span>
+              <h2 className="mt-4 text-xl font-semibold text-slate-900 dark:text-white">{stage.name}</h2>
+              <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{stage.description}</p>
             </div>
           ))}
         </Container>
       </section>
 
       <section>
-        <Container className="rounded-3xl border border-white/10 bg-white/10 p-10 shadow-xl">
+        <Container className="rounded-3xl border border-slate-200 bg-white p-10 shadow-xl dark:border-white/10 dark:bg-white/10">
           <div className="grid gap-8 lg:grid-cols-3">
             {audiences.map((audience) => (
-              <div key={audience.role} className="rounded-2xl border border-white/10 bg-slate-950/40 p-6">
-                <h3 className="text-lg font-semibold text-white">{audience.role}</h3>
-                <p className="mt-3 text-sm text-slate-300">{audience.value}</p>
+              <div
+                key={audience.role}
+                className="rounded-2xl border border-slate-200 bg-slate-50 p-6 dark:border-white/10 dark:bg-slate-950/40"
+              >
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{audience.role}</h3>
+                <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{audience.value}</p>
               </div>
             ))}
           </div>
@@ -74,12 +82,12 @@ export default function HowItWorksPage() {
       </section>
 
       <section>
-        <Container className="rounded-3xl border border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-10 shadow-xl">
-          <h2 className="text-3xl font-semibold text-white">Bring your own tooling</h2>
-          <p className="mt-4 text-sm text-slate-300">
+        <Container className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 via-white to-slate-100 p-10 shadow-xl dark:border-white/10 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
+          <h2 className="text-3xl font-semibold text-slate-900 dark:text-white">Bring your own tooling</h2>
+          <p className="mt-4 text-sm text-slate-600 dark:text-slate-300">
             Speckit integrates via webhooks, REST APIs, and SDKs. Use our Supabase adapters to sync data across environments with RLS intact.
           </p>
-          <ul className="mt-6 grid gap-4 text-sm text-slate-200 md:grid-cols-2">
+          <ul className="mt-6 grid gap-4 text-sm text-slate-700 dark:text-slate-200 md:grid-cols-2">
             <li>→ GitHub Actions, CircleCI, GitLab pipelines</li>
             <li>→ Terraform, Pulumi, CloudFormation</li>
             <li>→ ServiceNow, Jira, Linear workflow updates</li>

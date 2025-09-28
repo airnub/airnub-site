@@ -45,6 +45,54 @@
     "company": "Entreprise",
     "contact": "Contact"
   },
+  "footer": {
+    "columns": {
+      "products": {
+        "heading": "Produits",
+        "links": {
+          "speckit": "Speckit"
+        }
+      },
+      "resources": {
+        "heading": "Ressources",
+        "links": {
+          "docs": "Documentation",
+          "blog": "Blog",
+          "changelog": "Journal des modifications"
+        }
+      },
+      "openSource": {
+        "heading": "Open source",
+        "links": {
+          "org": "Organisation GitHub",
+          "speckit": "Speckit",
+          "templates": "Modèles d'infrastructure"
+        }
+      },
+      "trust": {
+        "heading": "Confiance",
+        "links": {
+          "trustCenter": "Centre de confiance",
+          "vdp": "VDP",
+          "securityTxt": "security.txt"
+        }
+      },
+      "company": {
+        "heading": "Entreprise",
+        "links": {
+          "about": "À propos",
+          "careers": "Carrières",
+          "press": "Presse",
+          "legal": "Juridique"
+        }
+      }
+    },
+    "bottom": {
+      "privacy": "Confidentialité",
+      "terms": "Conditions",
+      "email": "hello@airnub.io"
+    }
+  },
   "home": {
     "hero": {
       "eyebrow": "Airnub conçoit des plateformes développeurs gouvernées et prêtes pour l'entreprise.",

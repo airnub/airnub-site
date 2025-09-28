@@ -45,6 +45,54 @@
     "company": "Company",
     "contact": "Contact"
   },
+  "footer": {
+    "columns": {
+      "products": {
+        "heading": "Products",
+        "links": {
+          "speckit": "Speckit"
+        }
+      },
+      "resources": {
+        "heading": "Resources",
+        "links": {
+          "docs": "Docs",
+          "blog": "Blog",
+          "changelog": "Changelog"
+        }
+      },
+      "openSource": {
+        "heading": "Open Source",
+        "links": {
+          "org": "GitHub org",
+          "speckit": "Speckit",
+          "templates": "Infrastructure templates"
+        }
+      },
+      "trust": {
+        "heading": "Trust",
+        "links": {
+          "trustCenter": "Trust Center",
+          "vdp": "VDP",
+          "securityTxt": "security.txt"
+        }
+      },
+      "company": {
+        "heading": "Company",
+        "links": {
+          "about": "About",
+          "careers": "Careers",
+          "press": "Press",
+          "legal": "Legal"
+        }
+      }
+    },
+    "bottom": {
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "email": "hello@airnub.io"
+    }
+  },
   "home": {
     "hero": {
       "eyebrow": "Airnub builds governed, enterprise-ready developer platforms.",

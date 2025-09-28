@@ -45,6 +45,54 @@
     "company": "Cuideachta",
     "contact": "Teagmháil"
   },
+  "footer": {
+    "columns": {
+      "products": {
+        "heading": "Táirgí",
+        "links": {
+          "speckit": "Speckit"
+        }
+      },
+      "resources": {
+        "heading": "Acmhainní",
+        "links": {
+          "docs": "Doiciméadú",
+          "blog": "Blag",
+          "changelog": "Log athruithe"
+        }
+      },
+      "openSource": {
+        "heading": "Foinse oscailte",
+        "links": {
+          "org": "Eagras GitHub",
+          "speckit": "Speckit",
+          "templates": "Teimpléid bonneagair"
+        }
+      },
+      "trust": {
+        "heading": "Iontaobhas",
+        "links": {
+          "trustCenter": "Lárionad iontaobhais",
+          "vdp": "VDP",
+          "securityTxt": "security.txt"
+        }
+      },
+      "company": {
+        "heading": "Cuideachta",
+        "links": {
+          "about": "Fúinn",
+          "careers": "Gairmeacha",
+          "press": "Preas",
+          "legal": "Dlí"
+        }
+      }
+    },
+    "bottom": {
+      "privacy": "Príobháideachas",
+      "terms": "Téarmaí",
+      "email": "hello@airnub.io"
+    }
+  },
   "home": {
     "hero": {
       "eyebrow": "Tógann Airnub ardáin forbróirí rialaithe atá réidh don fhiontar.",

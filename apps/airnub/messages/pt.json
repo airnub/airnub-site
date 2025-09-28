@@ -45,6 +45,54 @@
     "company": "Empresa",
     "contact": "Contacto"
   },
+  "footer": {
+    "columns": {
+      "products": {
+        "heading": "Produtos",
+        "links": {
+          "speckit": "Speckit"
+        }
+      },
+      "resources": {
+        "heading": "Recursos",
+        "links": {
+          "docs": "Documentação",
+          "blog": "Blog",
+          "changelog": "Registo de alterações"
+        }
+      },
+      "openSource": {
+        "heading": "Código aberto",
+        "links": {
+          "org": "Organização GitHub",
+          "speckit": "Speckit",
+          "templates": "Modelos de infraestrutura"
+        }
+      },
+      "trust": {
+        "heading": "Confiança",
+        "links": {
+          "trustCenter": "Centro de confiança",
+          "vdp": "VDP",
+          "securityTxt": "security.txt"
+        }
+      },
+      "company": {
+        "heading": "Empresa",
+        "links": {
+          "about": "Sobre",
+          "careers": "Carreiras",
+          "press": "Imprensa",
+          "legal": "Jurídico"
+        }
+      }
+    },
+    "bottom": {
+      "privacy": "Privacidade",
+      "terms": "Termos",
+      "email": "hello@airnub.io"
+    }
+  },
   "home": {
     "hero": {
       "eyebrow": "A Airnub cria plataformas governadas e prontas para empresas.",

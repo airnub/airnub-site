@@ -3,7 +3,40 @@
     "skipToContent": "Scipeáil chuig ábhar",
     "themeToggle": "Téama toggle",
     "starLabel": "Tionscadal réalta",
-    "languageLabel": "Teanga"
+    "languageLabel": "Teanga",
+    "footer": {
+      "columns": {
+        "product": {
+          "heading": "Táirge",
+          "overview": "Forbhreathnú",
+          "howItWorks": "Conas a oibríonn sé",
+          "integrations": "Comhtháthuithe"
+        },
+        "resources": {
+          "heading": "Acmhainní",
+          "docs": "Doiciméadú",
+          "apiReference": "Tagairt API",
+          "community": "Pobal"
+        },
+        "openSource": {
+          "heading": "Foinse oscailte",
+          "repo": "Stórlann",
+          "templates": "Teimpléid",
+          "issues": "Ceisteanna",
+          "license": "Ceadúnas"
+        },
+        "trust": {
+          "heading": "Muinín",
+          "trustCenter": "Lárionad muiníne",
+          "status": "Stádas",
+          "securityTxt": "security.txt"
+        }
+      },
+      "contact": {
+        "label": "speckit@airnub.io",
+        "pricing": "Praghsanna"
+      }
+    }
   },
   "home": {
     "hero": {

@@ -45,6 +45,54 @@
     "company": "Unternehmen",
     "contact": "Kontakt"
   },
+  "footer": {
+    "columns": {
+      "products": {
+        "heading": "Produkte",
+        "links": {
+          "speckit": "Speckit"
+        }
+      },
+      "resources": {
+        "heading": "Ressourcen",
+        "links": {
+          "docs": "Dokumentation",
+          "blog": "Blog",
+          "changelog": "Änderungsprotokoll"
+        }
+      },
+      "openSource": {
+        "heading": "Open Source",
+        "links": {
+          "org": "GitHub-Organisation",
+          "speckit": "Speckit",
+          "templates": "Infrastrukturvorlagen"
+        }
+      },
+      "trust": {
+        "heading": "Vertrauen",
+        "links": {
+          "trustCenter": "Trust Center",
+          "vdp": "VDP",
+          "securityTxt": "security.txt"
+        }
+      },
+      "company": {
+        "heading": "Unternehmen",
+        "links": {
+          "about": "Über uns",
+          "careers": "Karriere",
+          "press": "Presse",
+          "legal": "Rechtliches"
+        }
+      }
+    },
+    "bottom": {
+      "privacy": "Datenschutz",
+      "terms": "Bedingungen",
+      "email": "hello@airnub.io"
+    }
+  },
   "home": {
     "hero": {
       "eyebrow": "Airnub entwickelt gesteuerte, unternehmensreife Entwicklerplattformen.",

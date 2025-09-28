@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
-import { FooterSpeckit, HeaderSpeckit, ThemeProvider } from "@airnub/ui";
+import { FooterSpeckit, HeaderSpeckit, ThemeProvider, type FooterColumn } from "@airnub/ui";
 import { JsonLd } from "../components/JsonLd";
 import { buildSpeckitSoftwareJsonLd } from "../lib/jsonld";
 import { SPECKIT_BASE_URL } from "../lib/routes";
@@ -52,6 +52,43 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   const language = await getCurrentLanguage();
   const messages = getSpeckitMessages(language);
   const layoutMessages = messages.layout;
+  const footerMessages = layoutMessages.footer;
+
+  const footerColumns: FooterColumn[] = [
+    {
+      heading: footerMessages.columns.product.heading,
+      links: [
+        { label: footerMessages.columns.product.overview, href: "/" },
+        { label: footerMessages.columns.product.howItWorks, href: "/how-it-works" },
+        { label: footerMessages.columns.product.integrations, href: "/product#integrations" },
+      ],
+    },
+    {
+      heading: footerMessages.columns.resources.heading,
+      links: [
+        { label: footerMessages.columns.resources.docs, href: "https://docs.speckit.dev", external: true },
+        { label: footerMessages.columns.resources.apiReference, href: "https://docs.speckit.dev/api", external: true },
+        { label: footerMessages.columns.resources.community, href: "https://github.com/airnub/speckit/discussions", external: true },
+      ],
+    },
+    {
+      heading: footerMessages.columns.openSource.heading,
+      links: [
+        { label: footerMessages.columns.openSource.repo, href: "https://github.com/airnub/speckit", external: true },
+        { label: footerMessages.columns.openSource.templates, href: "https://github.com/airnub/speckit-templates", external: true },
+        { label: footerMessages.columns.openSource.issues, href: "https://github.com/airnub/speckit/issues", external: true },
+        { label: footerMessages.columns.openSource.license, href: "https://github.com/airnub/speckit/blob/main/LICENSE", external: true },
+      ],
+    },
+    {
+      heading: footerMessages.columns.trust.heading,
+      links: [
+        { label: footerMessages.columns.trust.trustCenter, href: "https://trust.airnub.io", external: true },
+        { label: footerMessages.columns.trust.status, href: "https://status.airnub.io", external: true },
+        { label: footerMessages.columns.trust.securityTxt, href: "https://trust.airnub.io/.well-known/security.txt", external: true },
+      ],
+    },
+  ];
 
   return (
     <html
@@ -81,7 +118,12 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <main id="content" className="flex-1">
             {children}
           </main>
-          <FooterSpeckit />
+          <FooterSpeckit
+            columns={footerColumns}
+            contactLabel={footerMessages.contact.label}
+            pricingLabel={footerMessages.contact.pricing}
+            pricingHref="/pricing"
+          />
         </ThemeProvider>
       </body>
     </html>

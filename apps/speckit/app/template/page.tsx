@@ -51,9 +51,12 @@ export default function TemplatePage() {
       <section>
         <Container className="grid gap-6 md:grid-cols-2">
           {steps.map((step) => (
-            <div key={step.title} className="rounded-3xl border border-white/10 bg-white/10 p-8 shadow-lg">
-              <h2 className="text-xl font-semibold text-white">{step.title}</h2>
-              <p className="mt-3 text-sm text-slate-300">{step.description}</p>
+            <div
+              key={step.title}
+              className="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg dark:border-white/10 dark:bg-white/10"
+            >
+              <h2 className="text-xl font-semibold text-slate-900 dark:text-white">{step.title}</h2>
+              <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{step.description}</p>
             </div>
           ))}
         </Container>

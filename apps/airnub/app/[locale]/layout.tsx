@@ -1,5 +1,5 @@
 import "../globals.css";
-import { FooterAirnub, HeaderAirnub, ThemeProvider, ToastProvider } from "@airnub/ui";
+import { FooterAirnub, HeaderAirnub, ThemeProvider, ToastProvider, type FooterColumn } from "@airnub/ui";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
@@ -85,6 +85,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   const common = await getTranslations({ locale, namespace: "common" });
   const nav = await getTranslations({ locale, namespace: "nav" });
+  const footer = await getTranslations({ locale, namespace: "footer" });
 
   const withLocale = (path: string) => localeHref(locale, path);
   const navItems = [
@@ -95,6 +96,54 @@ export default async function LocaleLayout({
     { label: nav("trust"), href: withLocale("/trust") },
     { label: nav("company"), href: withLocale("/company") },
     { label: nav("contact"), href: withLocale("/contact") },
+  ];
+
+  const footerColumns: FooterColumn[] = [
+    {
+      heading: footer("columns.products.heading"),
+      links: [
+        { label: footer("columns.products.links.speckit"), href: "https://speckit.airnub.io", external: true },
+      ],
+    },
+    {
+      heading: footer("columns.resources.heading"),
+      links: [
+        { label: footer("columns.resources.links.docs"), href: "https://docs.speckit.dev", external: true },
+        { label: footer("columns.resources.links.blog"), href: "/resources#blog" },
+        { label: footer("columns.resources.links.changelog"), href: "/resources#changelog" },
+      ],
+    },
+    {
+      heading: footer("columns.openSource.heading"),
+      links: [
+        { label: footer("columns.openSource.links.org"), href: "https://github.com/airnub", external: true },
+        { label: footer("columns.openSource.links.speckit"), href: "https://github.com/airnub/speckit", external: true },
+        { label: footer("columns.openSource.links.templates"), href: "https://github.com/airnub/landing-zones", external: true },
+      ],
+    },
+    {
+      heading: footer("columns.trust.heading"),
+      links: [
+        { label: footer("columns.trust.links.trustCenter"), href: "https://trust.airnub.io", external: true },
+        { label: footer("columns.trust.links.vdp"), href: "https://trust.airnub.io/vdp", external: true },
+        { label: footer("columns.trust.links.securityTxt"), href: "https://trust.airnub.io/.well-known/security.txt", external: true },
+      ],
+    },
+    {
+      heading: footer("columns.company.heading"),
+      links: [
+        { label: footer("columns.company.links.about"), href: "/company" },
+        { label: footer("columns.company.links.careers"), href: "/company#careers" },
+        { label: footer("columns.company.links.press"), href: "/company#press" },
+        { label: footer("columns.company.links.legal"), href: "/company#legal" },
+      ],
+    },
+  ];
+
+  const footerBottomLinks = [
+    { label: footer("bottom.privacy"), href: "/company#privacy" },
+    { label: footer("bottom.terms"), href: "/company#terms" },
+    { label: footer("bottom.email"), href: "mailto:hello@airnub.io" },
   ];
 
   const maintenanceEnabled = await isMaintenanceModeEnabled();
@@ -142,7 +191,7 @@ export default async function LocaleLayout({
                   {children}
                 </MaintenanceGate>
               </main>
-              <FooterAirnub pathPrefix={`/${locale}`} />
+              <FooterAirnub pathPrefix={`/${locale}`} columns={footerColumns} bottomLinks={footerBottomLinks} />
             </ToastProvider>
           </ThemeProvider>
         </NextIntlClientProvider>
