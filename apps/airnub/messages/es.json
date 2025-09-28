@@ -1,0 +1,81 @@
+{
+  "common": {
+    "skipToContent": "Saltar al contenido",
+    "githubLabel": "Airnub en GitHub",
+    "theme": {
+      "toggle": "Cambiar tema"
+    },
+    "maintenance": {
+      "title": "Estamos preparando algo",
+      "description": "Airnub est\u00e1 preparando algo nuevo. Vuelve pronto o escr\u00edbenos para recibir novedades.",
+      "cta": "Escr\u00edbenos a hello@airnub.io"
+    }
+  },
+  "layout": {
+    "metadata": {
+      "titleDefault": "Airnub \u2014 Plataformas de desarrolladores gobernadas",
+      "titleTemplate": "%s | Airnub",
+      "description": "Airnub crea plataformas empresariales gobernadas que conectan cumplimiento, entrega y confianza.",
+      "ogDescription": "Airnub crea plataformas de desarrolladores listas para la empresa.",
+      "twitterDescription": "Airnub crea plataformas de desarrolladores listas para la empresa."
+    }
+  },
+  "toast": {
+    "dismiss": "Cerrar notificaci\u00f3n"
+  },
+  "nav": {
+    "products": "Productos",
+    "solutions": "Soluciones",
+    "services": "Servicios",
+    "resources": "Recursos",
+    "trust": "Confianza",
+    "company": "Empresa",
+    "contact": "Contacto"
+  },
+  "contact": {
+    "metadata": {
+      "title": "Contacto",
+      "description": "Ponte en contacto con Airnub para demostraciones, alianzas o consultas de prensa."
+    },
+    "hero": {
+      "eyebrow": "Contacto",
+      "title": "Construyamos tu plataforma centrada en la confianza",
+      "description": "Cu\u00e9ntanos tus objetivos y te conectaremos con el equipo adecuado de Airnub."
+    },
+    "form": {
+      "title": "Env\u00edan\u00f3s un mensaje",
+      "description": "Respondemos en un d\u00eda h\u00e1bil.",
+      "fields": {
+        "name": "Nombre completo",
+        "email": "Correo de trabajo",
+        "company": "Empresa",
+        "message": "\u00bfC\u00f3mo podemos ayudarte?"
+      },
+      "required": "Obligatorio",
+      "submit": "Enviar mensaje",
+      "success": {
+        "title": "Mensaje enviado",
+        "description": "Gracias por escribirnos. Nuestro equipo se pondr\u00e1 en contacto contigo pronto."
+      },
+      "error": {
+        "title": "Ocurri\u00f3 un error",
+        "description": "No pudimos enviar tu solicitud. Intenta nuevamente o escribe a hello@airnub.io."
+      },
+      "validation": {
+        "email": "Ingresa un correo electr\u00f3nico v\u00e1lido."
+      }
+    },
+    "shortcuts": {
+      "email": {
+        "title": "Correo",
+        "sales": "Ventas y alianzas",
+        "security": "Reportes de seguridad"
+      },
+      "officeHours": {
+        "title": "Oficinas virtuales",
+        "description": "Participa en una sesi\u00f3n semanal para conocer c\u00f3mo Airnub y Speckit aceleran tu hoja de ruta.",
+        "cta": "Reserva oficina virtual"
+      }
+    }
+  }
+}

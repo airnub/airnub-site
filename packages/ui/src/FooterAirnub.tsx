@@ -46,19 +46,29 @@ const footerColumns: FooterColumn[] = [
 type FooterAirnubProps = Omit<FooterProps, "logo" | "columns" | "bottomSlot" | "copyright"> & {
   bottomSlot?: ReactNode;
   copyrightPrefix?: string;
+  pathPrefix?: string;
 };
 
-export function FooterAirnub({ bottomSlot, copyrightPrefix = "Airnub", ...props }: FooterAirnubProps) {
+export function FooterAirnub({ bottomSlot, copyrightPrefix = "Airnub", pathPrefix = "", ...props }: FooterAirnubProps) {
   const year = new Date().getFullYear();
+  const withPrefix = (href: string) =>
+    href.startsWith("/") ? `${pathPrefix}${href}`.replace(/\/+/g, "/") : href;
+  const columns = footerColumns.map((column) => ({
+    ...column,
+    links: column.links.map((link) => ({
+      ...link,
+      href: withPrefix(link.href),
+    })),
+  }));
   return (
     <Footer
       logo={<AirnubWordmark className="h-6" />}
-      columns={footerColumns}
+      columns={columns}
       bottomSlot={
         bottomSlot ?? (
           <div className="flex items-center gap-3">
-            <Link href="/company#privacy">Privacy</Link>
-            <Link href="/company#terms">Terms</Link>
+            <Link href={withPrefix("/company#privacy")}>Privacy</Link>
+            <Link href={withPrefix("/company#terms")}>Terms</Link>
             <Link href="mailto:hello@airnub.io">hello@airnub.io</Link>
           </div>
         )

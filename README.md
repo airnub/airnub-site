@@ -91,6 +91,13 @@ JSON-LD, Metadata API, sitemaps, robots.txt, and OG image routes are part of eve
 
 ---
 
+## Runtime configuration
+
+* **Internationalization:** The Airnub app uses [`next-intl`](https://next-intl.dev/) with path-based routing. Supported locales live in `apps/airnub/i18n/routing.ts` (default `en`, secondary `es`). Add translations in `apps/airnub/messages/<locale>.json` and they’ll be picked up automatically.
+* **Maintenance gate:** Set `MAINTENANCE_MODE=true` in the environment to swap every page for the “coming soon” message while keeping APIs online. Update the copy via `apps/airnub/messages/*`.
+
+---
+
 ## Supabase
 
 * **Migrations:** live in `/supabase/migrations/` (single source of truth)

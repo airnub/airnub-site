@@ -10,7 +10,9 @@
   "dependencies": {
     "@airnub/brand": "workspace:*",
     "@radix-ui/react-slot": "^1.2.3",
-    "clsx": "^2.1.1"
+    "@radix-ui/react-toast": "^1.2.4",
+    "clsx": "^2.1.1",
+    "next-themes": "^0.4.4"
   },
   "peerDependencies": {
     "next": ">=15.0.0",
