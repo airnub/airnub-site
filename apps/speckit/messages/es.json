@@ -1,0 +1,113 @@
+{
+  "layout": {
+    "skipToContent": "Saltar al contenido",
+    "themeToggle": "Tema de alternar",
+    "starLabel": "Proyecto estrella",
+    "languageLabel": "Idioma"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Mota",
+      "title": "Endvibe codificación. ",
+      "description": "Speckit convierte el cumplimiento de una lucha en un bucle continuo y nativo del desarrollador. ",
+      "actions": {
+        "requestDemo": "Solicitar una demostración",
+        "exploreDocs": "Explorar documentos"
+      }
+    },
+    "features": [
+      {
+        "title": "Bucle de especificaciones gobernadas",
+        "description": "Decisiones de arquitectura modelo, revisiones de riesgos y verificaciones de políticas en una especificación de vida que se asigna a cada compromiso."
+      },
+      {
+        "title": "Puertas de políticas",
+        "description": "Codificar aprobaciones en CI/CD, infraestructura y tiempo de ejecución con controles reutilizables e historial transparente."
+      },
+      {
+        "title": "Evidencia continua",
+        "description": "Genere SBOMS, certificaciones y RTMS automáticamente para que las auditorías, las revisiones de los clientes y las actualizaciones de liderazgo no sean drama."
+      }
+    ],
+    "workflows": {
+      "title": "Speckit centraliza la gobernanza sin ralentizar el flujo",
+      "description": "Reemplace las hojas de cálculo, las aprobaciones ad hoc y las certificaciones únicas. ",
+      "items": [
+        {
+          "name": "Aprobaciones de liberación de los riesgos",
+          "description": "Listas de verificación dinámicas vinculadas a cambios de especificaciones, postura de riesgo y propietarios de políticas."
+        },
+        {
+          "name": "Cantero de la cadena de suministro",
+          "description": "Certificaciones alineadas por SLSA desde la fuente hasta la implementación, con gráficos de linaje de artefactos."
+        },
+        {
+          "name": "Informes de control",
+          "description": "Paneles en tiempo real para SoC 2, ISO 27001, HIPAA y las brechas de evidencia de Fedramp."
+        }
+      ]
+    },
+    "guardrails": {
+      "cardTitle": "Instantánea de barandilla",
+      "specTitle": "Cambio de especificaciones → liberación",
+      "checklist": [
+        "✔ Revisión de arquitectura firmada por plataforma",
+        "✔ Controles de seguridad verificados contra los perfiles de CIS",
+        "⚡ SBOM + certificación generada en la tubería"
+      ],
+      "evidenceTitle": "Evidencia de la corriente",
+      "evidence": [
+        {
+          "label": "Actualización de RTM",
+          "status": "Vivir"
+        },
+        {
+          "label": "Control de Fedramp AC-3",
+          "status": "Aprobar"
+        },
+        {
+          "label": "SLSA Atestación",
+          "status": "Listo"
+        }
+      ]
+    },
+    "alignment": {
+      "title": "Todos los equipos ven la misma fuente de verdad",
+      "description": "La plataforma, la seguridad, el cumplimiento y los líderes de productos colaboran en un contexto compartido. ",
+      "actions": {
+        "howItWorks": "Mira como funciona",
+        "template": "Descargar la plantilla de despliegue"
+      },
+      "cards": [
+        {
+          "title": "Flujos de trabajo de las primeras especies",
+          "description": "Ate de cada requisito a la implementación y validación en un solo lugar."
+        },
+        {
+          "title": "API listas para el cumplimiento",
+          "description": "Empuje evidencia a GRC Suites, Portales de confianza del cliente y sistemas de boletos."
+        },
+        {
+          "title": "Núcleo de supabase compartido",
+          "description": "El marketing y el producto conducen el flujo en un conjunto de datos Supabase protegido por RLS."
+        },
+        {
+          "title": "Desarrollador-nativo de UX",
+          "description": "CLI, acciones de GitHub y API que se encuentran con ingenieros en sus flujos de trabajo existentes."
+        }
+      ]
+    },
+    "integrations": {
+      "eyebrow": "Funciona con tu pila",
+      "items": [
+        "GitHub",
+        "GitLab",
+        "Jira",
+        "ServiceNow",
+        "Supabase",
+        "AWS",
+        "Azure"
+      ]
+    }
+  }
+}

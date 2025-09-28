@@ -1,0 +1,113 @@
+{
+  "layout": {
+    "skipToContent": "Passer au contenu",
+    "themeToggle": "Thème de basculement",
+    "starLabel": "Projet de star",
+    "languageLabel": "Langue"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Speckit",
+      "title": "Fin codant d'ambiance. ",
+      "description": "Speckit transforme la conformité d'une brouillage en une boucle continue et native du développeur. ",
+      "actions": {
+        "requestDemo": "Demander une démo",
+        "exploreDocs": "Explorer les documents"
+      }
+    },
+    "features": [
+      {
+        "title": "Boucle de spécification gouvernée",
+        "description": "Décisions d'architecture du modèle, examens des risques et vérifications politiques dans une spécification de vie qui correspond à chaque engagement."
+      },
+      {
+        "title": "Portes politiques",
+        "description": "Codifier les approbations à travers le CI / CD, l'infrastructure et le temps d'exécution avec des contrôles réutilisables et une histoire transparente."
+      },
+      {
+        "title": "Preuves continues",
+        "description": "Générez automatiquement SBOMS, ATTSTATIONS ET RTMS afin que les audits, les avis des clients et les mises à jour de leadership ne soient pas dramatiques."
+      }
+    ],
+    "workflows": {
+      "title": "Speckit centralise la gouvernance sans ralentir le flux",
+      "description": "Remplacez les feuilles de calcul, les approbations ad hoc et les attestations ponctuelles. ",
+      "items": [
+        {
+          "name": "Approbations de libération de risques",
+          "description": "Listes de contrôle dynamiques liées aux modifications des spécifications, à la posture des risques et aux propriétaires de politiques."
+        },
+        {
+          "name": "Attribution de la chaîne d'approvisionnement",
+          "description": "Attaches alignées SLSA de Source to Deploy, avec graphique de lignée artefactive."
+        },
+        {
+          "name": "Rapports de contrôle",
+          "description": "Tableaux de bord en temps réel pour les lacunes SOC 2, ISO 27001, HIPAA et FedRamp."
+        }
+      ]
+    },
+    "guardrails": {
+      "cardTitle": "Instantanément",
+      "specTitle": "Spécifier → Release",
+      "checklist": [
+        "✔ Revue d'architecture signée par plateforme",
+        "✔ Contrôles de sécurité vérifiés par rapport aux profils cis",
+        "⚡ SBOM + ATTESTATION GÉNÉRÉE EN PIPEAL"
+      ],
+      "evidenceTitle": "Flux de preuves",
+      "evidence": [
+        {
+          "label": "Mise à jour RTM",
+          "status": "En direct"
+        },
+        {
+          "label": "FedRamp AC-3 Contrôle",
+          "status": "Passer"
+        },
+        {
+          "label": "SLSA ATTATTATION",
+          "status": "Prêt"
+        }
+      ]
+    },
+    "alignment": {
+      "title": "Toutes les équipes voient la même source de vérité",
+      "description": "La plate-forme, la sécurité, la conformité et les chefs de produit collaborent dans un contexte partagé. ",
+      "actions": {
+        "howItWorks": "Voyez comment ça marche",
+        "template": "Télécharger le modèle de déploiement"
+      },
+      "cards": [
+        {
+          "title": "Flux de travail de spécification",
+          "description": "Attachez chaque exigence de mise en œuvre et de validation en un seul endroit."
+        },
+        {
+          "title": "API prêt pour la conformité",
+          "description": "Poussez les preuves des suites GRC, des portails de confiance des clients et des systèmes de billetterie."
+        },
+        {
+          "title": "Core Supabase partagé",
+          "description": "Le marketing et les producteurs de produits circulent dans un ensemble de données Supabase protégé par RLS."
+        },
+        {
+          "title": "Développeur-natif UX",
+          "description": "CLI, actions GitHub et API qui rencontrent des ingénieurs dans leurs flux de travail existants."
+        }
+      ]
+    },
+    "integrations": {
+      "eyebrow": "Fonctionne avec votre pile",
+      "items": [
+        "GitHub",
+        "GitLab",
+        "Jira",
+        "ServiceNow",
+        "Supabase",
+        "AWS",
+        "Azure"
+      ]
+    }
+  }
+}

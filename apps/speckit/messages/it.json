@@ -1,0 +1,113 @@
+{
+  "layout": {
+    "skipToContent": "Salta al contenuto",
+    "themeToggle": "Attiva tema",
+    "starLabel": "Progetto stellare",
+    "languageLabel": "Lingua"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Speckit",
+      "title": "End Codifica per l'atmosfera. ",
+      "description": "Speckit trasforma la conformità da uno scramble in un ciclo continuo e nativo degli sviluppatori. ",
+      "actions": {
+        "requestDemo": "Richiedere una demo",
+        "exploreDocs": "Esplora i documenti"
+      }
+    },
+    "features": [
+      {
+        "title": "Loop di specifiche governate",
+        "description": "Le decisioni sull'architettura del modello, le revisioni dei rischi e i controlli politici in una specifica vivente che mappano per ogni commit."
+      },
+      {
+        "title": "Portali politici",
+        "description": "Codificare le approvazioni attraverso CI/CD, infrastruttura e runtime con controlli riutilizzabili e storia trasparente."
+      },
+      {
+        "title": "Prove continue",
+        "description": "Generare SBOM, attestazioni e RTMS automaticamente, quindi audit, recensioni dei clienti e aggiornamenti di leadership non sono drammatici."
+      }
+    ],
+    "workflows": {
+      "title": "Speckit centralizza la governance senza rallentare il flusso",
+      "description": "Sostituire fogli di calcolo, approvazioni ad hoc e attestazioni una tantum. ",
+      "items": [
+        {
+          "name": "Approvazioni di rilascio consapevole del rischio",
+          "description": "Liste di controllo dinamiche legate alle modifiche delle specifiche, alla postura del rischio e ai proprietari di politiche."
+        },
+        {
+          "name": "Attestazione della catena di approvvigionamento",
+          "description": "Attestazioni allineate da SLSA da fonte da distribuire, con grafica del lignaggio artefatto."
+        },
+        {
+          "name": "Rapporti di controllo",
+          "description": "Dashboard in tempo reale per lacune di prove SOC 2, ISO 27001, HIPAA e FEDRAMP."
+        }
+      ]
+    },
+    "guardrails": {
+      "cardTitle": "Guardrail Snapshot",
+      "specTitle": "Cambia delle specifiche → Rilascio",
+      "checklist": [
+        "✔ Revisione dell'architettura firmata dalla piattaforma",
+        "✔ Controlli di sicurezza verificati rispetto ai profili CIS",
+        "⚡ SBOM + attestazione generata in pipeline"
+      ],
+      "evidenceTitle": "Flusso di prove",
+      "evidence": [
+        {
+          "label": "Aggiornamento RTM",
+          "status": "Vivere"
+        },
+        {
+          "label": "Controllo Fedramp AC-3",
+          "status": "Passaggio"
+        },
+        {
+          "label": "Attenzione di SLSA",
+          "status": "Pronto"
+        }
+      ]
+    },
+    "alignment": {
+      "title": "Tutte le squadre vedono la stessa fonte di verità",
+      "description": "I leader della piattaforma, della sicurezza, della conformità e dei prodotti collaborano in un contesto condiviso. ",
+      "actions": {
+        "howItWorks": "Guarda come funziona",
+        "template": "Scarica il modello di lancio"
+      },
+      "cards": [
+        {
+          "title": "Flussi di lavoro specifici",
+          "description": "Legare ogni requisito all'implementazione e alla convalida in un unico posto."
+        },
+        {
+          "title": "API pronte per la conformità",
+          "description": "Spingere le prove alle suite GRC, ai portali di fiducia dei clienti e ai sistemi di biglietteria."
+        },
+        {
+          "title": "Core di supabase condiviso",
+          "description": "I lead di marketing e prodotto fluiscono in un set di dati di suvabase protetto da RLS."
+        },
+        {
+          "title": "UX nativo sviluppatore",
+          "description": "CLI, azioni GitHub e API che incontrano gli ingegneri nei loro flussi di lavoro esistenti."
+        }
+      ]
+    },
+    "integrations": {
+      "eyebrow": "Funziona con il tuo stack",
+      "items": [
+        "GitHub",
+        "GitLab",
+        "Jira",
+        "ServiceNow",
+        "Supabase",
+        "AWS",
+        "Azure"
+      ]
+    }
+  }
+}

@@ -1,20 +1,12 @@
 "use client";
 
-import { useEffect, useState, type ChangeEvent } from "react";
+import { useEffect, useMemo, useState, type ChangeEvent } from "react";
+import { useRouter } from "next/navigation";
 import { clsx } from "clsx";
+import { languageCookieName, supportedLanguages, type SupportedLanguage } from "../i18n/config";
 
-const SUPPORTED_LANGUAGES = [
-  "en-US",
-  "en-GB",
-  "fr",
-  "es",
-  "de",
-  "pt",
-  "it",
-  "ga",
-] as const;
-
-type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
+const STORAGE_KEY = "speckit.language";
+const COOKIE_MAX_AGE_SECONDS = 60 * 60 * 24 * 365;
 
 const LANGUAGE_LABELS: Record<SupportedLanguage, string> = {
   "en-US": "English (US)",
@@ -27,35 +19,58 @@ const LANGUAGE_LABELS: Record<SupportedLanguage, string> = {
   ga: "Gaeilge",
 };
 
-const STORAGE_KEY = "speckit.language";
+type LanguageSwitcherProps = {
+  className?: string;
+  initialLanguage: SupportedLanguage;
+  label: string;
+};
 
-export function LanguageSwitcher({ className }: { className?: string }) {
-  const [language, setLanguage] = useState<SupportedLanguage>("en-US");
+function persistLanguage(value: SupportedLanguage) {
+  if (typeof document !== "undefined") {
+    document.cookie = `${languageCookieName}=${value}; path=/; max-age=${COOKIE_MAX_AGE_SECONDS}`;
+    document.documentElement.lang = value;
+  }
+  if (typeof window !== "undefined") {
+    window.localStorage.setItem(STORAGE_KEY, value);
+  }
+}
+
+export function LanguageSwitcher({ className, initialLanguage, label }: LanguageSwitcherProps) {
+  const router = useRouter();
+  const [language, setLanguage] = useState<SupportedLanguage>(initialLanguage);
 
   useEffect(() => {
-    const saved = typeof window !== "undefined" ? localStorage.getItem(STORAGE_KEY) : null;
-    if (saved && SUPPORTED_LANGUAGES.includes(saved as SupportedLanguage)) {
-      setLanguage(saved as SupportedLanguage);
-    }
-  }, []);
+    setLanguage(initialLanguage);
+  }, [initialLanguage]);
 
   useEffect(() => {
-    if (typeof document !== "undefined") {
-      document.documentElement.lang = language;
+    if (typeof window === "undefined") {
+      return;
     }
-    if (typeof window !== "undefined") {
-      localStorage.setItem(STORAGE_KEY, language);
+    const saved = window.localStorage.getItem(STORAGE_KEY) as SupportedLanguage | null;
+    if (saved && supportedLanguages.includes(saved) && saved !== initialLanguage) {
+      setLanguage(saved);
+      persistLanguage(saved);
+      router.refresh();
     }
-  }, [language]);
+  }, [initialLanguage, router]);
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    setLanguage(event.target.value as SupportedLanguage);
+    const next = event.target.value as SupportedLanguage;
+    if (next === language) {
+      return;
+    }
+    setLanguage(next);
+    persistLanguage(next);
+    router.refresh();
   };
+
+  const options = useMemo(() => supportedLanguages.map((code) => ({ code, label: LANGUAGE_LABELS[code] })), []);
 
   return (
     <div className={clsx("relative inline-flex", className)}>
       <label htmlFor="speckit-language-switcher" className="sr-only">
-        Language
+        {label}
       </label>
       <select
         id="speckit-language-switcher"
@@ -64,9 +79,9 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         onChange={handleChange}
         className="appearance-none rounded-full border border-slate-200 bg-white px-3 py-2 pr-8 text-sm font-medium text-slate-700 transition hover:border-slate-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600"
       >
-        {SUPPORTED_LANGUAGES.map((code) => (
-          <option key={code} value={code}>
-            {LANGUAGE_LABELS[code]}
+        {options.map((option) => (
+          <option key={option.code} value={option.code}>
+            {option.label}
           </option>
         ))}
       </select>

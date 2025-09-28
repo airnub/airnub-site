@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button, Container } from "@airnub/ui";
-import { serverFetch } from "@airnub/seo";
 import { PageHero } from "../components/PageHero";
+import { getCurrentLanguage } from "../lib/language";
+import { getSpeckitMessages } from "../i18n/messages";
 
 export const revalidate = 86_400;
 
@@ -10,64 +11,25 @@ export const metadata: Metadata = {
   title: "End vibe-coding. Ship secure, auditable releases.",
 };
 
-const speckitHomeContent = {
-  features: [
-    {
-      title: "Governed spec loop",
-      description:
-        "Model architecture decisions, risk reviews, and policy checks in a living spec that maps to every commit.",
-    },
-    {
-      title: "Policy gates",
-      description:
-        "Codify approvals across CI/CD, infrastructure, and runtime with reusable controls and transparent history.",
-    },
-    {
-      title: "Continuous evidence",
-      description:
-        "Generate SBOMs, attestations, and RTMs automatically so audits, customer reviews, and leadership updates are no-drama.",
-    },
-  ],
-  workflows: [
-    {
-      name: "Risk-aware release approvals",
-      description: "Dynamic checklists tied to spec changes, risk posture, and policy owners.",
-    },
-    {
-      name: "Supply chain attestation",
-      description: "SLSA-aligned attestations from source to deploy, with artifact lineage graphing.",
-    },
-    {
-      name: "Control reporting",
-      description: "Real-time dashboards for SOC 2, ISO 27001, HIPAA, and FedRAMP evidence gaps.",
-    },
-  ],
-  integrations: ["GitHub", "GitLab", "Jira", "ServiceNow", "Supabase", "AWS", "Azure"],
-} as const;
-
-const speckitHomeContentUrl = `data:application/json,${encodeURIComponent(JSON.stringify(speckitHomeContent))}`;
-
-type SpeckitHomeContent = typeof speckitHomeContent;
-
 export default async function SpeckitHome() {
-  const { features, workflows, integrations } = await serverFetch<SpeckitHomeContent>(speckitHomeContentUrl, {
-    revalidate,
-  });
+  const language = await getCurrentLanguage();
+  const messages = getSpeckitMessages(language);
+  const home = messages.home;
 
   return (
     <div className="space-y-24 pb-24">
       <PageHero
-        eyebrow="Speckit"
-        title="End vibe-coding. Ship secure, auditable releases."
-        description="Speckit turns compliance from a scramble into a continuous, developer-native loop. Govern specs, orchestrate policy gates, and ship evidence on demand."
+        eyebrow={home.hero.eyebrow}
+        title={home.hero.title}
+        description={home.hero.description}
         actions={
           <>
             <Button asChild>
-              <Link href="/contact">Request a demo</Link>
+              <Link href="/contact">{home.hero.actions.requestDemo}</Link>
             </Button>
             <Button variant="ghost" asChild>
               <Link href="https://docs.speckit.dev" target="_blank" rel="noreferrer">
-                Explore docs
+                {home.hero.actions.exploreDocs}
               </Link>
             </Button>
           </>
@@ -76,7 +38,7 @@ export default async function SpeckitHome() {
 
       <section>
         <Container className="grid gap-8 lg:grid-cols-3">
-          {features.map((feature) => (
+          {home.features.map((feature) => (
             <div key={feature.title} className="rounded-3xl border border-white/10 bg-white/10 p-8 shadow-lg">
               <h3 className="text-xl font-semibold text-white">{feature.title}</h3>
               <p className="mt-3 text-sm text-slate-300">{feature.description}</p>
@@ -88,12 +50,10 @@ export default async function SpeckitHome() {
       <section>
         <Container className="grid gap-12 lg:grid-cols-[3fr,2fr] lg:items-center">
           <div>
-            <h2 className="text-3xl font-semibold text-white">Speckit centralizes governance without slowing flow</h2>
-            <p className="mt-4 text-base text-slate-300">
-              Replace spreadsheets, ad hoc approvals, and one-off attestations. Speckit codifies governance into developer workflows, then feeds evidence to the people and systems that need it.
-            </p>
+            <h2 className="text-3xl font-semibold text-white">{home.workflows.title}</h2>
+            <p className="mt-4 text-base text-slate-300">{home.workflows.description}</p>
             <div className="mt-6 grid gap-4">
-              {workflows.map((workflow) => (
+              {home.workflows.items.map((workflow) => (
                 <div key={workflow.name} className="rounded-2xl border border-white/10 bg-white/5 p-4">
                   <h3 className="text-lg font-semibold text-white">{workflow.name}</h3>
                   <p className="mt-2 text-sm text-slate-300">{workflow.description}</p>
@@ -105,31 +65,25 @@ export default async function SpeckitHome() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.25),_transparent_55%)]" aria-hidden="true" />
             <div className="relative space-y-6 text-sm text-slate-200">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wide text-indigo-300">Guardrail snapshot</p>
+                <p className="text-xs font-semibold uppercase tracking-wide text-indigo-300">{home.guardrails.cardTitle}</p>
                 <div className="mt-3 rounded-2xl border border-white/10 bg-slate-950/60 p-4">
-                  <p className="font-semibold text-white">Spec change → Release</p>
+                  <p className="font-semibold text-white">{home.guardrails.specTitle}</p>
                   <ul className="mt-3 space-y-2 text-xs text-slate-300">
-                    <li>✔ Architecture review signed by Platform</li>
-                    <li>✔ Security controls verified against CIS profiles</li>
-                    <li>⚡ SBOM + attestation generated in pipeline</li>
+                    {home.guardrails.checklist.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
                   </ul>
                 </div>
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wide text-indigo-300">Evidence stream</p>
+                <p className="text-xs font-semibold uppercase tracking-wide text-indigo-300">{home.guardrails.evidenceTitle}</p>
                 <div className="mt-3 space-y-2 text-xs text-slate-200">
-                  <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-                    <span>RTM update</span>
-                    <span className="text-indigo-300">Live</span>
-                  </div>
-                  <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-                    <span>FedRAMP AC-3 control</span>
-                    <span className="text-indigo-300">Pass</span>
-                  </div>
-                  <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-                    <span>SLSA attestation</span>
-                    <span className="text-indigo-300">Ready</span>
-                  </div>
+                  {home.guardrails.evidence.map((item) => (
+                    <div key={item.label} className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-3 py-2">
+                      <span>{item.label}</span>
+                      <span className="text-indigo-300">{item.status}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -141,36 +95,24 @@ export default async function SpeckitHome() {
         <Container className="rounded-3xl border border-white/10 bg-white/10 p-10 shadow-xl">
           <div className="grid gap-10 lg:grid-cols-[2fr,3fr] lg:items-center">
             <div>
-              <h2 className="text-3xl font-semibold text-white">All teams see the same source of truth</h2>
-              <p className="mt-4 text-base text-slate-200">
-                Platform, security, compliance, and product leaders collaborate in a shared context. Speckit syncs with GitHub, Jira, ServiceNow, and Supabase so your data stays where work already happens.
-              </p>
+              <h2 className="text-3xl font-semibold text-white">{home.alignment.title}</h2>
+              <p className="mt-4 text-base text-slate-200">{home.alignment.description}</p>
               <div className="mt-6 flex flex-wrap gap-4">
                 <Button variant="ghost" asChild>
-                  <Link href="/how-it-works">See how it works</Link>
+                  <Link href="/how-it-works">{home.alignment.actions.howItWorks}</Link>
                 </Button>
                 <Button asChild>
-                  <Link href="/template">Download rollout template</Link>
+                  <Link href="/template">{home.alignment.actions.template}</Link>
                 </Button>
               </div>
             </div>
             <div className="grid gap-4 md:grid-cols-2">
-              <div className="rounded-2xl border border-white/10 bg-slate-950/40 p-6">
-                <h3 className="text-lg font-semibold text-white">Spec-first workflows</h3>
-                <p className="mt-2 text-sm text-slate-300">Tie every requirement to implementation and validation in one place.</p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-slate-950/40 p-6">
-                <h3 className="text-lg font-semibold text-white">Compliance-ready APIs</h3>
-                <p className="mt-2 text-sm text-slate-300">Push evidence to GRC suites, customer trust portals, and ticketing systems.</p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-slate-950/40 p-6">
-                <h3 className="text-lg font-semibold text-white">Shared Supabase core</h3>
-                <p className="mt-2 text-sm text-slate-300">Marketing and product leads flow into one RLS-protected Supabase dataset.</p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-slate-950/40 p-6">
-                <h3 className="text-lg font-semibold text-white">Developer-native UX</h3>
-                <p className="mt-2 text-sm text-slate-300">CLI, GitHub Actions, and APIs that meet engineers in their existing workflows.</p>
-              </div>
+              {home.alignment.cards.map((card) => (
+                <div key={card.title} className="rounded-2xl border border-white/10 bg-slate-950/40 p-6">
+                  <h3 className="text-lg font-semibold text-white">{card.title}</h3>
+                  <p className="mt-2 text-sm text-slate-300">{card.description}</p>
+                </div>
+              ))}
             </div>
           </div>
         </Container>
@@ -178,9 +120,9 @@ export default async function SpeckitHome() {
 
       <section>
         <Container className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-wide text-indigo-300">Works with your stack</p>
+          <p className="text-sm font-semibold uppercase tracking-wide text-indigo-300">{home.integrations.eyebrow}</p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-slate-300">
-            {integrations.map((logo) => (
+            {home.integrations.items.map((logo) => (
               <div key={logo} className="flex h-16 w-36 items-center justify-center rounded-2xl border border-white/10 bg-white/5">
                 <span className="text-sm font-semibold text-slate-200">{logo}</span>
               </div>

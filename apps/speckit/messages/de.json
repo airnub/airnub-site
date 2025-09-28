@@ -1,0 +1,113 @@
+{
+  "layout": {
+    "skipToContent": "Überspringen Sie zu Inhalten",
+    "themeToggle": "Thema umschalten",
+    "starLabel": "Sternprojekt",
+    "languageLabel": "Sprache"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Speckit",
+      "title": "End-Vibe-Codierung. ",
+      "description": "Speckkit verwandelt die Einhaltung eines Scrambles in eine kontinuierliche Entwicklernative. ",
+      "actions": {
+        "requestDemo": "Fordern Sie eine Demo an",
+        "exploreDocs": "Erforschen von Dokumenten"
+      }
+    },
+    "features": [
+      {
+        "title": "Regierte Spezifikationsschleife",
+        "description": "Modellarchitekturentscheidungen, Risikoprüfungen und Richtlinienprüfungen in einer lebenden Spezifikation, die jedem Commit ordnet."
+      },
+      {
+        "title": "Politiktore",
+        "description": "Kodifizieren Sie die Genehmigungen über CI/CD, Infrastruktur und Laufzeit mit wiederverwendbaren Kontrollen und transparenten Geschichte."
+      },
+      {
+        "title": "Kontinuierliche Beweise",
+        "description": "Generieren Sie SBOMs, Bescheinigungen und RTMs automatisch, sodass Audits, Kundenbewertungen und Führungsaktualisierungen kein Drama sind."
+      }
+    ],
+    "workflows": {
+      "title": "Speckit zentralisiert die Governance, ohne den Fluss zu verlangsamen",
+      "description": "Ersetzen Sie Tabellenkalkulationen, Ad-hoc-Zulassungen und einmalige Bescheinigungen. ",
+      "items": [
+        {
+          "name": "Risikoveröffentlichungsgenehmigungen",
+          "description": "Dynamische Checklisten, die mit Spezifikationsänderungen, Risikohaltung und politischen Eigentümern gebunden sind."
+        },
+        {
+          "name": "Lieferkette Bescheinigung",
+          "description": "SLSA-ausgerichtete Bescheinigungen von der Quelle zum Bereitstellen, mit Artefaktliniengrafik."
+        },
+        {
+          "name": "Kontrollberichterstattung",
+          "description": "Echtzeit Dashboards für Soc 2, ISO 27001, HIPAA und Fedramp Evidence Lücken."
+        }
+      ]
+    },
+    "guardrails": {
+      "cardTitle": "Snapshot mit Leitplanken",
+      "specTitle": "Spezifikation Änderung → Freigabe",
+      "checklist": [
+        "✔ Architekturüberprüfung von der Plattform signiert",
+        "✔ Sicherheitskontrollen gegen CIS -Profile überprüft",
+        "⚡ SBOM + Bescheinigung in der Pipeline erzeugt"
+      ],
+      "evidenceTitle": "Beweisstrom",
+      "evidence": [
+        {
+          "label": "RTM -Update",
+          "status": "Live"
+        },
+        {
+          "label": "Fedramp AC-3-Kontrolle",
+          "status": "Passieren"
+        },
+        {
+          "label": "SLSA -Bescheinigung",
+          "status": "Bereit"
+        }
+      ]
+    },
+    "alignment": {
+      "title": "Alle Teams sehen die gleiche Quelle der Wahrheit",
+      "description": "In einem gemeinsamen Kontext arbeiten die Plattform-, Sicherheit-, Compliance- und Produktführer zusammen. ",
+      "actions": {
+        "howItWorks": "Sehen Sie, wie es funktioniert",
+        "template": "Laden Sie die Rollout -Vorlage herunter"
+      },
+      "cards": [
+        {
+          "title": "Spezifische Workflows",
+          "description": "Binden Sie jede Anforderung an die Implementierung und Validierung an einem Ort zusammen."
+        },
+        {
+          "title": "Compliance-fähige APIs",
+          "description": "Schieben Sie Beweise an GRC -Suiten, Customer Trust -Portale und Ticketing -Systeme."
+        },
+        {
+          "title": "Shared Supabase Core",
+          "description": "Marketing und Produkt führen zu einem RLS-geschützten Supabase-Datensatz."
+        },
+        {
+          "title": "Entwickler-natives UX",
+          "description": "CLI, Github -Aktionen und APIs, die Ingenieure in ihren vorhandenen Workflows treffen."
+        }
+      ]
+    },
+    "integrations": {
+      "eyebrow": "Funktioniert mit Ihrem Stapel",
+      "items": [
+        "GitHub",
+        "GitLab",
+        "Jira",
+        "ServiceNow",
+        "Supabase",
+        "AWS",
+        "Azure"
+      ]
+    }
+  }
+}

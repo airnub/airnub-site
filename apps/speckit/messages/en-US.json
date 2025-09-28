@@ -1,0 +1,105 @@
+{
+  "layout": {
+    "skipToContent": "Skip to content",
+    "themeToggle": "Toggle theme",
+    "starLabel": "Star project",
+    "languageLabel": "Language"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Speckit",
+      "title": "End vibe-coding. Ship secure, auditable releases.",
+      "description": "Speckit turns compliance from a scramble into a continuous, developer-native loop. Govern specs, orchestrate policy gates, and ship evidence on demand.",
+      "actions": {
+        "requestDemo": "Request a demo",
+        "exploreDocs": "Explore docs"
+      }
+    },
+    "features": [
+      {
+        "title": "Governed spec loop",
+        "description": "Model architecture decisions, risk reviews, and policy checks in a living spec that maps to every commit."
+      },
+      {
+        "title": "Policy gates",
+        "description": "Codify approvals across CI/CD, infrastructure, and runtime with reusable controls and transparent history."
+      },
+      {
+        "title": "Continuous evidence",
+        "description": "Generate SBOMs, attestations, and RTMs automatically so audits, customer reviews, and leadership updates are no-drama."
+      }
+    ],
+    "workflows": {
+      "title": "Speckit centralizes governance without slowing flow",
+      "description": "Replace spreadsheets, ad hoc approvals, and one-off attestations. Speckit codifies governance into developer workflows, then feeds evidence to the people and systems that need it.",
+      "items": [
+        {
+          "name": "Risk-aware release approvals",
+          "description": "Dynamic checklists tied to spec changes, risk posture, and policy owners."
+        },
+        {
+          "name": "Supply chain attestation",
+          "description": "SLSA-aligned attestations from source to deploy, with artifact lineage graphing."
+        },
+        {
+          "name": "Control reporting",
+          "description": "Real-time dashboards for SOC 2, ISO 27001, HIPAA, and FedRAMP evidence gaps."
+        }
+      ]
+    },
+    "guardrails": {
+      "cardTitle": "Guardrail snapshot",
+      "specTitle": "Spec change → Release",
+      "checklist": [
+        "✔ Architecture review signed by Platform",
+        "✔ Security controls verified against CIS profiles",
+        "⚡ SBOM + attestation generated in pipeline"
+      ],
+      "evidenceTitle": "Evidence stream",
+      "evidence": [
+        {
+          "label": "RTM update",
+          "status": "Live"
+        },
+        {
+          "label": "FedRAMP AC-3 control",
+          "status": "Pass"
+        },
+        {
+          "label": "SLSA attestation",
+          "status": "Ready"
+        }
+      ]
+    },
+    "alignment": {
+      "title": "All teams see the same source of truth",
+      "description": "Platform, security, compliance, and product leaders collaborate in a shared context. Speckit syncs with GitHub, Jira, ServiceNow, and Supabase so your data stays where work already happens.",
+      "actions": {
+        "howItWorks": "See how it works",
+        "template": "Download rollout template"
+      },
+      "cards": [
+        {
+          "title": "Spec-first workflows",
+          "description": "Tie every requirement to implementation and validation in one place."
+        },
+        {
+          "title": "Compliance-ready APIs",
+          "description": "Push evidence to GRC suites, customer trust portals, and ticketing systems."
+        },
+        {
+          "title": "Shared Supabase core",
+          "description": "Marketing and product leads flow into one RLS-protected Supabase dataset."
+        },
+        {
+          "title": "Developer-native UX",
+          "description": "CLI, GitHub Actions, and APIs that meet engineers in their existing workflows."
+        }
+      ]
+    },
+    "integrations": {
+      "eyebrow": "Works with your stack",
+      "items": ["GitHub", "GitLab", "Jira", "ServiceNow", "Supabase", "AWS", "Azure"]
+    }
+  }
+}

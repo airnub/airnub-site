@@ -1,0 +1,113 @@
+{
+  "layout": {
+    "skipToContent": "Scipeáil chuig ábhar",
+    "themeToggle": "Téama toggle",
+    "starLabel": "Tionscadal réalta",
+    "languageLabel": "Teanga"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Speiceas",
+      "title": "Deireadh a chur le códú vibe. ",
+      "description": "Casann Speckit comhlíonadh ó scramble go lúb leanúnach, dúchais forbróra. ",
+      "actions": {
+        "requestDemo": "Taispeántas a iarraidh",
+        "exploreDocs": "Docs a iniúchadh"
+      }
+    },
+    "features": [
+      {
+        "title": "Lúb Spec Rialaithe",
+        "description": "Cinntí ailtireachta samhail, athbhreithnithe riosca, agus seiceálacha beartais i spec beo a léarscáilíonn gach tiomantas."
+      },
+      {
+        "title": "Geataí beartais",
+        "description": "Ceaduithe a chódú ar fud CI/CD, Bonneagar, agus Runtime le rialuithe ath -inúsáidte agus stair thrédhearcach."
+      },
+      {
+        "title": "Fianaise leanúnach",
+        "description": "Cruthaigh sboms, fianú, agus RTMS go huathoibríoch mar sin níl aon drámaí in iniúchtaí, athbhreithnithe custaiméirí, agus nuashonruithe ceannaireachta."
+      }
+    ],
+    "workflows": {
+      "title": "Déanann Speckit an rialachas a lárú gan sreabhadh a mhoilliú",
+      "description": "In ionad scarbhileoga, ceaduithe ad hoc, agus fianaise aon uaire. ",
+      "items": [
+        {
+          "name": "Ceaduithe Scaoilte Riosca-Aitheanta",
+          "description": "Seicliostaí dinimiciúla ceangailte le hathruithe sonracha, staidiúir riosca, agus úinéirí beartais."
+        },
+        {
+          "name": "Fianú slabhra soláthair",
+          "description": "Fianuithe ailínithe SLSA ón bhfoinse go dtí an t-imscaradh, le grafáil lineage déantáin."
+        },
+        {
+          "name": "Tuairisciú rialaithe",
+          "description": "Dashboards fíor-ama do SOC 2, ISO 27001, HIPAA, agus bearnaí fianaise FedRamp."
+        }
+      ]
+    },
+    "guardrails": {
+      "cardTitle": "Léargas ráille cosanta",
+      "specTitle": "Athrú Spec → Scaoileadh",
+      "checklist": [
+        "✔ Athbhreithniú ailtireachta arna shíniú ag Ardán",
+        "✔ Rialuithe Slándála Fíoraithe i gcoinne Próifílí CIS",
+        "⚡ SBOM + Fianú a ghintear i bpíblíne"
+      ],
+      "evidenceTitle": "Sruth fianaise",
+      "evidence": [
+        {
+          "label": "Nuashonrú RTM",
+          "status": "Cuir díot"
+        },
+        {
+          "label": "Rialú Fedramp AC-3",
+          "status": "Téigh thart"
+        },
+        {
+          "label": "Fianú SLSA",
+          "status": "Ullmhaigh"
+        }
+      ]
+    },
+    "alignment": {
+      "title": "Feiceann gach foireann an fhoinse fhírinne chéanna",
+      "description": "Comhoibríonn Ardán, Slándáil, Comhlíonadh, agus Ceannairí Táirgí i gcomhthéacs comhroinnte. ",
+      "actions": {
+        "howItWorks": "Féach conas a oibríonn sé",
+        "template": "Íoslódáil teimpléad rolladh amach"
+      },
+      "cards": [
+        {
+          "title": "Sreafaí oibre den chéad uair",
+          "description": "Ceangail gach ceanglas maidir le cur i bhfeidhm agus bailíochtú in aon áit amháin."
+        },
+        {
+          "title": "APIs réidh-réidh le comhlíonadh",
+          "description": "Fianaise a bhrú chuig seomraí GRC, tairseacha iontaobhais custaiméirí, agus córais ticéad."
+        },
+        {
+          "title": "Croí supabase roinnte",
+          "description": "Téann margaíocht agus táirge i gceannas ar aon tacar sonraí supabase atá cosanta ag RLS."
+        },
+        {
+          "title": "Forbróir dúchais UX",
+          "description": "CLI, GitHub Actions, agus APIs a bhuaileann le hinnealtóirí ina sreafaí oibre atá ann cheana féin."
+        }
+      ]
+    },
+    "integrations": {
+      "eyebrow": "Oibríonn sé le do chairn",
+      "items": [
+        "GitHub",
+        "GitLab",
+        "Jira",
+        "ServiceNow",
+        "Supabase",
+        "AWS",
+        "Azure"
+      ]
+    }
+  }
+}

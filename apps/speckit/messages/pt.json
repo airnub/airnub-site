@@ -1,0 +1,113 @@
+{
+  "layout": {
+    "skipToContent": "Pule para o conteúdo",
+    "themeToggle": "Tema de alternância",
+    "starLabel": "Projeto Star",
+    "languageLabel": "Linguagem"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Speckit",
+      "title": "End Coding Vibe. ",
+      "description": "Speckit transforma a conformidade de uma disputa em um loop contínuo e nativo do desenvolvedor. ",
+      "actions": {
+        "requestDemo": "Solicite uma demonstração",
+        "exploreDocs": "Explore os documentos"
+      }
+    },
+    "features": [
+      {
+        "title": "Loop de especificações governadas",
+        "description": "Modelar decisões de arquitetura, revisões de risco e verificações de políticas em uma especificação viva que mapeia todos os compromissos."
+      },
+      {
+        "title": "Portões de política",
+        "description": "Codifique as aprovações em CI/CD, infraestrutura e tempo de execução com controles reutilizáveis ​​e histórico transparente."
+      },
+      {
+        "title": "Evidência contínua",
+        "description": "Gere SBOMs, atestados e RTMs automaticamente, para que auditorias, análises de clientes e atualizações de liderança não sejam drama."
+      }
+    ],
+    "workflows": {
+      "title": "Speckit centraliza a governança sem diminuir o fluxo",
+      "description": "Substitua as planilhas, aprovações ad hoc e atestados pontuais. ",
+      "items": [
+        {
+          "name": "Aprovações de liberação de consciência de riscos",
+          "description": "Listas de verificação dinâmicas vinculadas a alterações de especificações, postura de risco e proprietários de políticas."
+        },
+        {
+          "name": "Atestado da cadeia de suprimentos",
+          "description": "Atestações alinhadas à SLSA da fonte para implantar, com o gráfico de linhagem de artefato."
+        },
+        {
+          "name": "Relatório de controle",
+          "description": "Os painéis em tempo real para o SOC 2, ISO 27001, HIPAA e FedRamp Evidence Lacs."
+        }
+      ]
+    },
+    "guardrails": {
+      "cardTitle": "Snapshot de guarda -corail",
+      "specTitle": "Alteração de especificações → Liberação",
+      "checklist": [
+        "✔ Revisão da arquitetura assinada por plataforma",
+        "✔ Controles de segurança verificados contra perfis CIS",
+        "⚡ SBOM + atestado gerado em pipeline"
+      ],
+      "evidenceTitle": "Fluxo de evidências",
+      "evidence": [
+        {
+          "label": "Atualização RTM",
+          "status": "Ao vivo"
+        },
+        {
+          "label": "Controle FedRamp AC-3",
+          "status": "Passar"
+        },
+        {
+          "label": "SLSA atestado",
+          "status": "Preparar"
+        }
+      ]
+    },
+    "alignment": {
+      "title": "Todas as equipes veem a mesma fonte de verdade",
+      "description": "Os líderes de plataforma, segurança, conformidade e produtos colaboram em um contexto compartilhado. ",
+      "actions": {
+        "howItWorks": "Veja como funciona",
+        "template": "Faça o download do modelo de lançamento"
+      },
+      "cards": [
+        {
+          "title": "Fluxos de trabalho de primeira especificação",
+          "description": "Amarre todos os requisitos à implementação e validação em um só lugar."
+        },
+        {
+          "title": "APIs prontas para conformidade",
+          "description": "Empurre evidências para as suítes GRC, portais de confiança do cliente e sistemas de bilhetes."
+        },
+        {
+          "title": "Core de supabase compartilhado",
+          "description": "O marketing e o produto levam a um conjunto de dados supabase protegido pela RLS."
+        },
+        {
+          "title": "Desenvolvedor Native UX",
+          "description": "CLI, ações do GitHub e APIs que encontram engenheiros em seus fluxos de trabalho existentes."
+        }
+      ]
+    },
+    "integrations": {
+      "eyebrow": "Funciona com sua pilha",
+      "items": [
+        "GitHub",
+        "GitLab",
+        "Jira",
+        "ServiceNow",
+        "Supabase",
+        "AWS",
+        "Azure"
+      ]
+    }
+  }
+}

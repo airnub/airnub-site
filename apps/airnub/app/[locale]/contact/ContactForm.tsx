@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState, useEffect, useMemo, useRef } from "react";
+import { useFormStatus } from "react-dom";
 import { Button, FormMessage, useToast } from "@airnub/ui";
 import type { LeadFormState } from "./actions";
 
@@ -44,7 +44,7 @@ function SubmitButton({ label }: { label: string }) {
 export function ContactForm({ action, initialState, labels, toastDismissLabel }: ContactFormProps) {
   const formRef = useRef<HTMLFormElement>(null);
   const { notify } = useToast();
-  const [state, formAction] = useFormState(action, initialState);
+  const [state, formAction] = useActionState(action, initialState);
   const previousStatus = useRef<LeadFormState["status"]>(initialState.status);
   const successTitle = labels.success.title;
   const successDescription = labels.success.description;
