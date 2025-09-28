@@ -1,0 +1,25 @@
+name: Setup pnpm
+description: Configure Node.js and pnpm with consistent versions
+inputs:
+  node-version-file:
+    description: Path to the file containing the Node.js version
+    required: false
+    default: .nvmrc
+  pnpm-version:
+    description: pnpm version to activate via Corepack
+    required: false
+    default: 10.17.1
+runs:
+  using: composite
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: ${{ inputs.node-version-file }}
+        cache: pnpm
+    - name: Enable Corepack
+      shell: bash
+      run: corepack enable
+    - name: Activate pnpm
+      shell: bash
+      run: corepack prepare pnpm@${{ inputs.pnpm-version }} --activate
