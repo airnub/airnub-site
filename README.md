@@ -180,7 +180,7 @@ NEXT_PUBLIC_SUPABASE_URL=...
 NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 ```
 
-(Use different keys per environment.)
+(Use different keys per environment.) After `supabase start` you can run `pnpm db:env:local` to sync the latest keys into `.env.local`, `apps/airnub/.env.local`, and `apps/speckit/.env.local` directly from the Supabase CLI output.
 
 ## GitHub Codespaces
 
@@ -199,10 +199,10 @@ The repo ships with a `.devcontainer/` that provisions Node 24, pnpm, and the Su
 
    ```bash
    supabase start
-   supabase status --local
+   pnpm db:env:local
    ```
 
-   Use the printed `anon` and `service_role` keys to update the `.env.local` files. Set `NEXT_PUBLIC_SUPABASE_URL` to the forwarded Codespace URL for port **54321** (for example, `https://<codespace-id>-54321.app.github.dev`) so that browser requests reach the local Supabase API. Keep the Postgres connection string values pointing at `127.0.0.1` for server-side access.
+   The script reads the local Supabase status and writes the keys into each `.env.local` file automatically. Set `NEXT_PUBLIC_SUPABASE_URL` to the forwarded Codespace URL for port **54321** (for example, `https://<codespace-id>-54321.app.github.dev`) so that browser requests reach the local Supabase API. Keep the Postgres connection string values pointing at `127.0.0.1` for server-side access.
 
 4. Forward the dev servers and Supabase ports:
    * 3000 → Airnub app (`apps/airnub`)
