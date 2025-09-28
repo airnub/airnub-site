@@ -1,11 +1,11 @@
 #!/bin/sh
 set -eu
 
-COMMITLINT="./node_modules/.bin/commitlint"
+SCRIPT="$(git rev-parse --show-toplevel)/scripts/validate-commit.sh"
 
-if [ ! -x "$COMMITLINT" ]; then
-  echo "commitlint not found at $COMMITLINT" >&2
+if [ ! -x "$SCRIPT" ]; then
+  echo "Commit validation script not found at $SCRIPT" >&2
   exit 127
 fi
 
-exec "$COMMITLINT" --edit "$1"
+exec "$SCRIPT" "$1"
