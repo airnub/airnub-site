@@ -184,7 +184,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 
 ## GitHub Codespaces
 
-The repo ships with a `.devcontainer/` that provisions Node 24, pnpm, and the Supabase CLI. To spin up a Codespace with a fully local Supabase stack:
+The repo ships with a `.devcontainer/` that provisions Node 24, pnpm, and the Supabase CLI. We install pnpm through the official Node feature so the build does not rely on the deprecated standalone pnpm feature, which now requires authenticated access and caused Codespace creation to fail. To spin up a Codespace with a fully local Supabase stack:
 
 1. Create a Codespace from the repository (the first boot runs `pnpm install` automatically).
 2. Copy environment files inside the Codespace:
