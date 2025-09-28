@@ -1,4 +1,11 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+set -eu
 
-pnpm commitlint --edit "$1"
+COMMITLINT="./node_modules/.bin/commitlint"
+
+if [ ! -x "$COMMITLINT" ]; then
+  echo "commitlint not found at $COMMITLINT" >&2
+  exit 127
+fi
+
+exec "$COMMITLINT" --edit "$1"
