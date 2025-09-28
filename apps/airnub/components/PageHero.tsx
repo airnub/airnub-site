@@ -16,13 +16,22 @@ export function PageHero({
   className?: string;
 }) {
   return (
-    <section className={clsx("border-b border-slate-200 bg-white py-16 text-slate-900", className)}>
+    <section
+      className={clsx(
+        "relative overflow-hidden border-b border-slate-800 bg-slate-950 py-16 text-slate-100",
+        className,
+      )}
+    >
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.15)_0,_rgba(15,23,42,0)_55%)]"
+        aria-hidden="true"
+      />
       <Container className="max-w-4xl">
         {eyebrow ? (
-          <p className="text-sm font-semibold uppercase tracking-wide text-sky-600">{eyebrow}</p>
+          <p className="text-sm font-semibold uppercase tracking-wide text-sky-400/80">{eyebrow}</p>
         ) : null}
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">{title}</h1>
-        {description ? <p className="mt-6 text-lg text-slate-600">{description}</p> : null}
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">{title}</h1>
+        {description ? <p className="mt-6 text-lg text-slate-300">{description}</p> : null}
         {actions ? <div className="mt-8 flex flex-wrap gap-4">{actions}</div> : null}
       </Container>
     </section>

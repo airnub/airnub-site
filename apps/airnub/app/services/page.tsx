@@ -45,7 +45,7 @@ const engagements = [
 
 export default function ServicesPage() {
   return (
-    <div className="space-y-16 pb-20">
+    <div className="space-y-16 pb-24 text-slate-300">
       <PageHero
         eyebrow="Services"
         title="Embedded experts for every stage of your platform journey"
@@ -56,15 +56,19 @@ export default function ServicesPage() {
       <section>
         <Container className="space-y-10">
           {engagements.map((engagement) => (
-            <article key={engagement.id} id={engagement.id} className="rounded-3xl border border-slate-200 bg-white p-10 shadow-sm">
+            <article
+              key={engagement.id}
+              id={engagement.id}
+              className="rounded-3xl border border-slate-800 bg-slate-900/60 p-10 shadow-lg shadow-slate-950/40"
+            >
               <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                 <div className="lg:max-w-2xl">
-                  <h2 className="text-2xl font-semibold text-slate-900">{engagement.title}</h2>
-                  <p className="mt-3 text-sm text-slate-600">{engagement.description}</p>
+                  <h2 className="text-2xl font-semibold text-white">{engagement.title}</h2>
+                  <p className="mt-3 text-sm text-slate-300">{engagement.description}</p>
                 </div>
                 <div className="lg:min-w-[16rem]">
                   <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">Key deliverables</p>
-                  <ul className="mt-3 space-y-2 text-sm text-slate-600">
+                  <ul className="mt-3 space-y-2 text-sm text-slate-300">
                     {engagement.deliverables.map((item) => (
                       <li key={item}>→ {item}</li>
                     ))}
@@ -77,16 +81,16 @@ export default function ServicesPage() {
       </section>
 
       <section>
-        <Container className="rounded-3xl border border-slate-200 bg-slate-900 p-10 text-slate-100">
+        <Container className="rounded-3xl border border-slate-800 bg-slate-900/80 p-10 text-slate-200 shadow-xl shadow-slate-950/40">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div>
-              <h2 className="text-3xl font-semibold tracking-tight">Outcomes-first engagements</h2>
+              <h2 className="text-3xl font-semibold tracking-tight text-white">Outcomes-first engagements</h2>
               <p className="mt-4 text-sm text-slate-300">
                 We align each engagement to measurable KPIs: deployment frequency, change failure rate, audit readiness time, and customer trust metrics.
               </p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/10 p-6">
-              <p className="text-sm text-slate-200">We embed alongside your teams for 6–12 weeks, transfer knowledge continuously, and operationalize Speckit for long-term success.</p>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-slate-200">
+              <p>We embed alongside your teams for 6–12 weeks, transfer knowledge continuously, and operationalize Speckit for long-term success.</p>
             </div>
           </div>
         </Container>

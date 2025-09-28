@@ -46,14 +46,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="font-sans" suppressHydrationWarning>
+    <html lang="en" className="font-sans antialiased dark" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-slate-50 text-slate-900">
+      <body className="flex min-h-screen flex-col bg-slate-950 text-slate-100">
         <a href="#content" className="skip-link">
           Skip to content
         </a>
