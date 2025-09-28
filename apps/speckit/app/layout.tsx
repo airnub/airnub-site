@@ -6,6 +6,8 @@ import { JsonLd } from "../components/JsonLd";
 import { buildSpeckitSoftwareJsonLd } from "../lib/jsonld";
 import { SPECKIT_BASE_URL } from "../lib/routes";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
+import { getCurrentLanguage } from "../lib/language";
+import { getSpeckitMessages } from "../i18n/messages";
 
 const jsonLd = buildSpeckitSoftwareJsonLd();
 
@@ -46,10 +48,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  const language = await getCurrentLanguage();
+  const messages = getSpeckitMessages(language);
+  const layoutMessages = messages.layout;
+
   return (
     <html
-      lang="en-US"
+      lang={language}
       className="font-sans antialiased"
       suppressHydrationWarning
       data-scroll-behavior="smooth"
@@ -60,11 +66,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="flex min-h-screen flex-col bg-white text-slate-900 transition-colors dark:bg-slate-950 dark:text-slate-100">
         <ThemeProvider>
           <a href="#content" className="skip-link">
-            Skip to content
+            {layoutMessages.skipToContent}
           </a>
           <HeaderSpeckit
-            themeToggleLabel="Toggle theme"
-            additionalRightSlot={<LanguageSwitcher />}
+            themeToggleLabel={layoutMessages.themeToggle}
+            starLabel={layoutMessages.starLabel}
+            additionalRightSlot={
+              <LanguageSwitcher
+                initialLanguage={language}
+                label={layoutMessages.languageLabel}
+              />
+            }
           />
           <main id="content" className="flex-1">
             {children}
