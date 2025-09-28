@@ -1,19 +1,17 @@
-import path from "node:path";
-import { fileURLToPath } from "node:url";
+const path = require("node:path");
 
 const DEFAULT_TRANSPILE_PACKAGES = ["@airnub/ui", "@airnub/brand", "@airnub/seo"];
 const DEFAULT_OPTIMIZED_PACKAGES = ["@airnub/ui", "clsx"];
 
-export function defineMonorepoNextConfig(importMeta, overrides = {}) {
-  const __filename = fileURLToPath(importMeta.url);
-  const __dirname = path.dirname(__filename);
-  const monorepoRoot = path.join(__dirname, "../../");
+function defineMonorepoNextConfig(appDirectory, overrides = {}) {
+  if (!appDirectory) {
+    throw new Error("defineMonorepoNextConfig requires the caller's directory path");
+  }
+
+  const monorepoRoot = path.resolve(appDirectory, "../../");
 
   const {
-    experimental: {
-      optimizePackageImports = [],
-      ...experimentalRest
-    } = {},
+    experimental: { optimizePackageImports = [], ...experimentalRest } = {},
     eslint: eslintConfig = {},
     typescript: typescriptConfig = {},
     transpilePackages = [],
@@ -42,3 +40,5 @@ export function defineMonorepoNextConfig(importMeta, overrides = {}) {
     ...rest,
   };
 }
+
+module.exports = { defineMonorepoNextConfig };
