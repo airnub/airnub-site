@@ -2,7 +2,7 @@ import Link from "next/link";
 import { SpeckitWordmark } from "@airnub/brand";
 import { Footer, type FooterProps, type FooterColumn } from "./Footer";
 
-const footerColumns: FooterColumn[] = [
+const defaultFooterColumns: FooterColumn[] = [
   {
     heading: "Product",
     links: [
@@ -39,25 +39,31 @@ const footerColumns: FooterColumn[] = [
 ];
 
 type FooterSpeckitProps = Omit<FooterProps, "logo" | "columns" | "bottomSlot" | "copyright"> & {
+  columns?: FooterColumn[];
   contactHref?: string;
   contactLabel?: string;
+  pricingHref?: string;
+  pricingLabel?: string;
 };
 
 export function FooterSpeckit({
+  columns = defaultFooterColumns,
   contactHref = "mailto:speckit@airnub.io",
   contactLabel = "speckit@airnub.io",
+  pricingHref = "/pricing",
+  pricingLabel = "Pricing",
   ...props
 }: FooterSpeckitProps) {
   const year = new Date().getFullYear();
   return (
     <Footer
       logo={<SpeckitWordmark className="h-6" />}
-      columns={footerColumns}
+      columns={columns}
       bottomSlot={
-        <div className="flex items-center gap-3 text-slate-400">
+        <div className="flex items-center gap-3 text-slate-500 dark:text-slate-400">
           <Link href={contactHref}>{contactLabel}</Link>
           <span aria-hidden="true">•</span>
-          <Link href="/pricing">Pricing</Link>
+          <Link href={pricingHref}>{pricingLabel}</Link>
         </div>
       }
       copyright={`© ${year} Airnub. All rights reserved.`}

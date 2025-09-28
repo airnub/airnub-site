@@ -13,21 +13,21 @@ export const metadata: Metadata = {
 function ContactShortcuts() {
   return (
     <div className="space-y-6">
-      <div className="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-lg">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-300">Email</h3>
-        <p className="mt-2 text-sm text-slate-200">
-          Product questions: <a className="text-indigo-300" href="mailto:speckit@airnub.io">speckit@airnub.io</a>
+      <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg dark:border-white/10 dark:bg-white/10">
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-300">Email</h3>
+        <p className="mt-2 text-sm text-slate-600 dark:text-slate-200">
+          Product questions: <a className="text-indigo-600 dark:text-indigo-300" href="mailto:speckit@airnub.io">speckit@airnub.io</a>
         </p>
-        <p className="mt-1 text-sm text-slate-200">
-          Security: <a className="text-indigo-300" href="mailto:security@airnub.io">security@airnub.io</a>
+        <p className="mt-1 text-sm text-slate-600 dark:text-slate-200">
+          Security: <a className="text-indigo-600 dark:text-indigo-300" href="mailto:security@airnub.io">security@airnub.io</a>
         </p>
       </div>
-      <div className="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-lg">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-300">Docs</h3>
-        <p className="mt-2 text-sm text-slate-200">Explore API references and implementation guides.</p>
+      <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg dark:border-white/10 dark:bg-white/10">
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-300">Docs</h3>
+        <p className="mt-2 text-sm text-slate-600 dark:text-slate-200">Explore API references and implementation guides.</p>
         <a
           href="https://docs.speckit.dev"
-          className="mt-3 inline-flex text-sm font-semibold text-indigo-300"
+          className="mt-3 inline-flex text-sm font-semibold text-indigo-600 transition hover:text-indigo-700 dark:text-indigo-300 dark:hover:text-indigo-200"
           target="_blank"
           rel="noreferrer"
         >
@@ -49,13 +49,13 @@ export default function ContactPage() {
 
       <section>
         <Container className="grid gap-12 lg:grid-cols-[2fr,1fr]">
-          <div className="rounded-3xl border border-white/10 bg-white/10 p-10 shadow-xl">
-            <h2 className="text-xl font-semibold text-white">Request a demo</h2>
-            <p className="mt-3 text-sm text-slate-300">Tell us about your environment and target launch timeline.</p>
+          <div className="rounded-3xl border border-slate-200 bg-white p-10 shadow-xl dark:border-white/10 dark:bg-white/10">
+            <h2 className="text-xl font-semibold text-slate-900 dark:text-white">Request a demo</h2>
+            <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">Tell us about your environment and target launch timeline.</p>
             <form action={submitLead} className="mt-8 space-y-6">
               <div className="grid gap-6 md:grid-cols-2">
                 <div>
-                  <label htmlFor="full_name" className="block text-sm font-semibold text-slate-100">
+                  <label htmlFor="full_name" className="block text-sm font-semibold text-slate-900 dark:text-slate-100">
                     Full name
                   </label>
                   <input
@@ -63,11 +63,11 @@ export default function ContactPage() {
                     name="full_name"
                     type="text"
                     autoComplete="name"
-                    className="mt-2 w-full rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-sm text-white shadow-sm placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                    className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-white/10 dark:bg-white/10 dark:text-white dark:placeholder:text-slate-400"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-slate-100">
+                  <label htmlFor="email" className="block text-sm font-semibold text-slate-900 dark:text-slate-100">
                     Work email <span className="text-rose-400">*</span>
                   </label>
                   <input
@@ -76,13 +76,13 @@ export default function ContactPage() {
                     type="email"
                     required
                     autoComplete="email"
-                    className="mt-2 w-full rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-sm text-white shadow-sm placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                    className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-white/10 dark:bg-white/10 dark:text-white dark:placeholder:text-slate-400"
                   />
                 </div>
               </div>
               <div className="grid gap-6 md:grid-cols-2">
                 <div>
-                  <label htmlFor="company" className="block text-sm font-semibold text-slate-100">
+                  <label htmlFor="company" className="block text-sm font-semibold text-slate-900 dark:text-slate-100">
                     Company
                   </label>
                   <input
@@ -90,18 +90,18 @@ export default function ContactPage() {
                     name="company"
                     type="text"
                     autoComplete="organization"
-                    className="mt-2 w-full rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-sm text-white shadow-sm placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                    className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-white/10 dark:bg-white/10 dark:text-white dark:placeholder:text-slate-400"
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-slate-100">
+                  <label htmlFor="message" className="block text-sm font-semibold text-slate-900 dark:text-slate-100">
                     What should we focus on?
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     rows={4}
-                    className="mt-2 w-full rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-sm text-white shadow-sm placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                    className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-white/10 dark:bg-white/10 dark:text-white dark:placeholder:text-slate-400"
                   />
                 </div>
               </div>

@@ -3,7 +3,7 @@ import { AirnubWordmark } from "@airnub/brand";
 import { Footer, type FooterProps, type FooterColumn } from "./Footer";
 import type { ReactNode } from "react";
 
-const footerColumns: FooterColumn[] = [
+const defaultFooterColumns: FooterColumn[] = [
   {
     heading: "Products",
     links: [{ label: "Speckit", href: "https://speckit.airnub.io", external: true }],
@@ -45,31 +45,59 @@ const footerColumns: FooterColumn[] = [
 
 type FooterAirnubProps = Omit<FooterProps, "logo" | "columns" | "bottomSlot" | "copyright"> & {
   bottomSlot?: ReactNode;
+  columns?: FooterColumn[];
+  bottomLinks?: { label: string; href: string; external?: boolean }[];
   copyrightPrefix?: string;
   pathPrefix?: string;
 };
 
-export function FooterAirnub({ bottomSlot, copyrightPrefix = "Airnub", pathPrefix = "", ...props }: FooterAirnubProps) {
+const defaultBottomLinks = [
+  { label: "Privacy", href: "/company#privacy" },
+  { label: "Terms", href: "/company#terms" },
+  { label: "hello@airnub.io", href: "mailto:hello@airnub.io" },
+];
+
+export function FooterAirnub({
+  bottomSlot,
+  columns = defaultFooterColumns,
+  bottomLinks = defaultBottomLinks,
+  copyrightPrefix = "Airnub",
+  pathPrefix = "",
+  ...props
+}: FooterAirnubProps) {
   const year = new Date().getFullYear();
   const withPrefix = (href: string) =>
     href.startsWith("/") ? `${pathPrefix}${href}`.replace(/\/+/g, "/") : href;
-  const columns = footerColumns.map((column) => ({
+  const resolvedColumns = columns.map((column) => ({
     ...column,
     links: column.links.map((link) => ({
       ...link,
       href: withPrefix(link.href),
     })),
   }));
+  const resolvedBottomLinks = bottomLinks.map((link) => ({
+    ...link,
+    href: withPrefix(link.href),
+  }));
   return (
     <Footer
       logo={<AirnubWordmark className="h-6" />}
-      columns={columns}
+      columns={resolvedColumns}
       bottomSlot={
         bottomSlot ?? (
-          <div className="flex items-center gap-3">
-            <Link href={withPrefix("/company#privacy")}>Privacy</Link>
-            <Link href={withPrefix("/company#terms")}>Terms</Link>
-            <Link href="mailto:hello@airnub.io">hello@airnub.io</Link>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-slate-500 dark:text-slate-400">
+            {resolvedBottomLinks.map((link, index) => (
+              <div key={`${link.href}-${link.label}`} className="flex items-center gap-3">
+                {index > 0 ? <span aria-hidden="true">•</span> : null}
+                <Link
+                  href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noreferrer" : undefined}
+                >
+                  {link.label}
+                </Link>
+              </div>
+            ))}
           </div>
         )
       }

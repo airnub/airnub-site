@@ -70,6 +70,39 @@ type LayoutMessages = {
   themeToggle: string;
   starLabel: string;
   languageLabel: string;
+  footer: {
+    columns: {
+      product: {
+        heading: string;
+        overview: string;
+        howItWorks: string;
+        integrations: string;
+      };
+      resources: {
+        heading: string;
+        docs: string;
+        apiReference: string;
+        community: string;
+      };
+      openSource: {
+        heading: string;
+        repo: string;
+        templates: string;
+        issues: string;
+        license: string;
+      };
+      trust: {
+        heading: string;
+        trustCenter: string;
+        status: string;
+        securityTxt: string;
+      };
+    };
+    contact: {
+      label: string;
+      pricing: string;
+    };
+  };
 };
 
 export type SpeckitMessages = {

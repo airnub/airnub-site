@@ -3,7 +3,40 @@
     "skipToContent": "Saltar al contenido",
     "themeToggle": "Tema de alternar",
     "starLabel": "Proyecto estrella",
-    "languageLabel": "Idioma"
+    "languageLabel": "Idioma",
+    "footer": {
+      "columns": {
+        "product": {
+          "heading": "Producto",
+          "overview": "Descripción general",
+          "howItWorks": "Cómo funciona",
+          "integrations": "Integraciones"
+        },
+        "resources": {
+          "heading": "Recursos",
+          "docs": "Documentación",
+          "apiReference": "Referencia de API",
+          "community": "Comunidad"
+        },
+        "openSource": {
+          "heading": "Código abierto",
+          "repo": "Repositorio",
+          "templates": "Plantillas",
+          "issues": "Incidencias",
+          "license": "Licencia"
+        },
+        "trust": {
+          "heading": "Confianza",
+          "trustCenter": "Centro de confianza",
+          "status": "Estado",
+          "securityTxt": "security.txt"
+        }
+      },
+      "contact": {
+        "label": "speckit@airnub.io",
+        "pricing": "Precios"
+      }
+    }
   },
   "home": {
     "hero": {
