@@ -85,7 +85,7 @@ All layouts stay Server Components. Marketing and content routes use **Increment
 
 * Contact forms in both apps post to Server Actions (`submitLead`) that call `getServerClient(cookies)` from `@airnub/db`.
 * Inserts happen on the server only; no Supabase client is shipped to the browser.
-* Client Components belong under `components/client/`. The repo ships `scripts/assert-no-client.mjs`, which CI runs to prevent stray `"use client"` directives elsewhere.
+* Client Components belong under `components/client/`. The repo ships `scripts/assert-no-client.js`, which CI runs to prevent stray `"use client"` directives elsewhere.
 
 JSON-LD, Metadata API, sitemaps, robots.txt, and OG image routes are part of every app’s surface.
 
@@ -298,7 +298,7 @@ Root `package.json` (scripts use Turbo):
 
 * **Conventional commits:** Husky installs a `commit-msg` hook (`pnpm prepare`) that runs `pnpm commitlint --edit $1`.
 * **Semantic PR title:** `amannn/action-semantic-pull-request` enforces PR titles that follow Conventional Commits.
-* **CI pipeline (`ci.yml`):** checkout → install → commitlint (PRs) → semantic title (PRs) → lint → typecheck → `node scripts/assert-no-client.mjs` → build (Turbo remote cache ready).
+* **CI pipeline (`ci.yml`):** checkout → install → commitlint (PRs) → semantic title (PRs) → lint → typecheck → `node scripts/assert-no-client.js` → build (Turbo remote cache ready).
 * **Additional workflows:** pa11y (`a11y.yml`), link checking (`links.yml`), and Supabase staging deploys (`db-migrate.yml`).
 
 ---
