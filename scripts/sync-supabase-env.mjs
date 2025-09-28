@@ -84,7 +84,7 @@ function parsePrettyStatus(output) {
       continue;
     }
     const envKey = LABEL_TO_ENV_KEY.get(labelKey);
-    if (envKey) {
+    if (envKey && !envValues.has(envKey)) {
       envValues.set(envKey, value);
     }
     if (labelKey === 'database url') {
@@ -127,11 +127,11 @@ function mapStatusKeysToEnv(statusValues) {
   for (const [key, value] of statusValues) {
     const normalized = normalizeLabel(key);
     const envKey = LABEL_TO_ENV_KEY.get(normalized);
-    if (envKey) {
+    if (envKey && !mapped.has(envKey)) {
       mapped.set(envKey, value);
       continue;
     }
-    if (KNOWN_ENV_KEYS.has(key)) {
+    if (KNOWN_ENV_KEYS.has(key) && !mapped.has(key)) {
       mapped.set(key, value);
     }
   }
@@ -211,6 +211,9 @@ async function ensureFileUpdated(filePath, updates) {
     await access(filePath, constants.F_OK);
     const existing = await readFile(filePath, 'utf8');
     const nextContent = applyEnvUpdates(existing, updates);
+    if (nextContent === existing) {
+      return { filePath, status: 'unchanged' };
+    }
     await writeFile(filePath, nextContent, 'utf8');
     return { filePath, status: 'updated' };
   } catch (error) {
@@ -300,9 +303,13 @@ async function main() {
   for (const targetFile of TARGET_FILES) {
     try {
       const result = await ensureFileUpdated(targetFile, updates);
-      console.log(
-        `[sync-supabase-env] ${result.status === 'created' ? 'Created' : 'Updated'} ${result.filePath}`,
-      );
+      const statusLabel =
+        result.status === 'created'
+          ? 'Created'
+          : result.status === 'updated'
+            ? 'Updated'
+            : 'No changes for';
+      console.log(`[sync-supabase-env] ${statusLabel} ${result.filePath}`);
     } catch (error) {
       console.error(`[sync-supabase-env] Failed to update ${targetFile}:`, error.message || error);
       process.exitCode = 1;
