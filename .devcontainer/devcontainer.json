@@ -4,10 +4,9 @@
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/devcontainers/features/node:1": {
-      "version": "24"
-    },
-    "ghcr.io/devcontainers/features/pnpm:1": {
-      "version": "10.17.1"
+      "version": "24",
+      "installPnpm": true,
+      "pnpmVersion": "10.17.1"
     },
     "ghcr.io/devcontainers-contrib/features/supabase-cli:2": {}
   },
