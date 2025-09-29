@@ -1,0 +1,24 @@
+{
+  "name": "Airnub",
+  "domain": "airnub.io",
+  "description": "Airnub builds trusted infrastructure for modern product teams.",
+  "colors": {
+    "primary": "#38bdf8",
+    "secondary": "#0f172a",
+    "accent": "#1d4ed8",
+    "background": "#ffffff",
+    "foreground": "#0f172a"
+  },
+  "logos": {
+    "light": "/brand/logo.svg",
+    "dark": "/brand/logo-dark.svg",
+    "mark": "/brand/logo-mark.svg"
+  },
+  "favicon": "/brand/favicon.svg",
+  "og": "/brand/og.png",
+  "social": {
+    "github": "https://github.com/airnub",
+    "x": "https://x.com/airnub",
+    "linkedin": "https://www.linkedin.com/company/airnub"
+  }
+}

@@ -37,9 +37,20 @@ See [Architecture & Rendering](https://airnub.github.io/airnub-site/docs/archite
 
 ## Brand assets & overrides
 
-Canonical brand assets live in [`packages/brand/public/brand/`](packages/brand/public/brand/) and are copied into each app's `public/brand/` directory. Both marketing sites reference `/brand/logo.svg`, `/brand/logo-dark.svg`, `/brand/logo-mark.svg`, `/brand/favicon.svg`, and `/brand/og.png` for favicons and sharing images.
+Canonical brand assets live in [`.brand/public/brand/`](.brand/public/brand/), while the shared TypeScript config stays in [`packages/brand/src/brand.config.ts`](packages/brand/src/brand.config.ts). Running the sync script copies the assets into each app's `public/brand/` directory and regenerates runtime-friendly files in [`packages/brand/runtime/`](packages/brand/runtime/).
 
-To customize a fork, drop replacement files with the same names into `apps/airnub/public/brand/` and/or `apps/speckit/public/brand/`. Next.js will serve those assets at `/brand/*` without requiring code changes.
+After editing anything under `.brand/` (images or supporting files), run:
+
+```bash
+pnpm brand:sync
+```
+
+This command will:
+
+- Copy `.brand/public/brand/` into `packages/brand/public/brand/` and both apps' `public/brand/` folders so `/brand/*` requests resolve everywhere.
+- Regenerate `packages/brand/runtime/brand.config.json` and `packages/brand/runtime/tokens.css` so runtime code and CSS can safely consume the shared brand tokens without bundling TypeScript.
+
+If you need to tweak metadata (name, colors, social links, etc.), update [`packages/brand/src/brand.config.ts`](packages/brand/src/brand.config.ts) and re-run `pnpm brand:sync` so the runtime outputs stay fresh.
 
 ## Additional documentation
 
