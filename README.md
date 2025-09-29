@@ -50,7 +50,15 @@ This command will:
 - Copy `.brand/public/brand/` into `packages/brand/public/brand/` and both apps' `public/brand/` folders so `/brand/*` requests resolve everywhere.
 - Regenerate `packages/brand/runtime/brand.config.json` and `packages/brand/runtime/tokens.css` so runtime code and CSS can safely consume the shared brand tokens without bundling TypeScript.
 
-If you need to tweak metadata (name, colors, social links, etc.), update [`packages/brand/src/brand.config.ts`](packages/brand/src/brand.config.ts) and re-run `pnpm brand:sync` so the runtime outputs stay fresh.
+If you need to tweak metadata (name, colors, social links, etc.), you can either edit [`packages/brand/src/brand.config.ts`](packages/brand/src/brand.config.ts) directly or provide environment overrides before running the sync script. Supported variables include:
+
+- `BRAND_NAME`, `BRAND_DOMAIN`, `BRAND_DESCRIPTION`
+- `BRAND_COLOR_PRIMARY`, `BRAND_COLOR_SECONDARY`, `BRAND_COLOR_ACCENT`, `BRAND_COLOR_BACKGROUND`, `BRAND_COLOR_FOREGROUND`
+- `BRAND_LOGO_LIGHT`, `BRAND_LOGO_DARK`, `BRAND_LOGO_MARK`
+- `BRAND_FAVICON`, `BRAND_OG`
+- `BRAND_SOCIAL_*` (e.g., `BRAND_SOCIAL_GITHUB`, `BRAND_SOCIAL_LINKEDIN`, `BRAND_SOCIAL_PRODUCT_HUNT`)
+
+After updating any of these values, re-run `pnpm brand:sync` so the runtime outputs stay fresh.
 
 ## Additional documentation
 

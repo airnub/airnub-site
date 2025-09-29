@@ -3,7 +3,9 @@ import { constants } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { brand } from "../packages/brand/src/brand.config";
+import { resolveBrandConfig } from "@airnub/brand";
+
+const brand = resolveBrandConfig();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..");
