@@ -25,6 +25,9 @@
     },
     "./runtime/tokens.css": {
       "default": "./runtime/tokens.css"
+    },
+    "./runtime/layout.css": {
+      "default": "./runtime/layout.css"
     }
   }
 }

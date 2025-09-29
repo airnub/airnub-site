@@ -140,7 +140,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   ] as const;
 
   return (
-    <div className="space-y-24 pb-24">
+    <main className="flex flex-col">
       <Hero
         eyebrow={hero.eyebrow}
         title={hero.title}
@@ -234,6 +234,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
         }
       />
-    </div>
+    </main>
   );
 }

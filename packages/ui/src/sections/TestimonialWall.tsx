@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Container } from "../Container";
+import { Section } from "../Section";
 import { Card, CardContent } from "../components/card";
 import { cn } from "../lib/cn";
 
@@ -65,39 +65,35 @@ export function TestimonialWall({
   }
 
   return (
-    <section className={className}>
-      <Container className="space-y-12">
-        {(eyebrow || title || description) && (
-          <div
-            className={cn(
-              "space-y-4",
-              align === "center" ? "text-center" : "text-left"
-            )}
-          >
-            {eyebrow ? (
-              <p className="text-sm font-semibold uppercase tracking-wide text-primary/80">
-                {eyebrow}
-              </p>
-            ) : null}
-            {title ? (
-              <h2 className="text-3xl font-semibold text-foreground sm:text-4xl">
-                {title}
-              </h2>
-            ) : null}
-            {description ? (
-              <p
-                className={cn(
-                  "text-base text-muted-foreground",
-                  align === "center" ? "mx-auto max-w-3xl" : undefined
-                )}
-              >
-                {description}
-              </p>
-            ) : null}
-          </div>
-        )}
-        {grid}
-      </Container>
-    </section>
+    <Section
+      className={className}
+      contentClassName={cn(align === "center" ? "text-center" : "text-left")}
+    >
+      {(eyebrow || title || description) && (
+        <div className="space-y-4">
+          {eyebrow ? (
+            <p className="text-sm font-semibold uppercase tracking-wide text-primary/80">
+              {eyebrow}
+            </p>
+          ) : null}
+          {title ? (
+            <h2 className="text-3xl font-semibold text-foreground sm:text-4xl">
+              {title}
+            </h2>
+          ) : null}
+          {description ? (
+            <p
+              className={cn(
+                "text-base text-muted-foreground",
+                align === "center" ? "mx-auto max-w-3xl" : undefined
+              )}
+            >
+              {description}
+            </p>
+          ) : null}
+        </div>
+      )}
+      {grid}
+    </Section>
   );
 }

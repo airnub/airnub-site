@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Container } from "../Container";
+import { Section } from "../Section";
 import { cn } from "../lib/cn";
 
 export type HeroProps = {
@@ -29,37 +29,42 @@ export function Hero({
   className,
 }: HeroProps) {
   return (
-    <section className={cn(variantClassNames[variant], className)}>
-      <Container
-        className={cn(
-          "max-w-4xl py-16",
-          align === "center" ? "text-center" : "text-left"
-        )}
-      >
+    <Section
+      className={cn(variantClassNames[variant], className)}
+      contentClassName={cn("max-w-4xl", align === "center" ? "text-center" : "text-left")}
+    >
+      <div className="space-y-6">
         {eyebrow ? (
           <p className="text-sm font-semibold uppercase tracking-wide text-primary/80">
             {eyebrow}
           </p>
         ) : null}
-        <h1
-          className={cn(
-            "mt-4 text-4xl font-semibold tracking-tight sm:text-5xl",
-            align === "center" ? "mx-auto" : undefined
-          )}
-        >
-          {title}
-        </h1>
-        {description ? (
-          <p className={cn("mt-6 text-lg text-muted-foreground", align === "center" ? "mx-auto max-w-3xl" : undefined)}>
-            {description}
-          </p>
-        ) : null}
-        {actions ? (
-          <div className={cn("mt-8 flex flex-wrap gap-4", align === "center" ? "justify-center" : "justify-start")}>
-            {actions}
-          </div>
-        ) : null}
-      </Container>
-    </section>
+        <div className="space-y-6">
+          <h1
+            className={cn(
+              "text-4xl font-semibold tracking-tight sm:text-5xl",
+              align === "center" ? "mx-auto" : undefined
+            )}
+          >
+            {title}
+          </h1>
+          {description ? (
+            <p
+              className={cn(
+                "text-lg text-muted-foreground",
+                align === "center" ? "mx-auto max-w-3xl" : undefined
+              )}
+            >
+              {description}
+            </p>
+          ) : null}
+        </div>
+      </div>
+      {actions ? (
+        <div className={cn("flex flex-wrap gap-4", align === "center" ? "justify-center" : "justify-start")}>
+          {actions}
+        </div>
+      ) : null}
+    </Section>
   );
 }
