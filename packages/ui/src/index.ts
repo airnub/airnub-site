@@ -12,3 +12,4 @@ export * from "../providers/theme";
 export * from "./icons/GithubIcon";
 export * from "./logos";
 export * from "./fonts";
+export * from "./brand";

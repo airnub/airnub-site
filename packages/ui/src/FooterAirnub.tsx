@@ -1,7 +1,9 @@
+"use client";
+
 import Link from "next/link";
-import { AirnubWordmark } from "@airnub/brand";
 import { Footer, type FooterProps, type FooterColumn } from "./Footer";
 import type { ReactNode } from "react";
+import { Logo, useBrand } from "./brand";
 
 type FooterAirnubProps = Omit<FooterProps, "logo" | "columns" | "bottomSlot" | "copyright"> & {
   bottomSlot?: ReactNode;
@@ -15,11 +17,12 @@ export function FooterAirnub({
   bottomSlot,
   columns = [],
   bottomLinks = [],
-  copyrightPrefix = "Airnub",
+  copyrightPrefix,
   pathPrefix = "",
   description,
   ...props
 }: FooterAirnubProps) {
+  const brand = useBrand();
   const year = new Date().getFullYear();
   const withPrefix = (href: string) =>
     href.startsWith("/") ? `${pathPrefix}${href}`.replace(/\/+/g, "/") : href;
@@ -34,11 +37,13 @@ export function FooterAirnub({
     ...link,
     href: withPrefix(link.href),
   }));
+  const resolvedDescription = description ?? brand.description;
+  const resolvedCopyrightPrefix = copyrightPrefix ?? brand.name;
   return (
     <Footer
-      logo={<AirnubWordmark className="h-6" />}
+      logo={<Logo className="h-6" alt={`${brand.name} logo`} />}
       columns={resolvedColumns}
-      description={description}
+      description={resolvedDescription}
       bottomSlot={
         bottomSlot ?? (
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-muted-foreground">
@@ -57,7 +62,7 @@ export function FooterAirnub({
           </div>
         )
       }
-      copyright={`© ${year} ${copyrightPrefix}. All rights reserved.`}
+      copyright={`© ${year} ${resolvedCopyrightPrefix}. All rights reserved.`}
       {...props}
     />
   );
