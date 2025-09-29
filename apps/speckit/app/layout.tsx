@@ -5,9 +5,6 @@ import { clsx } from "clsx";
 import "./globals.css";
 import {
   BrandProvider,
-  Footer,
-  Header,
-  Logo,
   ThemeProvider,
   ThemeToggle,
   type FooterColumn,
@@ -15,6 +12,7 @@ import {
   GithubIcon,
   fontSans,
   fontMono,
+  SiteShell,
 } from "@airnub/ui";
 import { JsonLd } from "../components/JsonLd";
 import { buildSpeckitSoftwareJsonLd } from "../lib/jsonld";
@@ -138,52 +136,45 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       <body className="flex min-h-screen flex-col">
         <BrandProvider value={speckitBrand}>
           <ThemeProvider>
-            <a href="#content" className="skip-link">
-              {layoutMessages.skipToContent}
-            </a>
-            <Header
-              logo={<Logo className="h-6" />}
-            navItems={navItems}
-            homeHref="/"
+            <SiteShell
+              skipToContentLabel={layoutMessages.skipToContent}
+              navItems={navItems}
+              homeHref="/"
               homeAriaLabel={`${speckitBrand.name} home`}
-            rightSlot={
-              <div className="flex items-center gap-3">
-                {githubUrl ? (
-                  <Link
-                    href={githubUrl}
-                    className="hidden rounded-full border border-border p-2 text-muted-foreground transition hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring lg:inline-flex"
-                    aria-label={layoutMessages.githubLabel}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <GithubIcon className="h-4 w-4" />
-                  </Link>
-                ) : null}
-                <ThemeToggle className="inline-flex" label={layoutMessages.themeToggle} />
-                <LanguageSwitcher
-                  initialLanguage={language}
-                  label={layoutMessages.languageLabel}
-                  options={languageOptions}
-                />
-              </div>
-            }
-            />
-            <main id="content" className="flex-1">
-              {children}
-            </main>
-            <Footer
-              logo={<Logo className="h-6" />}
-              columns={footerColumns}
-              description={footerMessages.description}
-              bottomSlot={
+              headerRightSlot={
+                <div className="flex items-center gap-3">
+                  {githubUrl ? (
+                    <Link
+                      href={githubUrl}
+                      className="hidden rounded-full border border-border p-2 text-muted-foreground transition hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring lg:inline-flex"
+                      aria-label={layoutMessages.githubLabel}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <GithubIcon className="h-4 w-4" />
+                    </Link>
+                  ) : null}
+                  <ThemeToggle className="inline-flex" label={layoutMessages.themeToggle} />
+                  <LanguageSwitcher
+                    initialLanguage={language}
+                    label={layoutMessages.languageLabel}
+                    options={languageOptions}
+                  />
+                </div>
+              }
+              footerColumns={footerColumns}
+              footerDescription={footerMessages.description}
+              footerBottomSlot={
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-muted-foreground">
                   <Link href="mailto:speckit@airnub.io">{footerMessages.contact.label}</Link>
                   <span aria-hidden="true">•</span>
                   <Link href="/pricing">{footerMessages.contact.pricing}</Link>
                 </div>
               }
-              copyright={`© ${year} ${speckitBrand.name}. All rights reserved.`}
-            />
+              footerCopyright={`© ${year} ${speckitBrand.name}. All rights reserved.`}
+            >
+              {children}
+            </SiteShell>
           </ThemeProvider>
         </BrandProvider>
       </body>
