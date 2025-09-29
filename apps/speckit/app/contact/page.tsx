@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Container } from "@airnub/ui";
+import { Button, Card, Container } from "@airnub/ui";
 import { PageHero } from "../../components/PageHero";
 import { getCurrentLanguage } from "../../lib/language";
 import { getSpeckitMessages, type SpeckitMessages } from "../../i18n/messages";
@@ -23,27 +23,28 @@ type ContactShortcutsProps = {
 function ContactShortcuts({ shortcuts }: ContactShortcutsProps) {
   return (
     <div className="space-y-6">
-      <div className="rounded-3xl border border-border bg-card p-6 shadow-lg">
+      <Card className="p-6">
         <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
           {shortcuts.emailHeading}
         </h3>
         <p className="mt-2 text-sm text-muted-foreground">{shortcuts.productQuestions}</p>
         <p className="mt-1 text-sm text-muted-foreground">{shortcuts.security}</p>
-      </div>
-      <div className="rounded-3xl border border-border bg-card p-6 shadow-lg">
+      </Card>
+      <Card className="p-6">
         <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
           {shortcuts.docsHeading}
         </h3>
         <p className="mt-2 text-sm text-muted-foreground">{shortcuts.docsDescription}</p>
-        <a
-          href="https://docs.speckit.dev"
-          className="mt-3 inline-flex text-sm font-semibold text-indigo-600 transition hover:text-indigo-700 dark:text-indigo-300 dark:hover:text-indigo-200"
-          target="_blank"
-          rel="noreferrer"
+        <Button
+          asChild
+          variant="ghost"
+          className="mt-3 px-0 text-indigo-600 hover:text-indigo-700 dark:text-indigo-300 dark:hover:text-indigo-200"
         >
-          {shortcuts.docsCtaLabel}
-        </a>
-      </div>
+          <a href="https://docs.speckit.dev" target="_blank" rel="noreferrer">
+            {shortcuts.docsCtaLabel}
+          </a>
+        </Button>
+      </Card>
     </div>
   );
 }
@@ -62,7 +63,7 @@ export default async function ContactPage() {
 
       <section>
         <Container className="grid gap-12 lg:grid-cols-[2fr,1fr]">
-          <div className="rounded-3xl border border-border bg-card p-10 shadow-xl">
+          <Card className="p-10">
             <h2 className="text-xl font-semibold text-foreground">{contact.form.title}</h2>
             <p className="mt-3 text-sm text-muted-foreground">{contact.form.description}</p>
             <form action={submitLead} className="mt-8 space-y-6">
@@ -76,7 +77,7 @@ export default async function ContactPage() {
                     name="full_name"
                     type="text"
                     autoComplete="name"
-                    className="mt-2 w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring"
+                    className="mt-2 w-full rounded-xl border border-input bg-card px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring"
                   />
                 </div>
                 <div>
@@ -89,7 +90,7 @@ export default async function ContactPage() {
                     type="email"
                     required
                     autoComplete="email"
-                    className="mt-2 w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring"
+                    className="mt-2 w-full rounded-xl border border-input bg-card px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring"
                   />
                 </div>
               </div>
@@ -103,7 +104,7 @@ export default async function ContactPage() {
                     name="company"
                     type="text"
                     autoComplete="organization"
-                    className="mt-2 w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring"
+                    className="mt-2 w-full rounded-xl border border-input bg-card px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring"
                   />
                 </div>
                 <div>
@@ -114,18 +115,13 @@ export default async function ContactPage() {
                     id="message"
                     name="message"
                     rows={4}
-                    className="mt-2 w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring"
+                    className="mt-2 w-full rounded-xl border border-input bg-card px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring"
                   />
                 </div>
               </div>
-              <button
-                type="submit"
-                className="inline-flex items-center rounded-full bg-gradient-to-r from-speckit-indigo to-speckit-violet px-5 py-2 text-sm font-semibold text-white shadow-lg transition hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
-              >
-                {contact.form.submitLabel}
-              </button>
+              <Button type="submit">{contact.form.submitLabel}</Button>
             </form>
-          </div>
+          </Card>
           <ContactShortcuts shortcuts={contact.shortcuts} />
         </Container>
       </section>

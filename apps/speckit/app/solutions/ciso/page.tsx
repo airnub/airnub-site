@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Container } from "@airnub/ui";
+import { Card, Container } from "@airnub/ui";
 import { PageHero } from "../../../components/PageHero";
 import { getCurrentLanguage } from "../../../lib/language";
 import { getSpeckitMessages } from "../../../i18n/messages";
@@ -28,27 +28,31 @@ export default async function CisoSolutionsPage() {
       />
 
       <section>
-        <Container className="rounded-3xl border border-border/10 bg-card/10 p-10 shadow-xl">
-          <h2 className="text-2xl font-semibold text-foreground">{messages.outcomesTitle}</h2>
-          <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
-            {messages.outcomes.map((outcome) => (
-              <li key={outcome}>→ {outcome}</li>
-            ))}
-          </ul>
+        <Container>
+          <Card className="bg-card/10 p-10">
+            <h2 className="text-2xl font-semibold text-foreground">{messages.outcomesTitle}</h2>
+            <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
+              {messages.outcomes.map((outcome) => (
+                <li key={outcome}>→ {outcome}</li>
+              ))}
+            </ul>
+          </Card>
         </Container>
       </section>
 
       <section>
-        <Container className="rounded-3xl border border-border/10 bg-gradient-to-br from-muted via-background to-muted p-10 shadow-xl">
-          <h2 className="text-2xl font-semibold text-foreground">{messages.deliverables.title}</h2>
-          <div className="mt-6 grid gap-6 md:grid-cols-2 text-sm text-muted-foreground">
-            {messages.deliverables.cards.map((card) => (
-              <div key={card.title} className="rounded-2xl border border-border/10 bg-card/5 p-6">
-                <h3 className="text-lg font-semibold text-foreground">{card.title}</h3>
-                <p className="mt-2">{card.description}</p>
-              </div>
-            ))}
-          </div>
+        <Container>
+          <Card className="bg-gradient-to-br from-muted via-background to-muted p-10">
+            <h2 className="text-2xl font-semibold text-foreground">{messages.deliverables.title}</h2>
+            <div className="mt-6 grid gap-6 text-sm text-muted-foreground md:grid-cols-2">
+              {messages.deliverables.cards.map((card) => (
+                <Card key={card.title} className="bg-card/5 shadow-none">
+                  <h3 className="text-lg font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2">{card.description}</p>
+                </Card>
+              ))}
+            </div>
+          </Card>
         </Container>
       </section>
     </div>

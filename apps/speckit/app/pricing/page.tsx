@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Button, Container } from "@airnub/ui";
+import { Button, Card, Container } from "@airnub/ui";
 import { PageHero } from "../../components/PageHero";
 import Link from "next/link";
 import { getCurrentLanguage } from "../../lib/language";
@@ -38,10 +38,7 @@ export default async function PricingPage() {
       <section>
         <Container className="grid gap-8 lg:grid-cols-3">
           {pricing.tiers.map((tier) => (
-            <div
-              key={tier.name}
-              className="flex h-full flex-col rounded-3xl border border-border bg-card p-8 shadow-lg"
-            >
+            <Card key={tier.name} className="flex h-full flex-col p-8">
               <div className="flex-1">
                 <h2 className="text-2xl font-semibold text-foreground">{tier.name}</h2>
                 <p className="mt-3 text-lg font-semibold text-indigo-600 dark:text-indigo-300">{tier.price}</p>
@@ -55,7 +52,7 @@ export default async function PricingPage() {
               <Button variant="ghost" asChild>
                 <Link href="/contact">{tier.ctaLabel}</Link>
               </Button>
-            </div>
+            </Card>
           ))}
         </Container>
       </section>

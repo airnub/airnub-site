@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Container } from "@airnub/ui";
+import { Card, Container } from "@airnub/ui";
 import { PageHero } from "../../components/PageHero";
 import { getCurrentLanguage } from "../../lib/language";
 import { getSpeckitMessages } from "../../i18n/messages";
@@ -31,16 +31,14 @@ export default async function SolutionsOverviewPage() {
       <section>
         <Container className="grid gap-8 lg:grid-cols-2">
           {solutions.personas.map((persona) => (
-            <Link
-              key={persona.title}
-              href={persona.href}
-              className="group rounded-3xl border border-border bg-card p-8 text-left shadow-lg transition hover:border-indigo-500"
-            >
-              <h2 className="text-2xl font-semibold text-foreground">{persona.title}</h2>
-              <p className="mt-3 text-sm text-muted-foreground">{persona.description}</p>
-              <span className="mt-6 inline-flex text-sm font-semibold text-indigo-600 transition group-hover:text-indigo-700 dark:text-indigo-300 dark:group-hover:text-indigo-200">
-                {persona.ctaLabel}
-              </span>
+            <Link key={persona.title} href={persona.href} className="group block text-left">
+              <Card className="h-full transition hover:border-ring">
+                <h2 className="text-2xl font-semibold text-foreground">{persona.title}</h2>
+                <p className="mt-3 text-sm text-muted-foreground">{persona.description}</p>
+                <span className="mt-6 inline-flex text-sm font-semibold text-indigo-600 transition group-hover:text-indigo-700 dark:text-indigo-300 dark:group-hover:text-indigo-200">
+                  {persona.ctaLabel}
+                </span>
+              </Card>
             </Link>
           ))}
         </Container>
