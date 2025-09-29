@@ -9,6 +9,7 @@
   "types": "src/index.ts",
   "dependencies": {
     "@airnub/brand": "workspace:*",
+    "@tailwindcss/typography": "^0.5.19",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-toast": "^1.2.4",
     "clsx": "^2.1.1",

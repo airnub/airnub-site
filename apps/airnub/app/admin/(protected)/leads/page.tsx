@@ -47,7 +47,7 @@ export default async function LeadsPage() {
     serviceClient
       .from("contact_leads")
       .select(
-        "id,created_at,full_name,email,company,message,source,consent,lead_actions(id,status,assignee,note,created_at,created_by)"
+        "id,created_at,full_name,email,company,message,source,consent,user_agent,ip_hash,lead_actions(id,lead_id,status,assignee,note,created_at,created_by)"
       )
       .order("created_at", { ascending: false })
       .limit(100),

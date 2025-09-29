@@ -3,7 +3,7 @@ import { BrandProvider, FooterAirnub, HeaderAirnub, ThemeProvider, ToastProvider
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
-import type { ReactNode } from "react";
+import { Suspense, type ReactNode } from "react";
 import { buildAirnubOrganizationJsonLd } from "../../lib/jsonld";
 import { AIRNUB_BASE_URL } from "../../lib/routes";
 import { localeHref } from "../../lib/locale";
@@ -182,7 +182,11 @@ export default async function LocaleLayout({
                   homeAriaLabel={`${airnubBrand.name} home`}
                   githubLabel={common("githubLabel")}
                   themeToggleLabel={common("theme.toggle")}
-                  additionalRightSlot={<LocaleSwitcher />}
+                  additionalRightSlot={
+                    <Suspense fallback={null}>
+                      <LocaleSwitcher />
+                    </Suspense>
+                  }
                 />
                 <main id="content" className="flex-1">
                   <MaintenanceGate

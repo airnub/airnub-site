@@ -1,3 +1,4 @@
+import type { AbstractIntlMessages } from "next-intl";
 import { getRequestConfig } from "next-intl/server";
 import { defaultLocale, locales, type Locale } from "./routing";
 
@@ -27,6 +28,6 @@ export default getRequestConfig(async ({ requestLocale }) => {
 
   return {
     locale: normalizedLocale,
-    messages,
+    messages: messages as unknown as AbstractIntlMessages,
   };
 });

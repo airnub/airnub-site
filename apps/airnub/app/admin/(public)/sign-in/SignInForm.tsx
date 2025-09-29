@@ -5,7 +5,7 @@ import { Button } from "@airnub/ui";
 import type { SignInFormState } from "./actions";
 
 type Props = {
-  action: (state: SignInFormState | undefined, formData: FormData) => Promise<SignInFormState | void>;
+  action: (state: SignInFormState | undefined, formData: FormData) => Promise<SignInFormState>;
 };
 
 const initialState: SignInFormState = {};

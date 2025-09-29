@@ -1,18 +1,21 @@
-import { join } from "path";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import type { Config } from "tailwindcss";
 import tailwindTypography from "@tailwindcss/typography";
 import tailwindAnimate from "tailwindcss-animate";
 
+const presetDir = dirname(fileURLToPath(import.meta.url));
+
 const preset = {
   darkMode: ["class"],
   content: [
-    join(__dirname, "./app/**/*.{ts,tsx,js,jsx,mdx}"),
-    join(__dirname, "./components/**/*.{ts,tsx,js,jsx,mdx}"),
-    join(__dirname, "./src/**/*.{ts,tsx,js,jsx,mdx}"),
-    join(__dirname, "../../packages/*/app/**/*.{ts,tsx,js,jsx,mdx}"),
-    join(__dirname, "../../packages/*/components/**/*.{ts,tsx,js,jsx,mdx}"),
-    join(__dirname, "../../packages/*/providers/**/*.{ts,tsx,js,jsx,mdx}"),
-    join(__dirname, "../../packages/*/src/**/*.{ts,tsx,js,jsx,mdx}"),
+    join(presetDir, "./app/**/*.{ts,tsx,js,jsx,mdx}"),
+    join(presetDir, "./components/**/*.{ts,tsx,js,jsx,mdx}"),
+    join(presetDir, "./src/**/*.{ts,tsx,js,jsx,mdx}"),
+    join(presetDir, "../../packages/*/app/**/*.{ts,tsx,js,jsx,mdx}"),
+    join(presetDir, "../../packages/*/components/**/*.{ts,tsx,js,jsx,mdx}"),
+    join(presetDir, "../../packages/*/providers/**/*.{ts,tsx,js,jsx,mdx}"),
+    join(presetDir, "../../packages/*/src/**/*.{ts,tsx,js,jsx,mdx}"),
   ],
   theme: {
     container: { center: true, padding: "2rem" },
@@ -61,6 +64,20 @@ const preset = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
         xl: "calc(var(--radius) + 4px)",
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        mono: [
+          "var(--font-mono)",
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "Monaco",
+          "Consolas",
+          "Liberation Mono",
+          "Courier New",
+          "monospace",
+        ],
       },
       boxShadow: {
         card: "0 1px 2px rgba(0,0,0,.05)",
