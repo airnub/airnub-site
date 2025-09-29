@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Button, Card, Container } from "@airnub/ui";
+import { Button, Card, CardDescription, CardHeader, CardTitle, Container } from "@airnub/ui";
 import { PageHero } from "../../components/PageHero";
 import { getCurrentLanguage } from "../../lib/language";
 import { getSpeckitMessages } from "../../i18n/messages";
@@ -44,9 +44,11 @@ export default async function TemplatePage() {
       <section>
         <Container className="grid gap-6 md:grid-cols-2">
           {template.steps.map((step) => (
-            <Card key={step.title} className="p-8">
-              <h2 className="text-xl font-semibold text-foreground">{step.title}</h2>
-              <p className="mt-3 text-sm text-muted-foreground">{step.description}</p>
+            <Card key={step.title}>
+              <CardHeader className="p-8">
+                <CardTitle className="text-xl">{step.title}</CardTitle>
+                <CardDescription>{step.description}</CardDescription>
+              </CardHeader>
             </Card>
           ))}
         </Container>

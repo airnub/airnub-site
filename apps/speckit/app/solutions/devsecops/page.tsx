@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Card, Container } from "@airnub/ui";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, Container } from "@airnub/ui";
 import { PageHero } from "../../../components/PageHero";
 import { getCurrentLanguage } from "../../../lib/language";
 import { getSpeckitMessages } from "../../../i18n/messages";
@@ -29,29 +29,39 @@ export default async function DevSecOpsSolutionsPage() {
 
       <section>
         <Container>
-          <Card className="bg-card/10 p-10">
-            <h2 className="text-2xl font-semibold text-foreground">{messages.benefitsTitle}</h2>
-            <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
-              {messages.benefits.map((benefit) => (
-                <li key={benefit}>→ {benefit}</li>
-              ))}
-            </ul>
+          <Card className="bg-card/10">
+            <CardHeader className="p-10">
+              <CardTitle className="text-2xl">{messages.benefitsTitle}</CardTitle>
+            </CardHeader>
+            <CardContent className="p-10 pt-0 text-sm text-muted-foreground">
+              <ul className="space-y-3">
+                {messages.benefits.map((benefit) => (
+                  <li key={benefit}>→ {benefit}</li>
+                ))}
+              </ul>
+            </CardContent>
           </Card>
         </Container>
       </section>
 
       <section>
         <Container>
-          <Card className="bg-gradient-to-br from-muted via-background to-muted p-10">
-            <h2 className="text-2xl font-semibold text-foreground">{messages.capabilities.title}</h2>
-            <div className="mt-6 grid gap-6 text-sm text-muted-foreground md:grid-cols-2">
+          <Card className="bg-gradient-to-br from-muted via-background to-muted">
+            <CardHeader className="p-10">
+              <CardTitle className="text-2xl">{messages.capabilities.title}</CardTitle>
+            </CardHeader>
+            <CardContent className="grid gap-6 p-10 pt-0 text-sm text-muted-foreground md:grid-cols-2">
               {messages.capabilities.cards.map((card) => (
                 <Card key={card.title} className="bg-card/5 shadow-none">
-                  <h3 className="text-lg font-semibold text-foreground">{card.title}</h3>
-                  <p className="mt-2">{card.description}</p>
+                  <CardHeader>
+                    <CardTitle className="text-lg">{card.title}</CardTitle>
+                    <CardDescription className="text-sm text-muted-foreground">
+                      {card.description}
+                    </CardDescription>
+                  </CardHeader>
                 </Card>
               ))}
-            </div>
+            </CardContent>
           </Card>
         </Container>
       </section>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Card, Container } from "@airnub/ui";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, Container } from "@airnub/ui";
 import { PageHero } from "../../components/PageHero";
 import { getCurrentLanguage } from "../../lib/language";
 import { getSpeckitMessages } from "../../i18n/messages";
@@ -33,11 +33,15 @@ export default async function SolutionsOverviewPage() {
           {solutions.personas.map((persona) => (
             <Link key={persona.title} href={persona.href} className="group block text-left">
               <Card className="h-full transition hover:border-ring">
-                <h2 className="text-2xl font-semibold text-foreground">{persona.title}</h2>
-                <p className="mt-3 text-sm text-muted-foreground">{persona.description}</p>
-                <span className="mt-6 inline-flex text-sm font-semibold text-indigo-600 transition group-hover:text-indigo-700 dark:text-indigo-300 dark:group-hover:text-indigo-200">
-                  {persona.ctaLabel}
-                </span>
+                <CardHeader className="p-6">
+                  <CardTitle className="text-2xl">{persona.title}</CardTitle>
+                  <CardDescription>{persona.description}</CardDescription>
+                </CardHeader>
+                <CardContent className="p-6 pt-0">
+                  <span className="inline-flex text-sm font-semibold text-indigo-600 transition group-hover:text-indigo-700 dark:text-indigo-300 dark:group-hover:text-indigo-200">
+                    {persona.ctaLabel}
+                  </span>
+                </CardContent>
               </Card>
             </Link>
           ))}

@@ -1,4 +1,4 @@
-import { Card, Container } from "@airnub/ui";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, Container } from "@airnub/ui";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { PageHero } from "../../../components/PageHero";
@@ -43,26 +43,38 @@ function ContactShortcuts({
 }: ContactShortcutsProps) {
   return (
     <div className="space-y-6">
-      <Card className="rounded-3xl bg-card/80 p-6 shadow-lg shadow-slate-900/5 backdrop-blur">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">{emailTitle}</h3>
-        <p className="mt-2 text-sm text-muted-foreground">
-          {emailSales}: <a className="text-sky-600 underline-offset-4 hover:underline dark:text-sky-400" href="mailto:hello@airnub.io">hello@airnub.io</a>
-        </p>
-        <p className="mt-1 text-sm text-muted-foreground">
-          {emailSecurity}: <a className="text-sky-600 underline-offset-4 hover:underline dark:text-sky-400" href="mailto:security@airnub.io">security@airnub.io</a>
-        </p>
+      <Card className="rounded-3xl bg-card/80 shadow-lg shadow-slate-900/5 backdrop-blur">
+        <CardHeader className="p-6">
+          <CardTitle className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+            {emailTitle}
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-2 p-6 pt-0 text-sm text-muted-foreground">
+          <p>
+            {emailSales}: <a className="text-sky-600 underline-offset-4 hover:underline dark:text-sky-400" href="mailto:hello@airnub.io">hello@airnub.io</a>
+          </p>
+          <p>
+            {emailSecurity}: <a className="text-sky-600 underline-offset-4 hover:underline dark:text-sky-400" href="mailto:security@airnub.io">security@airnub.io</a>
+          </p>
+        </CardContent>
       </Card>
-      <Card className="rounded-3xl bg-card/80 p-6 shadow-lg shadow-slate-900/5 backdrop-blur">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">{officeTitle}</h3>
-        <p className="mt-2 text-sm text-muted-foreground">{officeDescription}</p>
-        <a
-          href="https://cal.com/airnub/office-hours"
-          className="mt-3 inline-flex text-sm font-semibold text-sky-600 underline-offset-4 hover:underline dark:text-sky-400"
-          target="_blank"
-          rel="noreferrer"
-        >
-          {officeCta} →
-        </a>
+      <Card className="rounded-3xl bg-card/80 shadow-lg shadow-slate-900/5 backdrop-blur">
+        <CardHeader className="p-6">
+          <CardTitle className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+            {officeTitle}
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-3 p-6 pt-0 text-sm text-muted-foreground">
+          <p>{officeDescription}</p>
+          <a
+            href="https://cal.com/airnub/office-hours"
+            className="inline-flex text-sm font-semibold text-sky-600 underline-offset-4 hover:underline dark:text-sky-400"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {officeCta} →
+          </a>
+        </CardContent>
       </Card>
     </div>
   );
@@ -106,15 +118,21 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
 
       <section>
         <Container className="grid gap-12 lg:grid-cols-[2fr,1fr]">
-          <Card className="rounded-3xl bg-card/80 p-10 shadow-lg shadow-slate-900/5 backdrop-blur">
-            <h2 className="text-xl font-semibold text-foreground">{t("form.title")}</h2>
-            <p className="mt-3 text-sm text-muted-foreground">{t("form.description")}</p>
-            <ContactForm
-              action={submitLead}
-              initialState={initialLeadFormState}
-              labels={formLabels}
-              toastDismissLabel={toastTranslations("dismiss")}
-            />
+          <Card className="rounded-3xl bg-card/80 shadow-lg shadow-slate-900/5 backdrop-blur">
+            <CardHeader className="p-10">
+              <CardTitle className="text-xl text-foreground">{t("form.title")}</CardTitle>
+              <CardDescription className="text-sm text-muted-foreground">
+                {t("form.description")}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="p-10 pt-0">
+              <ContactForm
+                action={submitLead}
+                initialState={initialLeadFormState}
+                labels={formLabels}
+                toastDismissLabel={toastTranslations("dismiss")}
+              />
+            </CardContent>
           </Card>
           <ContactShortcuts
             emailTitle={t("shortcuts.email.title")}
