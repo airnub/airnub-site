@@ -3,9 +3,8 @@
 import { useEffect, useState, type ChangeEvent } from "react";
 import { useRouter } from "next/navigation";
 import { clsx } from "clsx";
-import { languageCookieName, supportedLanguages, type SupportedLanguage } from "../i18n/config";
+import { languageCookieName, type SupportedLanguage } from "../i18n/config";
 
-const STORAGE_KEY = "speckit.language";
 const COOKIE_MAX_AGE_SECONDS = 60 * 60 * 24 * 365;
 
 type LanguageSwitcherProps = {
@@ -20,9 +19,6 @@ function persistLanguage(value: SupportedLanguage) {
     document.cookie = `${languageCookieName}=${value}; path=/; max-age=${COOKIE_MAX_AGE_SECONDS}; SameSite=Lax`;
     document.documentElement.lang = value;
   }
-  if (typeof window !== "undefined") {
-    window.localStorage.setItem(STORAGE_KEY, value);
-  }
 }
 
 export function LanguageSwitcher({ className, initialLanguage, label, options }: LanguageSwitcherProps) {
@@ -32,18 +28,6 @@ export function LanguageSwitcher({ className, initialLanguage, label, options }:
   useEffect(() => {
     setLanguage(initialLanguage);
   }, [initialLanguage]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-    const saved = window.localStorage.getItem(STORAGE_KEY) as SupportedLanguage | null;
-    if (saved && supportedLanguages.includes(saved) && saved !== initialLanguage) {
-      setLanguage(saved);
-      persistLanguage(saved);
-      router.refresh();
-    }
-  }, [initialLanguage, router]);
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const next = event.target.value as SupportedLanguage;
