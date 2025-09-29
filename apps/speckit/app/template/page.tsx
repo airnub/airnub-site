@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Container } from "@airnub/ui";
 import { PageHero } from "../../components/PageHero";
 import { getCurrentLanguage } from "../../lib/language";
