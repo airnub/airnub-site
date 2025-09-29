@@ -1,3 +1,4 @@
+import "@airnub/ui/styles.css";
 import "../globals.css";
 import { FooterAirnub, HeaderAirnub, ThemeProvider, ToastProvider, type FooterColumn } from "@airnub/ui";
 import type { Metadata } from "next";
@@ -171,7 +172,7 @@ export default async function LocaleLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="flex min-h-screen flex-col bg-white text-slate-900 transition-colors dark:bg-slate-950 dark:text-slate-100">
+      <body className="flex min-h-screen flex-col">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider>
             <ToastProvider>
