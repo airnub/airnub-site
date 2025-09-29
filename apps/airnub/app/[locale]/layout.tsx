@@ -2,7 +2,7 @@ import "../globals.css";
 import { FooterAirnub, HeaderAirnub, ThemeProvider, ToastProvider, type FooterColumn } from "@airnub/ui";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
 import { buildAirnubOrganizationJsonLd } from "../../lib/jsonld";
 import { AIRNUB_BASE_URL } from "../../lib/routes";
@@ -24,6 +24,10 @@ const localeToOg: Record<Locale, string> = {
   pt: "pt_PT",
   it: "it_IT",
 };
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata({
   params,
@@ -82,6 +86,7 @@ export default async function LocaleLayout({
 }) {
   const { locale: localeParam } = await params;
   const locale = assertLocale(localeParam);
+  setRequestLocale(locale);
   const messages = await getMessages();
   const common = await getTranslations({ locale, namespace: "common" });
   const nav = await getTranslations({ locale, namespace: "nav" });
@@ -198,8 +203,4 @@ export default async function LocaleLayout({
       </body>
     </html>
   );
-}
-
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
 }
