@@ -19,14 +19,14 @@
       "toggle": "Toggle color theme"
     },
     "maintenance": {
-      "title": "We\u2019re getting ready",
+      "title": "We’re getting ready",
       "description": "Airnub is preparing something new. Check back soon or subscribe for launch updates.",
-      "cta": "Email us at hello@airnub.io"
+      "cta": "Email us at {email}"
     }
   },
   "layout": {
     "metadata": {
-      "titleDefault": "Airnub \u2014 Governed developer platforms",
+      "titleDefault": "Airnub — Governed developer platforms",
       "titleTemplate": "%s | Airnub",
       "description": "Airnub builds governed, enterprise-ready developer platforms that connect compliance, delivery, and trust.",
       "ogDescription": "Airnub builds governed, enterprise-ready developer platforms.",
@@ -91,7 +91,7 @@
     "bottom": {
       "privacy": "Privacy",
       "terms": "Terms",
-      "email": "hello@airnub.io"
+      "email": "{email}"
     }
   },
   "home": {
@@ -186,7 +186,7 @@
     },
     "hero": {
       "eyebrow": "Contact",
-      "title": "Let\u2019s build your trust-forward platform",
+      "title": "Let’s build your trust-forward platform",
       "description": "Tell us about your goals and we will connect you with the right Airnub experts."
     },
     "form": {
@@ -206,7 +206,7 @@
       },
       "error": {
         "title": "Something went wrong",
-        "description": "We couldn\u2019t submit your request. Please try again or email hello@airnub.io."
+        "description": "We couldn’t submit your request. Please try again or email {email}."
       },
       "validation": {
         "email": "Please enter a valid work email."
@@ -255,8 +255,8 @@
     "careers": {
       "title": "Careers",
       "description": "We are a remote-first team across North America and Europe. If you’re passionate about developer platforms, compliance automation, and building delightful experiences, we’d love to chat.",
-      "ctaLabel": "careers@airnub.io",
-      "ctaHref": "mailto:careers@airnub.io"
+      "ctaLabel": "{careersEmail}",
+      "ctaHref": "mailto:{careersEmail}"
     },
     "press": {
       "cards": [
@@ -264,8 +264,8 @@
           "id": "pressKit",
           "title": "Press kit",
           "description": "Logos, product screenshots, and leadership bios ready for publication.",
-          "ctaLabel": "press@airnub.io",
-          "ctaHref": "mailto:press@airnub.io"
+          "ctaLabel": "{pressEmail}",
+          "ctaHref": "mailto:{pressEmail}"
         },
         {
           "id": "mediaBriefing",

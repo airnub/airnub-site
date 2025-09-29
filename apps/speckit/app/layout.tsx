@@ -26,6 +26,13 @@ import { buildBrandMetadata } from "@airnub/brand";
 
 const jsonLd = buildSpeckitSoftwareJsonLd();
 
+function formatTemplate(template: string, values: Record<string, string | undefined>): string {
+  return template.replace(/\{(\w+)\}/g, (match, key) => {
+    const value = values[key];
+    return value ?? match;
+  });
+}
+
 export async function generateMetadata(): Promise<Metadata> {
   const language = await getCurrentLanguage();
   const layoutMessages = getSpeckitMessages(language).layout;
@@ -122,6 +129,21 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
   const year = new Date().getFullYear();
   const githubUrl = speckitBrand.social.github ?? "https://github.com";
+  const contactEmail =
+    speckitBrand.contact.product ??
+    speckitBrand.contact.general ??
+    speckitBrand.contact.support;
+  const footerContactLabel = contactEmail
+    ? formatTemplate(footerMessages.contact.label, {
+        contactEmail,
+        email: contactEmail,
+        productEmail: contactEmail,
+      })
+    : footerMessages.contact.label;
+  const footerBottomLinks = [
+    ...(contactEmail ? [{ label: footerContactLabel, href: `mailto:${contactEmail}` }] : []),
+    { label: footerMessages.contact.pricing, href: "/pricing" },
+  ];
 
   return (
     <html
@@ -164,13 +186,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
               }
               footerColumns={footerColumns}
               footerDescription={footerMessages.description}
-              footerBottomSlot={
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-muted-foreground">
-                  <Link href="mailto:speckit@airnub.io">{footerMessages.contact.label}</Link>
-                  <span aria-hidden="true">•</span>
-                  <Link href="/pricing">{footerMessages.contact.pricing}</Link>
-                </div>
-              }
+              footerBottomLinks={footerBottomLinks}
               footerCopyright={`© ${year} ${speckitBrand.name}. All rights reserved.`}
             >
               {children}

@@ -20,7 +20,7 @@ import { assertLocale, locales, type Locale } from "../../i18n/routing";
 import { MaintenanceGate } from "./maintenance/MaintenanceGate";
 import { isMaintenanceModeEnabled } from "../../lib/runtime-flags";
 import { LocaleSwitcher } from "../../components/LocaleSwitcher";
-import { brand as airnubBrand, buildBrandMetadata } from "@airnub/brand";
+import { buildBrandMetadata, resolvedBrandConfig as airnubBrand } from "@airnub/brand";
 
 const jsonLd = buildAirnubOrganizationJsonLd();
 
@@ -158,17 +158,23 @@ export default async function LocaleLayout({
     },
   ];
 
+  const salesEmail =
+    airnubBrand.contact.sales ?? airnubBrand.contact.support ?? airnubBrand.contact.general;
+
   const footerBottomLinks = [
     { label: footer("bottom.privacy"), href: localizeHref("/company#privacy") },
     { label: footer("bottom.terms"), href: localizeHref("/company#terms") },
-    { label: footer("bottom.email"), href: "mailto:hello@airnub.io" },
+    ...(salesEmail
+      ? [{ label: footer("bottom.email", { email: salesEmail }), href: `mailto:${salesEmail}` }]
+      : []),
   ];
 
   const maintenanceEnabled = await isMaintenanceModeEnabled();
   const maintenanceCopy = {
     title: common("maintenance.title"),
     description: common("maintenance.description"),
-    cta: common("maintenance.cta"),
+    cta: salesEmail ? common("maintenance.cta", { email: salesEmail }) : common("maintenance.cta"),
+    ctaHref: salesEmail ? `mailto:${salesEmail}` : undefined,
   };
 
   const year = new Date().getFullYear();
@@ -225,6 +231,7 @@ export default async function LocaleLayout({
                     title={maintenanceCopy.title}
                     description={maintenanceCopy.description}
                     cta={maintenanceCopy.cta}
+                    ctaHref={maintenanceCopy.ctaHref}
                   >
                     {children}
                   </MaintenanceGate>

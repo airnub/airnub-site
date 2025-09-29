@@ -6,6 +6,7 @@ import { ContactForm } from "./ContactForm";
 import { submitLead } from "./actions";
 import type { LeadFormState } from "./actions";
 import { assertLocale } from "../../../i18n/routing";
+import { resolvedBrandConfig as airnubBrand } from "@airnub/brand";
 
 export const revalidate = 86_400;
 
@@ -28,6 +29,8 @@ type ContactShortcutsProps = {
   emailTitle: string;
   emailSales: string;
   emailSecurity: string;
+  salesEmail?: string;
+  securityEmail?: string;
   officeTitle: string;
   officeDescription: string;
   officeCta: string;
@@ -37,6 +40,8 @@ function ContactShortcuts({
   emailTitle,
   emailSales,
   emailSecurity,
+  salesEmail,
+  securityEmail,
   officeTitle,
   officeDescription,
   officeCta,
@@ -50,12 +55,28 @@ function ContactShortcuts({
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-2 text-sm text-muted-foreground">
-          <p>
-            {emailSales}: <a className="text-primary underline-offset-4 transition-colors hover:text-primary/80 hover:underline" href="mailto:hello@airnub.io">hello@airnub.io</a>
-          </p>
-          <p>
-            {emailSecurity}: <a className="text-primary underline-offset-4 transition-colors hover:text-primary/80 hover:underline" href="mailto:security@airnub.io">security@airnub.io</a>
-          </p>
+          {salesEmail ? (
+            <p>
+              {emailSales}:{" "}
+              <a
+                className="text-primary underline-offset-4 transition-colors hover:text-primary/80 hover:underline"
+                href={`mailto:${salesEmail}`}
+              >
+                {salesEmail}
+              </a>
+            </p>
+          ) : null}
+          {securityEmail ? (
+            <p>
+              {emailSecurity}:{" "}
+              <a
+                className="text-primary underline-offset-4 transition-colors hover:text-primary/80 hover:underline"
+                href={`mailto:${securityEmail}`}
+              >
+                {securityEmail}
+              </a>
+            </p>
+          ) : null}
         </CardContent>
       </Card>
       <Card className="bg-card/80 shadow-lg shadow-slate-900/5 backdrop-blur">
@@ -88,6 +109,10 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
 
   const initialLeadFormState: LeadFormState = { status: "idle" };
 
+  const salesEmail =
+    airnubBrand.contact.sales ?? airnubBrand.contact.support ?? airnubBrand.contact.general;
+  const securityEmail = airnubBrand.contact.security ?? airnubBrand.contact.general;
+
   const formLabels = {
     name: t("form.fields.name"),
     email: t("form.fields.email"),
@@ -101,7 +126,9 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
     },
     error: {
       title: t("form.error.title"),
-      description: t("form.error.description"),
+      description: salesEmail
+        ? t("form.error.description", { email: salesEmail })
+        : t("form.error.description"),
     },
     validation: {
       email: t("form.validation.email"),
@@ -138,6 +165,8 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
             emailTitle={t("shortcuts.email.title")}
             emailSales={t("shortcuts.email.sales")}
             emailSecurity={t("shortcuts.email.security")}
+            salesEmail={salesEmail}
+            securityEmail={securityEmail}
             officeTitle={t("shortcuts.officeHours.title")}
             officeDescription={t("shortcuts.officeHours.description")}
             officeCta={t("shortcuts.officeHours.cta")}

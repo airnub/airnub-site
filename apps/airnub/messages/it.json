@@ -21,7 +21,7 @@
     "maintenance": {
       "title": "Ci stiamo preparando",
       "description": "Airnub sta preparando qualcosa di nuovo. Torna presto o iscriviti per gli aggiornamenti sul lancio.",
-      "cta": "Scrivici a hello@airnub.io"
+      "cta": "Scrivici a {email}"
     }
   },
   "layout": {
@@ -91,7 +91,7 @@
     "bottom": {
       "privacy": "Privacy",
       "terms": "Termini",
-      "email": "hello@airnub.io"
+      "email": "{email}"
     }
   },
   "home": {
@@ -206,7 +206,7 @@
       },
       "error": {
         "title": "Si è verificato un errore",
-        "description": "Non è stato possibile inviare la richiesta. Riprova o scrivi a hello@airnub.io."
+        "description": "Non è stato possibile inviare la richiesta. Riprova o scrivi a {email}."
       },
       "validation": {
         "email": "Inserisci un'email di lavoro valida."
@@ -255,8 +255,8 @@
     "careers": {
       "title": "Carriere",
       "description": "Siamo un team distribuito tra Nord America ed Europa. Se ti appassionano le piattaforme per sviluppatori e l'automazione della conformità, parliamone.",
-      "ctaLabel": "careers@airnub.io",
-      "ctaHref": "mailto:careers@airnub.io"
+      "ctaLabel": "{careersEmail}",
+      "ctaHref": "mailto:{careersEmail}"
     },
     "press": {
       "cards": [
@@ -264,8 +264,8 @@
           "id": "pressKit",
           "title": "Kit stampa",
           "description": "Loghi, screenshot di prodotto e bio dei founder pronti all'uso.",
-          "ctaLabel": "press@airnub.io",
-          "ctaHref": "mailto:press@airnub.io"
+          "ctaLabel": "{pressEmail}",
+          "ctaHref": "mailto:{pressEmail}"
         },
         {
           "id": "mediaBriefing",

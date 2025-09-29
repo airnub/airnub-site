@@ -6,10 +6,18 @@ export type MaintenanceGateProps = {
   title: string;
   description: string;
   cta: string;
+  ctaHref?: string;
   children: ReactNode;
 };
 
-export function MaintenanceGate({ enabled, title, description, cta, children }: MaintenanceGateProps) {
+export function MaintenanceGate({
+  enabled,
+  title,
+  description,
+  cta,
+  ctaHref,
+  children,
+}: MaintenanceGateProps) {
   if (!enabled) {
     return <>{children}</>;
   }
@@ -20,12 +28,14 @@ export function MaintenanceGate({ enabled, title, description, cta, children }: 
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400/70">Airnub</p>
         <h1 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl">{title}</h1>
         <p className="mt-4 text-lg text-muted-foreground">{description}</p>
-        <a
-          href="mailto:hello@airnub.io"
-          className="mt-8 inline-flex items-center justify-center rounded-full bg-foreground px-5 py-2 text-sm font-semibold text-background transition hover:bg-foreground/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-        >
-          {cta}
-        </a>
+        {ctaHref ? (
+          <a
+            href={ctaHref}
+            className="mt-8 inline-flex items-center justify-center rounded-full bg-foreground px-5 py-2 text-sm font-semibold text-background transition hover:bg-foreground/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+          >
+            {cta}
+          </a>
+        ) : null}
       </Container>
     </div>
   );

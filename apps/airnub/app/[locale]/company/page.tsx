@@ -12,6 +12,7 @@ import { getTranslations } from "next-intl/server";
 import { LocaleLink } from "../../../components/LocaleLink";
 import { PageHero } from "../../../components/PageHero";
 import { assertLocale } from "../../../i18n/routing";
+import { resolvedBrandConfig as airnubBrand } from "@airnub/brand";
 
 export const revalidate = 604_800;
 
@@ -76,6 +77,27 @@ export default async function CompanyPage({
     }[];
   };
 
+  const salesEmail =
+    airnubBrand.contact.sales ?? airnubBrand.contact.support ?? airnubBrand.contact.general;
+  const careersEmail = airnubBrand.contact.careers ?? salesEmail;
+  const pressEmail = airnubBrand.contact.press ?? salesEmail;
+
+  const careersCta = careersEmail
+    ? { label: careersEmail, href: `mailto:${careersEmail}` }
+    : { label: careers.ctaLabel, href: careers.ctaHref };
+
+  const pressCards = press.cards.map((card) => {
+    if (card.id === "pressKit" && pressEmail) {
+      return {
+        ...card,
+        ctaLabel: pressEmail,
+        ctaHref: `mailto:${pressEmail}`,
+        external: false,
+      };
+    }
+    return card;
+  });
+
   return (
     <div className="space-y-16 pb-24 text-muted-foreground">
       <PageHero eyebrow={hero.eyebrow} title={hero.title} description={hero.description} />
@@ -105,10 +127,10 @@ export default async function CompanyPage({
               </CardHeader>
               <div>
                 <Link
-                  href={careers.ctaHref}
+                  href={careersCta.href}
                   className="inline-flex items-center rounded-full bg-foreground px-5 py-2 text-sm font-semibold text-background transition hover:bg-foreground/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                 >
-                  {careers.ctaLabel}
+                  {careersCta.label}
                 </Link>
               </div>
             </CardContent>
@@ -118,7 +140,7 @@ export default async function CompanyPage({
 
       <section id="press">
         <Container className="grid gap-6 md:grid-cols-2">
-          {press.cards.map((card) => (
+          {pressCards.map((card) => (
             <Card key={card.id} className="bg-card/60 shadow-lg shadow-slate-950/40">
               <CardHeader>
                 <CardTitle className="text-xl">{card.title}</CardTitle>

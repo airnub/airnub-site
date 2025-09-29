@@ -65,7 +65,7 @@
         }
       },
       "contact": {
-        "label": "speckit@airnub.io",
+        "label": "{contactEmail}",
         "pricing": "Fijación de precios"
       }
     }
@@ -384,8 +384,8 @@
     },
     "shortcuts": {
       "emailHeading": "Correo electrónico",
-      "productQuestions": "Preguntas del producto: speckit@airnub.io",
-      "security": "Seguridad: seguridad@airnub.io",
+      "productQuestions": "Preguntas del producto: {productEmail}",
+      "security": "Seguridad: {securityEmail}",
       "docsHeading": "Documento",
       "docsDescription": "Explore las referencias de API y las guías de implementación.",
       "docsCtaLabel": "docs.speckit.dev →"
