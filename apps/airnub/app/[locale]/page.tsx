@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Button, Card, Container } from "@airnub/ui";
+import {
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Container,
+} from "@airnub/ui";
 import { serverFetch } from "@airnub/seo";
 import { getTranslations } from "next-intl/server";
 import { PageHero } from "../../components/PageHero";
@@ -139,9 +147,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section>
         <Container className="grid gap-10 lg:grid-cols-3">
           {highlightItems.map((item) => (
-            <Card key={item.id} className="p-8">
-              <h3 className="text-xl font-semibold text-card-foreground">{item.title}</h3>
-              <p className="mt-3 text-sm text-muted-foreground">{item.description}</p>
+            <Card key={item.id}>
+              <CardHeader className="p-8">
+                <CardTitle className="text-xl">{item.title}</CardTitle>
+                <CardDescription>{item.description}</CardDescription>
+              </CardHeader>
             </Card>
           ))}
         </Container>
@@ -154,12 +164,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-8">
             {customerItems.map((customer) => (
-              <Card
-                key={customer.id}
-                aria-label={customer.name}
-                className="flex h-16 w-40 items-center justify-center p-4"
-              >
-                <Image src={customer.logo} alt={customer.name} width={120} height={40} className="object-contain" />
+              <Card key={customer.id} aria-label={customer.name} className="h-16 w-40">
+                <CardContent className="flex h-full items-center justify-center p-4">
+                  <Image src={customer.logo} alt={customer.name} width={120} height={40} className="object-contain" />
+                </CardContent>
               </Card>
             ))}
           </div>
@@ -168,42 +176,50 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
       <section>
         <Container>
-          <Card className="grid gap-12 p-10 sm:p-12 lg:grid-cols-2 lg:items-center">
-            <div>
-              <h2 className="text-3xl font-semibold tracking-tight text-card-foreground sm:text-4xl">
-                {speckit.title}
-              </h2>
-              <p className="mt-4 text-base text-muted-foreground">{speckit.description}</p>
-              <div className="mt-6 flex flex-wrap gap-4">
-                <Button asChild>
-                  <Link href="https://speckit.airnub.io" target="_blank" rel="noreferrer">
-                    {speckit.primaryCta}
-                  </Link>
-                </Button>
-                <Button variant="ghost" asChild>
-                  <LocaleLink href="/products">{speckit.secondaryCta}</LocaleLink>
-                </Button>
+          <Card>
+            <CardContent className="grid gap-12 p-10 sm:p-12 lg:grid-cols-2 lg:items-center">
+              <div>
+                <CardTitle className="text-3xl tracking-tight text-card-foreground sm:text-4xl">
+                  {speckit.title}
+                </CardTitle>
+                <CardDescription className="mt-4 text-base text-muted-foreground">
+                  {speckit.description}
+                </CardDescription>
+                <div className="mt-6 flex flex-wrap gap-4">
+                  <Button asChild>
+                    <Link href="https://speckit.airnub.io" target="_blank" rel="noreferrer">
+                      {speckit.primaryCta}
+                    </Link>
+                  </Button>
+                  <Button variant="ghost" asChild>
+                    <LocaleLink href="/products">{speckit.secondaryCta}</LocaleLink>
+                  </Button>
+                </div>
               </div>
-            </div>
-            <Card className="p-8">
-              <h3 className="text-lg font-semibold text-card-foreground">{speckit.outcomesTitle}</h3>
-              <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                {speckit.outcomes.map((outcome, index) => {
-                  const accentClass = outcomeAccentClasses[
-                    Math.min(index, outcomeAccentClasses.length - 1)
-                  ];
-                  return (
-                    <li key={outcome.id} className="flex gap-3">
-                      <span
-                        className={`mt-1 inline-flex h-2.5 w-2.5 rounded-full ${accentClass}`}
-                        aria-hidden="true"
-                      />
-                      {outcome.copy}
-                    </li>
-                  );
-                })}
-              </ul>
-            </Card>
+              <Card>
+                <CardHeader className="p-8">
+                  <CardTitle className="text-lg">{speckit.outcomesTitle}</CardTitle>
+                </CardHeader>
+                <CardContent className="p-8 pt-0">
+                  <ul className="space-y-3 text-sm text-muted-foreground">
+                    {speckit.outcomes.map((outcome, index) => {
+                      const accentClass = outcomeAccentClasses[
+                        Math.min(index, outcomeAccentClasses.length - 1)
+                      ];
+                      return (
+                        <li key={outcome.id} className="flex gap-3">
+                          <span
+                            className={`mt-1 inline-flex h-2.5 w-2.5 rounded-full ${accentClass}`}
+                            aria-hidden="true"
+                          />
+                          {outcome.copy}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </CardContent>
+              </Card>
+            </CardContent>
           </Card>
         </Container>
       </section>
@@ -227,8 +243,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <div className="grid gap-6 md:grid-cols-2">
             {services.cards.map((card) => (
               <Card key={card.id}>
-                <h3 className="text-lg font-semibold text-card-foreground">{card.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{card.description}</p>
+                <CardHeader>
+                  <CardTitle className="text-lg">{card.title}</CardTitle>
+                  <CardDescription>{card.description}</CardDescription>
+                </CardHeader>
               </Card>
             ))}
           </div>

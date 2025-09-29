@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Button, Card, Container } from "@airnub/ui";
+import {
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Container,
+} from "@airnub/ui";
 import { PageHero } from "../components/PageHero";
 import { getCurrentLanguage } from "../lib/language";
 import { getSpeckitMessages } from "../i18n/messages";
@@ -52,9 +60,11 @@ export default async function SpeckitHome() {
       <section>
         <Container className="grid gap-8 lg:grid-cols-3">
           {home.features.map((feature) => (
-            <Card key={feature.title} className="h-full p-8">
-              <h3 className="text-xl font-semibold text-foreground">{feature.title}</h3>
-              <p className="mt-3 text-sm text-muted-foreground">{feature.description}</p>
+            <Card key={feature.title} className="h-full">
+              <CardHeader className="h-full p-8">
+                <CardTitle className="text-xl">{feature.title}</CardTitle>
+                <CardDescription>{feature.description}</CardDescription>
+              </CardHeader>
             </Card>
           ))}
         </Container>
@@ -68,8 +78,10 @@ export default async function SpeckitHome() {
             <div className="mt-6 grid gap-4">
               {home.workflows.items.map((workflow) => (
                 <Card key={workflow.name} className="h-full">
-                  <h3 className="text-lg font-semibold text-foreground">{workflow.name}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{workflow.description}</p>
+                  <CardHeader className="h-full">
+                    <CardTitle className="text-lg">{workflow.name}</CardTitle>
+                    <CardDescription>{workflow.description}</CardDescription>
+                  </CardHeader>
                 </Card>
               ))}
             </div>
@@ -79,18 +91,22 @@ export default async function SpeckitHome() {
               className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.15),_transparent_55%)] dark:bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.25),_transparent_55%)]"
               aria-hidden="true"
             />
-            <div className="relative space-y-6 text-sm text-muted-foreground">
+            <CardContent className="relative space-y-6 text-sm text-muted-foreground">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600 dark:text-indigo-300">
                   {home.guardrails.cardTitle}
                 </p>
-                <Card className="mt-3 border-none bg-muted p-4 shadow-none">
-                  <p className="font-semibold text-foreground">{home.guardrails.specTitle}</p>
-                  <ul className="mt-3 space-y-2 text-xs text-muted-foreground">
-                    {home.guardrails.checklist.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
+                <Card className="mt-3 border-none bg-muted shadow-none">
+                  <CardHeader className="p-4">
+                    <CardTitle className="text-base">{home.guardrails.specTitle}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-4 pt-0 text-xs text-muted-foreground">
+                    <ul className="space-y-2">
+                      {home.guardrails.checklist.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </CardContent>
                 </Card>
               </div>
               <div>
@@ -99,41 +115,49 @@ export default async function SpeckitHome() {
                 </p>
                 <div className="mt-3 space-y-2 text-xs text-muted-foreground">
                   {home.guardrails.evidence.map((item) => (
-                    <Card key={item.label} className="flex items-center justify-between px-3 py-2 shadow-none">
-                      <span>{item.label}</span>
-                      <span className="text-indigo-600 dark:text-indigo-300">{item.status}</span>
+                    <Card key={item.label} className="shadow-none">
+                      <CardContent className="flex items-center justify-between px-3 py-2">
+                        <span>{item.label}</span>
+                        <span className="text-indigo-600 dark:text-indigo-300">{item.status}</span>
+                      </CardContent>
                     </Card>
                   ))}
                 </div>
               </div>
-            </div>
+            </CardContent>
           </Card>
         </Container>
       </section>
 
       <section>
         <Container>
-          <Card className="grid gap-10 p-10 lg:grid-cols-[2fr,3fr] lg:items-center">
-            <div>
-              <h2 className="text-3xl font-semibold text-foreground">{home.alignment.title}</h2>
-              <p className="mt-4 text-base text-muted-foreground">{home.alignment.description}</p>
-              <div className="mt-6 flex flex-wrap gap-4">
-                <Button variant="ghost" asChild>
-                  <Link href={home.alignment.actions.primaryHref}>{home.alignment.actions.primaryLabel}</Link>
-                </Button>
-                <Button asChild>
-                  <Link href={home.alignment.actions.secondaryHref}>{home.alignment.actions.secondaryLabel}</Link>
-                </Button>
+          <Card>
+            <CardContent className="grid gap-10 p-10 lg:grid-cols-[2fr,3fr] lg:items-center">
+              <div>
+                <CardTitle className="text-3xl text-foreground">{home.alignment.title}</CardTitle>
+                <CardDescription className="mt-4 text-base text-muted-foreground">
+                  {home.alignment.description}
+                </CardDescription>
+                <div className="mt-6 flex flex-wrap gap-4">
+                  <Button variant="ghost" asChild>
+                    <Link href={home.alignment.actions.primaryHref}>{home.alignment.actions.primaryLabel}</Link>
+                  </Button>
+                  <Button asChild>
+                    <Link href={home.alignment.actions.secondaryHref}>{home.alignment.actions.secondaryLabel}</Link>
+                  </Button>
+                </div>
               </div>
-            </div>
-            <div className="grid gap-4 md:grid-cols-2">
-              {home.alignment.cards.map((card) => (
-                <Card key={card.title} className="bg-muted shadow-none">
-                  <h3 className="text-lg font-semibold text-foreground">{card.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{card.description}</p>
-                </Card>
-              ))}
-            </div>
+              <div className="grid gap-4 md:grid-cols-2">
+                {home.alignment.cards.map((card) => (
+                  <Card key={card.title} className="bg-muted shadow-none">
+                    <CardHeader>
+                      <CardTitle className="text-lg">{card.title}</CardTitle>
+                      <CardDescription>{card.description}</CardDescription>
+                    </CardHeader>
+                  </Card>
+                ))}
+              </div>
+            </CardContent>
           </Card>
         </Container>
       </section>
@@ -145,8 +169,10 @@ export default async function SpeckitHome() {
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-muted-foreground">
             {home.integrations.items.map((logo) => (
-              <Card key={logo} className="flex h-16 w-36 items-center justify-center shadow-none">
-                <span className="text-sm font-semibold text-foreground">{logo}</span>
+              <Card key={logo} className="h-16 w-36 shadow-none">
+                <CardContent className="flex h-full items-center justify-center text-sm font-semibold text-foreground">
+                  {logo}
+                </CardContent>
               </Card>
             ))}
           </div>
