@@ -1,28 +1,27 @@
-import { brand as airnubBrand } from "@airnub/brand";
-import { itemListJsonLd, organizationJsonLd } from "@airnub/seo";
+import { brand as airnubBrand, buildBrandOrganizationJsonLd } from "@airnub/brand";
+import { itemListJsonLd } from "@airnub/seo";
 import { AIRNUB_BASE_URL } from "./routes";
 
 export function buildAirnubOrganizationJsonLd() {
-  const logoPath =
-    airnubBrand.logos.mark ?? airnubBrand.logos.light ?? airnubBrand.favicon ?? "/brand/logo.svg";
-  const logoUrl = new URL(logoPath, AIRNUB_BASE_URL).toString();
-  return organizationJsonLd({
-    name: "Airnub",
-    url: AIRNUB_BASE_URL,
-    logo: logoUrl,
-    sameAs: [
-      "https://github.com/airnub",
-      "https://www.linkedin.com/company/airnub",
-    ],
-    contactPoint: [
-      {
-        telephone: "+1-415-555-0163",
-        contactType: "sales",
-        email: "hello@airnub.io",
-        areaServed: "Global",
-        availableLanguage: ["English"],
-      },
-    ],
+  const sameAs = [airnubBrand.social.github, airnubBrand.social.linkedin].filter(
+    (url): url is string => Boolean(url)
+  );
+
+  return buildBrandOrganizationJsonLd({
+    brand: airnubBrand,
+    baseUrl: AIRNUB_BASE_URL,
+    overrides: {
+      sameAs,
+      contactPoint: [
+        {
+          telephone: "+1-415-555-0163",
+          contactType: "sales",
+          email: "hello@airnub.io",
+          areaServed: "Global",
+          availableLanguage: ["English"],
+        },
+      ],
+    },
   });
 }
 

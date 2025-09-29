@@ -11,7 +11,7 @@ import { assertLocale, locales, type Locale } from "../../i18n/routing";
 import { MaintenanceGate } from "./maintenance/MaintenanceGate";
 import { isMaintenanceModeEnabled } from "../../lib/runtime-flags";
 import { LocaleSwitcher } from "../../components/LocaleSwitcher";
-import { brand as airnubBrand } from "@airnub/brand";
+import { brand as airnubBrand, buildBrandMetadata } from "@airnub/brand";
 
 const jsonLd = buildAirnubOrganizationJsonLd();
 
@@ -39,46 +39,39 @@ export async function generateMetadata({
   const locale = assertLocale(localeParam);
   const t = await getTranslations({ locale, namespace: "layout.metadata" });
   const ogPath = airnubBrand.og ?? "/brand/og.png";
-  const ogUrl = new URL(ogPath, AIRNUB_BASE_URL);
-  const favicon = airnubBrand.favicon ?? airnubBrand.logos.mark ?? "/brand/favicon.svg";
+  const ogUrl = new URL(ogPath, AIRNUB_BASE_URL).toString();
 
-  return {
-    metadataBase: new URL(AIRNUB_BASE_URL),
-    title: {
-      default: t("titleDefault"),
-      template: t("titleTemplate"),
+  return buildBrandMetadata({
+    brand: airnubBrand,
+    baseUrl: AIRNUB_BASE_URL,
+    overrides: {
+      title: {
+        default: t("titleDefault"),
+        template: t("titleTemplate"),
+      },
+      description: t("description"),
+      openGraph: {
+        description: t("ogDescription"),
+        locale: localeToOg[locale],
+        images: [
+          {
+            url: ogUrl,
+            width: 1200,
+            height: 630,
+            alt: t("titleDefault"),
+          },
+        ],
+      },
+      twitter: {
+        description: t("twitterDescription"),
+        images: [ogUrl],
+      },
+      alternates: {
+        canonical: `/${locale}`,
+        languages: Object.fromEntries(locales.map((code) => [code, `/${code}`])),
+      },
     },
-    description: t("description"),
-    openGraph: {
-      title: airnubBrand.name,
-      description: t("ogDescription"),
-      url: AIRNUB_BASE_URL,
-      siteName: airnubBrand.name,
-      locale: localeToOg[locale],
-      type: "website",
-      images: [
-        {
-          url: ogUrl,
-          width: 1200,
-          height: 630,
-          alt: t("titleDefault"),
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: airnubBrand.name,
-      description: t("twitterDescription"),
-      images: [ogUrl.toString()],
-    },
-    icons: {
-      icon: favicon,
-    },
-    alternates: {
-      canonical: `/${locale}`,
-      languages: Object.fromEntries(locales.map((code) => [code, `/${code}`])),
-    },
-  };
+  });
 }
 
 export default async function LocaleLayout({

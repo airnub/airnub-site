@@ -8,3 +8,4 @@ export const ogTemplate = join(packageDir, "../public/brand/og.png");
 export * from "./AirnubWordmark";
 export * from "./SpeckitWordmark";
 export * from "./brand.config";
+export * from "./metadata";

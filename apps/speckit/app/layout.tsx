@@ -24,6 +24,7 @@ import { getCurrentLanguage } from "../lib/language";
 import { getSpeckitMessages } from "../i18n/messages";
 import { supportedLanguages } from "../i18n/config";
 import speckitBrand from "../brand.config";
+import { buildBrandMetadata } from "@airnub/brand";
 
 const jsonLd = buildSpeckitSoftwareJsonLd();
 
@@ -32,45 +33,38 @@ export async function generateMetadata(): Promise<Metadata> {
   const layoutMessages = getSpeckitMessages(language).layout;
   const metadataMessages = layoutMessages.metadata;
   const ogPath = speckitBrand.og ?? "/brand/og.png";
-  const ogUrl = new URL(ogPath, SPECKIT_BASE_URL);
-  const favicon = speckitBrand.favicon ?? speckitBrand.logos.mark ?? "/brand/favicon.svg";
+  const ogUrl = new URL(ogPath, SPECKIT_BASE_URL).toString();
 
-  return {
-    metadataBase: new URL(SPECKIT_BASE_URL),
-    title: {
-      default: metadataMessages.titleDefault,
-      template: metadataMessages.titleTemplate,
+  return buildBrandMetadata({
+    brand: speckitBrand,
+    baseUrl: SPECKIT_BASE_URL,
+    overrides: {
+      title: {
+        default: metadataMessages.titleDefault,
+        template: metadataMessages.titleTemplate,
+      },
+      description: metadataMessages.description,
+      openGraph: {
+        description: metadataMessages.ogDescription,
+        locale: metadataMessages.openGraphLocale,
+        images: [
+          {
+            url: ogUrl,
+            width: 1200,
+            height: 630,
+            alt: metadataMessages.ogImageAlt,
+          },
+        ],
+      },
+      twitter: {
+        description: metadataMessages.twitterDescription,
+        images: [ogUrl],
+      },
+      alternates: {
+        canonical: "/",
+      },
     },
-    description: metadataMessages.description,
-    openGraph: {
-      title: speckitBrand.name,
-      description: metadataMessages.ogDescription,
-      url: SPECKIT_BASE_URL,
-      siteName: speckitBrand.name,
-      locale: metadataMessages.openGraphLocale,
-      type: "website",
-      images: [
-        {
-          url: ogUrl,
-          width: 1200,
-          height: 630,
-          alt: metadataMessages.ogImageAlt,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: speckitBrand.name,
-      description: metadataMessages.twitterDescription,
-      images: [ogUrl.toString()],
-    },
-    icons: {
-      icon: favicon,
-    },
-    alternates: {
-      canonical: "/",
-    },
-  };
+  });
 }
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
