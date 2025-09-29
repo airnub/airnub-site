@@ -18,7 +18,7 @@ export function PageHero({
   return (
     <section
       className={clsx(
-        "relative overflow-hidden border-b border-slate-200 bg-slate-50 py-16 text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-100",
+        "relative overflow-hidden border-b border-border bg-muted py-16 text-foreground",
         className,
       )}
     >
@@ -30,8 +30,8 @@ export function PageHero({
         {eyebrow ? (
           <p className="text-sm font-semibold uppercase tracking-wide text-sky-600 dark:text-sky-400/80">{eyebrow}</p>
         ) : null}
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-5xl">{title}</h1>
-        {description ? <p className="mt-6 text-lg text-slate-600 dark:text-slate-300">{description}</p> : null}
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">{title}</h1>
+        {description ? <p className="mt-6 text-lg text-muted-foreground">{description}</p> : null}
         {actions ? <div className="mt-8 flex flex-wrap gap-4">{actions}</div> : null}
       </Container>
     </section>

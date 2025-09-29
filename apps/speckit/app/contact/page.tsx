@@ -23,18 +23,18 @@ type ContactShortcutsProps = {
 function ContactShortcuts({ shortcuts }: ContactShortcutsProps) {
   return (
     <div className="space-y-6">
-      <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg dark:border-white/10 dark:bg-white/10">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-300">
+      <div className="rounded-3xl border border-border bg-card p-6 shadow-lg">
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
           {shortcuts.emailHeading}
         </h3>
-        <p className="mt-2 text-sm text-slate-600 dark:text-slate-200">{shortcuts.productQuestions}</p>
-        <p className="mt-1 text-sm text-slate-600 dark:text-slate-200">{shortcuts.security}</p>
+        <p className="mt-2 text-sm text-muted-foreground">{shortcuts.productQuestions}</p>
+        <p className="mt-1 text-sm text-muted-foreground">{shortcuts.security}</p>
       </div>
-      <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg dark:border-white/10 dark:bg-white/10">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-300">
+      <div className="rounded-3xl border border-border bg-card p-6 shadow-lg">
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
           {shortcuts.docsHeading}
         </h3>
-        <p className="mt-2 text-sm text-slate-600 dark:text-slate-200">{shortcuts.docsDescription}</p>
+        <p className="mt-2 text-sm text-muted-foreground">{shortcuts.docsDescription}</p>
         <a
           href="https://docs.speckit.dev"
           className="mt-3 inline-flex text-sm font-semibold text-indigo-600 transition hover:text-indigo-700 dark:text-indigo-300 dark:hover:text-indigo-200"
@@ -62,13 +62,13 @@ export default async function ContactPage() {
 
       <section>
         <Container className="grid gap-12 lg:grid-cols-[2fr,1fr]">
-          <div className="rounded-3xl border border-slate-200 bg-white p-10 shadow-xl dark:border-white/10 dark:bg-white/10">
-            <h2 className="text-xl font-semibold text-slate-900 dark:text-white">{contact.form.title}</h2>
-            <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{contact.form.description}</p>
+          <div className="rounded-3xl border border-border bg-card p-10 shadow-xl">
+            <h2 className="text-xl font-semibold text-foreground">{contact.form.title}</h2>
+            <p className="mt-3 text-sm text-muted-foreground">{contact.form.description}</p>
             <form action={submitLead} className="mt-8 space-y-6">
               <div className="grid gap-6 md:grid-cols-2">
                 <div>
-                  <label htmlFor="full_name" className="block text-sm font-semibold text-slate-900 dark:text-slate-100">
+                  <label htmlFor="full_name" className="block text-sm font-semibold text-foreground">
                     {contact.form.fields.nameLabel}
                   </label>
                   <input
@@ -76,11 +76,11 @@ export default async function ContactPage() {
                     name="full_name"
                     type="text"
                     autoComplete="name"
-                    className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-white/10 dark:bg-white/10 dark:text-white dark:placeholder:text-slate-400"
+                    className="mt-2 w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-slate-900 dark:text-slate-100">
+                  <label htmlFor="email" className="block text-sm font-semibold text-foreground">
                     {contact.form.fields.emailLabel} <span className="text-rose-400">{contact.form.fields.emailRequiredSuffix}</span>
                   </label>
                   <input
@@ -89,13 +89,13 @@ export default async function ContactPage() {
                     type="email"
                     required
                     autoComplete="email"
-                    className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-white/10 dark:bg-white/10 dark:text-white dark:placeholder:text-slate-400"
+                    className="mt-2 w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring"
                   />
                 </div>
               </div>
               <div className="grid gap-6 md:grid-cols-2">
                 <div>
-                  <label htmlFor="company" className="block text-sm font-semibold text-slate-900 dark:text-slate-100">
+                  <label htmlFor="company" className="block text-sm font-semibold text-foreground">
                     {contact.form.fields.companyLabel}
                   </label>
                   <input
@@ -103,18 +103,18 @@ export default async function ContactPage() {
                     name="company"
                     type="text"
                     autoComplete="organization"
-                    className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-white/10 dark:bg-white/10 dark:text-white dark:placeholder:text-slate-400"
+                    className="mt-2 w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring"
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-slate-900 dark:text-slate-100">
+                  <label htmlFor="message" className="block text-sm font-semibold text-foreground">
                     {contact.form.fields.focusLabel}
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     rows={4}
-                    className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-white/10 dark:bg-white/10 dark:text-white dark:placeholder:text-slate-400"
+                    className="mt-2 w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring"
                   />
                 </div>
               </div>

@@ -49,7 +49,7 @@ export default async function SolutionsPage({
   };
 
   return (
-    <div className="space-y-16 pb-24 text-slate-300">
+    <div className="space-y-16 pb-24 text-muted-foreground">
       <PageHero eyebrow={hero.eyebrow} title={hero.title} description={hero.description} />
 
       <section>
@@ -57,11 +57,11 @@ export default async function SolutionsPage({
           {sectors.map((sector) => (
             <div
               key={sector.id}
-              className="rounded-3xl border border-slate-800 bg-slate-900/60 p-8 shadow-lg shadow-slate-950/40"
+              className="rounded-3xl border border-border bg-card/60 p-8 shadow-lg shadow-slate-950/40"
             >
-              <h2 className="text-xl font-semibold text-white">{sector.name}</h2>
-              <p className="mt-3 text-sm text-slate-300">{sector.summary}</p>
-              <ul className="mt-4 space-y-2 text-sm text-slate-300">
+              <h2 className="text-xl font-semibold text-foreground">{sector.name}</h2>
+              <p className="mt-3 text-sm text-muted-foreground">{sector.summary}</p>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                 {sector.bullets.map((bullet) => (
                   <li key={bullet}>→ {bullet}</li>
                 ))}
@@ -72,14 +72,14 @@ export default async function SolutionsPage({
       </section>
 
       <section>
-        <Container className="rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 p-10 text-slate-100 shadow-xl shadow-slate-950/40">
+        <Container className="rounded-3xl border border-border bg-gradient-to-br from-muted via-background to-muted p-10 text-foreground shadow-xl shadow-slate-950/40">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
-              <h2 className="text-3xl font-semibold tracking-tight text-white">{partner.title}</h2>
-              <p className="mt-4 text-sm text-slate-300">{partner.description}</p>
+              <h2 className="text-3xl font-semibold tracking-tight text-foreground">{partner.title}</h2>
+              <p className="mt-4 text-sm text-muted-foreground">{partner.description}</p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-slate-200">
-              <p className="font-semibold text-white">{partner.expectationsTitle}</p>
+            <div className="rounded-2xl border border-border/10 bg-card/5 p-6 text-sm text-muted-foreground">
+              <p className="font-semibold text-foreground">{partner.expectationsTitle}</p>
               <ul className="mt-3 space-y-2">
                 {partner.expectations.map((item) => (
                   <li key={item}>→ {item}</li>

@@ -30,7 +30,7 @@ function toastClassNames(variant: ToastVariant) {
     case "error":
       return "border-rose-200 bg-rose-50 text-rose-900 dark:border-rose-500/40 dark:bg-rose-500/10 dark:text-rose-50";
     default:
-      return "border-slate-200 bg-white text-slate-900 dark:border-slate-700 dark:bg-slate-900/90 dark:text-slate-50";
+      return "border-border bg-card text-card-foreground";
   }
 }
 
@@ -68,7 +68,7 @@ export function ToastProvider({ children }: PropsWithChildren) {
             </div>
             {action ? <div className="shrink-0">{action}</div> : null}
             <Toast.Close
-              className="absolute right-3 top-3 text-slate-400 transition hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:text-slate-300 dark:hover:text-white"
+              className="absolute right-3 top-3 text-muted-foreground transition hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
               aria-label={closeLabel ?? "Dismiss notification"}
             >
               ×

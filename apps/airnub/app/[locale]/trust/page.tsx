@@ -52,7 +52,7 @@ export default async function TrustPage({
   };
 
   return (
-    <div className="space-y-16 pb-24 text-slate-300">
+    <div className="space-y-16 pb-24 text-muted-foreground">
       <PageHero eyebrow={hero.eyebrow} title={hero.title} description={hero.description} />
 
       <section>
@@ -61,12 +61,12 @@ export default async function TrustPage({
             <Link
               key={item.id}
               href={item.href}
-              className="rounded-3xl border border-slate-800 bg-slate-900/60 p-8 text-left shadow-lg shadow-slate-950/40 transition hover:border-sky-500/40"
+              className="rounded-3xl border border-border bg-card/60 p-8 text-left shadow-lg shadow-slate-950/40 transition hover:border-ring/40"
               target="_blank"
               rel="noreferrer"
             >
-              <h2 className="text-xl font-semibold text-white">{item.title}</h2>
-              <p className="mt-3 text-sm text-slate-300">{item.description}</p>
+              <h2 className="text-xl font-semibold text-foreground">{item.title}</h2>
+              <p className="mt-3 text-sm text-muted-foreground">{item.description}</p>
               <span className="mt-4 inline-flex text-sm font-semibold text-sky-400">{highlightCta} →</span>
             </Link>
           ))}
@@ -74,16 +74,16 @@ export default async function TrustPage({
       </section>
 
       <section>
-        <Container className="rounded-3xl border border-slate-800 bg-slate-900/70 p-10 shadow-lg shadow-slate-950/40">
+        <Container className="rounded-3xl border border-border bg-card/70 p-10 shadow-lg shadow-slate-950/40">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div>
-              <h2 className="text-2xl font-semibold text-white">{request.title}</h2>
-              <p className="mt-3 text-sm text-slate-300">{request.description}</p>
+              <h2 className="text-2xl font-semibold text-foreground">{request.title}</h2>
+              <p className="mt-3 text-sm text-muted-foreground">{request.description}</p>
             </div>
             <div>
               <LocaleLink
                 href={request.ctaHref}
-                className="inline-flex items-center rounded-full bg-sky-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-sky-500"
+                className="inline-flex items-center rounded-full bg-foreground px-5 py-2 text-sm font-semibold text-background transition hover:bg-foreground/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
               >
                 {request.ctaLabel}
               </LocaleLink>

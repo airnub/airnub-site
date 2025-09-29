@@ -60,7 +60,7 @@ export default async function ProductsPage({
   }[];
 
   return (
-    <div className="space-y-16 pb-24 text-slate-300">
+    <div className="space-y-16 pb-24 text-muted-foreground">
       <PageHero
         eyebrow={hero.eyebrow}
         title={hero.title}
@@ -84,18 +84,18 @@ export default async function ProductsPage({
             return (
               <article
                 key={offering.id}
-                className="flex h-full flex-col justify-between rounded-3xl border border-slate-800 bg-slate-900/60 p-8 shadow-lg shadow-slate-950/40"
+                className="flex h-full flex-col justify-between rounded-3xl border border-border bg-card/60 p-8 shadow-lg shadow-slate-950/40"
               >
                 <div>
                   <div className="flex items-center gap-3">
-                    <h2 className="text-2xl font-semibold text-white">{offering.name}</h2>
+                    <h2 className="text-2xl font-semibold text-foreground">{offering.name}</h2>
                     {offering.badge ? (
                       <span className="rounded-full border border-sky-500/40 bg-sky-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-sky-300">
                         {offering.badge}
                       </span>
                     ) : null}
                   </div>
-                  <p className="mt-3 text-sm text-slate-300">{offering.description}</p>
+                  <p className="mt-3 text-sm text-muted-foreground">{offering.description}</p>
                 </div>
                 <div className="mt-8">
                   <LinkComponent
@@ -115,20 +115,20 @@ export default async function ProductsPage({
       <section>
         <Container className="grid gap-8 lg:grid-cols-2">
           {insights.map((insight) => (
-            <div key={insight.id} className="rounded-3xl border border-slate-800 bg-slate-900/70 p-8 shadow-lg shadow-slate-950/40">
-              <h3 className="text-xl font-semibold text-white">{insight.title}</h3>
+            <div key={insight.id} className="rounded-3xl border border-border bg-card/70 p-8 shadow-lg shadow-slate-950/40">
+              <h3 className="text-xl font-semibold text-foreground">{insight.title}</h3>
               {insight.description ? (
-                <p className="mt-3 text-sm text-slate-300">{insight.description}</p>
+                <p className="mt-3 text-sm text-muted-foreground">{insight.description}</p>
               ) : null}
               {insight.bullets ? (
-                <ul className="mt-4 space-y-2 text-sm text-slate-300">
+                <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                   {insight.bullets.map((bullet) => (
                     <li key={bullet}>→ {bullet}</li>
                   ))}
                 </ul>
               ) : null}
               {insight.paragraphs ? (
-                <div className="mt-3 space-y-3 text-sm text-slate-300">
+                <div className="mt-3 space-y-3 text-sm text-muted-foreground">
                   {insight.paragraphs.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}

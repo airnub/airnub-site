@@ -82,7 +82,7 @@ export function LocaleSwitcher({ className }: LocaleSwitcherProps) {
         id="locale-switcher"
         name="locale"
         className={clsx(
-          "appearance-none rounded-full border border-slate-200 bg-white px-3 py-2 pr-8 text-sm font-medium text-slate-700 transition hover:border-slate-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600",
+          "appearance-none rounded-full border border-border bg-card px-3 py-2 pr-8 text-sm font-medium text-foreground transition hover:border-ring focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
           isPending && "opacity-75"
         )}
         value={locale}
@@ -99,7 +99,7 @@ export function LocaleSwitcher({ className }: LocaleSwitcherProps) {
       <svg
         aria-hidden="true"
         focusable="false"
-        className="pointer-events-none absolute right-2 top-1/2 h-3 w-3 -translate-y-1/2 text-slate-500 dark:text-slate-400"
+        className="pointer-events-none absolute right-2 top-1/2 h-3 w-3 -translate-y-1/2 text-muted-foreground"
         viewBox="0 0 12 8"
       >
         <path d="M1.41.59 6 5.17l4.59-4.58L12 2l-6 6-6-6z" fill="currentColor" />

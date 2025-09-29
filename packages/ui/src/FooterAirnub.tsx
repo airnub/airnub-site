@@ -41,7 +41,7 @@ export function FooterAirnub({
       description={description}
       bottomSlot={
         bottomSlot ?? (
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-slate-500 dark:text-slate-400">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-muted-foreground">
             {resolvedBottomLinks.map((link, index) => (
               <div key={`${link.href}-${link.label}`} className="flex items-center gap-3">
                 {index > 0 ? <span aria-hidden="true">•</span> : null}

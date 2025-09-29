@@ -70,7 +70,7 @@ export default async function CompanyPage({
   };
 
   return (
-    <div className="space-y-16 pb-24 text-slate-300">
+    <div className="space-y-16 pb-24 text-muted-foreground">
       <PageHero eyebrow={hero.eyebrow} title={hero.title} description={hero.description} />
 
       <section>
@@ -78,26 +78,26 @@ export default async function CompanyPage({
           {values.map((value) => (
             <div
               key={value.id}
-              className="rounded-3xl border border-slate-800 bg-slate-900/60 p-8 shadow-lg shadow-slate-950/40"
+              className="rounded-3xl border border-border bg-card/60 p-8 shadow-lg shadow-slate-950/40"
             >
-              <h2 className="text-xl font-semibold text-white">{value.name}</h2>
-              <p className="mt-3 text-sm text-slate-300">{value.description}</p>
+              <h2 className="text-xl font-semibold text-foreground">{value.name}</h2>
+              <p className="mt-3 text-sm text-muted-foreground">{value.description}</p>
             </div>
           ))}
         </Container>
       </section>
 
       <section id="careers">
-        <Container className="rounded-3xl border border-slate-800 bg-slate-900/70 p-10 text-slate-200 shadow-lg shadow-slate-950/40">
+        <Container className="rounded-3xl border border-border bg-card/70 p-10 text-foreground shadow-lg shadow-slate-950/40">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div>
-              <h2 className="text-3xl font-semibold tracking-tight text-white">{careers.title}</h2>
-              <p className="mt-4 text-sm text-slate-300">{careers.description}</p>
+              <h2 className="text-3xl font-semibold tracking-tight text-foreground">{careers.title}</h2>
+              <p className="mt-4 text-sm text-muted-foreground">{careers.description}</p>
             </div>
             <div>
               <Link
                 href={careers.ctaHref}
-                className="inline-flex items-center rounded-full bg-white px-5 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-200"
+                className="inline-flex items-center rounded-full bg-foreground px-5 py-2 text-sm font-semibold text-background transition hover:bg-foreground/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
               >
                 {careers.ctaLabel}
               </Link>
@@ -109,9 +109,9 @@ export default async function CompanyPage({
       <section id="press">
         <Container className="grid gap-6 md:grid-cols-2">
           {press.cards.map((card) => (
-            <div key={card.id} className="rounded-3xl border border-slate-800 bg-slate-900/60 p-8 shadow-lg shadow-slate-950/40">
-              <h2 className="text-xl font-semibold text-white">{card.title}</h2>
-              <p className="mt-3 text-sm text-slate-300">{card.description}</p>
+            <div key={card.id} className="rounded-3xl border border-border bg-card/60 p-8 shadow-lg shadow-slate-950/40">
+              <h2 className="text-xl font-semibold text-foreground">{card.title}</h2>
+              <p className="mt-3 text-sm text-muted-foreground">{card.description}</p>
               <Link
                 href={card.ctaHref}
                 className="mt-4 inline-flex text-sm font-semibold text-sky-400"
@@ -126,13 +126,13 @@ export default async function CompanyPage({
       </section>
 
       <section id="legal">
-        <Container className="rounded-3xl border border-slate-800 bg-slate-900/60 p-10 shadow-lg shadow-slate-950/40">
-          <h2 className="text-2xl font-semibold text-white">{legal.title}</h2>
+        <Container className="rounded-3xl border border-border bg-card/60 p-10 shadow-lg shadow-slate-950/40">
+          <h2 className="text-2xl font-semibold text-foreground">{legal.title}</h2>
           <div className="mt-6 grid gap-6 md:grid-cols-2">
             {legal.items.map((item) => (
               <div key={item.id}>
-                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                <p className="mt-2 text-sm text-slate-300">{item.description}</p>
+                <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
                 <LocaleLink href={item.ctaHref} className="mt-3 inline-flex text-sm font-semibold text-sky-400">
                   {item.ctaLabel} →
                 </LocaleLink>

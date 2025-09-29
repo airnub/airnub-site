@@ -29,12 +29,12 @@ function formatTimestamp(value: string | null | undefined) {
 export default async function LeadsPage() {
   if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
     return (
-      <div className="space-y-6 text-slate-100">
+      <div className="space-y-6 text-foreground">
         <h1 className="text-3xl font-semibold">Admin configuration missing</h1>
-        <p className="text-sm text-slate-300">
-          Add <code className="rounded bg-slate-800 px-1 py-0.5 text-xs">SUPABASE_SERVICE_ROLE_KEY</code>,
-          <code className="ml-1 rounded bg-slate-800 px-1 py-0.5 text-xs">NEXT_PUBLIC_SUPABASE_URL</code>, and
-          <code className="ml-1 rounded bg-slate-800 px-1 py-0.5 text-xs">NEXT_PUBLIC_SUPABASE_ANON_KEY</code> to your
+        <p className="text-sm text-muted-foreground">
+          Add <code className="rounded bg-card px-1 py-0.5 text-xs">SUPABASE_SERVICE_ROLE_KEY</code>,
+          <code className="ml-1 rounded bg-card px-1 py-0.5 text-xs">NEXT_PUBLIC_SUPABASE_URL</code>, and
+          <code className="ml-1 rounded bg-card px-1 py-0.5 text-xs">NEXT_PUBLIC_SUPABASE_ANON_KEY</code> to your
           environment variables to unlock the remote operations console.
         </p>
       </div>
@@ -56,7 +56,7 @@ export default async function LeadsPage() {
 
   if (leadError) {
     return (
-      <div className="space-y-4 text-slate-100">
+      <div className="space-y-4 text-foreground">
         <h1 className="text-3xl font-semibold">Unable to load leads</h1>
         <p className="text-sm text-rose-300">
           Supabase returned an error. Confirm the service role credentials and network reachability, then refresh.
@@ -68,7 +68,7 @@ export default async function LeadsPage() {
 
   if (maintenanceError) {
     return (
-      <div className="space-y-4 text-slate-100">
+      <div className="space-y-4 text-foreground">
         <h1 className="text-3xl font-semibold">Unable to load runtime flags</h1>
         <p className="text-sm text-rose-300">
           Supabase returned an error while loading runtime flags. Double-check the service role key and try again.
@@ -104,11 +104,11 @@ export default async function LeadsPage() {
     typeof maintenanceFlag?.value === "boolean" ? maintenanceFlag.value : process.env.MAINTENANCE_MODE === "true";
 
   return (
-    <div className="space-y-10 text-slate-100">
+    <div className="space-y-10 text-foreground">
       <header className="space-y-3">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-sky-400/70">Airnub</p>
         <h1 className="text-4xl font-semibold tracking-tight">Remote operations</h1>
-        <p className="max-w-2xl text-sm text-slate-300">
+        <p className="max-w-2xl text-sm text-muted-foreground">
           Review inbound leads from both marketing sites, assign follow-ups, and toggle the maintenance banner without opening the
           cloud console.
         </p>
@@ -126,11 +126,11 @@ export default async function LeadsPage() {
       <section className="space-y-6">
         <div>
           <h2 className="text-xl font-semibold">Inbound leads</h2>
-          <p className="text-sm text-slate-300">Showing the 100 most recent submissions across the Airnub and Speckit funnels.</p>
+          <p className="text-sm text-muted-foreground">Showing the 100 most recent submissions across the Airnub and Speckit funnels.</p>
         </div>
 
         {leads.length === 0 ? (
-          <p className="rounded-3xl border border-dashed border-slate-800/60 bg-slate-950/40 p-6 text-sm text-slate-400">
+          <p className="rounded-3xl border border-dashed border-border/60 bg-card/40 p-6 text-sm text-muted-foreground">
             No leads yet. Check back after the next launch.
           </p>
         ) : null}
@@ -154,15 +154,15 @@ export default async function LeadsPage() {
                   return (
                     <article
                       key={lead.id}
-                      className="flex h-full flex-col justify-between gap-4 rounded-3xl border border-slate-800/70 bg-slate-950/60 p-6 shadow-lg shadow-slate-950/40"
+                      className="flex h-full flex-col justify-between gap-4 rounded-3xl border border-border/70 bg-card/60 p-6 shadow-lg shadow-slate-950/40"
                     >
                       <div className="space-y-4">
                         <div>
-                          <p className="text-xs uppercase tracking-wide text-slate-400">Submitted</p>
-                          <p className="text-sm text-slate-200">{formatTimestamp(lead.created_at)}</p>
+                          <p className="text-xs uppercase tracking-wide text-muted-foreground">Submitted</p>
+                          <p className="text-sm text-foreground">{formatTimestamp(lead.created_at)}</p>
                         </div>
                         <div>
-                          <h4 className="text-2xl font-semibold text-white">{lead.full_name ?? lead.email}</h4>
+                          <h4 className="text-2xl font-semibold text-foreground">{lead.full_name ?? lead.email}</h4>
                           <a
                             href={`mailto:${lead.email}`}
                             className="text-sm text-sky-300 underline-offset-4 hover:underline"
@@ -170,32 +170,32 @@ export default async function LeadsPage() {
                             {lead.email}
                           </a>
                           {lead.company ? (
-                            <p className="text-sm text-slate-300">{lead.company}</p>
+                            <p className="text-sm text-muted-foreground">{lead.company}</p>
                           ) : null}
                         </div>
                         {lead.message ? (
                           <div>
-                            <p className="text-xs uppercase tracking-wide text-slate-400">Message</p>
-                            <p className="mt-1 whitespace-pre-line text-sm text-slate-200">{lead.message}</p>
+                            <p className="text-xs uppercase tracking-wide text-muted-foreground">Message</p>
+                            <p className="mt-1 whitespace-pre-line text-sm text-foreground">{lead.message}</p>
                           </div>
                         ) : null}
                         {latestAction ? (
-                          <div className="rounded-2xl border border-slate-800/60 bg-slate-900/40 p-4">
-                            <p className="text-xs uppercase tracking-wide text-slate-400">Latest triage</p>
-                            <p className="mt-1 text-sm text-slate-200">
+                          <div className="rounded-2xl border border-border/60 bg-card/40 p-4">
+                            <p className="text-xs uppercase tracking-wide text-muted-foreground">Latest triage</p>
+                            <p className="mt-1 text-sm text-foreground">
                               {STATUS_LABELS[latestAction.status] ?? latestAction.status}
                               {latestAction.assignee ? ` • Assigned to ${latestAction.assignee}` : ""}
                             </p>
                             {latestAction.note ? (
-                              <p className="mt-2 text-sm text-slate-300 whitespace-pre-line">{latestAction.note}</p>
+                              <p className="mt-2 text-sm text-muted-foreground whitespace-pre-line">{latestAction.note}</p>
                             ) : null}
-                            <p className="mt-2 text-xs text-slate-500">
+                            <p className="mt-2 text-xs text-muted-foreground">
                               {latestAction.created_by ? `${latestAction.created_by} — ` : ""}
                               {formatTimestamp(latestAction.created_at)}
                             </p>
                           </div>
                         ) : (
-                          <div className="rounded-2xl border border-dashed border-slate-800/60 bg-slate-900/20 p-4 text-sm text-slate-400">
+                          <div className="rounded-2xl border border-dashed border-border/60 bg-card/20 p-4 text-sm text-muted-foreground">
                             No triage recorded yet.
                           </div>
                         )}
@@ -203,16 +203,16 @@ export default async function LeadsPage() {
                       <div className="space-y-4">
                         {lead.lead_actions.length > 1 ? (
                           <div className="space-y-2">
-                            <p className="text-xs uppercase tracking-wide text-slate-400">History</p>
-                            <ul className="space-y-2 text-xs text-slate-400">
+                            <p className="text-xs uppercase tracking-wide text-muted-foreground">History</p>
+                            <ul className="space-y-2 text-xs text-muted-foreground">
                               {lead.lead_actions.slice(1, 5).map((action) => (
-                                <li key={action.id} className="rounded-xl border border-slate-800/60 bg-slate-900/30 p-3">
-                                  <p className="text-slate-300">
+                                <li key={action.id} className="rounded-xl border border-border/60 bg-card/30 p-3">
+                                  <p className="text-muted-foreground">
                                     {STATUS_LABELS[action.status] ?? action.status}
                                     {action.assignee ? ` • ${action.assignee}` : ""}
                                   </p>
-                                  {action.note ? <p className="mt-1 whitespace-pre-line text-slate-400">{action.note}</p> : null}
-                                  <p className="mt-1 text-[0.7rem] text-slate-500">
+                                  {action.note ? <p className="mt-1 whitespace-pre-line text-muted-foreground">{action.note}</p> : null}
+                                  <p className="mt-1 text-[0.7rem] text-muted-foreground">
                                     {action.created_by ? `${action.created_by} — ` : ""}
                                     {formatTimestamp(action.created_at)}
                                   </p>
