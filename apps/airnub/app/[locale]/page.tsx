@@ -7,14 +7,16 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-  Container,
+  CTASection,
+  FeatureGrid,
+  Hero,
+  LogoCloud,
   CloudyardLogo,
   ForgeLabsLogo,
   NorthbeamLogo,
 } from "@airnub/ui";
 import { serverFetch } from "@airnub/seo";
 import { getTranslations } from "next-intl/server";
-import { PageHero } from "../../components/PageHero";
 import { LocaleLink } from "../../components/LocaleLink";
 import { assertLocale } from "../../i18n/routing";
 
@@ -131,11 +133,15 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     })),
   } as const;
 
-  const outcomeAccentClasses = ["bg-brand-subtle", "bg-brand-accent", "bg-brand-bold"] as const;
+  const outcomeAccentStyles = [
+    { backgroundColor: "var(--brand-primary)" },
+    { backgroundColor: "var(--brand-accent)" },
+    { backgroundColor: "color-mix(in srgb, var(--brand-foreground) 70%, transparent)" },
+  ] as const;
 
   return (
     <div className="space-y-24 pb-24">
-      <PageHero
+      <Hero
         eyebrow={hero.eyebrow}
         title={hero.title}
         description={hero.description}
@@ -151,105 +157,71 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         }
       />
 
-      <section>
-        <Container className="grid gap-10 lg:grid-cols-3">
-          {highlightItems.map((item) => (
-            <Card key={item.id}>
-              <CardHeader>
-                <CardTitle className="text-xl">{item.title}</CardTitle>
-                <CardDescription>{item.description}</CardDescription>
-              </CardHeader>
-            </Card>
-          ))}
-        </Container>
-      </section>
+      <FeatureGrid
+        items={highlightItems.map((item) => ({
+          id: item.id,
+          title: item.title,
+          description: item.description,
+        }))}
+      />
 
-      <section>
-        <Container className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-            {t("customers.eyebrow")}
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-8">
-            {customerItems.map(({ id, name, Logo }) => (
-              <Card key={id} aria-label={name} className="group h-16 w-40 transition-colors">
-                <CardContent className="flex h-full items-center justify-center p-4 text-muted-foreground transition-colors group-hover:text-foreground">
-                  <Logo className="h-6 w-auto" aria-hidden="true" focusable="false" />
-                  <span className="sr-only">{name}</span>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <LogoCloud
+        eyebrow={t("customers.eyebrow")}
+        items={customerItems.map(({ id, name, Logo }) => ({
+          id,
+          name,
+          logo: <Logo className="h-6 w-auto" aria-hidden="true" focusable="false" />,
+        }))}
+      />
 
-      <section>
-        <Container>
+      <CTASection
+        title={speckit.title}
+        description={speckit.description}
+        actions={
+          <>
+            <Button asChild>
+              <Link href="https://speckit.airnub.io" target="_blank" rel="noreferrer">
+                {speckit.primaryCta}
+              </Link>
+            </Button>
+            <Button variant="ghost" asChild>
+              <LocaleLink href="/products">{speckit.secondaryCta}</LocaleLink>
+            </Button>
+          </>
+        }
+        aside={
           <Card>
-            <CardContent className="grid gap-12 pt-5 lg:grid-cols-2 lg:items-start">
-              <div className="space-y-6">
-                <CardHeader className="gap-4 p-0">
-                  <CardTitle className="text-3xl tracking-tight text-card-foreground sm:text-4xl">
-                    {speckit.title}
-                  </CardTitle>
-                  <CardDescription className="text-base text-muted-foreground">
-                    {speckit.description}
-                  </CardDescription>
-                </CardHeader>
-                <div className="flex flex-wrap gap-4">
-                  <Button asChild>
-                    <Link href="https://speckit.airnub.io" target="_blank" rel="noreferrer">
-                      {speckit.primaryCta}
-                    </Link>
-                  </Button>
-                  <Button variant="ghost" asChild>
-                    <LocaleLink href="/products">{speckit.secondaryCta}</LocaleLink>
-                  </Button>
-                </div>
-              </div>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg">{speckit.outcomesTitle}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3 text-sm text-muted-foreground">
-                    {speckit.outcomes.map((outcome, index) => {
-                      const accentClass = outcomeAccentClasses[
-                        Math.min(index, outcomeAccentClasses.length - 1)
-                      ];
-                      return (
-                        <li key={outcome.id} className="flex gap-3">
-                          <span
-                            className={`mt-1 inline-flex h-2.5 w-2.5 rounded-full ${accentClass}`}
-                            aria-hidden="true"
-                          />
-                          {outcome.copy}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </CardContent>
-              </Card>
+            <CardHeader>
+              <CardTitle className="text-lg">{speckit.outcomesTitle}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                {speckit.outcomes.map((outcome, index) => (
+                  <li key={outcome.id} className="flex gap-3">
+                    <span
+                      className="mt-1 inline-flex h-2.5 w-2.5 flex-none rounded-full"
+                      style={outcomeAccentStyles[index % outcomeAccentStyles.length]}
+                      aria-hidden="true"
+                    />
+                    <span>{outcome.copy}</span>
+                  </li>
+                ))}
+              </ul>
             </CardContent>
           </Card>
-        </Container>
-      </section>
+        }
+      />
 
-      <section>
-        <Container className="grid gap-12 lg:grid-cols-[2fr,3fr] lg:items-center">
-          <div className="space-y-6">
-            <div>
-              <h2 className="text-3xl font-semibold text-foreground">{services.title}</h2>
-              <p className="mt-4 text-base text-muted-foreground">{services.description}</p>
-            </div>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              {services.steps.map((step) => (
-                <li key={step.id}>
-                  <strong className="font-semibold text-foreground">{step.label}</strong>{" "}
-                  {step.description}
-                </li>
-              ))}
-            </ul>
-          </div>
+      <CTASection
+        title={services.title}
+        description={services.description}
+        items={services.steps.map((step) => ({
+          id: step.id,
+          title: step.label,
+          description: step.description,
+        }))}
+        tone="subtle"
+        aside={
           <div className="grid gap-6 md:grid-cols-2">
             {services.cards.map((card) => (
               <Card key={card.id}>
@@ -260,8 +232,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               </Card>
             ))}
           </div>
-        </Container>
-      </section>
+        }
+      />
     </div>
   );
 }

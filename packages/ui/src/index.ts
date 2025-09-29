@@ -14,3 +14,4 @@ export * from "./logos";
 export * from "./fonts";
 export * from "./brand";
 export * from "./layouts/SiteShell";
+export * from "./sections";
