@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import "@airnub/ui/styles.css";
 import "./globals.css";
 import { FooterSpeckit, HeaderSpeckit, ThemeProvider, type FooterColumn, type NavItem } from "@airnub/ui";
 import { JsonLd } from "../components/JsonLd";
@@ -120,7 +121,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       <head>
         <JsonLd data={jsonLd} />
       </head>
-      <body className="flex min-h-screen flex-col bg-white text-slate-900 transition-colors dark:bg-slate-950 dark:text-slate-100">
+      <body className="flex min-h-screen flex-col">
         <ThemeProvider>
           <a href="#content" className="skip-link">
             {layoutMessages.skipToContent}
