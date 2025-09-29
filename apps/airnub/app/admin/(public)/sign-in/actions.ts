@@ -9,7 +9,10 @@ export type SignInFormState = {
 
 const GENERIC_ERROR = "Unable to sign in with those credentials. Confirm the admin email and password in Supabase.";
 
-export async function signInAction(_prevState: SignInFormState | undefined, formData: FormData): Promise<SignInFormState | void> {
+export async function signInAction(
+  _prevState: SignInFormState | undefined,
+  formData: FormData
+): Promise<SignInFormState> {
   const email = formData.get("email");
   const password = formData.get("password");
 
@@ -30,4 +33,6 @@ export async function signInAction(_prevState: SignInFormState | undefined, form
   }
 
   redirect("/admin/leads");
+
+  return {};
 }

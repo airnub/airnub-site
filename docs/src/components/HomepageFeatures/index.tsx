@@ -1,4 +1,4 @@
-import type {ReactNode} from 'react';
+import type {ComponentType, ReactNode} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
@@ -8,7 +8,7 @@ type FeatureIconProps = {className?: string};
 
 type FeatureItem = {
   title: string;
-  Icon: (props: FeatureIconProps) => JSX.Element;
+  Icon: ComponentType<FeatureIconProps>;
   description: ReactNode;
 };
 
