@@ -41,7 +41,7 @@ export default async function PricingPage() {
             <Card key={tier.name} className="flex h-full flex-col">
               <CardHeader className="gap-3">
                 <CardTitle className="text-2xl">{tier.name}</CardTitle>
-                <p className="text-lg font-semibold text-indigo-600 dark:text-indigo-300">{tier.price}</p>
+                <p className="text-lg font-semibold text-primary">{tier.price}</p>
                 <CardDescription>{tier.description}</CardDescription>
               </CardHeader>
               <CardContent className="flex flex-1 flex-col justify-between gap-6 text-sm text-muted-foreground">

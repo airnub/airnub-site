@@ -22,12 +22,12 @@ export function PageHero({
         className
       )}
     >
-      <div className="absolute inset-0 opacity-20 dark:opacity-40" aria-hidden="true">
-        <div className="h-full w-full bg-[radial-gradient(circle_at_top_right,_rgba(99,102,241,0.2),_transparent_45%)] dark:bg-[radial-gradient(circle_at_top_right,_rgba(99,102,241,0.4),_transparent_45%)]" />
+      <div className="absolute inset-0 opacity-30" aria-hidden="true">
+        <div className="h-full w-full bg-[radial-gradient(circle_at_top_right,_hsl(var(--primary)/0.18),_transparent_45%)]" />
       </div>
       <Container className="relative max-w-4xl text-foreground">
         {eyebrow ? (
-          <p className="text-sm font-semibold uppercase tracking-wide text-indigo-600 dark:text-indigo-300">{eyebrow}</p>
+          <p className="text-sm font-semibold uppercase tracking-wide text-primary/80">{eyebrow}</p>
         ) : null}
         <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">{title}</h1>
         {description ? (

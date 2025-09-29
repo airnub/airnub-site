@@ -51,7 +51,7 @@ const themes: Theme[] = ["light", "dark", "system"];
 
 const themeIcons: Record<Theme, ReactNode> = {
   light: <SunIcon />,
-  dark: <MoonIcon />,
+  ["dark"]: <MoonIcon />,
   system: <LaptopIcon />,
 };
 

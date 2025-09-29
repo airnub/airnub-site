@@ -47,6 +47,7 @@ jobs:
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
         run: echo "Turbo cache configured"
+      - run: pnpm lint:dark
       - run: pnpm lint
       - run: pnpm typecheck
       - name: SSR guard
