@@ -1,14 +1,22 @@
-import { softwareApplicationJsonLd } from "@airnub/seo";
+import { buildBrandSoftwareApplicationJsonLd } from "@airnub/brand";
 import { SPECKIT_BASE_URL } from "./routes";
+import speckitBrand from "../brand.config";
 
 export function buildSpeckitSoftwareJsonLd() {
-  return softwareApplicationJsonLd({
-    name: "Speckit",
-    url: SPECKIT_BASE_URL,
+  const sameAs = [
+    speckitBrand.social.github,
+    "https://airnub.io",
+  ].filter((url): url is string => Boolean(url));
+
+  return buildBrandSoftwareApplicationJsonLd({
+    brand: speckitBrand,
+    baseUrl: SPECKIT_BASE_URL,
     applicationCategory: "DevSecOps Application",
-    description:
-      "End vibe-coding. Ship secure, auditable releases with governed workflows and continuous evidence.",
-    softwareHelp: "https://docs.speckit.dev",
-    sameAs: ["https://github.com/airnub/speckit", "https://airnub.io"],
+    overrides: {
+      description:
+        "End vibe-coding. Ship secure, auditable releases with governed workflows and continuous evidence.",
+      softwareHelp: "https://docs.speckit.dev",
+      sameAs,
+    },
   });
 }
