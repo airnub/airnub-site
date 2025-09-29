@@ -22,6 +22,9 @@
       "types": "./src/server.ts",
       "import": "./src/server.ts",
       "default": "./src/server.ts"
+    },
+    "./runtime/tokens.css": {
+      "default": "./runtime/tokens.css"
     }
   }
 }

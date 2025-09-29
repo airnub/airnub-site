@@ -23,7 +23,7 @@ export function PageHero({
       )}
     >
       <div className="absolute inset-0 opacity-30" aria-hidden="true">
-        <div className="h-full w-full bg-[radial-gradient(circle_at_top_right,_hsl(var(--primary)/0.18),_transparent_45%)]" />
+        <div className="h-full w-full bg-[radial-gradient(circle_at_top_right,_color-mix(in_srgb,var(--brand-primary)_18%,transparent),_transparent_45%)]" />
       </div>
       <Container className="relative max-w-4xl text-foreground">
         {eyebrow ? (

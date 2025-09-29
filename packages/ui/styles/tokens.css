@@ -1,17 +1,49 @@
+@import "@airnub/brand/runtime/tokens.css";
+
 :root {
-  --brand-background: 0 0% 100%;
-  --brand-foreground: 240 10% 3.9%;
-  --brand-primary: 222.2 47.4% 11.2%;
-  --brand-primary-foreground: 210 40% 98%;
-  --brand-accent: 240 4.8% 95.9%;
-  --brand-accent-foreground: 240 5.9% 10%;
+  --brand-background: var(--brand-color-background, #ffffff);
+  --brand-foreground: var(--brand-color-foreground, #0f172a);
+  --brand-primary: var(--brand-color-primary, #38bdf8);
+  --brand-primary-foreground: var(--brand-color-secondary, #0f172a);
+  --brand-accent: var(--brand-color-accent, #1d4ed8);
+  --brand-accent-foreground: var(--brand-color-background, #ffffff);
+  --brand-surface-subtle: color-mix(
+    in srgb,
+    var(--brand-primary) 18%,
+    var(--brand-background)
+  );
+  --brand-surface-accent: color-mix(
+    in srgb,
+    var(--brand-primary) 45%,
+    var(--brand-background)
+  );
+  --brand-surface-bold: color-mix(
+    in srgb,
+    var(--brand-accent) 70%,
+    var(--brand-foreground)
+  );
 }
 
 .dark {
-  --brand-background: 240 10% 3.9%;
-  --brand-foreground: 0 0% 98%;
-  --brand-primary: 210 40% 98%;
-  --brand-primary-foreground: 222.2 47.4% 11.2%;
-  --brand-accent: 240 3.7% 15.9%;
-  --brand-accent-foreground: 0 0% 98%;
+  --brand-background: var(--brand-color-secondary, #0f172a);
+  --brand-foreground: var(--brand-color-background, #ffffff);
+  --brand-primary: var(--brand-color-primary, #38bdf8);
+  --brand-primary-foreground: var(--brand-color-secondary, #0f172a);
+  --brand-accent: var(--brand-color-accent, #1d4ed8);
+  --brand-accent-foreground: var(--brand-color-background, #ffffff);
+  --brand-surface-subtle: color-mix(
+    in srgb,
+    var(--brand-primary) 30%,
+    var(--brand-foreground)
+  );
+  --brand-surface-accent: color-mix(
+    in srgb,
+    var(--brand-accent) 45%,
+    var(--brand-background)
+  );
+  --brand-surface-bold: color-mix(
+    in srgb,
+    var(--brand-primary) 65%,
+    var(--brand-background)
+  );
 }
