@@ -1,3 +1,4 @@
+import { join } from "path";
 import type { Config } from "tailwindcss";
 import tailwindTypography from "@tailwindcss/typography";
 import tailwindAnimate from "tailwindcss-animate";
@@ -5,10 +6,13 @@ import tailwindAnimate from "tailwindcss-animate";
 const preset = {
   darkMode: ["class"],
   content: [
-    "./app/**/*.{ts,tsx,js,jsx,md,mdx}",
-    "./components/**/*.{ts,tsx,js,jsx,md,mdx}",
-    "./src/**/*.{ts,tsx,js,jsx,md,mdx}",
-    "../../packages/**/*.{ts,tsx,js,jsx,md,mdx}",
+    join(__dirname, "./app/**/*.{ts,tsx,js,jsx,mdx}"),
+    join(__dirname, "./components/**/*.{ts,tsx,js,jsx,mdx}"),
+    join(__dirname, "./src/**/*.{ts,tsx,js,jsx,mdx}"),
+    join(__dirname, "../../packages/*/app/**/*.{ts,tsx,js,jsx,mdx}"),
+    join(__dirname, "../../packages/*/components/**/*.{ts,tsx,js,jsx,mdx}"),
+    join(__dirname, "../../packages/*/providers/**/*.{ts,tsx,js,jsx,mdx}"),
+    join(__dirname, "../../packages/*/src/**/*.{ts,tsx,js,jsx,mdx}"),
   ],
   theme: {
     container: { center: true, padding: "2rem" },
