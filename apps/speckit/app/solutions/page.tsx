@@ -33,11 +33,11 @@ export default async function SolutionsOverviewPage() {
           {solutions.personas.map((persona) => (
             <Link key={persona.title} href={persona.href} className="group block text-left">
               <Card className="h-full transition hover:border-ring">
-                <CardHeader className="p-6">
+                <CardHeader>
                   <CardTitle className="text-2xl">{persona.title}</CardTitle>
                   <CardDescription>{persona.description}</CardDescription>
                 </CardHeader>
-                <CardContent className="p-6 pt-0">
+                <CardContent>
                   <span className="inline-flex text-sm font-semibold text-indigo-600 transition group-hover:text-indigo-700 dark:text-indigo-300 dark:group-hover:text-indigo-200">
                     {persona.ctaLabel}
                   </span>

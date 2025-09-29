@@ -24,23 +24,23 @@ function ContactShortcuts({ shortcuts }: ContactShortcutsProps) {
   return (
     <div className="space-y-6">
       <Card>
-        <CardHeader className="p-6">
+        <CardHeader>
           <CardTitle className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
             {shortcuts.emailHeading}
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-2 p-6 pt-0 text-sm text-muted-foreground">
+        <CardContent className="space-y-2 text-sm text-muted-foreground">
           <p>{shortcuts.productQuestions}</p>
           <p>{shortcuts.security}</p>
         </CardContent>
       </Card>
       <Card>
-        <CardHeader className="p-6">
+        <CardHeader>
           <CardTitle className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
             {shortcuts.docsHeading}
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-3 p-6 pt-0 text-sm text-muted-foreground">
+        <CardContent className="space-y-3 text-sm text-muted-foreground">
           <p>{shortcuts.docsDescription}</p>
           <Button
             asChild
@@ -72,11 +72,11 @@ export default async function ContactPage() {
       <section>
         <Container className="grid gap-12 lg:grid-cols-[2fr,1fr]">
           <Card>
-            <CardHeader className="p-10">
+            <CardHeader className="gap-4">
               <CardTitle className="text-xl text-foreground">{contact.form.title}</CardTitle>
               <CardDescription className="text-sm text-muted-foreground">{contact.form.description}</CardDescription>
             </CardHeader>
-            <CardContent className="p-10 pt-0">
+            <CardContent>
               <form action={submitLead} className="space-y-6">
                 <div className="grid gap-6 md:grid-cols-2">
                   <div>

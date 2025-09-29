@@ -31,7 +31,7 @@ export default async function HowItWorksPage() {
         <Container className="grid gap-8 lg:grid-cols-3">
           {messages.stages.map((stage, index) => (
             <Card key={stage.name}>
-              <CardHeader className="p-8">
+              <CardHeader className="gap-3">
                 <span className="text-xs font-semibold uppercase tracking-wide text-indigo-600 dark:text-indigo-300">
                   {messages.stageLabel.replace(/\{[^}]+\}/g, String(index + 1))}
                 </span>
@@ -46,7 +46,7 @@ export default async function HowItWorksPage() {
       <section>
         <Container>
           <Card>
-            <CardContent className="grid gap-8 p-10 lg:grid-cols-3">
+            <CardContent className="grid gap-8 pt-5 lg:grid-cols-3">
               {messages.audiences.map((audience) => (
                 <Card key={audience.role} className="bg-muted shadow-none">
                   <CardHeader>
@@ -63,13 +63,13 @@ export default async function HowItWorksPage() {
       <section>
         <Container>
           <Card className="bg-gradient-to-br from-muted via-background to-muted">
-            <CardHeader className="p-10">
+            <CardHeader className="gap-4">
               <CardTitle className="text-3xl text-foreground">{messages.tooling.title}</CardTitle>
               <CardDescription className="text-sm text-muted-foreground">
                 {messages.tooling.description}
               </CardDescription>
             </CardHeader>
-            <CardContent className="p-10 pt-0">
+            <CardContent>
               <ul className="grid gap-4 text-sm text-muted-foreground md:grid-cols-2">
                 {messages.tooling.items.map((item) => (
                   <li key={item}>→ {item}</li>
