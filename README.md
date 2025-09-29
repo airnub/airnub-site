@@ -8,7 +8,7 @@ Marketing sites for Airnub and Speckit that share a Supabase backend, a componen
 - **Speckit microsite** (`apps/speckit`) — [speckit.airnub.io](https://speckit.airnub.io)
 - Shared packages under `packages/` for UI, brand assets, SEO helpers, and Supabase access
 
-See [Architecture & Rendering](./docs/architecture.md) for the full layout and rendering guidelines.
+See [Architecture & Rendering](https://airnub.github.io/airnub-site/docs/architecture) (also available at [`docs/docs/architecture.md`](docs/docs/architecture.md)) for the full layout and rendering guidelines.
 
 ## Prerequisites
 
@@ -37,11 +37,11 @@ See [Architecture & Rendering](./docs/architecture.md) for the full layout and r
 
 ## Additional documentation
 
-- [Architecture & Rendering](./docs/architecture.md)
-- [Supabase Guide](./docs/supabase.md)
-- [Local Development](./docs/development.md)
-- [CI & Contribution Workflow](./docs/ci.md)
-- [Remote Operations](./docs/remote-operations.md)
+- [Architecture & Rendering](https://airnub.github.io/airnub-site/docs/architecture) ([local](docs/docs/architecture.md))
+- [Supabase Guide](https://airnub.github.io/airnub-site/docs/supabase) ([local](docs/docs/supabase.md))
+- [Local Development](https://airnub.github.io/airnub-site/docs/development) ([local](docs/docs/development.md))
+- [CI & Contribution Workflow](https://airnub.github.io/airnub-site/docs/ci) ([local](docs/docs/ci.md))
+- [Remote Operations](https://airnub.github.io/airnub-site/docs/remote-operations) ([local](docs/docs/remote-operations.md))
 
 ## Contributing
 

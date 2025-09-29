@@ -24,7 +24,6 @@ jobs:
       contents: read
       pages: write
       id-token: write
-    if: ${{ hashFiles('docs/package.json') != '' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -32,34 +31,13 @@ jobs:
         uses: ./.github/actions/setup-pnpm
       - name: Install workspace dependencies
         run: pnpm install --frozen-lockfile
-      - name: Install docs dependencies (with lockfile)
-        if: ${{ hashFiles('docs/pnpm-lock.yaml') != '' }}
-        working-directory: docs
-        run: pnpm install --frozen-lockfile
-      - name: Install docs dependencies
-        if: ${{ hashFiles('docs/pnpm-lock.yaml') == '' }}
-        working-directory: docs
-        run: pnpm install
       - name: Build docs
-        working-directory: docs
-        run: pnpm run build
+        run: pnpm --filter docs build
       - uses: actions/configure-pages@v5
-      - name: Resolve docs output directory
-        id: docs-path
-        working-directory: docs
-        run: |
-          if [ -d build ]; then
-            echo "path=docs/build" >> "$GITHUB_OUTPUT"
-          elif [ -d dist ]; then
-            echo "path=docs/dist" >> "$GITHUB_OUTPUT"
-          else
-            echo "::error::Expected docs build output in docs/build or docs/dist" >&2
-            exit 1
-          fi
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ steps.docs-path.outputs.path }}
+          path: docs/build
 
   deploy:
     needs: build

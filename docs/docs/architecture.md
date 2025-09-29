@@ -1,5 +1,8 @@
-# Architecture & Rendering
-
+---
+id: architecture
+title: Architecture & Rendering
+sidebar_position: 1
+---
 This monorepo hosts two Next.js App Router sites that share a Supabase backend and a set of UI packages. The apps are deployed with incremental static regeneration (ISR) wherever possible and only opt into fully dynamic rendering on a per-route basis.
 
 ## Apps
