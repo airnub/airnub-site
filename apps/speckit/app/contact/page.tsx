@@ -1,62 +1,75 @@
 import type { Metadata } from "next";
 import { Container } from "@airnub/ui";
 import { PageHero } from "../../components/PageHero";
+import { getCurrentLanguage } from "../../lib/language";
+import { getSpeckitMessages, type SpeckitMessages } from "../../i18n/messages";
 import { submitLead } from "./actions";
 
-export const revalidate = 86_400;
+export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Request a Speckit demo or talk to our product specialists.",
+export async function generateMetadata(): Promise<Metadata> {
+  const language = await getCurrentLanguage();
+  const contact = getSpeckitMessages(language).contact;
+  return {
+    title: contact.hero.title,
+    description: contact.hero.description,
+  };
+}
+
+type ContactShortcutsProps = {
+  shortcuts: SpeckitMessages["contact"]["shortcuts"];
 };
 
-function ContactShortcuts() {
+function ContactShortcuts({ shortcuts }: ContactShortcutsProps) {
   return (
     <div className="space-y-6">
       <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg dark:border-white/10 dark:bg-white/10">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-300">Email</h3>
-        <p className="mt-2 text-sm text-slate-600 dark:text-slate-200">
-          Product questions: <a className="text-indigo-600 dark:text-indigo-300" href="mailto:speckit@airnub.io">speckit@airnub.io</a>
-        </p>
-        <p className="mt-1 text-sm text-slate-600 dark:text-slate-200">
-          Security: <a className="text-indigo-600 dark:text-indigo-300" href="mailto:security@airnub.io">security@airnub.io</a>
-        </p>
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-300">
+          {shortcuts.emailHeading}
+        </h3>
+        <p className="mt-2 text-sm text-slate-600 dark:text-slate-200">{shortcuts.productQuestions}</p>
+        <p className="mt-1 text-sm text-slate-600 dark:text-slate-200">{shortcuts.security}</p>
       </div>
       <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg dark:border-white/10 dark:bg-white/10">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-300">Docs</h3>
-        <p className="mt-2 text-sm text-slate-600 dark:text-slate-200">Explore API references and implementation guides.</p>
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-300">
+          {shortcuts.docsHeading}
+        </h3>
+        <p className="mt-2 text-sm text-slate-600 dark:text-slate-200">{shortcuts.docsDescription}</p>
         <a
           href="https://docs.speckit.dev"
           className="mt-3 inline-flex text-sm font-semibold text-indigo-600 transition hover:text-indigo-700 dark:text-indigo-300 dark:hover:text-indigo-200"
           target="_blank"
           rel="noreferrer"
         >
-          docs.speckit.dev →
+          {shortcuts.docsCtaLabel}
         </a>
       </div>
     </div>
   );
 }
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const language = await getCurrentLanguage();
+  const contact = getSpeckitMessages(language).contact;
+
   return (
     <div className="space-y-16 pb-20">
       <PageHero
-        eyebrow="Contact"
-        title="See Speckit in action"
-        description="Share a bit about your platform program and we will tailor a walkthrough to your goals."
+        eyebrow={contact.hero.eyebrow}
+        title={contact.hero.title}
+        description={contact.hero.description}
       />
 
       <section>
         <Container className="grid gap-12 lg:grid-cols-[2fr,1fr]">
           <div className="rounded-3xl border border-slate-200 bg-white p-10 shadow-xl dark:border-white/10 dark:bg-white/10">
-            <h2 className="text-xl font-semibold text-slate-900 dark:text-white">Request a demo</h2>
-            <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">Tell us about your environment and target launch timeline.</p>
+            <h2 className="text-xl font-semibold text-slate-900 dark:text-white">{contact.form.title}</h2>
+            <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{contact.form.description}</p>
             <form action={submitLead} className="mt-8 space-y-6">
               <div className="grid gap-6 md:grid-cols-2">
                 <div>
                   <label htmlFor="full_name" className="block text-sm font-semibold text-slate-900 dark:text-slate-100">
-                    Full name
+                    {contact.form.fields.nameLabel}
                   </label>
                   <input
                     id="full_name"
@@ -68,7 +81,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-semibold text-slate-900 dark:text-slate-100">
-                    Work email <span className="text-rose-400">*</span>
+                    {contact.form.fields.emailLabel} <span className="text-rose-400">{contact.form.fields.emailRequiredSuffix}</span>
                   </label>
                   <input
                     id="email"
@@ -83,7 +96,7 @@ export default function ContactPage() {
               <div className="grid gap-6 md:grid-cols-2">
                 <div>
                   <label htmlFor="company" className="block text-sm font-semibold text-slate-900 dark:text-slate-100">
-                    Company
+                    {contact.form.fields.companyLabel}
                   </label>
                   <input
                     id="company"
@@ -95,7 +108,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-slate-900 dark:text-slate-100">
-                    What should we focus on?
+                    {contact.form.fields.focusLabel}
                   </label>
                   <textarea
                     id="message"
@@ -109,11 +122,11 @@ export default function ContactPage() {
                 type="submit"
                 className="inline-flex items-center rounded-full bg-gradient-to-r from-speckit-indigo to-speckit-violet px-5 py-2 text-sm font-semibold text-white shadow-lg transition hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
               >
-                Request demo
+                {contact.form.submitLabel}
               </button>
             </form>
           </div>
-          <ContactShortcuts />
+          <ContactShortcuts shortcuts={contact.shortcuts} />
         </Container>
       </section>
     </div>

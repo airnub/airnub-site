@@ -4,13 +4,14 @@ import { Header, type HeaderProps, type NavItem } from "./components/client/Head
 import { ThemeToggle } from "./components/client/ThemeToggle";
 import type { ReactNode } from "react";
 
-const navItems: NavItem[] = [
+const defaultNavItems: NavItem[] = [
   { label: "Product", href: "/product" },
   { label: "How it works", href: "/how-it-works" },
   { label: "Solutions", href: "/solutions" },
   { label: "Docs", href: "https://docs.speckit.dev", external: true },
   { label: "Pricing", href: "/pricing" },
   { label: "Trust", href: "https://trust.airnub.io", external: true },
+  { label: "Contact", href: "/contact" },
 ];
 
 function GithubIcon({ className }: { className?: string }) {
@@ -31,35 +32,21 @@ function GithubIcon({ className }: { className?: string }) {
   );
 }
 
-function StarIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <path d="M12 3.5 14.09 9h5.66l-4.58 3.32L16.66 18 12 14.89 7.34 18l1.49-5.68L4.25 9h5.66L12 3.5Z" />
-    </svg>
-  );
-}
-
 type HeaderSpeckitProps = Omit<HeaderProps, "logo" | "navItems" | "rightSlot" | "homeAriaLabel"> & {
   homeAriaLabel?: string;
+  navItems?: NavItem[];
   additionalRightSlot?: ReactNode;
   githubHref?: string;
-  starHref?: string;
-  starLabel?: string;
+  githubLabel?: string;
   themeToggleLabel?: string;
 };
 
 export function HeaderSpeckit({
   homeAriaLabel = "Speckit home",
+  navItems = defaultNavItems,
   additionalRightSlot,
   githubHref = "https://github.com/airnub/speckit",
-  starHref = "https://github.com/airnub/speckit",
-  starLabel = "Star project",
+  githubLabel = "Speckit on GitHub",
   themeToggleLabel = "Toggle theme",
   ...props
 }: HeaderSpeckitProps) {
@@ -72,20 +59,12 @@ export function HeaderSpeckit({
         <div className="flex items-center gap-3">
           <Link
             href={githubHref}
-            className="hidden rounded-full border border-slate-200 p-2 text-slate-600 transition hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-white/10 dark:text-slate-200 dark:hover:text-white lg:inline-flex"
-            aria-label="Speckit on GitHub"
+            className="hidden rounded-full border border-slate-200 p-2 text-slate-600 transition hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:border-slate-700 dark:text-slate-200 dark:hover:text-white lg:inline-flex"
+            aria-label={githubLabel}
             target="_blank"
             rel="noreferrer"
           >
             <GithubIcon className="h-4 w-4" />
-          </Link>
-          <Link
-            href={starHref}
-            className="hidden items-center gap-2 rounded-full bg-gradient-to-r from-speckit-indigo to-speckit-violet px-4 py-2 text-sm font-semibold text-white shadow-lg transition hover:opacity-90 lg:inline-flex"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <StarIcon className="h-4 w-4" /> {starLabel}
           </Link>
           <ThemeToggle className="inline-flex" label={themeToggleLabel} />
           {additionalRightSlot}

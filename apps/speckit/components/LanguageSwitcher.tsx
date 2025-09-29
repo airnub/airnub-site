@@ -27,7 +27,7 @@ type LanguageSwitcherProps = {
 
 function persistLanguage(value: SupportedLanguage) {
   if (typeof document !== "undefined") {
-    document.cookie = `${languageCookieName}=${value}; path=/; max-age=${COOKIE_MAX_AGE_SECONDS}`;
+    document.cookie = `${languageCookieName}=${value}; path=/; max-age=${COOKIE_MAX_AGE_SECONDS}; SameSite=Lax`;
     document.documentElement.lang = value;
   }
   if (typeof window !== "undefined") {

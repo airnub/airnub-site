@@ -4,4 +4,6 @@ export type SupportedLanguage = (typeof supportedLanguages)[number];
 
 export const defaultLanguage: SupportedLanguage = "en-US";
 
-export const languageCookieName = "speckit-language";
+// Reuse the same cookie as the Airnub app so that locale selection persists
+// across both surfaces.
+export const languageCookieName = "NEXT_LOCALE";

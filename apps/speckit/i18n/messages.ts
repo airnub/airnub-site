@@ -12,9 +12,14 @@ type HeroMessages = {
   eyebrow: string;
   title: string;
   description: string;
+};
+
+type DualActionHeroMessages = HeroMessages & {
   actions: {
-    requestDemo: string;
-    exploreDocs: string;
+    primaryLabel: string;
+    primaryHref?: string;
+    secondaryLabel?: string;
+    secondaryHref?: string;
   };
 };
 
@@ -47,14 +52,16 @@ type AlignmentMessages = {
   title: string;
   description: string;
   actions: {
-    howItWorks: string;
-    template: string;
+    primaryLabel: string;
+    primaryHref: string;
+    secondaryLabel: string;
+    secondaryHref: string;
   };
   cards: FeatureMessages[];
 };
 
 type HomeMessages = {
-  hero: HeroMessages;
+  hero: DualActionHeroMessages;
   features: FeatureMessages[];
   workflows: WorkflowMessages;
   guardrails: GuardrailMessages;
@@ -65,11 +72,129 @@ type HomeMessages = {
   };
 };
 
+type PricingMessages = {
+  hero: DualActionHeroMessages;
+  tiers: {
+    name: string;
+    price: string;
+    description: string;
+    highlights: string[];
+    ctaLabel: string;
+  }[];
+};
+
+type ProductMessages = {
+  hero: DualActionHeroMessages;
+  pillars: FeatureMessages[];
+  timeline: {
+    title: string;
+    steps: {
+      name: string;
+      description: string;
+    }[];
+  };
+  integrationsCard: {
+    title: string;
+    description: string;
+    items: string[];
+  };
+  supabaseCard: {
+    title: string;
+    paragraphs: string[];
+  };
+};
+
+type HowItWorksMessages = {
+  hero: HeroMessages;
+  stages: {
+    title: string;
+    description: string;
+  }[];
+  stageLabel: string;
+  audiences: {
+    role: string;
+    value: string;
+  }[];
+  tooling: {
+    title: string;
+    description: string;
+    items: string[];
+  };
+};
+
+type TemplateMessages = {
+  hero: DualActionHeroMessages;
+  steps: FeatureMessages[];
+};
+
+type ContactMessages = {
+  hero: HeroMessages;
+  form: {
+    title: string;
+    description: string;
+    submitLabel: string;
+    fields: {
+      nameLabel: string;
+      emailLabel: string;
+      emailRequiredSuffix: string;
+      companyLabel: string;
+      focusLabel: string;
+    };
+  };
+  shortcuts: {
+    emailHeading: string;
+    productQuestions: string;
+    security: string;
+    docsHeading: string;
+    docsDescription: string;
+    docsCtaLabel: string;
+  };
+};
+
+type SolutionsOverviewMessages = {
+  hero: HeroMessages;
+  personas: {
+    title: string;
+    description: string;
+    href: string;
+    ctaLabel: string;
+  }[];
+};
+
+type CisoSolutionsMessages = {
+  hero: HeroMessages;
+  outcomes: string[];
+  outcomesTitle: string;
+  deliverables: {
+    title: string;
+    cards: FeatureMessages[];
+  };
+};
+
+type DevSecOpsSolutionsMessages = {
+  hero: HeroMessages;
+  benefits: string[];
+  benefitsTitle: string;
+  capabilities: {
+    title: string;
+    cards: FeatureMessages[];
+  };
+};
+
 type LayoutMessages = {
   skipToContent: string;
   themeToggle: string;
-  starLabel: string;
   languageLabel: string;
+  githubLabel: string;
+  nav: {
+    product: string;
+    howItWorks: string;
+    solutions: string;
+    docs: string;
+    pricing: string;
+    trust: string;
+    contact: string;
+  };
   footer: {
     columns: {
       product: {
@@ -108,6 +233,14 @@ type LayoutMessages = {
 export type SpeckitMessages = {
   layout: LayoutMessages;
   home: HomeMessages;
+  pricing: PricingMessages;
+  product: ProductMessages;
+  howItWorks: HowItWorksMessages;
+  template: TemplateMessages;
+  contact: ContactMessages;
+  solutions: SolutionsOverviewMessages;
+  solutionsCiso: CisoSolutionsMessages;
+  solutionsDevSecOps: DevSecOpsSolutionsMessages;
 };
 
 const registry: Record<SupportedLanguage, SpeckitMessages> = {

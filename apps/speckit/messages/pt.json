@@ -2,8 +2,17 @@
   "layout": {
     "skipToContent": "Pule para o conteúdo",
     "themeToggle": "Tema de alternância",
-    "starLabel": "Projeto Star",
     "languageLabel": "Linguagem",
+    "githubLabel": "Speckit no Github",
+    "nav": {
+      "product": "Produto",
+      "howItWorks": "Como funciona",
+      "solutions": "Soluções",
+      "docs": "Documentos",
+      "pricing": "Preço",
+      "trust": "Confiar",
+      "contact": "Contato"
+    },
     "footer": {
       "columns": {
         "product": {
@@ -14,27 +23,27 @@
         },
         "resources": {
           "heading": "Recursos",
-          "docs": "Documentação",
+          "docs": "Documentos",
           "apiReference": "Referência da API",
           "community": "Comunidade"
         },
         "openSource": {
           "heading": "Código aberto",
-          "repo": "Repositório",
+          "repo": "Repo",
           "templates": "Modelos",
           "issues": "Problemas",
           "license": "Licença"
         },
         "trust": {
-          "heading": "Confiança",
+          "heading": "Confiar",
           "trustCenter": "Centro de confiança",
           "status": "Status",
-          "securityTxt": "security.txt"
+          "securityTxt": "segurança.txt"
         }
       },
       "contact": {
         "label": "speckit@airnub.io",
-        "pricing": "Preços"
+        "pricing": "Preço"
       }
     }
   },
@@ -44,8 +53,10 @@
       "title": "End Coding Vibe. ",
       "description": "Speckit transforma a conformidade de uma disputa em um loop contínuo e nativo do desenvolvedor. ",
       "actions": {
-        "requestDemo": "Solicite uma demonstração",
-        "exploreDocs": "Explore os documentos"
+        "primaryLabel": "Solicite uma demonstração",
+        "primaryHref": "/contato",
+        "secondaryLabel": "Explore os documentos",
+        "secondaryHref": "https://docs.spececkit.dev"
       }
     },
     "features": [
@@ -108,8 +119,10 @@
       "title": "Todas as equipes veem a mesma fonte de verdade",
       "description": "Os líderes de plataforma, segurança, conformidade e produtos colaboram em um contexto compartilhado. ",
       "actions": {
-        "howItWorks": "Veja como funciona",
-        "template": "Faça o download do modelo de lançamento"
+        "primaryLabel": "Veja como funciona",
+        "primaryHref": "/Como se trabalhe",
+        "secondaryLabel": "Faça o download do modelo de lançamento",
+        "secondaryHref": "/modelo"
       },
       "cards": [
         {
@@ -140,6 +153,291 @@
         "Supabase",
         "AWS",
         "Azure"
+      ]
+    }
+  },
+  "pricing": {
+    "hero": {
+      "eyebrow": "Preço",
+      "title": "Escolha o plano que corresponde à sua jornada de governança",
+      "description": "Todos os planos incluem o núcleo de dados Supabase compartilhado, o mecanismo de orquestração de políticas e as APIs de evidência.",
+      "actions": {
+        "primaryLabel": "Fale com vendas",
+        "primaryHref": "/contato"
+      }
+    },
+    "tiers": [
+      {
+        "name": "Lançar",
+        "price": "$ 1.250/mês",
+        "description": "Para equipes pilotando governança em três serviços.",
+        "highlights": [
+          "Até 20 engenheiros",
+          "Spec + Política Orquestração",
+          "Painel de evidências"
+        ],
+        "ctaLabel": "Solicitar cotação"
+      },
+      {
+        "name": "Escala",
+        "price": "$ 3.400/mês",
+        "description": "Para organizações rolando Speckit em várias linhas de produtos.",
+        "highlights": [
+          "Até 75 engenheiros",
+          "Arrendamento de supabase de vários projetos",
+          "Integração do portal de confiança do cliente"
+        ],
+        "ctaLabel": "Solicitar cotação"
+      },
+      {
+        "name": "Empresa",
+        "price": "Personalizado",
+        "description": "Pods dedicados para cargas de trabalho regulamentadas e ambientes complexos.",
+        "highlights": [
+          "Engenheiros ilimitados",
+          "Opções de implantação privada em nuvem",
+          "Serviços de automação de conformidade"
+        ],
+        "ctaLabel": "Solicitar cotação"
+      }
+    ]
+  },
+  "product": {
+    "hero": {
+      "eyebrow": "Produto",
+      "title": "Uma plataforma para modelar, aplicar e provar governança",
+      "description": "Speckit conecta planejamento, entrega e garantia. ",
+      "actions": {
+        "primaryLabel": "Veja preços",
+        "primaryHref": "/preço"
+      }
+    },
+    "pillars": [
+      {
+        "title": "Modelo",
+        "description": "Capture decisões de arquitetura, riscos e proprietários de políticas em especificações colaborativas sincronizadas para git."
+      },
+      {
+        "title": "Aplicar",
+        "description": "Aplique controles reutilizáveis ​​entre os catálogos de pipelines, nuvem e serviços com resultados explicáveis."
+      },
+      {
+        "title": "Provar",
+        "description": "Gere e distribua evidências para auditores, clientes e liderança automaticamente."
+      }
+    ],
+    "timeline": {
+      "title": "Speckit Linha do tempo",
+      "steps": [
+        {
+          "name": "Kickoff de especificações",
+          "description": "Comece com uma especificação de versão vinculada ao código. "
+        },
+        {
+          "name": "Orquestração de políticas",
+          "description": "Os controles são executados em CI, IAC e tempo de execução. "
+        },
+        {
+          "name": "Fluxo de evidências",
+          "description": "SBOMs, atestados e provas de controle sincronizam a supabase, ferramentas GRC e portais de clientes."
+        }
+      ]
+    },
+    "integrationsCard": {
+      "title": "Integrações que o encontram onde você trabalha",
+      "description": "Use Speckit UI, CLI ou APIs. ",
+      "items": [
+        "Github",
+        "Gitlab",
+        "Bitbucket",
+        "Jira",
+        "ServiceNow",
+        "PagerDuty",
+        "AWS",
+        "Azure",
+        "GCP"
+      ]
+    },
+    "supabaseCard": {
+      "title": "Núcleo de dados compartilhados supabase",
+      "paragraphs": [
+        "Os formulários de marketing e produtos alimentam um projeto Supabase. ",
+        "Use a função de serviço para sincronizar evidências de speckit com o seu armazém de dados ou portal de confiança do cliente com confiança."
+      ]
+    }
+  },
+  "howItWorks": {
+    "hero": {
+      "eyebrow": "Como funciona",
+      "title": "Um loop contínuo que traz confiança na entrega diária",
+      "description": "Speckit une planejamento, envio e provação. "
+    },
+    "stages": [
+      {
+        "name": "Capturar",
+        "description": "As especificações começam em documentos apoiados pelo Git. "
+      },
+      {
+        "name": "Orquestrar",
+        "description": "Controles gatilho entre pipelines e ambientes. "
+      },
+      {
+        "name": "Publicar",
+        "description": "Evidência aterrina onde é necessário - Supabase, GRC Tools, Client Trust Portais e pilhas de análise."
+      }
+    ],
+    "stageLabel": "Etapa {contagem}",
+    "audiences": [
+      {
+        "role": "Plataforma",
+        "value": "Caminhos dourados com governança embutida. "
+      },
+      {
+        "role": "Segurança",
+        "value": "Política como código com transparência. "
+      },
+      {
+        "role": "Conformidade",
+        "value": "Evidência sob demanda. "
+      }
+    ],
+    "tooling": {
+      "title": "Traga sua própria ferramenta",
+      "description": "Speckit se integra através de webhooks, APIs REST e SDKs. ",
+      "items": [
+        "Ações do Github, Circleci, Gitlab Pipelines",
+        "Terraform, Pulumi, CloudFormation",
+        "ServiceNow, Jira, atualizações lineares de fluxo de trabalho",
+        "Supabase, Snowflake e Portais de confiança do cliente"
+      ]
+    }
+  },
+  "template": {
+    "hero": {
+      "eyebrow": "Modelo",
+      "title": "Um manual de lançamento comprovado",
+      "description": "Faça o download do plano de seis semanas que Speckit usa para ser lançado com equipes de plataforma, segurança e conformidade.",
+      "actions": {
+        "primaryLabel": "Obtenha o modelo",
+        "primaryHref": "https://github.com/airnub/speckit-templates"
+      }
+    },
+    "steps": [
+      {
+        "title": "Semana 1 - Descoberta",
+        "description": "Mapear controles de corrente, ferramentas e fluxos de evidência. "
+      },
+      {
+        "title": "Semanas 2-3-Orquestração",
+        "description": "Configure supabase, conectar repositórios e codificar portões de política em pipelines e IAC."
+      },
+      {
+        "title": "Semanas 4-5-Habitação",
+        "description": "Habilite equipes com modelos, manuais de guarda e painéis de evidência."
+      },
+      {
+        "title": "Semana 6 - Escala",
+        "description": "Revise os KPIs, expanda -se para serviços adicionais e integre as alimentação de evidências em portais de confiança."
+      }
+    ]
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Contato",
+      "title": "Veja Speckit em ação",
+      "description": "Compartilhe um pouco sobre o seu programa de plataforma e adaptaremos um passo a passo aos seus objetivos."
+    },
+    "form": {
+      "title": "Solicite uma demonstração",
+      "description": "Conte -nos sobre o seu ambiente e a linha do tempo de lançamento de destino.",
+      "submitLabel": "Demonstração de solicitação",
+      "fields": {
+        "nameLabel": "Nome completo",
+        "emailLabel": "E -mail de trabalho",
+        "emailRequiredSuffix": "*",
+        "companyLabel": "Empresa",
+        "focusLabel": "Em que devemos nos concentrar?"
+      }
+    },
+    "shortcuts": {
+      "emailHeading": "E-mail",
+      "productQuestions": "Perguntas do produto: speckit@airnub.io",
+      "security": "Segurança: Security@airnub.io",
+      "docsHeading": "Documentos",
+      "docsDescription": "Explore referências e guias de implementação da API.",
+      "docsCtaLabel": "docs.spececkit.dev →"
+    }
+  },
+  "solutions": {
+    "hero": {
+      "eyebrow": "Soluções",
+      "title": "Speckit se adapta ao seu modelo operacional de segurança e plataforma",
+      "description": "Escolha um caminho personalizado para orquestrar portões de política, automação de evidências e colaboração entre equipes."
+    },
+    "personas": [
+      {
+        "title": "Ciso",
+        "description": "Tornar a conformidade contínua. ",
+        "href": "/Solutions/CISO",
+        "ctaLabel": "Explore →"
+      },
+      {
+        "title": "DevSecops",
+        "description": "Incorporar os corrimãos em todos os pipelines enquanto capacita as equipes a enviar mais rápido com transparência.",
+        "href": "/soluções/devSecops",
+        "ctaLabel": "Explore →"
+      }
+    ]
+  },
+  "solutionsCiso": {
+    "hero": {
+      "eyebrow": "Soluções",
+      "title": "Conformidade contínua sem luta manual",
+      "description": "O Speckit oferece a visibilidade em tempo real do CISOS na postura de controle, exceções e prontidão para auditar."
+    },
+    "outcomesTitle": "Por que os CISOs escolhem Speckit",
+    "outcomes": [
+      "Status de controle ao vivo mapeado para o SOC 2, ISO 27001, HIPAA e FedRamp",
+      "Narrativas automatizadas de SSP e Feeds de relatório de confiança do cliente",
+      "Políticas de retenção de evidências apoiadas pela Supabase Row-Nível Security"
+    ],
+    "deliverables": {
+      "title": "Entregas",
+      "cards": [
+        {
+          "title": "Controle automação",
+          "description": "Codificou o Guardrails para gerenciamento de mudanças, revisões de acesso, gerenciamento de vulnerabilidades e resposta a incidentes."
+        },
+        {
+          "title": "Relatórios executivos",
+          "description": "Os painéis para atualizações de placa e clientes com trilhas de evidências de perfuração."
+        }
+      ]
+    }
+  },
+  "solutionsDevSecOps": {
+    "hero": {
+      "eyebrow": "Soluções",
+      "title": "Guardrails e velocidade para cada equipe de entrega",
+      "description": "O Speckit oferece aos controles programáveis ​​das equipes de devSecops, observabilidade e contexto compartilhado com segurança e conformidade."
+    },
+    "benefitsTitle": "Quais ganhos de devSecOps",
+    "benefits": [
+      "Módulos políticos como código para ações do GitHub, Gitlab CI e Jenkins",
+      "Atestados de tempo de execução vinculados a ambientes e implantações",
+      "Catálogos de serviço com caminhos e corrimãos de ouro auto-atendidos"
+    ],
+    "capabilities": {
+      "title": "Capacidades -chave",
+      "cards": [
+        {
+          "title": "Adaptadores de fluxo de trabalho",
+          "description": "Ações, modelos e comandos de CLI para oleodutos e infraestrutura."
+        },
+        {
+          "title": "Ganchos de observabilidade",
+          "description": "Envie os resultados do controle para Datadog, Grafana ou Slack com links profundos em evidências."
+        }
       ]
     }
   }

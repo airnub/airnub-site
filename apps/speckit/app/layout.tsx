@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
-import { FooterSpeckit, HeaderSpeckit, ThemeProvider, type FooterColumn } from "@airnub/ui";
+import { FooterSpeckit, HeaderSpeckit, ThemeProvider, type FooterColumn, type NavItem } from "@airnub/ui";
 import { JsonLd } from "../components/JsonLd";
 import { buildSpeckitSoftwareJsonLd } from "../lib/jsonld";
 import { SPECKIT_BASE_URL } from "../lib/routes";
@@ -53,6 +53,15 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   const messages = getSpeckitMessages(language);
   const layoutMessages = messages.layout;
   const footerMessages = layoutMessages.footer;
+  const navItems: NavItem[] = [
+    { label: layoutMessages.nav.product, href: "/product" },
+    { label: layoutMessages.nav.howItWorks, href: "/how-it-works" },
+    { label: layoutMessages.nav.solutions, href: "/solutions" },
+    { label: layoutMessages.nav.docs, href: "https://docs.speckit.dev", external: true },
+    { label: layoutMessages.nav.pricing, href: "/pricing" },
+    { label: layoutMessages.nav.trust, href: "https://trust.airnub.io", external: true },
+    { label: layoutMessages.nav.contact, href: "/contact" },
+  ];
 
   const footerColumns: FooterColumn[] = [
     {
@@ -106,8 +115,9 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             {layoutMessages.skipToContent}
           </a>
           <HeaderSpeckit
+            navItems={navItems}
             themeToggleLabel={layoutMessages.themeToggle}
-            starLabel={layoutMessages.starLabel}
+            githubLabel={layoutMessages.githubLabel}
             additionalRightSlot={
               <LanguageSwitcher
                 initialLanguage={language}
