@@ -12,10 +12,12 @@ export const speckitBrand: BrandConfig = {
     foreground: "#111827",
   },
   logos: {
-    light: "/brand/speckit-wordmark-light.svg",
-    dark: "/brand/speckit-wordmark-dark.svg",
-    mark: "/brand/speckit-mark.svg",
+    light: "/brand/logo.svg",
+    dark: "/brand/logo-dark.svg",
+    mark: "/brand/logo-mark.svg",
   },
+  favicon: "/brand/favicon.svg",
+  og: "/brand/og.png",
   social: {
     github: "https://github.com/airnub/speckit",
     x: "https://x.com/airnub",

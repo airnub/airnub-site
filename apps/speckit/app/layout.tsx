@@ -32,6 +32,9 @@ export async function generateMetadata(): Promise<Metadata> {
   const language = await getCurrentLanguage();
   const layoutMessages = getSpeckitMessages(language).layout;
   const metadataMessages = layoutMessages.metadata;
+  const ogPath = speckitBrand.og ?? "/brand/og.png";
+  const ogUrl = new URL(ogPath, SPECKIT_BASE_URL);
+  const favicon = speckitBrand.favicon ?? speckitBrand.logos.mark ?? "/brand/favicon.svg";
 
   return {
     metadataBase: new URL(SPECKIT_BASE_URL),
@@ -41,15 +44,15 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     description: metadataMessages.description,
     openGraph: {
-      title: metadataMessages.siteName,
+      title: speckitBrand.name,
       description: metadataMessages.ogDescription,
       url: SPECKIT_BASE_URL,
-      siteName: metadataMessages.siteName,
+      siteName: speckitBrand.name,
       locale: metadataMessages.openGraphLocale,
       type: "website",
       images: [
         {
-          url: "/api/og",
+          url: ogUrl,
           width: 1200,
           height: 630,
           alt: metadataMessages.ogImageAlt,
@@ -58,12 +61,12 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: metadataMessages.siteName,
+      title: speckitBrand.name,
       description: metadataMessages.twitterDescription,
-      images: [`${SPECKIT_BASE_URL}/api/og`],
+      images: [ogUrl.toString()],
     },
     icons: {
-      icon: "/favicon.ico",
+      icon: favicon,
     },
     alternates: {
       canonical: "/",

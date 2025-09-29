@@ -1,11 +1,15 @@
+import { brand as airnubBrand } from "@airnub/brand";
 import { itemListJsonLd, organizationJsonLd } from "@airnub/seo";
 import { AIRNUB_BASE_URL } from "./routes";
 
 export function buildAirnubOrganizationJsonLd() {
+  const logoPath =
+    airnubBrand.logos.mark ?? airnubBrand.logos.light ?? airnubBrand.favicon ?? "/brand/logo.svg";
+  const logoUrl = new URL(logoPath, AIRNUB_BASE_URL).toString();
   return organizationJsonLd({
     name: "Airnub",
     url: AIRNUB_BASE_URL,
-    logo: `${AIRNUB_BASE_URL}/api/og`,
+    logo: logoUrl,
     sameAs: [
       "https://github.com/airnub",
       "https://www.linkedin.com/company/airnub",

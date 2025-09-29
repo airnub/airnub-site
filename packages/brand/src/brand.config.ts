@@ -47,6 +47,8 @@ export interface BrandConfig {
     dark?: string;
     mark?: string;
   };
+  favicon?: string;
+  og?: string;
   social: SocialHandles;
 }
 
@@ -62,10 +64,12 @@ export const brand: BrandConfig = {
     foreground: "#0f172a",
   },
   logos: {
-    light: "/brand/airnub-wordmark-light.svg",
-    dark: "/brand/airnub-wordmark-dark.svg",
-    mark: "/brand/airnub-mark.svg",
+    light: "/brand/logo.svg",
+    dark: "/brand/logo-dark.svg",
+    mark: "/brand/logo-mark.svg",
   },
+  favicon: "/brand/favicon.svg",
+  og: "/brand/og.png",
   social: {
     github: "https://github.com/airnub",
     x: "https://x.com/airnub",

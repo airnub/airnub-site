@@ -39,6 +39,9 @@ export async function generateMetadata({
   const { locale: localeParam } = await params;
   const locale = assertLocale(localeParam);
   const t = await getTranslations({ locale, namespace: "layout.metadata" });
+  const ogPath = airnubBrand.og ?? "/brand/og.png";
+  const ogUrl = new URL(ogPath, AIRNUB_BASE_URL);
+  const favicon = airnubBrand.favicon ?? airnubBrand.logos.mark ?? "/brand/favicon.svg";
 
   return {
     metadataBase: new URL(AIRNUB_BASE_URL),
@@ -48,15 +51,15 @@ export async function generateMetadata({
     },
     description: t("description"),
     openGraph: {
-      title: "Airnub",
+      title: airnubBrand.name,
       description: t("ogDescription"),
       url: AIRNUB_BASE_URL,
-      siteName: "Airnub",
+      siteName: airnubBrand.name,
       locale: localeToOg[locale],
       type: "website",
       images: [
         {
-          url: "/api/og",
+          url: ogUrl,
           width: 1200,
           height: 630,
           alt: t("titleDefault"),
@@ -65,12 +68,12 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: "Airnub",
+      title: airnubBrand.name,
       description: t("twitterDescription"),
-      images: [`${AIRNUB_BASE_URL}/api/og`],
+      images: [ogUrl.toString()],
     },
     icons: {
-      icon: "/favicon.ico",
+      icon: favicon,
     },
     alternates: {
       canonical: `/${locale}`,

@@ -35,6 +35,12 @@ See [Architecture & Rendering](https://airnub.github.io/airnub-site/docs/archite
 
 `pnpm dev` launches both apps in parallel. Use `pnpm --filter ./apps/airnub dev` or `pnpm --filter ./apps/speckit dev` to run a single app.
 
+## Brand assets & overrides
+
+Canonical brand assets live in [`packages/brand/public/brand/`](packages/brand/public/brand/) and are copied into each app's `public/brand/` directory. Both marketing sites reference `/brand/logo.svg`, `/brand/logo-dark.svg`, `/brand/logo-mark.svg`, `/brand/favicon.svg`, and `/brand/og.png` for favicons and sharing images.
+
+To customize a fork, drop replacement files with the same names into `apps/airnub/public/brand/` and/or `apps/speckit/public/brand/`. Next.js will serve those assets at `/brand/*` without requiring code changes.
+
 ## Additional documentation
 
 - [Architecture & Rendering](https://airnub.github.io/airnub-site/docs/architecture) ([local](docs/docs/architecture.md))
