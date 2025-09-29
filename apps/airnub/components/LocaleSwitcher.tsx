@@ -8,10 +8,25 @@ import { defaultLocale, locales, type Locale } from "../i18n/routing";
 
 const LANGUAGE_COOKIE_NAME = "NEXT_LOCALE";
 const COOKIE_MAX_AGE_SECONDS = 60 * 60 * 24 * 365;
+const COOKIE_DOMAIN =
+  process.env.NEXT_PUBLIC_LOCALE_COOKIE_DOMAIN ??
+  process.env.NEXT_PUBLIC_COOKIE_DOMAIN ??
+  ".airnub.io";
 
 function persistLocale(value: Locale) {
   if (typeof document !== "undefined") {
-    document.cookie = `${LANGUAGE_COOKIE_NAME}=${value}; path=/; max-age=${COOKIE_MAX_AGE_SECONDS}; SameSite=Lax`;
+    const cookieAttributes = [
+      `${LANGUAGE_COOKIE_NAME}=${value}`,
+      "path=/",
+      `max-age=${COOKIE_MAX_AGE_SECONDS}`,
+      "SameSite=Lax",
+    ];
+
+    if (COOKIE_DOMAIN) {
+      cookieAttributes.splice(1, 0, `domain=${COOKIE_DOMAIN}`);
+    }
+
+    document.cookie = cookieAttributes.join("; ");
     document.documentElement.lang = value;
   }
 }
