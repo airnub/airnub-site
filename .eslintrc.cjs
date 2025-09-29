@@ -13,5 +13,26 @@ module.exports = {
         message: "Use semantic tokens instead of Tailwind dark: utilities.",
       },
     ],
+    "no-restricted-imports": [
+      "error",
+      {
+        paths: [
+          {
+            name: "@/components/header",
+            message: "Use the shared @airnub/ui exports.",
+          },
+          {
+            name: "@/components/footer",
+            message: "Use the shared @airnub/ui exports.",
+          },
+        ],
+        patterns: [
+          {
+            group: ["@/components/header/*", "@/components/footer/*"],
+            message: "Use the shared @airnub/ui exports.",
+          },
+        ],
+      },
+    ],
   },
 };
