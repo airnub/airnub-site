@@ -10,8 +10,8 @@ export type FormMessageProps = {
 
 const variantClasses: Record<NonNullable<FormMessageProps["variant"]>, string> = {
   info: "bg-muted text-muted-foreground",
-  success: "bg-emerald-100 text-emerald-800 dark:bg-emerald-500/10 dark:text-emerald-100",
-  error: "bg-rose-100 text-rose-800 dark:bg-rose-500/10 dark:text-rose-100",
+  success: "bg-success/10 text-success",
+  error: "bg-destructive/10 text-destructive",
 };
 
 export function FormMessage({ children, variant = "info", id, className }: FormMessageProps) {

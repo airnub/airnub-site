@@ -45,7 +45,7 @@ function ContactShortcuts({ shortcuts }: ContactShortcutsProps) {
           <Button
             asChild
             variant="ghost"
-            className="px-0 text-indigo-600 hover:text-indigo-700 dark:text-indigo-300 dark:hover:text-indigo-200"
+            className="px-0 text-primary transition-colors hover:text-primary/80"
           >
             <a href="https://docs.speckit.dev" target="_blank" rel="noreferrer">
               {shortcuts.docsCtaLabel}

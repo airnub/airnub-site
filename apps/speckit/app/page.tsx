@@ -88,12 +88,12 @@ export default async function SpeckitHome() {
           </div>
           <Card className="relative overflow-hidden">
             <div
-              className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.15),_transparent_55%)] dark:bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.25),_transparent_55%)]"
+              className="absolute inset-0 bg-[radial-gradient(circle_at_top,_hsl(var(--primary)/0.15),_transparent_55%)]"
               aria-hidden="true"
             />
             <CardContent className="relative space-y-6 pt-5 text-sm text-muted-foreground">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600 dark:text-indigo-300">
+                <p className="text-xs font-semibold uppercase tracking-wide text-primary/80">
                   {home.guardrails.cardTitle}
                 </p>
                 <Card className="mt-3 border-none bg-muted shadow-none">
@@ -110,7 +110,7 @@ export default async function SpeckitHome() {
                 </Card>
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600 dark:text-indigo-300">
+                <p className="text-xs font-semibold uppercase tracking-wide text-primary/80">
                   {home.guardrails.evidenceTitle}
                 </p>
                 <div className="mt-3 space-y-2 text-xs text-muted-foreground">
@@ -118,7 +118,7 @@ export default async function SpeckitHome() {
                     <Card key={item.label} className="shadow-none">
                       <CardContent className="flex items-center justify-between pt-5">
                         <span>{item.label}</span>
-                        <span className="text-indigo-600 dark:text-indigo-300">{item.status}</span>
+                        <span className="text-primary">{item.status}</span>
                       </CardContent>
                     </Card>
                   ))}
@@ -166,7 +166,7 @@ export default async function SpeckitHome() {
 
       <section>
         <Container className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-wide text-indigo-600 dark:text-indigo-300">
+          <p className="text-sm font-semibold uppercase tracking-wide text-primary/80">
             {home.integrations.eyebrow}
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-muted-foreground">

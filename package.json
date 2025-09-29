@@ -23,7 +23,8 @@
     "prepare": "husky",
     "docs:dev": "pnpm --filter docs start",
     "docs:build": "pnpm --filter docs build",
-    "docs:deploy": "pnpm --filter docs deploy"
+    "docs:deploy": "pnpm --filter docs deploy",
+    "lint:dark": "grep -R --line-number --color=always 'dark:' apps packages || true"
   },
   "devDependencies": {
     "@types/react": "^19.1.15",

@@ -26,9 +26,9 @@ let toastId = 0;
 function toastClassNames(variant: ToastVariant) {
   switch (variant) {
     case "success":
-      return "border-emerald-200 bg-emerald-50 text-emerald-900 dark:border-emerald-500/40 dark:bg-emerald-500/10 dark:text-emerald-50";
+      return "border-success/40 bg-success/10 text-success";
     case "error":
-      return "border-rose-200 bg-rose-50 text-rose-900 dark:border-rose-500/40 dark:bg-rose-500/10 dark:text-rose-50";
+      return "border-destructive/40 bg-destructive/10 text-destructive";
     default:
       return "border-border bg-card text-card-foreground";
   }

@@ -32,7 +32,7 @@ export default async function HowItWorksPage() {
           {messages.stages.map((stage, index) => (
             <Card key={stage.name}>
               <CardHeader className="gap-3">
-                <span className="text-xs font-semibold uppercase tracking-wide text-indigo-600 dark:text-indigo-300">
+                <span className="text-xs font-semibold uppercase tracking-wide text-primary/80">
                   {messages.stageLabel.replace(/\{[^}]+\}/g, String(index + 1))}
                 </span>
                 <CardTitle className="text-xl">{stage.name}</CardTitle>

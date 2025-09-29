@@ -51,10 +51,10 @@ function ContactShortcuts({
         </CardHeader>
         <CardContent className="space-y-2 text-sm text-muted-foreground">
           <p>
-            {emailSales}: <a className="text-sky-600 underline-offset-4 hover:underline dark:text-sky-400" href="mailto:hello@airnub.io">hello@airnub.io</a>
+            {emailSales}: <a className="text-primary underline-offset-4 transition-colors hover:text-primary/80 hover:underline" href="mailto:hello@airnub.io">hello@airnub.io</a>
           </p>
           <p>
-            {emailSecurity}: <a className="text-sky-600 underline-offset-4 hover:underline dark:text-sky-400" href="mailto:security@airnub.io">security@airnub.io</a>
+            {emailSecurity}: <a className="text-primary underline-offset-4 transition-colors hover:text-primary/80 hover:underline" href="mailto:security@airnub.io">security@airnub.io</a>
           </p>
         </CardContent>
       </Card>
@@ -68,7 +68,7 @@ function ContactShortcuts({
           <p>{officeDescription}</p>
           <a
             href="https://cal.com/airnub/office-hours"
-            className="inline-flex text-sm font-semibold text-sky-600 underline-offset-4 hover:underline dark:text-sky-400"
+            className="inline-flex text-sm font-semibold text-primary underline-offset-4 transition-colors hover:text-primary/80 hover:underline"
             target="_blank"
             rel="noreferrer"
           >

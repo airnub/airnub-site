@@ -38,7 +38,7 @@ export default async function SolutionsOverviewPage() {
                   <CardDescription>{persona.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <span className="inline-flex text-sm font-semibold text-indigo-600 transition group-hover:text-indigo-700 dark:text-indigo-300 dark:group-hover:text-indigo-200">
+                  <span className="inline-flex text-sm font-semibold text-primary transition group-hover:text-primary/80">
                     {persona.ctaLabel}
                   </span>
                 </CardContent>
