@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { clsx } from "clsx";
-import "@airnub/ui/styles.css";
 import "./globals.css";
 import {
   BrandProvider,

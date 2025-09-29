@@ -28,6 +28,7 @@
       "default": "./src/index.ts"
     },
     "./styles.css": "./styles.css",
+    "./styles/tokens.css": "./styles/tokens.css",
     "./tailwind-preset": {
       "types": "./tailwind-preset.ts",
       "import": "./tailwind-preset.ts",

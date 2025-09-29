@@ -1,0 +1,17 @@
+:root {
+  --brand-background: 0 0% 100%;
+  --brand-foreground: 240 10% 3.9%;
+  --brand-primary: 222.2 47.4% 11.2%;
+  --brand-primary-foreground: 210 40% 98%;
+  --brand-accent: 240 4.8% 95.9%;
+  --brand-accent-foreground: 240 5.9% 10%;
+}
+
+.dark {
+  --brand-background: 240 10% 3.9%;
+  --brand-foreground: 0 0% 98%;
+  --brand-primary: 210 40% 98%;
+  --brand-primary-foreground: 222.2 47.4% 11.2%;
+  --brand-accent: 240 3.7% 15.9%;
+  --brand-accent-foreground: 0 0% 98%;
+}

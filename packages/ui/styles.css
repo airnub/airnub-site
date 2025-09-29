@@ -3,20 +3,20 @@
 @tailwind utilities;
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 240 10% 3.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 240 10% 3.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 240 10% 3.9%;
+  --background: var(--brand-background);
+  --foreground: var(--brand-foreground);
+  --card: var(--brand-background);
+  --card-foreground: var(--brand-foreground);
+  --popover: var(--brand-background);
+  --popover-foreground: var(--brand-foreground);
   --muted: 240 4.8% 95.9%;
   --muted-foreground: 240 3.8% 46.1%;
-  --primary: 222.2 47.4% 11.2%;
-  --primary-foreground: 210 40% 98%;
+  --primary: var(--brand-primary);
+  --primary-foreground: var(--brand-primary-foreground);
   --secondary: 240 4.8% 95.9%;
   --secondary-foreground: 240 5.9% 10%;
-  --accent: 240 4.8% 95.9%;
-  --accent-foreground: 240 5.9% 10%;
+  --accent: var(--brand-accent);
+  --accent-foreground: var(--brand-accent-foreground);
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 98%;
   --success: 142 76% 36%;
@@ -28,20 +28,20 @@
 }
 
 .dark {
-  --background: 240 10% 3.9%;
-  --foreground: 0 0% 98%;
-  --card: 240 10% 3.9%;
-  --card-foreground: 0 0% 98%;
-  --popover: 240 10% 3.9%;
-  --popover-foreground: 0 0% 98%;
+  --background: var(--brand-background);
+  --foreground: var(--brand-foreground);
+  --card: var(--brand-background);
+  --card-foreground: var(--brand-foreground);
+  --popover: var(--brand-background);
+  --popover-foreground: var(--brand-foreground);
   --muted: 240 3.7% 15.9%;
   --muted-foreground: 240 5% 64.9%;
-  --primary: 210 40% 98%;
-  --primary-foreground: 222.2 47.4% 11.2%;
+  --primary: var(--brand-primary);
+  --primary-foreground: var(--brand-primary-foreground);
   --secondary: 240 3.7% 15.9%;
   --secondary-foreground: 0 0% 98%;
-  --accent: 240 3.7% 15.9%;
-  --accent-foreground: 0 0% 98%;
+  --accent: var(--brand-accent);
+  --accent-foreground: var(--brand-accent-foreground);
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 85.7% 97.3%;
   --success: 142 76% 52%;
