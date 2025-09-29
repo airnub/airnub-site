@@ -1,6 +1,6 @@
 import { promises as fs } from "node:fs";
 
-import { ogTemplate } from "@airnub/brand";
+import { ogTemplate } from "@airnub/brand/server";
 
 export async function GET() {
   const template = await fs.readFile(ogTemplate);
