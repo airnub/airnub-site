@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import {
   Button,
@@ -9,6 +8,9 @@ import {
   CardHeader,
   CardTitle,
   Container,
+  CloudyardLogo,
+  ForgeLabsLogo,
+  NorthbeamLogo,
 } from "@airnub/ui";
 import { serverFetch } from "@airnub/seo";
 import { getTranslations } from "next-intl/server";
@@ -39,11 +41,15 @@ const highlightIds = [
   "platformAccelerators",
 ] as const;
 
-const customerLogos = [
-  { id: "forgeLabs", logo: "/logos/forge.svg" },
-  { id: "cloudyard", logo: "/logos/cloudyard.svg" },
-  { id: "northbeam", logo: "/logos/northbeam.svg" },
-] as const;
+const customerIds = ["forgeLabs", "cloudyard", "northbeam"] as const;
+
+type CustomerId = (typeof customerIds)[number];
+
+const customerLogos: Record<CustomerId, typeof CloudyardLogo> = {
+  forgeLabs: ForgeLabsLogo,
+  cloudyard: CloudyardLogo,
+  northbeam: NorthbeamLogo,
+};
 
 const speckitOutcomeIds = [
   "governedSpecLoop",
@@ -62,7 +68,7 @@ const serviceCardIds = [
 
 const airnubHomeContent = {
   highlights: highlightIds,
-  customers: customerLogos,
+  customers: customerIds,
 } as const;
 
 const airnubHomeContentUrl = `data:application/json,${encodeURIComponent(JSON.stringify(airnubHomeContent))}`;
@@ -95,9 +101,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     description: t(`highlights.${key}.description`),
   }));
 
-  const customerItems = customers.map((customer) => ({
-    ...customer,
-    name: t(`customers.items.${customer.id}`),
+  const customerItems = customers.map((customerId) => ({
+    id: customerId,
+    name: t(`customers.items.${customerId}`),
+    Logo: customerLogos[customerId],
   }));
 
   const speckit = {
@@ -163,10 +170,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             {t("customers.eyebrow")}
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-8">
-            {customerItems.map((customer) => (
-              <Card key={customer.id} aria-label={customer.name} className="h-16 w-40">
-                <CardContent className="flex h-full items-center justify-center pt-5">
-                  <Image src={customer.logo} alt={customer.name} width={120} height={40} className="object-contain" />
+            {customerItems.map(({ id, name, Logo }) => (
+              <Card key={id} aria-label={name} className="group h-16 w-40 transition-colors">
+                <CardContent className="flex h-full items-center justify-center p-4 text-muted-foreground transition-colors group-hover:text-foreground">
+                  <Logo className="h-6 w-auto" aria-hidden="true" focusable="false" />
+                  <span className="sr-only">{name}</span>
                 </CardContent>
               </Card>
             ))}
