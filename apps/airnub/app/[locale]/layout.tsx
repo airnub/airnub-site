@@ -5,7 +5,6 @@ import {
   ThemeToggle,
   ToastProvider,
   GithubIcon,
-  SiteShell,
   type FooterColumn,
 } from "@airnub/ui";
 import type { Metadata } from "next";
@@ -20,6 +19,7 @@ import { assertLocale, locales, type Locale } from "../../i18n/routing";
 import { MaintenanceGate } from "./maintenance/MaintenanceGate";
 import { isMaintenanceModeEnabled } from "../../lib/runtime-flags";
 import { LocaleSwitcher } from "../../components/LocaleSwitcher";
+import { ActiveSiteShell } from "../../components/ActiveSiteShell";
 import {
   airnubNavigation,
   buildBrandMetadata,
@@ -216,7 +216,7 @@ export default async function LocaleLayout({
           <BrandProvider value={airnubBrand}>
             <ThemeProvider>
               <ToastProvider>
-                <SiteShell
+                <ActiveSiteShell
                   skipToContentLabel={common("skipToContent")}
                   navItems={navItems}
                   homeHref={`/${locale}`}
@@ -254,7 +254,7 @@ export default async function LocaleLayout({
                   >
                     {children}
                   </MaintenanceGate>
-                </SiteShell>
+                </ActiveSiteShell>
               </ToastProvider>
             </ThemeProvider>
           </BrandProvider>

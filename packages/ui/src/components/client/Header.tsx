@@ -24,10 +24,34 @@ export type HeaderProps = {
     href: string;
   };
   className?: string;
+  activeHref?: string;
+  isNavItemActive?: (item: NavItem) => boolean;
 };
 
-export function Header({ logo, navItems, rightSlot, homeHref = "/", homeAriaLabel = "Home", cta, className }: HeaderProps) {
+export function Header({
+  logo,
+  navItems,
+  rightSlot,
+  homeHref = "/",
+  homeAriaLabel = "Home",
+  cta,
+  className,
+  activeHref,
+  isNavItemActive,
+}: HeaderProps) {
   const [open, setOpen] = useState(false);
+
+  const resolveIsActive = (item: NavItem) => {
+    if (typeof isNavItemActive === "function") {
+      return isNavItemActive(item);
+    }
+
+    if (activeHref) {
+      return item.href === activeHref;
+    }
+
+    return false;
+  };
 
   return (
     <header className={clsx("sticky top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur", className)}>
@@ -42,9 +66,13 @@ export function Header({ logo, navItems, rightSlot, homeHref = "/", homeAriaLabe
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="rounded-full px-3 py-2 text-muted-foreground transition hover:bg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                    className={clsx(
+                      "rounded-full px-3 py-2 text-muted-foreground transition hover:bg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+                      resolveIsActive(item) && "bg-muted text-foreground"
+                    )}
                     target={item.external ? "_blank" : undefined}
                     rel={item.external ? "noreferrer" : undefined}
+                    aria-current={resolveIsActive(item) ? "page" : undefined}
                   >
                     {item.label}
                   </Link>
@@ -88,12 +116,18 @@ export function Header({ logo, navItems, rightSlot, homeHref = "/", homeAriaLabe
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="block rounded-xl px-3 py-2 text-muted-foreground transition hover:bg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                  className={clsx(
+                    "block rounded-xl px-3 py-2 text-muted-foreground transition hover:bg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+                    resolveIsActive(item) && "bg-muted text-foreground"
+                  )}
                   target={item.external ? "_blank" : undefined}
                   rel={item.external ? "noreferrer" : undefined}
                   onClick={() => setOpen(false)}
+                  aria-current={resolveIsActive(item) ? "page" : undefined}
                 >
-                  <span className="block text-base font-semibold">{item.label}</span>
+                  <span className={clsx("block text-base font-semibold", resolveIsActive(item) && "text-foreground")}>{
+                    item.label
+                  }</span>
                   {item.description ? (
                     <span className="block text-sm text-muted-foreground">{item.description}</span>
                   ) : null}
