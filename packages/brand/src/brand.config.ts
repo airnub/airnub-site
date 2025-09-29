@@ -76,3 +76,95 @@ export const brand: BrandConfig = {
     linkedin: "https://www.linkedin.com/company/airnub",
   },
 };
+
+export interface ResolveBrandConfigOptions {
+  /**
+   * Optional environment variables. Defaults to `process.env` when available.
+   */
+  env?: Record<string, string | undefined>;
+  /**
+   * Additional overrides applied after environment variables.
+   */
+  overrides?: Partial<BrandConfig>;
+}
+
+function toCamelCase(value: string): string {
+  const segments = value
+    .split(/[_\s-]+/)
+    .map((segment) => segment.toLowerCase())
+    .filter(Boolean);
+
+  if (segments.length === 0) {
+    return value.toLowerCase();
+  }
+
+  return [
+    segments[0],
+    ...segments.slice(1).map((segment) => segment[0]?.toUpperCase() + segment.slice(1)),
+  ].join("");
+}
+
+export function resolveBrandConfig(options: ResolveBrandConfigOptions = {}): BrandConfig {
+  const env: Record<string, string | undefined> =
+    options.env ?? (typeof process !== "undefined" ? process.env : {});
+
+  const base: BrandConfig = {
+    ...brand,
+    ...(options.overrides ?? {}),
+    colors: {
+      ...brand.colors,
+      ...(options.overrides?.colors ?? {}),
+    },
+    logos: {
+      ...brand.logos,
+      ...(options.overrides?.logos ?? {}),
+    },
+    social: {
+      ...brand.social,
+      ...(options.overrides?.social ?? {}),
+    },
+  };
+
+  const resolved: BrandConfig = {
+    ...base,
+    name: env.BRAND_NAME ?? base.name,
+    domain: env.BRAND_DOMAIN ?? base.domain,
+    description: env.BRAND_DESCRIPTION ?? base.description,
+    favicon: env.BRAND_FAVICON ?? base.favicon,
+    og: env.BRAND_OG ?? base.og,
+    colors: {
+      ...base.colors,
+      primary: env.BRAND_COLOR_PRIMARY ?? base.colors.primary,
+      secondary: env.BRAND_COLOR_SECONDARY ?? base.colors.secondary,
+      accent: env.BRAND_COLOR_ACCENT ?? base.colors.accent,
+      background: env.BRAND_COLOR_BACKGROUND ?? base.colors.background,
+      foreground: env.BRAND_COLOR_FOREGROUND ?? base.colors.foreground,
+    },
+    logos: {
+      ...base.logos,
+      light: env.BRAND_LOGO_LIGHT ?? base.logos.light,
+      dark: env.BRAND_LOGO_DARK ?? base.logos.dark,
+      mark: env.BRAND_LOGO_MARK ?? base.logos.mark,
+    },
+    social: {
+      ...base.social,
+    },
+  };
+
+  for (const [envKey, value] of Object.entries(env)) {
+    if (!envKey.startsWith("BRAND_SOCIAL_")) {
+      continue;
+    }
+
+    if (value === undefined) {
+      continue;
+    }
+
+    const socialKey = toCamelCase(envKey.replace("BRAND_SOCIAL_", ""));
+    resolved.social[socialKey] = value;
+  }
+
+  return resolved;
+}
+
+export const resolvedBrandConfig = resolveBrandConfig();
