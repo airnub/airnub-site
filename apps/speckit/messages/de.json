@@ -4,6 +4,28 @@
     "themeToggle": "Thema umschalten",
     "languageLabel": "Sprache",
     "githubLabel": "Speckit auf GitHub",
+    "locale": {
+      "options": {
+        "en-US": "Englisch (USA)",
+        "en-GB": "Englisch (UK)",
+        "fr": "Französisch",
+        "es": "Spanisch",
+        "de": "Deutsch",
+        "pt": "Portugiesisch",
+        "it": "Italienisch",
+        "ga": "Irisch"
+      }
+    },
+    "metadata": {
+      "titleDefault": "Speckit — Gouvernierte Spezifikationsautomatisierung",
+      "titleTemplate": "%s | Speckit",
+      "description": "Speckit kodiert Plattform-Governance mit entwicklernahen Workflows, Richtlinien-Gates und kontinuierlichen Nachweisen.",
+      "siteName": "Speckit",
+      "ogDescription": "Speckit kodiert Plattform-Governance mit entwicklernahen Workflows, Richtlinien-Gates und kontinuierlichen Nachweisen.",
+      "ogImageAlt": "Dashboard mit Speckit-Governance-Workflows",
+      "openGraphLocale": "de_DE",
+      "twitterDescription": "Speckit kodiert Plattform-Governance mit entwicklernahen Workflows, Richtlinien-Gates und kontinuierlichen Nachweisen."
+    },
     "nav": {
       "product": "Produkt",
       "howItWorks": "Wie es funktioniert",
@@ -14,6 +36,7 @@
       "contact": "Kontakt"
     },
     "footer": {
+      "description": "Speckit orchestriert die Strecke von Spezifikation bis Release mit programmierbaren Richtlinien-Gates und kontinuierlichen Nachweisen.",
       "columns": {
         "product": {
           "heading": "Produkt",

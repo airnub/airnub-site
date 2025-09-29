@@ -10,9 +10,20 @@ import { assertLocale } from "../../i18n/routing";
 
 export const revalidate = 86_400;
 
-export const metadata: Metadata = {
-  title: "Airnub builds governed, enterprise-ready developer platforms",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+  const locale = assertLocale(localeParam);
+  const t = await getTranslations({ locale, namespace: "home.metadata" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 const highlightIds = [
   "unifiedGovernance",

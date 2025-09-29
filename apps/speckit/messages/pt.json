@@ -4,6 +4,28 @@
     "themeToggle": "Tema de alternância",
     "languageLabel": "Linguagem",
     "githubLabel": "Speckit no Github",
+    "locale": {
+      "options": {
+        "en-US": "Inglês (EUA)",
+        "en-GB": "Inglês (Reino Unido)",
+        "fr": "Francês",
+        "es": "Espanhol",
+        "de": "Alemão",
+        "pt": "Português",
+        "it": "Italiano",
+        "ga": "Irlandês"
+      }
+    },
+    "metadata": {
+      "titleDefault": "Speckit — Automação governada de especificações",
+      "titleTemplate": "%s | Speckit",
+      "description": "Speckit codifica a governança da plataforma com fluxos de trabalho nativos para desenvolvedores, portões de políticas e evidências contínuas.",
+      "siteName": "Speckit",
+      "ogDescription": "Speckit codifica a governança da plataforma com fluxos de trabalho nativos para desenvolvedores, portões de políticas e evidências contínuas.",
+      "ogImageAlt": "Painel mostrando fluxos de governança da Speckit",
+      "openGraphLocale": "pt_PT",
+      "twitterDescription": "Speckit codifica a governança da plataforma com fluxos de trabalho nativos para desenvolvedores, portões de políticas e evidências contínuas."
+    },
     "nav": {
       "product": "Produto",
       "howItWorks": "Como funciona",
@@ -14,6 +36,7 @@
       "contact": "Contato"
     },
     "footer": {
+      "description": "Speckit orquestra o ciclo da especificação ao lançamento com portões programáveis e evidências contínuas.",
       "columns": {
         "product": {
           "heading": "Produto",

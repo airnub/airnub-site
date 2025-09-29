@@ -46,6 +46,7 @@
     "contact": "Teagmháil"
   },
   "footer": {
+    "description": "Rialaigh saolré ardán na bhforbróirí le muinín, uathoibriú agus fianaise leanúnach.",
     "columns": {
       "products": {
         "heading": "Táirgí",
@@ -94,6 +95,10 @@
     }
   },
   "home": {
+    "metadata": {
+      "title": "Cruthaíonn Airnub ardáin forbróirí rialaithe atá réidh don fhiontar",
+      "description": "Cuir muinín i bhfeidhm i ngach píblíne seolta le saineolas Airnub ar ardáin, comhlíonadh agus uathoibriú."
+    },
     "hero": {
       "eyebrow": "Tógann Airnub ardáin forbróirí rialaithe atá réidh don fhiontar.",
       "title": "Cuir muinín i bhfeidhm ar gach píblíne eisiúna",
@@ -218,6 +223,342 @@
         "description": "Glac páirt i seisiún seachtainiúil beo chun a fheiceáil conas is féidir le Airnub agus Speckit do bhóthar treorach a luathú.",
         "cta": "Cuir uaireanta oifige in áirithe"
       }
+    }
+  },
+  "company": {
+    "metadata": {
+      "title": "Cuideachta",
+      "description": "Buail leis an bhfoireann Airnub atá ag cur ardáin rialaithe agus seachadadh bunaithe ar mhuinín chun cinn."
+    },
+    "hero": {
+      "eyebrow": "Cuideachta",
+      "title": "Cuidímid le ceannairí ardáin muinín a iompú ina bhuntáiste iomaíoch",
+      "description": "Comhcheanglaíonn Airnub innealtóireacht ardáin, slándáil agus comhlíonadh chun taithí rialaithe a sheachadadh."
+    },
+    "values": [
+      {
+        "id": "trustByDesign",
+        "name": "Muinín ón tús",
+        "description": "Cosnaíonn gach sreabhadh oibre a dhearann muid úsáideoirí, forbróirí agus iniúchóirí araon."
+      },
+      {
+        "id": "craftWithEmpathy",
+        "name": "Ceird le bá",
+        "description": "Tógaimid do thimpeallachtaí ardáin mar is foirne ardáin muid féin – cleachtóirí sula soláthraithe."
+      },
+      {
+        "id": "evidenceOverOpinion",
+        "name": "Fianaise thar thuairim",
+        "description": "Bíonn ár gcinntí bunaithe ar thoradh tomhaiste, sonraí trédhearcacha agus freagracht roinnte."
+      }
+    ],
+    "careers": {
+      "title": "Gairmeacha",
+      "description": "Táimid i bhfad óna chéile ar fud Mheiriceá Thuaidh agus na hEorpa. Má tá paisean agat do shreafaí ardáin agus uathoibriú comhlíonta, ba mhaith linn caint leat.",
+      "ctaLabel": "careers@airnub.io",
+      "ctaHref": "mailto:careers@airnub.io"
+    },
+    "press": {
+      "cards": [
+        {
+          "id": "pressKit",
+          "title": "Kit preasa",
+          "description": "Lógónna, seatanna táirge agus bioanna ceannaireachta réidh le foilsiú.",
+          "ctaLabel": "press@airnub.io",
+          "ctaHref": "mailto:press@airnub.io"
+        },
+        {
+          "id": "mediaBriefing",
+          "title": "Iarratais meán",
+          "description": "Iarraigh léargais ar rialachas ardáin, DevSecOps agus uathoibriú comhlíonta.",
+          "ctaLabel": "Cuir cruinniú in áirithe",
+          "ctaHref": "https://cal.com/airnub/briefing",
+          "external": true
+        }
+      ]
+    },
+    "legal": {
+      "title": "Dlí",
+      "items": [
+        {
+          "id": "privacy",
+          "title": "Fógra príobháideachais",
+          "description": "Ní bhailímid ach an fhaisnéis atá riachtanach chun freagra a thabhairt agus ár seirbhísí a fheabhsú.",
+          "ctaLabel": "Tuilleadh eolais",
+          "ctaHref": "/resources#privacy"
+        },
+        {
+          "id": "terms",
+          "title": "Téarmaí seirbhíse",
+          "description": "Leagann ár dtéarmaí amach ionchais do chustaiméirí, comhpháirtithe agus rannpháirtithe pobail.",
+          "ctaLabel": "Féach na téarmaí",
+          "ctaHref": "/resources#terms"
+        }
+      ]
+    }
+  },
+  "products": {
+    "metadata": {
+      "title": "Táirgí",
+      "description": "Faigh amach Speckit, ailtireachtaí tagartha agus luasairí muiníne Airnub."
+    },
+    "hero": {
+      "eyebrow": "Táirgí",
+      "title": "Gach rud a theastaíonn chun seachadadh nua-aimseartha a rialú",
+      "description": "Comhcheanglaíonn Airnub táirgí, playbookanna agus seirbhísí iontaofa ionas gur féidir le foirne ardáin scálú gan forbraitheoirí a mhoilliú.",
+      "primaryCta": {
+        "label": "Iarr taispeántas",
+        "href": "/contact"
+      }
+    },
+    "offeringsCta": "Foghlaim níos mó",
+    "offerings": [
+      {
+        "id": "speckit",
+        "name": "Speckit",
+        "description": "Rialuithe seachadta bunaithe ar pholasaí, bainistiú SBOM agus uathoibriú fianaise do fhoirne ardáin.",
+        "href": "https://speckit.airnub.io",
+        "badge": "Bratach",
+        "external": true
+      },
+      {
+        "id": "platformBlueprints",
+        "name": "Blueprintanna ardáin",
+        "description": "Landing zones, cosáin threoraithe agus catalóga seirbhísí a oireann do earnálacha rialáilte.",
+        "href": "/services#platform",
+        "badge": "Nua"
+      },
+      {
+        "id": "trustAccelerators",
+        "name": "Luasairí muiníne",
+        "description": "Trealamh SOC 2, ISO 27001 agus FedRAMP le h-uathoibriú fianaise san áireamh.",
+        "href": "/services#trust"
+      }
+    ],
+    "insights": [
+      {
+        "id": "trustAsFeature",
+        "title": "Muinín mar ghné",
+        "description": "Tagann gach táirge le rialachas comhlíonta, fianaise réidh d'iniúchadh agus comhtháthuithe API-first a oireann do do stack.",
+        "bullets": [
+          "Attestations ailínithe le SLSA agus uathoibriú SBOM",
+          "Sreafaí oibre de réir róil do phlatform, slándáil agus comhlíonadh",
+          "APIs oscailte agus oiriúnaitheoirí do na huirlisí atá agat cheana"
+        ]
+      },
+      {
+        "id": "sharedSupabase",
+        "title": "Bunús roinnte ar Supabase",
+        "paragraphs": [
+          "Bailíonn suíomh Airnub agus micrea-shuíomh Speckit luaidhe sa tionscadal Supabase céanna, rud a choinníonn comharthaí GTM ailínithe agus slán.",
+          "Cinntíonn slándáil leibhéal ró dá gcuid sonraí, agus is féidir le foirne ardáin feidhmíocht a anailísiú trí róil seirbhíse."
+        ]
+      }
+    ]
+  },
+  "services": {
+    "metadata": {
+      "title": "Seirbhísí",
+      "description": "Comhairleoireacht agus cumasú a ailíníonn straitéis ardáin, seachadadh agus torthaí comhlíonta."
+    },
+    "hero": {
+      "eyebrow": "Seirbhísí",
+      "title": "Saineolaithe inlíne do gach céim d'aistear na hardán",
+      "description": "Comhcheanglaímid smaointeoireacht táirge le comhlíonadh agus innealtóireacht ardáin chun seachadadh iontaofa a oscailt.",
+      "primaryCta": {
+        "label": "Socrú comhrá",
+        "href": "/contact"
+      }
+    },
+    "deliverablesLabel": "Seachadtaí lárnacha",
+    "engagements": [
+      {
+        "id": "platform",
+        "title": "Múnla oibríochta ardáin",
+        "description": "Ailínigh foirne ardáin, slándála agus comhlíonta le róil shoiléire, OKR agus deasghnátha rialachais.",
+        "deliverables": [
+          "Measúnú aibíochta",
+          "Dearadh eagraíochtúil agus maitrís freagrachta",
+          "Roadmap le OKR ráithiúla"
+        ]
+      },
+      {
+        "id": "blueprint",
+        "title": "Dearadh landing zone agus cosáin threoraithe",
+        "description": "Ailtireachtaí tagartha, IaC agus polasaithe a sholáthraíonn taithí forbróra le cosaintí.",
+        "deliverables": [
+          "Bunlíne scamall réidh do rialtóirí",
+          "Catalóg seirbhísí agus trealamh tosaithe",
+          "Polasaí mar chód ailínithe le frámaí"
+        ]
+      },
+      {
+        "id": "trust",
+        "title": "Ullmhacht muiníne agus dearbhaithe",
+        "description": "Uathoibrigh bailiú fianaise agus déan iniúchtaí níos éasca le sreafaí oibre Speckit.",
+        "deliverables": [
+          "Catalóg fianaise agus scéalta rialaithe",
+          "Uathoibriú SBOM, attestations agus rianú",
+          "Cleachtaí iniúchta agus cumasú páirtithe leasmhara"
+        ]
+      }
+    ],
+    "outcomes": {
+      "title": "Tionscadail dírithe ar thorthaí",
+      "description": "Ceanglaíonn muid gach gealltanas le KPIanna cosúil le minicíocht seolta, ráta teipe athraithe, am ullmhachta iniúchta agus muinín an chustaiméara.",
+      "note": "Oibrímid taobh le do fhoirne ar feadh 6–12 seachtaine, roinnimid eolas go leanúnach agus cuirimid Speckit i bhfeidhm le haghaidh ratha fadtéarmach."
+    }
+  },
+  "solutions": {
+    "metadata": {
+      "title": "Réitigh",
+      "description": "Bealaí earnála-bhunaithe chun ardáin forbróirí a rialú i seirbhísí airgeadais, earnáil phoiblí agus SaaS."
+    },
+    "hero": {
+      "eyebrow": "Réitigh",
+      "title": "Blueprints rialachais ar do thomhas",
+      "description": "Comhcheanglaíonn Airnub saineolas ardáin agus tuiscint rialála ionas gur féidir leat dearadh, oibriú agus scálú le soiléireacht."
+    },
+    "sectors": [
+      {
+        "id": "financialServices",
+        "name": "Seirbhísí airgeadais",
+        "summary": "Cothromaigh luas táirge le treoracha FFIEC, PCI DSS agus SOX.",
+        "bullets": [
+          "Cosáin threoraithe do lucht oibre ard-iontaoibh",
+          "Uathoibriú fianaise do iniúchóirí agus rialtóirí",
+          "Rialú athraithe ailínithe le córais baincéireachta"
+        ]
+      },
+      {
+        "id": "publicSector",
+        "name": "Earnáil phoiblí",
+        "summary": "Luasghéaraigh tionscnaimh FedRAMP agus StateRAMP le cosaintí in-athchleachtaithe.",
+        "bullets": [
+          "Landing zones ailínithe le comhlíonadh",
+          "Scéalta rialaithe SSP uathoibrithe",
+          "Samhlacha il-thionónta le tacaíocht attestations"
+        ]
+      },
+      {
+        "id": "enterpriseSaas",
+        "name": "SaaS fiontraíochta",
+        "summary": "Seachad go muiníneach thar réigiúin agus tú ag comhlíonadh SOC 2, ISO 27001 agus HIPAA.",
+        "bullets": [
+          "Múnlaí oibríochta ardáin atá scálaithe",
+          "Catalóga seirbhísí le cosaintí ionsuite",
+          "Forfheidhmiú polasaí ar fud CI/CD agus an rith"
+        ]
+      }
+    ],
+    "partner": {
+      "title": "Oibrigh le straitéistí ardáin agus innealtóirí comhlíonta",
+      "description": "Tugann ár bpóid ilfheidhmeacha táirge, ardán agus muinín le chéile chun luach a sholáthar ón gcéad sprint. Comh-dhearaimid múnlaí oibríochta, uathoibrímid agus cumasaímid do fhoirne.",
+      "expectationsTitle": "Cad atá le súil:",
+      "expectations": [
+        "Measúnuithe cumais múnlaithe ar chuar aibíochta",
+        "Uathoibriú fianaise le Supabase agus caighdeáin oscailte",
+        "Cumasaíocht comhtháite a fhágann do fhoirne neamhspleách"
+      ]
+    }
+  },
+  "trust": {
+    "metadata": {
+      "title": "Muinín",
+      "description": "Déan iniúchadh ar chur chuige Airnub maidir le slándáil, príobháideachas agus nochtadh freagrach."
+    },
+    "hero": {
+      "eyebrow": "Muinín",
+      "title": "Trédhearcacht agus dearbhú do gach scaoileadh",
+      "description": "Tá ár seasamh slándála, príobháideachais agus iontaofachta lonnaithe in aon áit amháin chun measúnú tapa a éascú."
+    },
+    "highlightCta": "Oscail an acmhainn",
+    "highlights": [
+      {
+        "id": "trustCenter",
+        "title": "Trust Center",
+        "description": "Féach ar dheimhnithe, polasaithe agus stádas beo seirbhísí Airnub agus Speckit.",
+        "href": "https://trust.airnub.io"
+      },
+      {
+        "id": "vdp",
+        "title": "Fógra leochaileachta",
+        "description": "Freagra slándála comhordaithe le gealltanas 24 uair agus sonraí PGP.",
+        "href": "https://trust.airnub.io/vdp"
+      },
+      {
+        "id": "securityTxt",
+        "title": "security.txt",
+        "description": "Glaoigh ar ár bpríomhtheagmháil slándála, ár n-eochracha criptithe agus na bealaí is fearr linn.",
+        "href": "https://trust.airnub.io/.well-known/security.txt"
+      }
+    ],
+    "request": {
+      "title": "An bhfuil rud sonrach uait?",
+      "description": "Is féidir linn ceistneoirí slándála, léaráidí ailtireachta agus achoimrí pentest faoi NDA a sholáthar.",
+      "ctaLabel": "Iarr cáipéisí",
+      "ctaHref": "/contact"
+    }
+  },
+  "resources": {
+    "metadata": {
+      "title": "Acmhainní",
+      "description": "Treoirlínte, changelog agus ábhair chumasaithe chun muinín a chur i bhfeidhm."
+    },
+    "hero": {
+      "eyebrow": "Acmhainní",
+      "title": "Cumasaíocht, nuashonruithe agus taighde do thimpeallachtaí ardáin agus slándála",
+      "description": "Fan ar an eolas faoi luasairí ardáin Airnub, scaoileadh Speckit agus treoir oibríochtúil do fhoirne ard-mhuiníne."
+    },
+    "guidesHeading": "Treoracha faoi thrácht",
+    "guideLabel": "Treoir",
+    "guides": [
+      {
+        "id": "governancePlaybook",
+        "title": "Playbook rialachais ardáin",
+        "description": "Treoir phraiticiúil chun cosaintí a dhearadh gan foirne táirge a mhoilliú.",
+        "href": "https://airnub.io/resources#governance-playbook"
+      },
+      {
+        "id": "slsaChecklist",
+        "title": "Seicliosta SLSA",
+        "description": "Céimeanna chun slándáil slabhra soláthair a chur i bhfeidhm ó fhoinse go reáchtáil.",
+        "href": "https://airnub.io/resources#slsa"
+      },
+      {
+        "id": "evidenceStarter",
+        "title": "Tosaithe fianaise-mar-chód",
+        "description": "Ionchódaigh arteafactaí iniúchta le Supabase, GitHub Actions agus Speckit.",
+        "href": "https://airnub.io/resources#evidence"
+      }
+    ],
+    "updatesHeading": "Nuashonruithe is déanaí",
+    "updateCta": "Léigh",
+    "updates": [
+      {
+        "id": "speckitChangelog",
+        "title": "Cuireann Speckit v0.8 attestations íogaire don drift leis",
+        "date": "Meitheamh 2024",
+        "href": "https://speckit.airnub.io/changelog"
+      },
+      {
+        "id": "fedramp",
+        "title": "Conas a luasghéadaíonn Airnub FedRAMP Moderate",
+        "date": "Bealtaine 2024",
+        "href": "https://airnub.io/blog/fedramp-moderate"
+      },
+      {
+        "id": "platformKpis",
+        "title": "KPÍonna ardáin a nascann muinín agus seachadadh",
+        "date": "Aibreán 2024",
+        "href": "https://airnub.io/blog/platform-kpis"
+      }
+    ],
+    "officeHours": {
+      "title": "An fearr leat seisiún beo?",
+      "description": "Glac páirt in oifig oscailte mhíosúil chun a fheiceáil conas a uathoibríonn foirne cosaintí, bailiú fianaise agus rialachas scaoilte le Speckit.",
+      "ctaLabel": "Coinnigh mo áit",
+      "ctaHref": "/contact"
     }
   }
 }

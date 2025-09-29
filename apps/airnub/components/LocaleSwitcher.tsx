@@ -6,6 +6,16 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { clsx } from "clsx";
 import { defaultLocale, locales, type Locale } from "../i18n/routing";
 
+const LANGUAGE_COOKIE_NAME = "NEXT_LOCALE";
+const COOKIE_MAX_AGE_SECONDS = 60 * 60 * 24 * 365;
+
+function persistLocale(value: Locale) {
+  if (typeof document !== "undefined") {
+    document.cookie = `${LANGUAGE_COOKIE_NAME}=${value}; path=/; max-age=${COOKIE_MAX_AGE_SECONDS}; SameSite=Lax`;
+    document.documentElement.lang = value;
+  }
+}
+
 function replaceLocale(pathname: string | null, nextLocale: Locale) {
   if (!pathname || pathname === "/") {
     return `/${nextLocale}`;
@@ -43,6 +53,7 @@ export function LocaleSwitcher({ className }: LocaleSwitcherProps) {
     startTransition(() => {
       const targetPath = replaceLocale(pathname, nextLocale);
       const query = searchParams?.toString();
+      persistLocale(nextLocale);
       router.replace(query ? `${targetPath}?${query}` : targetPath);
     });
   };

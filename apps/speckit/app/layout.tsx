@@ -8,51 +8,62 @@ import { SPECKIT_BASE_URL } from "../lib/routes";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
 import { getCurrentLanguage } from "../lib/language";
 import { getSpeckitMessages } from "../i18n/messages";
+import { supportedLanguages } from "../i18n/config";
 
 const jsonLd = buildSpeckitSoftwareJsonLd();
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SPECKIT_BASE_URL),
-  title: {
-    default: "Speckit — Governed release workflows",
-    template: "%s | Speckit",
-  },
-  description: "Speckit eliminates vibe-coding by turning compliance and platform controls into auditable, automated workflows.",
-  openGraph: {
-    title: "Speckit",
-    description: "Governed release workflows with evidence automation.",
-    url: SPECKIT_BASE_URL,
-    siteName: "Speckit",
-    locale: "en_US",
-    type: "website",
-    images: [
-      {
-        url: "/api/og",
-        width: 1200,
-        height: 630,
-        alt: "Speckit — Governed release workflows",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Speckit",
-    description: "Governed release workflows with evidence automation.",
-    images: [`${SPECKIT_BASE_URL}/api/og`],
-  },
-  icons: {
-    icon: "/favicon.ico",
-  },
-  alternates: {
-    canonical: "/",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const language = await getCurrentLanguage();
+  const layoutMessages = getSpeckitMessages(language).layout;
+  const metadataMessages = layoutMessages.metadata;
+
+  return {
+    metadataBase: new URL(SPECKIT_BASE_URL),
+    title: {
+      default: metadataMessages.titleDefault,
+      template: metadataMessages.titleTemplate,
+    },
+    description: metadataMessages.description,
+    openGraph: {
+      title: metadataMessages.siteName,
+      description: metadataMessages.ogDescription,
+      url: SPECKIT_BASE_URL,
+      siteName: metadataMessages.siteName,
+      locale: metadataMessages.openGraphLocale,
+      type: "website",
+      images: [
+        {
+          url: "/api/og",
+          width: 1200,
+          height: 630,
+          alt: metadataMessages.ogImageAlt,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: metadataMessages.siteName,
+      description: metadataMessages.twitterDescription,
+      images: [`${SPECKIT_BASE_URL}/api/og`],
+    },
+    icons: {
+      icon: "/favicon.ico",
+    },
+    alternates: {
+      canonical: "/",
+    },
+  };
+}
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const language = await getCurrentLanguage();
   const messages = getSpeckitMessages(language);
   const layoutMessages = messages.layout;
   const footerMessages = layoutMessages.footer;
+  const languageOptions = supportedLanguages.map((code) => ({
+    value: code,
+    label: layoutMessages.locale.options[code] ?? code,
+  }));
   const navItems: NavItem[] = [
     { label: layoutMessages.nav.product, href: "/product" },
     { label: layoutMessages.nav.howItWorks, href: "/how-it-works" },
@@ -122,6 +133,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
               <LanguageSwitcher
                 initialLanguage={language}
                 label={layoutMessages.languageLabel}
+                options={languageOptions}
               />
             }
           />
@@ -133,6 +145,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             contactLabel={footerMessages.contact.label}
             pricingLabel={footerMessages.contact.pricing}
             pricingHref="/pricing"
+            description={footerMessages.description}
           />
         </ThemeProvider>
       </body>

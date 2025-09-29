@@ -4,6 +4,28 @@
     "themeToggle": "Attiva tema",
     "languageLabel": "Lingua",
     "githubLabel": "Speckit su GitHub",
+    "locale": {
+      "options": {
+        "en-US": "Inglese (USA)",
+        "en-GB": "Inglese (Regno Unito)",
+        "fr": "Francese",
+        "es": "Spagnolo",
+        "de": "Tedesco",
+        "pt": "Portoghese",
+        "it": "Italiano",
+        "ga": "Irlandese"
+      }
+    },
+    "metadata": {
+      "titleDefault": "Speckit — Automazione governata delle specifiche",
+      "titleTemplate": "%s | Speckit",
+      "description": "Speckit codifica la governance della piattaforma con workflow nativi per gli sviluppatori, gate di policy e prove continue.",
+      "siteName": "Speckit",
+      "ogDescription": "Speckit codifica la governance della piattaforma con workflow nativi per gli sviluppatori, gate di policy e prove continue.",
+      "ogImageAlt": "Dashboard con i workflow di governance di Speckit",
+      "openGraphLocale": "it_IT",
+      "twitterDescription": "Speckit codifica la governance della piattaforma con workflow nativi per gli sviluppatori, gate di policy e prove continue."
+    },
     "nav": {
       "product": "Prodotto",
       "howItWorks": "Come funziona",
@@ -14,6 +36,7 @@
       "contact": "Contatto"
     },
     "footer": {
+      "description": "Speckit orchestra il ciclo dalla specifica al rilascio con gate programmabili e prove continue.",
       "columns": {
         "product": {
           "heading": "Prodotto",

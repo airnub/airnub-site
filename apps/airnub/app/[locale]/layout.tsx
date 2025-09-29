@@ -196,7 +196,12 @@ export default async function LocaleLayout({
                   {children}
                 </MaintenanceGate>
               </main>
-              <FooterAirnub pathPrefix={`/${locale}`} columns={footerColumns} bottomLinks={footerBottomLinks} />
+              <FooterAirnub
+                pathPrefix={`/${locale}`}
+                columns={footerColumns}
+                bottomLinks={footerBottomLinks}
+                description={footer("description")}
+              />
             </ToastProvider>
           </ThemeProvider>
         </NextIntlClientProvider>
