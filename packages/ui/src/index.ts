@@ -13,3 +13,4 @@ export * from "./icons/GithubIcon";
 export * from "./logos";
 export * from "./fonts";
 export * from "./brand";
+export * from "./layouts/SiteShell";

@@ -21,7 +21,7 @@
     "maintenance": {
       "title": "Estamos a preparar tudo",
       "description": "A Airnub está a preparar algo novo. Volte em breve ou subscreva as atualizações de lançamento.",
-      "cta": "Envie-nos um email para hello@airnub.io"
+      "cta": "Envie-nos um email para {email}"
     }
   },
   "layout": {
@@ -91,7 +91,7 @@
     "bottom": {
       "privacy": "Privacidade",
       "terms": "Termos",
-      "email": "hello@airnub.io"
+      "email": "{email}"
     }
   },
   "home": {
@@ -206,7 +206,7 @@
       },
       "error": {
         "title": "Ocorreu um erro",
-        "description": "Não foi possível enviar o seu pedido. Tente novamente ou escreva para hello@airnub.io."
+        "description": "Não foi possível enviar o seu pedido. Tente novamente ou escreva para {email}."
       },
       "validation": {
         "email": "Introduza um email profissional válido."
@@ -255,8 +255,8 @@
     "careers": {
       "title": "Carreiras",
       "description": "Somos uma equipe remota distribuída entre América do Norte e Europa. Se você se anima com plataformas de desenvolvedores e automação de conformidade, vamos conversar.",
-      "ctaLabel": "careers@airnub.io",
-      "ctaHref": "mailto:careers@airnub.io"
+      "ctaLabel": "{careersEmail}",
+      "ctaHref": "mailto:{careersEmail}"
     },
     "press": {
       "cards": [
@@ -264,8 +264,8 @@
           "id": "pressKit",
           "title": "Kit de imprensa",
           "description": "Logotipos, capturas de produto e bios de liderança prontos para publicação.",
-          "ctaLabel": "press@airnub.io",
-          "ctaHref": "mailto:press@airnub.io"
+          "ctaLabel": "{pressEmail}",
+          "ctaHref": "mailto:{pressEmail}"
         },
         {
           "id": "mediaBriefing",

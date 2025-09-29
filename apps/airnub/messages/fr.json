@@ -21,7 +21,7 @@
     "maintenance": {
       "title": "Nous nous préparons",
       "description": "Airnub prépare quelque chose de nouveau. Revenez bientôt ou inscrivez-vous pour recevoir les actualités de lancement.",
-      "cta": "Écrivez-nous à hello@airnub.io"
+      "cta": "Écrivez-nous à {email}"
     }
   },
   "layout": {
@@ -91,7 +91,7 @@
     "bottom": {
       "privacy": "Confidentialité",
       "terms": "Conditions",
-      "email": "hello@airnub.io"
+      "email": "{email}"
     }
   },
   "home": {
@@ -206,7 +206,7 @@
       },
       "error": {
         "title": "Une erreur est survenue",
-        "description": "Nous n'avons pas pu soumettre votre demande. Réessayez ou écrivez à hello@airnub.io."
+        "description": "Nous n'avons pas pu soumettre votre demande. Réessayez ou écrivez à {email}."
       },
       "validation": {
         "email": "Veuillez saisir un email professionnel valide."
@@ -255,8 +255,8 @@
     "careers": {
       "title": "Carrières",
       "description": "Nous sommes une équipe distribuée entre Royaume-Uni, Irlande, Amérique du Nord et Europe. Passionné par les plateformes développeurs, l'automatisation de la conformité et les expériences soignées ? Discutons-en.",
-      "ctaLabel": "careers@airnub.io",
-      "ctaHref": "mailto:careers@airnub.io"
+      "ctaLabel": "{careersEmail}",
+      "ctaHref": "mailto:{careersEmail}"
     },
     "press": {
       "cards": [
@@ -264,8 +264,8 @@
           "id": "pressKit",
           "title": "Dossier de presse",
           "description": "Logos, captures produit et bios de direction prêts à être publiés.",
-          "ctaLabel": "press@airnub.io",
-          "ctaHref": "mailto:press@airnub.io"
+          "ctaLabel": "{pressEmail}",
+          "ctaHref": "mailto:{pressEmail}"
         },
         {
           "id": "mediaBriefing",

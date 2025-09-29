@@ -21,12 +21,12 @@
     "maintenance": {
       "title": "Táimid ag ullmhú",
       "description": "Tá Airnub ag ullmhú rud éigin nua. Fill ar ais go luath nó cláraigh le haghaidh nuashonruithe seolta.",
-      "cta": "Seol ríomhphost chugainn ag hello@airnub.io"
+      "cta": "Seol ríomhphost chugainn ag {email}"
     }
   },
   "layout": {
     "metadata": {
-      "titleDefault": "Airnub \u2014 Ardáin forbróirí rialaithe",
+      "titleDefault": "Airnub — Ardáin forbróirí rialaithe",
       "titleTemplate": "%s | Airnub",
       "description": "Tógann Airnub ardáin forbróirí rialaithe atá réidh don fhiontar agus a nascann comhlíonadh, seachadadh agus muinín.",
       "ogDescription": "Tógann Airnub ardáin forbróirí rialaithe atá réidh don fhiontar.",
@@ -91,7 +91,7 @@
     "bottom": {
       "privacy": "Príobháideachas",
       "terms": "Téarmaí",
-      "email": "hello@airnub.io"
+      "email": "{email}"
     }
   },
   "home": {
@@ -206,7 +206,7 @@
       },
       "error": {
         "title": "Tharla earráid",
-        "description": "Níor éirigh linn d’iarratas a sheoladh. Bain triail eile as nó seol ríomhphost chuig hello@airnub.io."
+        "description": "Níor éirigh linn d’iarratas a sheoladh. Bain triail eile as nó seol ríomhphost chuig {email}."
       },
       "validation": {
         "email": "Iontráil ríomhphost oibre bailí le do thoil."
@@ -255,8 +255,8 @@
     "careers": {
       "title": "Gairmeacha",
       "description": "Táimid i bhfad óna chéile ar fud Mheiriceá Thuaidh agus na hEorpa. Má tá paisean agat do shreafaí ardáin agus uathoibriú comhlíonta, ba mhaith linn caint leat.",
-      "ctaLabel": "careers@airnub.io",
-      "ctaHref": "mailto:careers@airnub.io"
+      "ctaLabel": "{careersEmail}",
+      "ctaHref": "mailto:{careersEmail}"
     },
     "press": {
       "cards": [
@@ -264,8 +264,8 @@
           "id": "pressKit",
           "title": "Kit preasa",
           "description": "Lógónna, seatanna táirge agus bioanna ceannaireachta réidh le foilsiú.",
-          "ctaLabel": "press@airnub.io",
-          "ctaHref": "mailto:press@airnub.io"
+          "ctaLabel": "{pressEmail}",
+          "ctaHref": "mailto:{pressEmail}"
         },
         {
           "id": "mediaBriefing",

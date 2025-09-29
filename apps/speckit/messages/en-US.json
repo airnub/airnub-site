@@ -65,7 +65,7 @@
         }
       },
       "contact": {
-        "label": "speckit@airnub.io",
+        "label": "{contactEmail}",
         "pricing": "Pricing"
       }
     }
@@ -168,7 +168,15 @@
     },
     "integrations": {
       "eyebrow": "Works with your stack",
-      "items": ["GitHub", "GitLab", "Jira", "ServiceNow", "Supabase", "AWS", "Azure"]
+      "items": [
+        "GitHub",
+        "GitLab",
+        "Jira",
+        "ServiceNow",
+        "Supabase",
+        "AWS",
+        "Azure"
+      ]
     }
   },
   "pricing": {
@@ -186,21 +194,33 @@
         "name": "Launch",
         "price": "$1,250/mo",
         "description": "For teams piloting governance across 3 services.",
-        "highlights": ["Up to 20 engineers", "Spec + policy orchestration", "Evidence dashboard"],
+        "highlights": [
+          "Up to 20 engineers",
+          "Spec + policy orchestration",
+          "Evidence dashboard"
+        ],
         "ctaLabel": "Request quote"
       },
       {
         "name": "Scale",
         "price": "$3,400/mo",
         "description": "For organizations rolling Speckit out across multiple product lines.",
-        "highlights": ["Up to 75 engineers", "Multi-project Supabase tenancy", "Customer trust portal integration"],
+        "highlights": [
+          "Up to 75 engineers",
+          "Multi-project Supabase tenancy",
+          "Customer trust portal integration"
+        ],
         "ctaLabel": "Request quote"
       },
       {
         "name": "Enterprise",
         "price": "Custom",
         "description": "Dedicated pods for regulated workloads and complex environments.",
-        "highlights": ["Unlimited engineers", "Private cloud deployment options", "Compliance automation services"],
+        "highlights": [
+          "Unlimited engineers",
+          "Private cloud deployment options",
+          "Compliance automation services"
+        ],
         "ctaLabel": "Request quote"
       }
     ]
@@ -249,7 +269,17 @@
     "integrationsCard": {
       "title": "Integrations that meet you where you work",
       "description": "Use Speckit UI, CLI, or APIs. Bring your own secrets manager, ticketing, and observability stack.",
-      "items": ["GitHub", "GitLab", "Bitbucket", "Jira", "ServiceNow", "PagerDuty", "AWS", "Azure", "GCP"]
+      "items": [
+        "GitHub",
+        "GitLab",
+        "Bitbucket",
+        "Jira",
+        "ServiceNow",
+        "PagerDuty",
+        "AWS",
+        "Azure",
+        "GCP"
+      ]
     },
     "supabaseCard": {
       "title": "Shared Supabase data core",
@@ -354,8 +384,8 @@
     },
     "shortcuts": {
       "emailHeading": "Email",
-      "productQuestions": "Product questions: speckit@airnub.io",
-      "security": "Security: security@airnub.io",
+      "productQuestions": "Product questions: {productEmail}",
+      "security": "Security: {securityEmail}",
       "docsHeading": "Docs",
       "docsDescription": "Explore API references and implementation guides.",
       "docsCtaLabel": "docs.speckit.dev →"

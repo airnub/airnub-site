@@ -65,7 +65,7 @@
         }
       },
       "contact": {
-        "label": "speckit@airnub.io",
+        "label": "{contactEmail}",
         "pricing": "Praghsáil"
       }
     }
@@ -384,8 +384,8 @@
     },
     "shortcuts": {
       "emailHeading": "Ríomhphost a chur chuig",
-      "productQuestions": "Ceisteanna Táirgí: specit@airnub.io",
-      "security": "Slándáil: Slándáil@airnub.io",
+      "productQuestions": "Ceisteanna Táirgí: {productEmail}",
+      "security": "Slándáil: {securityEmail}",
       "docsHeading": "Docs",
       "docsDescription": "Déan iniúchadh ar thagairtí API agus ar threoracha forfheidhmithe.",
       "docsCtaLabel": "docs.speckit.dev →"

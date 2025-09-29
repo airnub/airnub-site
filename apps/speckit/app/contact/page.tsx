@@ -4,6 +4,7 @@ import { PageHero } from "../../components/PageHero";
 import { getCurrentLanguage } from "../../lib/language";
 import { getSpeckitMessages, type SpeckitMessages } from "../../i18n/messages";
 import { submitLead } from "./actions";
+import speckitBrand from "../../brand.config";
 
 export const dynamic = "force-dynamic";
 
@@ -18,9 +19,31 @@ export async function generateMetadata(): Promise<Metadata> {
 
 type ContactShortcutsProps = {
   shortcuts: SpeckitMessages["contact"]["shortcuts"];
+  productEmail?: string;
+  securityEmail?: string;
 };
 
-function ContactShortcuts({ shortcuts }: ContactShortcutsProps) {
+function formatTemplate(template: string, values: Record<string, string | undefined>): string {
+  return template.replace(/\{(\w+)\}/g, (match, key) => {
+    const value = values[key];
+    return value ?? match;
+  });
+}
+
+function ContactShortcuts({ shortcuts, productEmail, securityEmail }: ContactShortcutsProps) {
+  const productQuestions = productEmail
+    ? formatTemplate(shortcuts.productQuestions, {
+        productEmail,
+        email: productEmail,
+      })
+    : shortcuts.productQuestions;
+  const securityLine = securityEmail
+    ? formatTemplate(shortcuts.security, {
+        securityEmail,
+        email: securityEmail,
+      })
+    : shortcuts.security;
+
   return (
     <div className="space-y-6">
       <Card>
@@ -30,8 +53,8 @@ function ContactShortcuts({ shortcuts }: ContactShortcutsProps) {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-2 text-sm text-muted-foreground">
-          <p>{shortcuts.productQuestions}</p>
-          <p>{shortcuts.security}</p>
+          <p>{productQuestions}</p>
+          <p>{securityLine}</p>
         </CardContent>
       </Card>
       <Card>
@@ -60,6 +83,11 @@ function ContactShortcuts({ shortcuts }: ContactShortcutsProps) {
 export default async function ContactPage() {
   const language = await getCurrentLanguage();
   const contact = getSpeckitMessages(language).contact;
+  const productEmail =
+    speckitBrand.contact.product ??
+    speckitBrand.contact.general ??
+    speckitBrand.contact.support;
+  const securityEmail = speckitBrand.contact.security ?? speckitBrand.contact.general;
 
   return (
     <div className="space-y-16 pb-20">
@@ -135,7 +163,11 @@ export default async function ContactPage() {
               </form>
             </CardContent>
           </Card>
-          <ContactShortcuts shortcuts={contact.shortcuts} />
+          <ContactShortcuts
+            shortcuts={contact.shortcuts}
+            productEmail={productEmail}
+            securityEmail={securityEmail}
+          />
         </Container>
       </section>
     </div>

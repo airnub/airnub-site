@@ -31,6 +31,22 @@ export type SocialHandles =
   > &
   Record<string, string | undefined>;
 
+export interface BrandContacts extends Record<string, string | undefined> {
+  general?: string;
+  support?: string;
+  sales?: string;
+  partnerships?: string;
+  product?: string;
+  marketing?: string;
+  security?: string;
+  compliance?: string;
+  legal?: string;
+  careers?: string;
+  recruiting?: string;
+  press?: string;
+  billing?: string;
+}
+
 export interface BrandConfig {
   name: string;
   domain: string;
@@ -50,6 +66,7 @@ export interface BrandConfig {
   favicon?: string;
   og?: string;
   social: SocialHandles;
+  contact: BrandContacts;
 }
 
 export const brand: BrandConfig = {
@@ -74,6 +91,15 @@ export const brand: BrandConfig = {
     github: "https://github.com/airnub",
     x: "https://x.com/airnub",
     linkedin: "https://www.linkedin.com/company/airnub",
+  },
+  contact: {
+    general: "hello@airnub.io",
+    sales: "hello@airnub.io",
+    support: "support@airnub.io",
+    security: "security@airnub.io",
+    careers: "careers@airnub.io",
+    press: "press@airnub.io",
+    partnerships: "partnerships@airnub.io",
   },
 };
 
@@ -123,6 +149,10 @@ export function resolveBrandConfig(options: ResolveBrandConfigOptions = {}): Bra
       ...brand.social,
       ...(options.overrides?.social ?? {}),
     },
+    contact: {
+      ...brand.contact,
+      ...(options.overrides?.contact ?? {}),
+    },
   };
 
   const resolved: BrandConfig = {
@@ -149,6 +179,9 @@ export function resolveBrandConfig(options: ResolveBrandConfigOptions = {}): Bra
     social: {
       ...base.social,
     },
+    contact: {
+      ...base.contact,
+    },
   };
 
   for (const [envKey, value] of Object.entries(env)) {
@@ -162,6 +195,19 @@ export function resolveBrandConfig(options: ResolveBrandConfigOptions = {}): Bra
 
     const socialKey = toCamelCase(envKey.replace("BRAND_SOCIAL_", ""));
     resolved.social[socialKey] = value;
+  }
+
+  for (const [envKey, value] of Object.entries(env)) {
+    if (!envKey.startsWith("BRAND_CONTACT_")) {
+      continue;
+    }
+
+    if (value === undefined) {
+      continue;
+    }
+
+    const contactKey = toCamelCase(envKey.replace("BRAND_CONTACT_", ""));
+    resolved.contact[contactKey] = value;
   }
 
   return resolved;

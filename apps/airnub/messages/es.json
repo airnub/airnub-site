@@ -20,13 +20,13 @@
     },
     "maintenance": {
       "title": "Estamos preparando algo",
-      "description": "Airnub est\u00e1 preparando algo nuevo. Vuelve pronto o escr\u00edbenos para recibir novedades.",
-      "cta": "Escr\u00edbenos a hello@airnub.io"
+      "description": "Airnub está preparando algo nuevo. Vuelve pronto o escríbenos para recibir novedades.",
+      "cta": "Escríbenos a {email}"
     }
   },
   "layout": {
     "metadata": {
-      "titleDefault": "Airnub \u2014 Plataformas de desarrolladores gobernadas",
+      "titleDefault": "Airnub — Plataformas de desarrolladores gobernadas",
       "titleTemplate": "%s | Airnub",
       "description": "Airnub crea plataformas empresariales gobernadas que conectan cumplimiento, entrega y confianza.",
       "ogDescription": "Airnub crea plataformas de desarrolladores listas para la empresa.",
@@ -34,7 +34,7 @@
     }
   },
   "toast": {
-    "dismiss": "Cerrar notificaci\u00f3n"
+    "dismiss": "Cerrar notificación"
   },
   "nav": {
     "products": "Productos",
@@ -91,7 +91,7 @@
     "bottom": {
       "privacy": "Privacidad",
       "terms": "Términos",
-      "email": "hello@airnub.io"
+      "email": "{email}"
     }
   },
   "home": {
@@ -187,29 +187,29 @@
     "hero": {
       "eyebrow": "Contacto",
       "title": "Construyamos tu plataforma centrada en la confianza",
-      "description": "Cu\u00e9ntanos tus objetivos y te conectaremos con el equipo adecuado de Airnub."
+      "description": "Cuéntanos tus objetivos y te conectaremos con el equipo adecuado de Airnub."
     },
     "form": {
-      "title": "Env\u00edan\u00f3s un mensaje",
-      "description": "Respondemos en un d\u00eda h\u00e1bil.",
+      "title": "Envíanós un mensaje",
+      "description": "Respondemos en un día hábil.",
       "fields": {
         "name": "Nombre completo",
         "email": "Correo de trabajo",
         "company": "Empresa",
-        "message": "\u00bfC\u00f3mo podemos ayudarte?"
+        "message": "¿Cómo podemos ayudarte?"
       },
       "required": "Obligatorio",
       "submit": "Enviar mensaje",
       "success": {
         "title": "Mensaje enviado",
-        "description": "Gracias por escribirnos. Nuestro equipo se pondr\u00e1 en contacto contigo pronto."
+        "description": "Gracias por escribirnos. Nuestro equipo se pondrá en contacto contigo pronto."
       },
       "error": {
-        "title": "Ocurri\u00f3 un error",
-        "description": "No pudimos enviar tu solicitud. Intenta nuevamente o escribe a hello@airnub.io."
+        "title": "Ocurrió un error",
+        "description": "No pudimos enviar tu solicitud. Intenta nuevamente o escribe a {email}."
       },
       "validation": {
-        "email": "Ingresa un correo electr\u00f3nico v\u00e1lido."
+        "email": "Ingresa un correo electrónico válido."
       }
     },
     "shortcuts": {
@@ -220,7 +220,7 @@
       },
       "officeHours": {
         "title": "Oficinas virtuales",
-        "description": "Participa en una sesi\u00f3n semanal para conocer c\u00f3mo Airnub y Speckit aceleran tu hoja de ruta.",
+        "description": "Participa en una sesión semanal para conocer cómo Airnub y Speckit aceleran tu hoja de ruta.",
         "cta": "Reserva oficina virtual"
       }
     }
@@ -255,8 +255,8 @@
     "careers": {
       "title": "Carreras",
       "description": "Somos un equipo remoto distribuido entre Norteamérica y Europa. Si le entusiasma la automatización del cumplimiento y las plataformas de desarrolladores, hablemos.",
-      "ctaLabel": "careers@airnub.io",
-      "ctaHref": "mailto:careers@airnub.io"
+      "ctaLabel": "{careersEmail}",
+      "ctaHref": "mailto:{careersEmail}"
     },
     "press": {
       "cards": [
@@ -264,8 +264,8 @@
           "id": "pressKit",
           "title": "Kit de prensa",
           "description": "Logotipos, capturas de producto y biografías ejecutivas listas para publicar.",
-          "ctaLabel": "press@airnub.io",
-          "ctaHref": "mailto:press@airnub.io"
+          "ctaLabel": "{pressEmail}",
+          "ctaHref": "mailto:{pressEmail}"
         },
         {
           "id": "mediaBriefing",

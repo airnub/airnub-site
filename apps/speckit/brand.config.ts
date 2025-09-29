@@ -23,6 +23,12 @@ export const speckitBrand: BrandConfig = {
     x: "https://x.com/airnub",
     linkedin: "https://www.linkedin.com/company/airnub",
   },
+  contact: {
+    general: "speckit@airnub.io",
+    product: "speckit@airnub.io",
+    support: "support@airnub.io",
+    security: "security@airnub.io",
+  },
 };
 
 export default speckitBrand;

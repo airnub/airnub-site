@@ -1,8 +1,17 @@
 import "../globals.css";
-import { BrandProvider, FooterAirnub, HeaderAirnub, ThemeProvider, ToastProvider, type FooterColumn } from "@airnub/ui";
+import {
+  BrandProvider,
+  ThemeProvider,
+  ThemeToggle,
+  ToastProvider,
+  GithubIcon,
+  SiteShell,
+  type FooterColumn,
+} from "@airnub/ui";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import Link from "next/link";
 import { Suspense, type ReactNode } from "react";
 import { buildAirnubOrganizationJsonLd } from "../../lib/jsonld";
 import { AIRNUB_BASE_URL } from "../../lib/routes";
@@ -11,7 +20,7 @@ import { assertLocale, locales, type Locale } from "../../i18n/routing";
 import { MaintenanceGate } from "./maintenance/MaintenanceGate";
 import { isMaintenanceModeEnabled } from "../../lib/runtime-flags";
 import { LocaleSwitcher } from "../../components/LocaleSwitcher";
-import { brand as airnubBrand, buildBrandMetadata } from "@airnub/brand";
+import { buildBrandMetadata, resolvedBrandConfig as airnubBrand } from "@airnub/brand";
 
 const jsonLd = buildAirnubOrganizationJsonLd();
 
@@ -100,6 +109,9 @@ export default async function LocaleLayout({
     { label: nav("contact"), href: withLocale("/contact") },
   ];
 
+  const localizeHref = (href: string, external?: boolean) =>
+    external || !href.startsWith("/") ? href : withLocale(href);
+
   const footerColumns: FooterColumn[] = [
     {
       heading: footer("columns.products.heading"),
@@ -111,8 +123,8 @@ export default async function LocaleLayout({
       heading: footer("columns.resources.heading"),
       links: [
         { label: footer("columns.resources.links.docs"), href: "https://docs.speckit.dev", external: true },
-        { label: footer("columns.resources.links.blog"), href: "/resources#blog" },
-        { label: footer("columns.resources.links.changelog"), href: "/resources#changelog" },
+        { label: footer("columns.resources.links.blog"), href: localizeHref("/resources#blog") },
+        { label: footer("columns.resources.links.changelog"), href: localizeHref("/resources#changelog") },
       ],
     },
     {
@@ -128,32 +140,44 @@ export default async function LocaleLayout({
       links: [
         { label: footer("columns.trust.links.trustCenter"), href: "https://trust.airnub.io", external: true },
         { label: footer("columns.trust.links.vdp"), href: "https://trust.airnub.io/vdp", external: true },
-        { label: footer("columns.trust.links.securityTxt"), href: "https://trust.airnub.io/.well-known/security.txt", external: true },
+        {
+          label: footer("columns.trust.links.securityTxt"),
+          href: "https://trust.airnub.io/.well-known/security.txt",
+          external: true,
+        },
       ],
     },
     {
       heading: footer("columns.company.heading"),
       links: [
-        { label: footer("columns.company.links.about"), href: "/company" },
-        { label: footer("columns.company.links.careers"), href: "/company#careers" },
-        { label: footer("columns.company.links.press"), href: "/company#press" },
-        { label: footer("columns.company.links.legal"), href: "/company#legal" },
+        { label: footer("columns.company.links.about"), href: localizeHref("/company") },
+        { label: footer("columns.company.links.careers"), href: localizeHref("/company#careers") },
+        { label: footer("columns.company.links.press"), href: localizeHref("/company#press") },
+        { label: footer("columns.company.links.legal"), href: localizeHref("/company#legal") },
       ],
     },
   ];
 
+  const salesEmail =
+    airnubBrand.contact.sales ?? airnubBrand.contact.support ?? airnubBrand.contact.general;
+
   const footerBottomLinks = [
-    { label: footer("bottom.privacy"), href: "/company#privacy" },
-    { label: footer("bottom.terms"), href: "/company#terms" },
-    { label: footer("bottom.email"), href: "mailto:hello@airnub.io" },
+    { label: footer("bottom.privacy"), href: localizeHref("/company#privacy") },
+    { label: footer("bottom.terms"), href: localizeHref("/company#terms") },
+    ...(salesEmail
+      ? [{ label: footer("bottom.email", { email: salesEmail }), href: `mailto:${salesEmail}` }]
+      : []),
   ];
 
   const maintenanceEnabled = await isMaintenanceModeEnabled();
   const maintenanceCopy = {
     title: common("maintenance.title"),
     description: common("maintenance.description"),
-    cta: common("maintenance.cta"),
+    cta: salesEmail ? common("maintenance.cta", { email: salesEmail }) : common("maintenance.cta"),
+    ctaHref: salesEmail ? `mailto:${salesEmail}` : undefined,
   };
+
+  const year = new Date().getFullYear();
 
   return (
     <html
@@ -173,37 +197,45 @@ export default async function LocaleLayout({
           <BrandProvider value={airnubBrand}>
             <ThemeProvider>
               <ToastProvider>
-                <a href="#content" className="skip-link">
-                  {common("skipToContent")}
-                </a>
-                <HeaderAirnub
+                <SiteShell
+                  skipToContentLabel={common("skipToContent")}
                   navItems={navItems}
                   homeHref={`/${locale}`}
                   homeAriaLabel={`${airnubBrand.name} home`}
-                  githubLabel={common("githubLabel")}
-                  themeToggleLabel={common("theme.toggle")}
-                  additionalRightSlot={
-                    <Suspense fallback={null}>
-                      <LocaleSwitcher />
-                    </Suspense>
+                  headerRightSlot={
+                    <div className="flex items-center gap-3">
+                      {airnubBrand.social.github ? (
+                        <Link
+                          href={airnubBrand.social.github}
+                          className="hidden rounded-full border border-border p-2 text-muted-foreground transition hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring lg:inline-flex"
+                          aria-label={common("githubLabel")}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <GithubIcon className="h-4 w-4" />
+                        </Link>
+                      ) : null}
+                      <ThemeToggle className="inline-flex" label={common("theme.toggle")} />
+                      <Suspense fallback={null}>
+                        <LocaleSwitcher />
+                      </Suspense>
+                    </div>
                   }
-                />
-                <main id="content" className="flex-1">
+                  footerColumns={footerColumns}
+                  footerDescription={footer("description")}
+                  footerBottomLinks={footerBottomLinks}
+                  footerCopyright={`© ${year} ${airnubBrand.name}. All rights reserved.`}
+                >
                   <MaintenanceGate
                     enabled={maintenanceEnabled}
                     title={maintenanceCopy.title}
                     description={maintenanceCopy.description}
                     cta={maintenanceCopy.cta}
+                    ctaHref={maintenanceCopy.ctaHref}
                   >
                     {children}
                   </MaintenanceGate>
-                </main>
-                <FooterAirnub
-                  pathPrefix={`/${locale}`}
-                  columns={footerColumns}
-                  bottomLinks={footerBottomLinks}
-                  description={footer("description")}
-                />
+                </SiteShell>
               </ToastProvider>
             </ThemeProvider>
           </BrandProvider>
