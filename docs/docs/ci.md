@@ -1,5 +1,8 @@
-# CI & Contribution Workflow
-
+---
+id: ci
+title: CI & Contribution Workflow
+sidebar_position: 4
+---
 ## Conventional commits
 
 Husky installs a `commit-msg` hook (`pnpm prepare`) that runs `pnpm commitlint --edit $1` to enforce Conventional Commit messages.

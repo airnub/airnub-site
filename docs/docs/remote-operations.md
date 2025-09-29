@@ -1,5 +1,8 @@
-# Remote operations guide
-
+---
+id: remote-operations
+title: Remote operations guide
+sidebar_position: 5
+---
 This note captures which parts of the Airnub marketing stack can already be operated without
 opening the cloud console and highlights a few high-value additions to prioritize.
 

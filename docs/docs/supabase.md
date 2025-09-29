@@ -1,5 +1,8 @@
-# Supabase Guide
-
+---
+id: supabase
+title: Supabase Guide
+sidebar_position: 3
+---
 The monorepo uses a single Supabase project for both sites. Migrations, types, and helpers are shared through `@airnub/db`.
 
 ## Migrations & schema

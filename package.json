@@ -20,7 +20,10 @@
     "db:diff": "supabase db diff --use-mig-dir supabase/migrations",
     "db:env:local": "node scripts/sync-supabase-env.mjs",
     "db:reset:local": "supabase stop || true && supabase start && supabase db reset",
-    "prepare": "husky"
+    "prepare": "husky",
+    "docs:dev": "pnpm --filter docs start",
+    "docs:build": "pnpm --filter docs build",
+    "docs:deploy": "pnpm --filter docs deploy"
   },
   "devDependencies": {
     "@types/react": "^19.1.15",

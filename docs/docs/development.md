@@ -1,5 +1,8 @@
-# Local Development
-
+---
+id: development
+title: Local Development
+sidebar_position: 2
+---
 ## Prerequisites
 
 - Node.js 24.x (see the `package.json` engines field)
