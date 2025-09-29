@@ -224,8 +224,6 @@ importers:
 
   packages/seo: {}
 
-  packages/tailwind-config: {}
-
   packages/ui:
     dependencies:
       '@airnub/brand':
