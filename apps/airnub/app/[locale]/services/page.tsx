@@ -1,57 +1,66 @@
 import type { Metadata } from "next";
 import { Button, Container } from "@airnub/ui";
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { LocaleLink } from "../../../components/LocaleLink";
 import { PageHero } from "../../../components/PageHero";
+import { assertLocale } from "../../../i18n/routing";
 
 export const revalidate = 86_400;
 
-export const metadata: Metadata = {
-  title: "Services",
-  description: "Advisory and enablement services that align platform strategy, delivery, and compliance outcomes.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+  const locale = assertLocale(localeParam);
+  const t = await getTranslations({ locale, namespace: "services.metadata" });
 
-const engagements = [
-  {
-    id: "platform",
-    title: "Platform operating model",
-    description: "Align platform, security, and compliance teams with clear swimlanes, OKRs, and governance rituals.",
-    deliverables: [
-      "Capability maturity assessment",
-      "Org design and accountability map",
-      "Roadmap with quarterly OKRs",
-    ],
-  },
-  {
-    id: "blueprint",
-    title: "Landing zone & golden path design",
-    description: "Reference architectures, IaC, and policies that bootstrap developer experience with guardrails.",
-    deliverables: [
-      "Regulated-ready cloud baseline",
-      "Service catalog and starter kits",
-      "Policy-as-code controls mapped to frameworks",
-    ],
-  },
-  {
-    id: "trust",
-    title: "Trust & assurance readiness",
-    description: "Automate evidence capture and streamline audits with Speckit-powered workflows.",
-    deliverables: [
-      "Evidence catalog and control narratives",
-      "SBOM, attestation, and RTM automation",
-      "Audit rehearsal and stakeholder enablement",
-    ],
-  },
-];
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
-export default function ServicesPage() {
+export default async function ServicesPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale: localeParam } = await params;
+  const locale = assertLocale(localeParam);
+  const services = await getTranslations({ locale, namespace: "services" });
+
+  const hero = services.raw("hero") as {
+    eyebrow: string;
+    title: string;
+    description: string;
+    primaryCta: { label: string; href: string };
+  };
+  const engagements = services.raw("engagements") as {
+    id: string;
+    title: string;
+    description: string;
+    deliverables: string[];
+  }[];
+  const deliverablesLabel = services("deliverablesLabel");
+  const outcomes = services.raw("outcomes") as {
+    title: string;
+    description: string;
+    note: string;
+  };
+
   return (
     <div className="space-y-16 pb-24 text-slate-300">
       <PageHero
-        eyebrow="Services"
-        title="Embedded experts for every stage of your platform journey"
-        description="We combine product thinking with compliance and platform engineering so you can unlock reliable, trusted delivery."
-        actions={<Button asChild><LocaleLink href="/contact">Book an intro call</LocaleLink></Button>}
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        description={hero.description}
+        actions={
+          <Button asChild>
+            <LocaleLink href={hero.primaryCta.href}>{hero.primaryCta.label}</LocaleLink>
+          </Button>
+        }
       />
 
       <section>
@@ -68,7 +77,7 @@ export default function ServicesPage() {
                   <p className="mt-3 text-sm text-slate-300">{engagement.description}</p>
                 </div>
                 <div className="lg:min-w-[16rem]">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">Key deliverables</p>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">{deliverablesLabel}</p>
                   <ul className="mt-3 space-y-2 text-sm text-slate-300">
                     {engagement.deliverables.map((item) => (
                       <li key={item}>→ {item}</li>
@@ -85,13 +94,11 @@ export default function ServicesPage() {
         <Container className="rounded-3xl border border-slate-800 bg-slate-900/80 p-10 text-slate-200 shadow-xl shadow-slate-950/40">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div>
-              <h2 className="text-3xl font-semibold tracking-tight text-white">Outcomes-first engagements</h2>
-              <p className="mt-4 text-sm text-slate-300">
-                We align each engagement to measurable KPIs: deployment frequency, change failure rate, audit readiness time, and customer trust metrics.
-              </p>
+              <h2 className="text-3xl font-semibold tracking-tight text-white">{outcomes.title}</h2>
+              <p className="mt-4 text-sm text-slate-300">{outcomes.description}</p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-slate-200">
-              <p>We embed alongside your teams for 6–12 weeks, transfer knowledge continuously, and operationalize Speckit for long-term success.</p>
+              <p>{outcomes.note}</p>
             </div>
           </div>
         </Container>

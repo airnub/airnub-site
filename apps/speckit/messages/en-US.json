@@ -4,6 +4,28 @@
     "themeToggle": "Toggle theme",
     "languageLabel": "Language",
     "githubLabel": "Speckit on GitHub",
+    "locale": {
+      "options": {
+        "en-US": "English (US)",
+        "en-GB": "English (UK)",
+        "fr": "French",
+        "es": "Spanish",
+        "de": "German",
+        "pt": "Portuguese",
+        "it": "Italian",
+        "ga": "Irish"
+      }
+    },
+    "metadata": {
+      "titleDefault": "Speckit — Governed spec automation",
+      "titleTemplate": "%s | Speckit",
+      "description": "Speckit codifies platform governance with developer-native workflows, policy gates, and continuous evidence.",
+      "siteName": "Speckit",
+      "ogDescription": "Speckit codifies platform governance with developer-native workflows, policy gates, and continuous evidence.",
+      "ogImageAlt": "Dashboard showing Speckit governance workflows",
+      "openGraphLocale": "en_US",
+      "twitterDescription": "Speckit codifies platform governance with developer-native workflows, policy gates, and continuous evidence."
+    },
     "nav": {
       "product": "Product",
       "howItWorks": "How it works",
@@ -14,6 +36,7 @@
       "contact": "Contact"
     },
     "footer": {
+      "description": "Speckit orchestrates the spec-to-release loop with programmable policy gates and continuous evidence.",
       "columns": {
         "product": {
           "heading": "Product",

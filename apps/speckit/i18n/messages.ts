@@ -186,6 +186,19 @@ type LayoutMessages = {
   themeToggle: string;
   languageLabel: string;
   githubLabel: string;
+  locale: {
+    options: Record<SupportedLanguage, string>;
+  };
+  metadata: {
+    titleDefault: string;
+    titleTemplate: string;
+    description: string;
+    siteName: string;
+    ogDescription: string;
+    ogImageAlt: string;
+    openGraphLocale: string;
+    twitterDescription: string;
+  };
   nav: {
     product: string;
     howItWorks: string;
@@ -196,6 +209,7 @@ type LayoutMessages = {
     contact: string;
   };
   footer: {
+    description: string;
     columns: {
       product: {
         heading: string;

@@ -3,46 +3,6 @@ import { AirnubWordmark } from "@airnub/brand";
 import { Footer, type FooterProps, type FooterColumn } from "./Footer";
 import type { ReactNode } from "react";
 
-const defaultFooterColumns: FooterColumn[] = [
-  {
-    heading: "Products",
-    links: [{ label: "Speckit", href: "https://speckit.airnub.io", external: true }],
-  },
-  {
-    heading: "Resources",
-    links: [
-      { label: "Docs", href: "https://docs.speckit.dev", external: true },
-      { label: "Blog", href: "/resources#blog" },
-      { label: "Changelog", href: "/resources#changelog" },
-    ],
-  },
-  {
-    heading: "Open Source",
-    links: [
-      { label: "GitHub org", href: "https://github.com/airnub", external: true },
-      { label: "Speckit", href: "https://github.com/airnub/speckit", external: true },
-      { label: "Infrastructure templates", href: "https://github.com/airnub/landing-zones", external: true },
-    ],
-  },
-  {
-    heading: "Trust",
-    links: [
-      { label: "Trust Center", href: "https://trust.airnub.io", external: true },
-      { label: "VDP", href: "https://trust.airnub.io/vdp", external: true },
-      { label: "security.txt", href: "https://trust.airnub.io/.well-known/security.txt", external: true },
-    ],
-  },
-  {
-    heading: "Company",
-    links: [
-      { label: "About", href: "/company" },
-      { label: "Careers", href: "/company#careers" },
-      { label: "Press", href: "/company#press" },
-      { label: "Legal", href: "/company#legal" },
-    ],
-  },
-];
-
 type FooterAirnubProps = Omit<FooterProps, "logo" | "columns" | "bottomSlot" | "copyright"> & {
   bottomSlot?: ReactNode;
   columns?: FooterColumn[];
@@ -51,18 +11,13 @@ type FooterAirnubProps = Omit<FooterProps, "logo" | "columns" | "bottomSlot" | "
   pathPrefix?: string;
 };
 
-const defaultBottomLinks = [
-  { label: "Privacy", href: "/company#privacy" },
-  { label: "Terms", href: "/company#terms" },
-  { label: "hello@airnub.io", href: "mailto:hello@airnub.io" },
-];
-
 export function FooterAirnub({
   bottomSlot,
-  columns = defaultFooterColumns,
-  bottomLinks = defaultBottomLinks,
+  columns = [],
+  bottomLinks = [],
   copyrightPrefix = "Airnub",
   pathPrefix = "",
+  description,
   ...props
 }: FooterAirnubProps) {
   const year = new Date().getFullYear();
@@ -83,6 +38,7 @@ export function FooterAirnub({
     <Footer
       logo={<AirnubWordmark className="h-6" />}
       columns={resolvedColumns}
+      description={description}
       bottomSlot={
         bottomSlot ?? (
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-slate-500 dark:text-slate-400">

@@ -11,19 +11,20 @@ export type FooterProps = {
   logo: ReactNode;
   columns: FooterColumn[];
   copyright: string;
+  description?: string;
   bottomSlot?: ReactNode;
 };
 
-export function Footer({ logo, columns, copyright, bottomSlot }: FooterProps) {
+export function Footer({ logo, columns, copyright, bottomSlot, description }: FooterProps) {
   return (
     <footer className="border-t border-slate-200 bg-white py-12 text-sm text-slate-600 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300">
       <Container>
         <div className="grid gap-8 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 text-slate-900 dark:text-white">{logo}</div>
-            <p className="mt-4 max-w-sm text-sm text-slate-500 dark:text-slate-400">
-              Governing the developer platform lifecycle with trust, automation, and continuous evidence.
-            </p>
+            {description ? (
+              <p className="mt-4 max-w-sm text-sm text-slate-500 dark:text-slate-400">{description}</p>
+            ) : null}
           </div>
           {columns.map((column) => (
             <div key={column.heading}>
