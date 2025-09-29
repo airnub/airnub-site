@@ -59,7 +59,7 @@ export function HeaderSpeckit({
         <div className="flex items-center gap-3">
           <Link
             href={githubHref}
-            className="hidden rounded-full border border-slate-200 p-2 text-slate-600 transition hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:border-slate-700 dark:text-slate-200 dark:hover:text-white lg:inline-flex"
+            className="hidden rounded-full border border-border p-2 text-muted-foreground transition hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring lg:inline-flex"
             aria-label={githubLabel}
             target="_blank"
             rel="noreferrer"

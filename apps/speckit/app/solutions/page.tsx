@@ -34,10 +34,10 @@ export default async function SolutionsOverviewPage() {
             <Link
               key={persona.title}
               href={persona.href}
-              className="group rounded-3xl border border-slate-200 bg-white p-8 text-left shadow-lg transition hover:border-indigo-500 dark:border-white/10 dark:bg-white/10"
+              className="group rounded-3xl border border-border bg-card p-8 text-left shadow-lg transition hover:border-indigo-500"
             >
-              <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">{persona.title}</h2>
-              <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{persona.description}</p>
+              <h2 className="text-2xl font-semibold text-foreground">{persona.title}</h2>
+              <p className="mt-3 text-sm text-muted-foreground">{persona.description}</p>
               <span className="mt-6 inline-flex text-sm font-semibold text-indigo-600 transition group-hover:text-indigo-700 dark:text-indigo-300 dark:group-hover:text-indigo-200">
                 {persona.ctaLabel}
               </span>

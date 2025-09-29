@@ -1,4 +1,4 @@
-import { Container } from "@airnub/ui";
+import { Card, Container } from "@airnub/ui";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { PageHero } from "../../../components/PageHero";
@@ -43,18 +43,18 @@ function ContactShortcuts({
 }: ContactShortcutsProps) {
   return (
     <div className="space-y-6">
-      <div className="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-lg shadow-slate-900/5 backdrop-blur dark:border-slate-800 dark:bg-slate-900/60 dark:shadow-slate-950/40">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-300">{emailTitle}</h3>
-        <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+      <Card className="rounded-3xl bg-card/80 p-6 shadow-lg shadow-slate-900/5 backdrop-blur">
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">{emailTitle}</h3>
+        <p className="mt-2 text-sm text-muted-foreground">
           {emailSales}: <a className="text-sky-600 underline-offset-4 hover:underline dark:text-sky-400" href="mailto:hello@airnub.io">hello@airnub.io</a>
         </p>
-        <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
+        <p className="mt-1 text-sm text-muted-foreground">
           {emailSecurity}: <a className="text-sky-600 underline-offset-4 hover:underline dark:text-sky-400" href="mailto:security@airnub.io">security@airnub.io</a>
         </p>
-      </div>
-      <div className="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-lg shadow-slate-900/5 backdrop-blur dark:border-slate-800 dark:bg-slate-900/60 dark:shadow-slate-950/40">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-300">{officeTitle}</h3>
-        <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{officeDescription}</p>
+      </Card>
+      <Card className="rounded-3xl bg-card/80 p-6 shadow-lg shadow-slate-900/5 backdrop-blur">
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">{officeTitle}</h3>
+        <p className="mt-2 text-sm text-muted-foreground">{officeDescription}</p>
         <a
           href="https://cal.com/airnub/office-hours"
           className="mt-3 inline-flex text-sm font-semibold text-sky-600 underline-offset-4 hover:underline dark:text-sky-400"
@@ -63,7 +63,7 @@ function ContactShortcuts({
         >
           {officeCta} →
         </a>
-      </div>
+      </Card>
     </div>
   );
 }
@@ -97,7 +97,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
   };
 
   return (
-    <div className="space-y-16 pb-24 text-slate-700 dark:text-slate-300">
+    <div className="space-y-16 pb-24 text-muted-foreground">
       <PageHero
         eyebrow={t("hero.eyebrow")}
         title={t("hero.title")}
@@ -106,16 +106,16 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
 
       <section>
         <Container className="grid gap-12 lg:grid-cols-[2fr,1fr]">
-          <div className="rounded-3xl border border-slate-200 bg-white/80 p-10 shadow-lg shadow-slate-900/5 backdrop-blur dark:border-slate-800 dark:bg-slate-900/70 dark:shadow-slate-950/40">
-            <h2 className="text-xl font-semibold text-slate-900 dark:text-white">{t("form.title")}</h2>
-            <p className="mt-3 text-sm text-slate-600 dark:text-slate-400">{t("form.description")}</p>
+          <Card className="rounded-3xl bg-card/80 p-10 shadow-lg shadow-slate-900/5 backdrop-blur">
+            <h2 className="text-xl font-semibold text-foreground">{t("form.title")}</h2>
+            <p className="mt-3 text-sm text-muted-foreground">{t("form.description")}</p>
             <ContactForm
               action={submitLead}
               initialState={initialLeadFormState}
               labels={formLabels}
               toastDismissLabel={toastTranslations("dismiss")}
             />
-          </div>
+          </Card>
           <ContactShortcuts
             emailTitle={t("shortcuts.email.title")}
             emailSales={t("shortcuts.email.sales")}

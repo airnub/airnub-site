@@ -3,20 +3,13 @@ html {
 }
 
 a:focus-visible {
-  outline: 2px solid #818cf8; /* indigo-400 */
+  outline: 2px solid hsl(var(--ring));
   outline-offset: 2px;
 }
 
 .skip-link {
-  position: absolute;
+  @apply absolute left-1/2 -translate-x-1/2 rounded-full bg-foreground px-5 py-3 font-semibold text-background;
   top: -100px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #6366f1;
-  color: white;
-  padding: 0.75rem 1.25rem;
-  border-radius: 9999px;
-  font-weight: 600;
   transition: top 0.2s ease;
   z-index: 50;
 }

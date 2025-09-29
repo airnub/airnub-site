@@ -40,10 +40,10 @@ export default async function ProductPage() {
           {product.pillars.map((pillar) => (
             <div
               key={pillar.title}
-              className="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg dark:border-white/10 dark:bg-white/10"
+              className="rounded-3xl border border-border bg-card p-8 shadow-lg"
             >
-              <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">{pillar.title}</h2>
-              <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{pillar.description}</p>
+              <h2 className="text-2xl font-semibold text-foreground">{pillar.title}</h2>
+              <p className="mt-3 text-sm text-muted-foreground">{pillar.description}</p>
             </div>
           ))}
         </Container>
@@ -51,36 +51,36 @@ export default async function ProductPage() {
 
       <section>
         <Container className="grid gap-12 lg:grid-cols-[2fr,3fr] lg:items-start">
-          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl dark:border-white/10 dark:bg-white/10">
-            <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">{product.timeline.title}</h2>
-            <ol className="mt-6 space-y-6 text-sm text-slate-600 dark:text-slate-300">
+          <div className="rounded-3xl border border-border bg-card p-8 shadow-xl">
+            <h2 className="text-2xl font-semibold text-foreground">{product.timeline.title}</h2>
+            <ol className="mt-6 space-y-6 text-sm text-muted-foreground">
               {product.timeline.steps.map((step, index) => (
                 <li key={step.name}>
-                  <div className="font-semibold text-slate-900 dark:text-white">{`${index + 1}. ${step.name}`}</div>
+                  <div className="font-semibold text-foreground">{`${index + 1}. ${step.name}`}</div>
                   <p className="mt-1">{step.description}</p>
                 </li>
               ))}
             </ol>
           </div>
           <div className="space-y-8">
-            <div className="rounded-3xl border border-slate-200 bg-white p-8 dark:border-white/10 dark:bg-white/5">
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{product.integrationsCard.title}</h3>
-              <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{product.integrationsCard.description}</p>
-              <div className="mt-6 flex flex-wrap gap-3 text-xs text-slate-700 dark:text-slate-200">
+            <div className="rounded-3xl border border-border bg-card p-8">
+              <h3 className="text-xl font-semibold text-foreground">{product.integrationsCard.title}</h3>
+              <p className="mt-3 text-sm text-muted-foreground">{product.integrationsCard.description}</p>
+              <div className="mt-6 flex flex-wrap gap-3 text-xs text-muted-foreground">
                 {product.integrationsCard.items.map((integration) => (
                   <span
                     key={integration}
-                    className="rounded-full border border-slate-200 bg-white px-4 py-2 dark:border-white/10 dark:bg-white/5"
+                    className="rounded-full border border-border bg-card px-4 py-2"
                   >
                     {integration}
                   </span>
                 ))}
               </div>
             </div>
-            <div className="rounded-3xl border border-slate-200 bg-white p-8 dark:border-white/10 dark:bg-white/5">
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{product.supabaseCard.title}</h3>
+            <div className="rounded-3xl border border-border bg-card p-8">
+              <h3 className="text-xl font-semibold text-foreground">{product.supabaseCard.title}</h3>
               {product.supabaseCard.paragraphs.map((paragraph) => (
-                <p key={paragraph} className="mt-3 text-sm text-slate-600 dark:text-slate-300">
+                <p key={paragraph} className="mt-3 text-sm text-muted-foreground">
                   {paragraph}
                 </p>
               ))}

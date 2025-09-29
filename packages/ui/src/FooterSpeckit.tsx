@@ -26,7 +26,7 @@ export function FooterSpeckit({
       columns={columns}
       description={description}
       bottomSlot={
-        <div className="flex items-center gap-3 text-slate-500 dark:text-slate-400">
+        <div className="flex items-center gap-3 text-muted-foreground">
           <Link href={contactHref}>{contactLabel}</Link>
           <span aria-hidden="true">•</span>
           <Link href={pricingHref}>{pricingLabel}</Link>

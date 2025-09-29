@@ -93,7 +93,7 @@ export function ContactForm({ action, initialState, labels, toastDismissLabel }:
     <form ref={formRef} action={formAction} className="mt-8 space-y-6" noValidate>
       <div className="grid gap-6 md:grid-cols-2">
         <div>
-          <label htmlFor="full_name" className="block text-sm font-semibold text-slate-900 dark:text-white">
+          <label htmlFor="full_name" className="block text-sm font-semibold text-foreground">
             {labels.name}
           </label>
           <input
@@ -101,11 +101,11 @@ export function ContactForm({ action, initialState, labels, toastDismissLabel }:
             name="full_name"
             type="text"
             autoComplete="name"
-            className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-500 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+            className="mt-2 w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-semibold text-slate-900 dark:text-white">
+          <label htmlFor="email" className="block text-sm font-semibold text-foreground">
             {labels.email} <span className="text-rose-500" aria-hidden="true">*</span>
             <span className="sr-only">({labels.required})</span>
           </label>
@@ -116,7 +116,7 @@ export function ContactForm({ action, initialState, labels, toastDismissLabel }:
             required
             autoComplete="email"
             aria-describedby={emailErrorId}
-            className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-500 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+            className="mt-2 w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring"
           />
           {emailErrorMessage ? (
             <FormMessage id={emailErrorId} variant="error" className="mt-3 text-sm font-medium">
@@ -127,7 +127,7 @@ export function ContactForm({ action, initialState, labels, toastDismissLabel }:
       </div>
       <div className="grid gap-6 md:grid-cols-2">
         <div>
-          <label htmlFor="company" className="block text-sm font-semibold text-slate-900 dark:text-white">
+          <label htmlFor="company" className="block text-sm font-semibold text-foreground">
             {labels.company}
           </label>
           <input
@@ -135,18 +135,18 @@ export function ContactForm({ action, initialState, labels, toastDismissLabel }:
             name="company"
             type="text"
             autoComplete="organization"
-            className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-500 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+            className="mt-2 w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring"
           />
         </div>
         <div>
-          <label htmlFor="message" className="block text-sm font-semibold text-slate-900 dark:text-white">
+          <label htmlFor="message" className="block text-sm font-semibold text-foreground">
             {labels.message}
           </label>
           <textarea
             id="message"
             name="message"
             rows={4}
-            className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-500 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+            className="mt-2 w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring"
           />
         </div>
       </div>

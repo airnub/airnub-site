@@ -15,11 +15,11 @@ type ButtonProps = PropsWithChildren<
 
 const variantStyles: Record<Variant, string> = {
   primary:
-    "bg-sky-600 text-white hover:bg-sky-500 focus-visible:outline-sky-500",
+    "bg-foreground text-background hover:bg-foreground/90 focus-visible:outline-ring",
   secondary:
-    "bg-slate-900 text-white hover:bg-slate-800 focus-visible:outline-slate-800",
+    "bg-muted text-foreground hover:bg-muted/80 focus-visible:outline-ring",
   ghost:
-    "bg-transparent text-slate-900 hover:bg-slate-100 focus-visible:outline-slate-300 dark:text-white dark:hover:bg-white/10",
+    "bg-transparent text-foreground hover:bg-muted focus-visible:outline-ring",
 };
 
 export function Button({ variant = "primary", asChild = false, className, children, ...props }: ButtonProps) {

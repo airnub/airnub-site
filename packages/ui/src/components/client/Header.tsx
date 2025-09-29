@@ -30,10 +30,10 @@ export function Header({ logo, navItems, rightSlot, homeHref = "/", homeAriaLabe
   const [open, setOpen] = useState(false);
 
   return (
-    <header className={clsx("sticky top-0 z-40 border-b border-slate-200/60 bg-white/90 backdrop-blur dark:border-slate-700/60 dark:bg-slate-900/90", className)}>
+    <header className={clsx("sticky top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur", className)}>
       <Container className="flex items-center justify-between py-4">
         <div className="flex items-center gap-8">
-          <Link href={homeHref} aria-label={homeAriaLabel} className="flex items-center gap-2 text-slate-900 dark:text-white">
+          <Link href={homeHref} aria-label={homeAriaLabel} className="flex items-center gap-2 text-foreground">
             {logo}
           </Link>
           <nav className="hidden lg:flex" aria-label="Primary">
@@ -42,7 +42,7 @@ export function Header({ logo, navItems, rightSlot, homeHref = "/", homeAriaLabe
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="rounded-full px-3 py-2 text-slate-700 transition hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:text-slate-200 dark:hover:bg-white/10"
+                    className="rounded-full px-3 py-2 text-muted-foreground transition hover:bg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                     target={item.external ? "_blank" : undefined}
                     rel={item.external ? "noreferrer" : undefined}
                   >
@@ -58,14 +58,14 @@ export function Header({ logo, navItems, rightSlot, homeHref = "/", homeAriaLabe
           {cta ? (
             <Link
               href={cta.href}
-              className="hidden rounded-full bg-sky-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 lg:inline-flex"
+              className="hidden rounded-full bg-foreground px-4 py-2 text-sm font-semibold text-background transition hover:bg-foreground/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring lg:inline-flex"
             >
               {cta.label}
             </Link>
           ) : null}
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-full p-2 text-slate-700 transition hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:text-slate-200 dark:hover:bg-white/10 lg:hidden"
+            className="inline-flex items-center justify-center rounded-full p-2 text-muted-foreground transition hover:bg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring lg:hidden"
             onClick={() => setOpen((value) => !value)}
             aria-expanded={open}
             aria-controls="mobile-nav"
@@ -81,21 +81,21 @@ export function Header({ logo, navItems, rightSlot, homeHref = "/", homeAriaLabe
           </button>
         </div>
       </Container>
-      <div id="mobile-nav" hidden={!open} className="border-t border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900 lg:hidden">
+      <div id="mobile-nav" hidden={!open} className="border-t border-border bg-background lg:hidden">
         <Container>
           <ul className="flex flex-col gap-1 py-4 text-base font-medium">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="block rounded-xl px-3 py-2 text-slate-700 transition hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:text-slate-200 dark:hover:bg-white/10"
+                  className="block rounded-xl px-3 py-2 text-muted-foreground transition hover:bg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                   target={item.external ? "_blank" : undefined}
                   rel={item.external ? "noreferrer" : undefined}
                   onClick={() => setOpen(false)}
                 >
                   <span className="block text-base font-semibold">{item.label}</span>
                   {item.description ? (
-                    <span className="block text-sm text-slate-500 dark:text-slate-400">{item.description}</span>
+                    <span className="block text-sm text-muted-foreground">{item.description}</span>
                   ) : null}
                 </Link>
               </li>
@@ -104,7 +104,7 @@ export function Header({ logo, navItems, rightSlot, homeHref = "/", homeAriaLabe
               <li>
                 <Link
                   href={cta.href}
-                  className="mt-2 inline-flex w-full justify-center rounded-full bg-sky-600 px-4 py-2 text-center text-sm font-semibold text-white transition hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
+                  className="mt-2 inline-flex w-full justify-center rounded-full bg-foreground px-4 py-2 text-center text-sm font-semibold text-background transition hover:bg-foreground/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                 >
                   {cta.label}
                 </Link>

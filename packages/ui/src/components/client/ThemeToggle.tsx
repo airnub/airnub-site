@@ -86,7 +86,7 @@ export function ThemeToggle({ label = "Toggle theme", className, ...props }: The
     <button
       type="button"
       className={clsx(
-        "inline-flex items-center justify-center rounded-full border border-slate-200 p-2 text-slate-600 transition hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:border-slate-700 dark:text-slate-200 dark:hover:text-white",
+        "inline-flex items-center justify-center rounded-full border border-border p-2 text-muted-foreground transition hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
         className
       )}
       onClick={handleToggle}

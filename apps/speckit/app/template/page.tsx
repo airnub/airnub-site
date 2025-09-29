@@ -45,10 +45,10 @@ export default async function TemplatePage() {
           {template.steps.map((step) => (
             <div
               key={step.title}
-              className="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg dark:border-white/10 dark:bg-white/10"
+              className="rounded-3xl border border-border bg-card p-8 shadow-lg"
             >
-              <h2 className="text-xl font-semibold text-slate-900 dark:text-white">{step.title}</h2>
-              <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{step.description}</p>
+              <h2 className="text-xl font-semibold text-foreground">{step.title}</h2>
+              <p className="mt-3 text-sm text-muted-foreground">{step.description}</p>
             </div>
           ))}
         </Container>
