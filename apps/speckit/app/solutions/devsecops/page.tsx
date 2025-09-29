@@ -30,10 +30,10 @@ export default async function DevSecOpsSolutionsPage() {
       <section>
         <Container>
           <Card className="bg-card/10">
-            <CardHeader className="p-10">
+            <CardHeader>
               <CardTitle className="text-2xl">{messages.benefitsTitle}</CardTitle>
             </CardHeader>
-            <CardContent className="p-10 pt-0 text-sm text-muted-foreground">
+            <CardContent className="text-sm text-muted-foreground">
               <ul className="space-y-3">
                 {messages.benefits.map((benefit) => (
                   <li key={benefit}>→ {benefit}</li>
@@ -47,10 +47,10 @@ export default async function DevSecOpsSolutionsPage() {
       <section>
         <Container>
           <Card className="bg-gradient-to-br from-muted via-background to-muted">
-            <CardHeader className="p-10">
+            <CardHeader>
               <CardTitle className="text-2xl">{messages.capabilities.title}</CardTitle>
             </CardHeader>
-            <CardContent className="grid gap-6 p-10 pt-0 text-sm text-muted-foreground md:grid-cols-2">
+            <CardContent className="grid gap-6 text-sm text-muted-foreground md:grid-cols-2">
               {messages.capabilities.cards.map((card) => (
                 <Card key={card.title} className="bg-card/5 shadow-none">
                   <CardHeader>

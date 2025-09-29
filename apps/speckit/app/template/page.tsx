@@ -45,7 +45,7 @@ export default async function TemplatePage() {
         <Container className="grid gap-6 md:grid-cols-2">
           {template.steps.map((step) => (
             <Card key={step.title}>
-              <CardHeader className="p-8">
+              <CardHeader>
                 <CardTitle className="text-xl">{step.title}</CardTitle>
                 <CardDescription>{step.description}</CardDescription>
               </CardHeader>
