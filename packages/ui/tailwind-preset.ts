@@ -3,7 +3,13 @@ import tailwindTypography from "@tailwindcss/typography";
 import tailwindAnimate from "tailwindcss-animate";
 
 const preset = {
-  darkMode: "class",
+  darkMode: ["class"],
+  content: [
+    "./app/**/*.{ts,tsx,js,jsx,md,mdx}",
+    "./components/**/*.{ts,tsx,js,jsx,md,mdx}",
+    "./src/**/*.{ts,tsx,js,jsx,md,mdx}",
+    "../../packages/**/*.{ts,tsx,js,jsx,md,mdx}",
+  ],
   theme: {
     container: { center: true, padding: "2rem" },
     extend: {
@@ -11,8 +17,8 @@ const preset = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        background: "hsl(var(--brand-background))",
+        foreground: "hsl(var(--brand-foreground))",
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
@@ -26,16 +32,16 @@ const preset = {
           foreground: "hsl(var(--muted-foreground))",
         },
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "hsl(var(--brand-primary))",
+          foreground: "hsl(var(--brand-primary-foreground))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "hsl(var(--brand-accent))",
+          foreground: "hsl(var(--brand-accent-foreground))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",

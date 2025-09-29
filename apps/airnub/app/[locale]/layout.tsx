@@ -1,4 +1,3 @@
-import "@airnub/ui/styles.css";
 import "../globals.css";
 import { BrandProvider, FooterAirnub, HeaderAirnub, ThemeProvider, ToastProvider, type FooterColumn } from "@airnub/ui";
 import type { Metadata } from "next";

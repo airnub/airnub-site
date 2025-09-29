@@ -1,3 +1,6 @@
+@import "@airnub/ui/styles/tokens.css";
+@import "@airnub/ui/styles.css";
+
 html {
   scroll-behavior: smooth;
 }
