@@ -7,6 +7,7 @@ export * from "./HeaderAirnub";
 export * from "./FooterAirnub";
 export * from "./HeaderSpeckit";
 export * from "./FooterSpeckit";
-export * from "./components/client/ThemeProvider";
 export * from "./components/client/ThemeToggle";
 export * from "./components/client/ToastProvider";
+export * from "./components/card";
+export * from "../providers/theme";
