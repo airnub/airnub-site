@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Button, Container } from "@airnub/ui";
+import { Button, Card, Container } from "@airnub/ui";
 import { serverFetch } from "@airnub/seo";
 import { getTranslations } from "next-intl/server";
 import { PageHero } from "../../components/PageHero";
@@ -119,7 +119,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const outcomeAccentClasses = ["bg-sky-400", "bg-violet-400", "bg-emerald-400"] as const;
 
   return (
-    <div className="space-y-24 pb-24 text-slate-700 dark:text-slate-300">
+    <div className="space-y-24 pb-24">
       <PageHero
         eyebrow={hero.eyebrow}
         title={hero.title}
@@ -139,70 +139,72 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section>
         <Container className="grid gap-10 lg:grid-cols-3">
           {highlightItems.map((item) => (
-            <div
-              key={item.id}
-              className="rounded-3xl border border-slate-200 bg-white/80 p-8 shadow-lg shadow-slate-900/5 backdrop-blur dark:border-slate-800 dark:bg-slate-900/60 dark:shadow-slate-950/40"
-            >
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{item.title}</h3>
-              <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{item.description}</p>
-            </div>
+            <Card key={item.id} className="p-8">
+              <h3 className="text-xl font-semibold text-card-foreground">{item.title}</h3>
+              <p className="mt-3 text-sm text-muted-foreground">{item.description}</p>
+            </Card>
           ))}
         </Container>
       </section>
 
       <section>
         <Container className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+          <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
             {t("customers.eyebrow")}
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-8">
             {customerItems.map((customer) => (
-              <div
+              <Card
                 key={customer.id}
-                className="flex h-16 w-40 items-center justify-center rounded-xl border border-slate-200 bg-white/70 shadow-inner shadow-slate-900/5 dark:border-slate-800 dark:bg-slate-900/70 dark:shadow-slate-950/40"
+                aria-label={customer.name}
+                className="flex h-16 w-40 items-center justify-center p-4"
               >
                 <Image src={customer.logo} alt={customer.name} width={120} height={40} className="object-contain" />
-              </div>
+              </Card>
             ))}
           </div>
         </Container>
       </section>
 
       <section>
-        <Container className="grid gap-12 rounded-3xl border border-slate-200 bg-white/80 p-12 shadow-xl shadow-slate-900/10 backdrop-blur dark:border-slate-800 dark:bg-slate-900/80 dark:shadow-slate-950/40 lg:grid-cols-2 lg:items-center">
-          <div>
-            <h2 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-4xl">{speckit.title}</h2>
-            <p className="mt-4 text-base text-slate-600 dark:text-slate-300">{speckit.description}</p>
-            <div className="mt-6 flex flex-wrap gap-4">
-              <Button asChild>
-                <Link href="https://speckit.airnub.io" target="_blank" rel="noreferrer">
-                  {speckit.primaryCta}
-                </Link>
-              </Button>
-              <Button variant="ghost" asChild>
-                <LocaleLink href="/products">{speckit.secondaryCta}</LocaleLink>
-              </Button>
+        <Container>
+          <Card className="grid gap-12 p-10 sm:p-12 lg:grid-cols-2 lg:items-center">
+            <div>
+              <h2 className="text-3xl font-semibold tracking-tight text-card-foreground sm:text-4xl">
+                {speckit.title}
+              </h2>
+              <p className="mt-4 text-base text-muted-foreground">{speckit.description}</p>
+              <div className="mt-6 flex flex-wrap gap-4">
+                <Button asChild>
+                  <Link href="https://speckit.airnub.io" target="_blank" rel="noreferrer">
+                    {speckit.primaryCta}
+                  </Link>
+                </Button>
+                <Button variant="ghost" asChild>
+                  <LocaleLink href="/products">{speckit.secondaryCta}</LocaleLink>
+                </Button>
+              </div>
             </div>
-          </div>
-          <div className="rounded-3xl border border-slate-200 bg-white/70 p-8 dark:border-white/10 dark:bg-white/5">
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{speckit.outcomesTitle}</h3>
-            <ul className="mt-4 space-y-3 text-sm text-slate-700 dark:text-slate-200">
-              {speckit.outcomes.map((outcome, index) => {
-                const accentClass = outcomeAccentClasses[
-                  Math.min(index, outcomeAccentClasses.length - 1)
-                ];
-                return (
-                  <li key={outcome.id} className="flex gap-3">
-                    <span
-                      className={`mt-1 inline-flex h-2.5 w-2.5 rounded-full ${accentClass}`}
-                      aria-hidden="true"
-                    />
-                    {outcome.copy}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+            <Card className="p-8">
+              <h3 className="text-lg font-semibold text-card-foreground">{speckit.outcomesTitle}</h3>
+              <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+                {speckit.outcomes.map((outcome, index) => {
+                  const accentClass = outcomeAccentClasses[
+                    Math.min(index, outcomeAccentClasses.length - 1)
+                  ];
+                  return (
+                    <li key={outcome.id} className="flex gap-3">
+                      <span
+                        className={`mt-1 inline-flex h-2.5 w-2.5 rounded-full ${accentClass}`}
+                        aria-hidden="true"
+                      />
+                      {outcome.copy}
+                    </li>
+                  );
+                })}
+              </ul>
+            </Card>
+          </Card>
         </Container>
       </section>
 
@@ -210,13 +212,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <Container className="grid gap-12 lg:grid-cols-[2fr,3fr] lg:items-center">
           <div className="space-y-6">
             <div>
-              <h2 className="text-3xl font-semibold text-slate-900 dark:text-white">{services.title}</h2>
-              <p className="mt-4 text-base text-slate-600 dark:text-slate-300">{services.description}</p>
+              <h2 className="text-3xl font-semibold text-foreground">{services.title}</h2>
+              <p className="mt-4 text-base text-muted-foreground">{services.description}</p>
             </div>
-            <ul className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <ul className="space-y-3 text-sm text-muted-foreground">
               {services.steps.map((step) => (
                 <li key={step.id}>
-                  <strong className="font-semibold text-slate-900 dark:text-white">{step.label}</strong>{" "}
+                  <strong className="font-semibold text-foreground">{step.label}</strong>{" "}
                   {step.description}
                 </li>
               ))}
@@ -224,13 +226,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {services.cards.map((card) => (
-              <div
-                key={card.id}
-                className="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-lg shadow-slate-900/10 dark:border-slate-800 dark:bg-slate-900/60 dark:shadow-slate-950/40"
-              >
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{card.title}</h3>
-                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{card.description}</p>
-              </div>
+              <Card key={card.id}>
+                <h3 className="text-lg font-semibold text-card-foreground">{card.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{card.description}</p>
+              </Card>
             ))}
           </div>
         </Container>
