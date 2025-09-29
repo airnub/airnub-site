@@ -2,39 +2,48 @@
   "layout": {
     "skipToContent": "Scipeáil chuig ábhar",
     "themeToggle": "Téama toggle",
-    "starLabel": "Tionscadal réalta",
     "languageLabel": "Teanga",
+    "githubLabel": "Speckit ar GitHub",
+    "nav": {
+      "product": "Toradh",
+      "howItWorks": "Conas a oibríonn sé",
+      "solutions": "Réitigh",
+      "docs": "Docs",
+      "pricing": "Praghsáil",
+      "trust": "Iontaobhas",
+      "contact": "Lionsa tadhaill"
+    },
     "footer": {
       "columns": {
         "product": {
-          "heading": "Táirge",
+          "heading": "Toradh",
           "overview": "Forbhreathnú",
           "howItWorks": "Conas a oibríonn sé",
-          "integrations": "Comhtháthuithe"
+          "integrations": "Comhtháthú"
         },
         "resources": {
-          "heading": "Acmhainní",
-          "docs": "Doiciméadú",
+          "heading": "Caisiún",
+          "docs": "Docs",
           "apiReference": "Tagairt API",
           "community": "Pobal"
         },
         "openSource": {
-          "heading": "Foinse oscailte",
-          "repo": "Stórlann",
+          "heading": "Foinse Oscailte",
+          "repo": "Athmhuintearas",
           "templates": "Teimpléid",
-          "issues": "Ceisteanna",
-          "license": "Ceadúnas"
+          "issues": "Saincheist",
+          "license": "Cead"
         },
         "trust": {
-          "heading": "Muinín",
-          "trustCenter": "Lárionad muiníne",
+          "heading": "Iontaobhas",
+          "trustCenter": "Ionad muiníne",
           "status": "Stádas",
-          "securityTxt": "security.txt"
+          "securityTxt": "slándáil.txt"
         }
       },
       "contact": {
         "label": "speckit@airnub.io",
-        "pricing": "Praghsanna"
+        "pricing": "Praghsáil"
       }
     }
   },
@@ -44,8 +53,10 @@
       "title": "Deireadh a chur le códú vibe. ",
       "description": "Casann Speckit comhlíonadh ó scramble go lúb leanúnach, dúchais forbróra. ",
       "actions": {
-        "requestDemo": "Taispeántas a iarraidh",
-        "exploreDocs": "Docs a iniúchadh"
+        "primaryLabel": "Taispeántas a iarraidh",
+        "primaryHref": "/teagmháil",
+        "secondaryLabel": "Docs a iniúchadh",
+        "secondaryHref": "https://docs.speckit.dev"
       }
     },
     "features": [
@@ -108,8 +119,10 @@
       "title": "Feiceann gach foireann an fhoinse fhírinne chéanna",
       "description": "Comhoibríonn Ardán, Slándáil, Comhlíonadh, agus Ceannairí Táirgí i gcomhthéacs comhroinnte. ",
       "actions": {
-        "howItWorks": "Féach conas a oibríonn sé",
-        "template": "Íoslódáil teimpléad rolladh amach"
+        "primaryLabel": "Féach conas a oibríonn sé",
+        "primaryHref": "/How-it-Works",
+        "secondaryLabel": "Íoslódáil teimpléad rolladh amach",
+        "secondaryHref": "/teimpléad"
       },
       "cards": [
         {
@@ -140,6 +153,291 @@
         "Supabase",
         "AWS",
         "Azure"
+      ]
+    }
+  },
+  "pricing": {
+    "hero": {
+      "eyebrow": "Praghsáil",
+      "title": "Roghnaigh an plean a mheaitseálann do thuras rialachais",
+      "description": "I measc na bpleananna go léir tá croílár na sonraí supabase, inneall ceolfhoirne beartais, agus APIs fianaise.",
+      "actions": {
+        "primaryLabel": "Labhair le Díolacháin",
+        "primaryHref": "/teagmháil"
+      }
+    },
+    "tiers": [
+      {
+        "name": "Coltach",
+        "price": "$ 1,250/mo",
+        "description": "I gcás foirne a phíolótú rialachas thar 3 sheirbhís.",
+        "highlights": [
+          "Suas le 20 innealtóir",
+          "Ceolfhoirne beartais spec +",
+          "Painéal na Fianaise"
+        ],
+        "ctaLabel": "Athfhriotail Iarraidh"
+      },
+      {
+        "name": "Scim a bhaint de",
+        "price": "$ 3,400/mo",
+        "description": "I gcás eagraíochtaí a rolladh amach ar fud línte iltháirge.",
+        "highlights": [
+          "Suas le 75 innealtóir",
+          "Tionóntacht supabase il-thionscadail",
+          "Comhtháthú Tairseach Iontaobhais Custaiméirí"
+        ],
+        "ctaLabel": "Athfhriotail Iarraidh"
+      },
+      {
+        "name": "Fiontar",
+        "price": "Cur síos",
+        "description": "Pods tiomnaithe le haghaidh ualaí oibre rialáilte agus timpeallachtaí casta.",
+        "highlights": [
+          "Innealtóirí Neamhtheoranta",
+          "Roghanna imlonnaithe scamall príobháideach",
+          "Seirbhísí uathoibrithe comhlíonta"
+        ],
+        "ctaLabel": "Athfhriotail Iarraidh"
+      }
+    ]
+  },
+  "product": {
+    "hero": {
+      "eyebrow": "Toradh",
+      "title": "Ardán amháin chun rialachas a mhúnlú, a fhorfheidhmiú agus a chruthú",
+      "description": "Nascann Speckit pleanáil, seachadadh agus dearbhú. ",
+      "actions": {
+        "primaryLabel": "Féach Praghsáil",
+        "primaryHref": "/Praghsáil"
+      }
+    },
+    "pillars": [
+      {
+        "title": "Múnla",
+        "description": "Cinntí ailtireachta, rioscaí, agus úinéirí beartais a ghabháil i sonraíochtaí comhoibritheacha atá sioncronaithe le Git."
+      },
+      {
+        "title": "Éis a fhorfheidhmiú",
+        "description": "Cuir rialuithe ath -inúsáidte i bhfeidhm ar fud na bpíblínte, na scamall, agus na gcatalóga seirbhíse le torthaí inmhianaithe."
+      },
+      {
+        "title": "Ardaigh",
+        "description": "Fianaise a ghiniúint agus a dháileadh ar iniúchóirí, custaiméirí agus ceannaireacht go huathoibríoch."
+      }
+    ],
+    "timeline": {
+      "title": "Amlíne Speckit",
+      "steps": [
+        {
+          "name": "Kickoff spec",
+          "description": "Tosaigh le sonra leagan atá nasctha le cód. "
+        },
+        {
+          "name": "Ceolfhoirne beartais",
+          "description": "Reáchtálann na rialuithe ar fud CI, IAC, agus Runtime. "
+        },
+        {
+          "name": "Sruth fianaise",
+          "description": "Sboms, fianú, agus cruthúnais rialaithe a bhaineann le supabase, uirlisí GRC, agus tairseacha custaiméirí."
+        }
+      ]
+    },
+    "integrationsCard": {
+      "title": "Comhtháthú a bhuaileann leat san áit a n -oibríonn tú",
+      "description": "Bain úsáid as Speckit Chomhéadain, CLI, nó APIs. ",
+      "items": [
+        "Github",
+        "GITLAB",
+        "Bitbucket",
+        "Jira",
+        "ServiceNow",
+        "Pasfhocal",
+        "Aws",
+        "(De chuid) na n -asanach",
+        "GCP"
+      ]
+    },
+    "supabaseCard": {
+      "title": "Croí sonraí supabase comhroinnte",
+      "paragraphs": [
+        "Cuireann foirmeacha margaíochta agus táirgí tionscadal supabase amháin chun cinn. ",
+        "Bain úsáid as ról na seirbhíse chun fianaise a shioncronú le do stóras sonraí nó le do thairseach iontaobhais custaiméirí go muiníneach."
+      ]
+    }
+  },
+  "howItWorks": {
+    "hero": {
+      "eyebrow": "Conas a oibríonn sé",
+      "title": "Lúb leanúnach a thugann muinín do sheachadadh laethúil",
+      "description": "Aontaíonn Speckit pleanáil, loingseoireacht agus cruthú. "
+    },
+    "stages": [
+      {
+        "name": "Racht",
+        "description": "Tosaíonn specs i ndoiciméid a bhfuil tacaíocht GIT acu. "
+      },
+      {
+        "name": "Ceolfhoirne",
+        "description": "Téann na rialuithe thar phíblínte agus timpeallachtaí. "
+      },
+      {
+        "name": "Foilsigh",
+        "description": "Tailte fianaise ina bhfuil gá leis - supabase, uirlisí GRC, tairseacha iontaobhais custaiméirí, agus stacanna anailísíochta."
+      }
+    ],
+    "stageLabel": "Céim {Count}",
+    "audiences": [
+      {
+        "role": "Ardán",
+        "value": "Cosáin órga le rialachas tógtha isteach. "
+      },
+      {
+        "role": "Slándáil",
+        "value": "Beartas-mar-chód le trédhearcacht. "
+      },
+      {
+        "role": "Comhlíonadh",
+        "value": "Fianaise ar éileamh. "
+      }
+    ],
+    "tooling": {
+      "title": "Tabhair leat do uirlisí féin",
+      "description": "Comhtháthaíonn Speckit trí WebHooks, REST APIs, agus SDKS. ",
+      "items": [
+        "Gníomhartha GitHub, Circleci, Píblínte GitLab",
+        "Terraform, Pulumi, Cloudformation",
+        "ServiceNow, Jira, nuashonruithe ar shreabhadh oibre líneach",
+        "Tairseacha Supabase, Snowflake, agus Custaiméirí"
+      ]
+    }
+  },
+  "template": {
+    "hero": {
+      "eyebrow": "Teimpléad",
+      "title": "Leabhar súgartha cruthaithe rolladh amach cruthaithe",
+      "description": "Íoslódáil an plean sé seachtaine a úsáideann Speckit le seoladh le foirne ardán, slándála agus comhlíonta.",
+      "actions": {
+        "primaryLabel": "Faigh an teimpléad",
+        "primaryHref": "https://github.com/airnub/speckit-templates"
+      }
+    },
+    "steps": [
+      {
+        "title": "Seachtain 1 - Fionnachtain",
+        "description": "Léarscáil rialuithe reatha, uirlisí, agus sreafaí fianaise. "
+      },
+      {
+        "title": "Seachtainí 2-3-Ceolfhoirne",
+        "description": "Cumraigh supabase, ceangail repos, agus códú geataí beartais i bpíblínte agus IAC."
+      },
+      {
+        "title": "Seachtainí 4-5-Cumasú",
+        "description": "Cumasaigh foirne le teimpléid, leabhair súgartha ráille cosanta, agus dashboards fianaise."
+      },
+      {
+        "title": "Seachtain 6 - Scála",
+        "description": "Athbhreithniú a dhéanamh ar KPIs, leathnaigh go seirbhísí breise, agus comhtháthaítear fianaise i dtairseacha iontaobhais."
+      }
+    ]
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Lionsa tadhaill",
+      "title": "Féach Speckit i mbun gnímh",
+      "description": "Roinn beagán faoi do chlár ardán agus déanfaimid siúlóid a chur in oiriúint do do spriocanna."
+    },
+    "form": {
+      "title": "Taispeántas a iarraidh",
+      "description": "Inis dúinn faoi do thimpeallacht agus do sprioc -amlíne seolta.",
+      "submitLabel": "Taispeántas a iarraidh",
+      "fields": {
+        "nameLabel": "Ainm iomlán",
+        "emailLabel": "Ríomhphost oibre",
+        "emailRequiredSuffix": "-",
+        "companyLabel": "Cuideachta",
+        "focusLabel": "Cad ba cheart dúinn díriú air?"
+      }
+    },
+    "shortcuts": {
+      "emailHeading": "Ríomhphost a chur chuig",
+      "productQuestions": "Ceisteanna Táirgí: specit@airnub.io",
+      "security": "Slándáil: Slándáil@airnub.io",
+      "docsHeading": "Docs",
+      "docsDescription": "Déan iniúchadh ar thagairtí API agus ar threoracha forfheidhmithe.",
+      "docsCtaLabel": "docs.speckit.dev →"
+    }
+  },
+  "solutions": {
+    "hero": {
+      "eyebrow": "Réitigh",
+      "title": "Déanann Speckit oiriúnú ar do mhúnla oibriúcháin slándála agus ardáin",
+      "description": "Roghnaigh cosán saincheaptha chun geataí beartais, uathoibriú fianaise, agus comhoibriú tras-fhoireann a eagrú."
+    },
+    "personas": [
+      {
+        "title": "CISO",
+        "description": "Comhlíonadh a dhéanamh leanúnach. ",
+        "href": "/Solutions/ciso",
+        "ctaLabel": "Iniúchadh →"
+      },
+      {
+        "title": "Devsecops",
+        "description": "Ráillí cosanta a leabú i ngach píblíne agus ag an am céanna foirne a chumhachtú chun long a dhéanamh níos tapúla le trédhearcacht.",
+        "href": "/Solutions/Devsecops",
+        "ctaLabel": "Iniúchadh →"
+      }
+    ]
+  },
+  "solutionsCiso": {
+    "hero": {
+      "eyebrow": "Réitigh",
+      "title": "Comhlíonadh leanúnach gan scramble láimhe",
+      "description": "Tugann Speckit infheictheacht fíor-ama CISOS i staidiúir rialaithe, eisceachtaí, agus ullmhacht iniúchta."
+    },
+    "outcomesTitle": "Cén fáth a roghnaíonn cisos speckit",
+    "outcomes": [
+      "Stádas rialaithe beo mapáilte go SOC 2, ISO 27001, HIPAA, agus FedRamp",
+      "Scéalta uathoibrithe SSP agus Tuarascáil ar Iontaobhas Custaiméirí Fothaí",
+      "Polasaithe coinneála fianaise le tacaíocht ó shlándáil ar leibhéal as a chéile"
+    ],
+    "deliverables": {
+      "title": "Nithe ​​insoláthartha",
+      "cards": [
+        {
+          "title": "Uathoibriú rialaithe",
+          "description": "Ráillí cosanta códaithe le haghaidh bainistíochta athraithe, athbhreithnithe rochtana, bainistíocht leochaileachta, agus freagairt teagmhais."
+        },
+        {
+          "title": "Tuairisciú feidhmiúcháin",
+          "description": "Dashboards le haghaidh nuashonruithe boird agus custaiméirí le cosáin fianaise druileála síos."
+        }
+      ]
+    }
+  },
+  "solutionsDevSecOps": {
+    "hero": {
+      "eyebrow": "Réitigh",
+      "title": "Ráillí cosanta agus luas do gach foireann seachadta",
+      "description": "Tugann Speckit rialuithe in -ríomhchláraithe, inbhraite, agus comhthéacs comhroinnte le slándáil agus le comhlíonadh."
+    },
+    "benefitsTitle": "Cad a ghnóthaíonn Devsecops",
+    "benefits": [
+      "Modúil beartais-mar-chód do ghníomhartha GitHub, Gitlab CI, agus Jenkins",
+      "Fianuithe Runtime atá nasctha le timpeallachtaí agus imlonnú",
+      "Catalóga seirbhíse le cosáin órga féinfhreastail agus ráillí cosanta"
+    ],
+    "capabilities": {
+      "title": "Eochairchumais",
+      "cards": [
+        {
+          "title": "Cuibheoirí sreafa oibre",
+          "description": "Gníomhartha, teimpléid, agus orduithe CLI le haghaidh píblínte agus bonneagair."
+        },
+        {
+          "title": "Crúcaí inbhraiteachta",
+          "description": "Seol na torthaí rialaithe chuig DataDog, Grafana, nó slack le naisc dhomhain i bhfianaise."
+        }
       ]
     }
   }

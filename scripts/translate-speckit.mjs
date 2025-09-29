@@ -6,7 +6,9 @@ const root = path.resolve(".");
 const basePath = path.join(root, "apps/speckit/messages/en-US.json");
 const base = JSON.parse(fs.readFileSync(basePath, "utf8"));
 
-const languages = ["en-GB", "fr", "es", "de", "pt", "it", "ga"];
+const defaultLanguages = ["en-GB", "fr", "es", "de", "pt", "it", "ga"];
+const requestedLanguages = process.argv.slice(2);
+const languages = requestedLanguages.length > 0 ? requestedLanguages : defaultLanguages;
 
 const API_URL = "https://translate.googleapis.com/translate_a/single";
 

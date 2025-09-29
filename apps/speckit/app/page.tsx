@@ -5,11 +5,16 @@ import { PageHero } from "../components/PageHero";
 import { getCurrentLanguage } from "../lib/language";
 import { getSpeckitMessages } from "../i18n/messages";
 
-export const revalidate = 86_400;
+export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "End vibe-coding. Ship secure, auditable releases.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const language = await getCurrentLanguage();
+  const home = getSpeckitMessages(language).home;
+  return {
+    title: home.hero.title,
+    description: home.hero.description,
+  };
+}
 
 export default async function SpeckitHome() {
   const language = await getCurrentLanguage();
@@ -24,14 +29,22 @@ export default async function SpeckitHome() {
         description={home.hero.description}
         actions={
           <>
-            <Button asChild>
-              <Link href="/contact">{home.hero.actions.requestDemo}</Link>
-            </Button>
-            <Button variant="ghost" asChild>
-              <Link href="https://docs.speckit.dev" target="_blank" rel="noreferrer">
-                {home.hero.actions.exploreDocs}
-              </Link>
-            </Button>
+            {home.hero.actions.primaryLabel ? (
+              <Button asChild>
+                <Link href={home.hero.actions.primaryHref ?? "/contact"}>{home.hero.actions.primaryLabel}</Link>
+              </Button>
+            ) : null}
+            {home.hero.actions.secondaryLabel ? (
+              <Button variant="ghost" asChild>
+                <Link
+                  href={home.hero.actions.secondaryHref ?? "https://docs.speckit.dev"}
+                  target={home.hero.actions.secondaryHref?.startsWith("http") ? "_blank" : undefined}
+                  rel={home.hero.actions.secondaryHref?.startsWith("http") ? "noreferrer" : undefined}
+                >
+                  {home.hero.actions.secondaryLabel}
+                </Link>
+              </Button>
+            ) : null}
           </>
         }
       />
@@ -112,10 +125,10 @@ export default async function SpeckitHome() {
               <p className="mt-4 text-base text-slate-600 dark:text-slate-200">{home.alignment.description}</p>
               <div className="mt-6 flex flex-wrap gap-4">
                 <Button variant="ghost" asChild>
-                  <Link href="/how-it-works">{home.alignment.actions.howItWorks}</Link>
+                  <Link href={home.alignment.actions.primaryHref}>{home.alignment.actions.primaryLabel}</Link>
                 </Button>
                 <Button asChild>
-                  <Link href="/template">{home.alignment.actions.template}</Link>
+                  <Link href={home.alignment.actions.secondaryHref}>{home.alignment.actions.secondaryLabel}</Link>
                 </Button>
               </div>
             </div>

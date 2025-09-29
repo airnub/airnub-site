@@ -2,8 +2,17 @@
   "layout": {
     "skipToContent": "Skip to content",
     "themeToggle": "Toggle theme",
-    "starLabel": "Star project",
     "languageLabel": "Language",
+    "githubLabel": "Speckit on GitHub",
+    "nav": {
+      "product": "Product",
+      "howItWorks": "How it works",
+      "solutions": "Solutions",
+      "docs": "Docs",
+      "pricing": "Pricing",
+      "trust": "Trust",
+      "contact": "Contact"
+    },
     "footer": {
       "columns": {
         "product": {
@@ -44,8 +53,10 @@
       "title": "End vibe-coding. Ship secure, auditable releases.",
       "description": "Speckit turns compliance from a scramble into a continuous, developer-native loop. Govern specs, orchestrate policy gates, and ship evidence on demand.",
       "actions": {
-        "requestDemo": "Request a demo",
-        "exploreDocs": "Explore docs"
+        "primaryLabel": "Request a demo",
+        "primaryHref": "/contact",
+        "secondaryLabel": "Explore docs",
+        "secondaryHref": "https://docs.speckit.dev"
       }
     },
     "features": [
@@ -108,8 +119,10 @@
       "title": "All teams see the same source of truth",
       "description": "Platform, security, compliance, and product leaders collaborate in a shared context. Speckit syncs with GitHub, Jira, ServiceNow, and Supabase so your data stays where work already happens.",
       "actions": {
-        "howItWorks": "See how it works",
-        "template": "Download rollout template"
+        "primaryLabel": "See how it works",
+        "primaryHref": "/how-it-works",
+        "secondaryLabel": "Download rollout template",
+        "secondaryHref": "/template"
       },
       "cards": [
         {
@@ -133,6 +146,269 @@
     "integrations": {
       "eyebrow": "Works with your stack",
       "items": ["GitHub", "GitLab", "Jira", "ServiceNow", "Supabase", "AWS", "Azure"]
+    }
+  },
+  "pricing": {
+    "hero": {
+      "eyebrow": "Pricing",
+      "title": "Pick the plan that matches your governance journey",
+      "description": "All plans include the shared Supabase data core, policy orchestration engine, and evidence APIs.",
+      "actions": {
+        "primaryLabel": "Talk to sales",
+        "primaryHref": "/contact"
+      }
+    },
+    "tiers": [
+      {
+        "name": "Launch",
+        "price": "$1,250/mo",
+        "description": "For teams piloting governance across 3 services.",
+        "highlights": ["Up to 20 engineers", "Spec + policy orchestration", "Evidence dashboard"],
+        "ctaLabel": "Request quote"
+      },
+      {
+        "name": "Scale",
+        "price": "$3,400/mo",
+        "description": "For organizations rolling Speckit out across multiple product lines.",
+        "highlights": ["Up to 75 engineers", "Multi-project Supabase tenancy", "Customer trust portal integration"],
+        "ctaLabel": "Request quote"
+      },
+      {
+        "name": "Enterprise",
+        "price": "Custom",
+        "description": "Dedicated pods for regulated workloads and complex environments.",
+        "highlights": ["Unlimited engineers", "Private cloud deployment options", "Compliance automation services"],
+        "ctaLabel": "Request quote"
+      }
+    ]
+  },
+  "product": {
+    "hero": {
+      "eyebrow": "Product",
+      "title": "One platform to model, enforce, and prove governance",
+      "description": "Speckit connects planning, delivery, and assurance. Ship faster with guardrails that satisfy platform, security, and compliance leaders.",
+      "actions": {
+        "primaryLabel": "See pricing",
+        "primaryHref": "/pricing"
+      }
+    },
+    "pillars": [
+      {
+        "title": "Model",
+        "description": "Capture architecture decisions, risks, and policy owners in collaborative specs synced to Git."
+      },
+      {
+        "title": "Enforce",
+        "description": "Apply reusable controls across pipelines, cloud, and service catalogs with explainable results."
+      },
+      {
+        "title": "Prove",
+        "description": "Generate and distribute evidence to auditors, customers, and leadership automatically."
+      }
+    ],
+    "timeline": {
+      "title": "Speckit timeline",
+      "steps": [
+        {
+          "name": "Spec kickoff",
+          "description": "Start with a versioned spec linked to code. Assign approvers and risk posture."
+        },
+        {
+          "name": "Policy orchestration",
+          "description": "Controls run across CI, IaC, and runtime. Exceptions are documented and routed for review."
+        },
+        {
+          "name": "Evidence stream",
+          "description": "SBOMs, attestations, and control proofs sync to Supabase, GRC tools, and customer portals."
+        }
+      ]
+    },
+    "integrationsCard": {
+      "title": "Integrations that meet you where you work",
+      "description": "Use Speckit UI, CLI, or APIs. Bring your own secrets manager, ticketing, and observability stack.",
+      "items": ["GitHub", "GitLab", "Bitbucket", "Jira", "ServiceNow", "PagerDuty", "AWS", "Azure", "GCP"]
+    },
+    "supabaseCard": {
+      "title": "Shared Supabase data core",
+      "paragraphs": [
+        "Marketing and product forms feed one Supabase project. Row-level security keeps leads private while your GTM and product teams analyze performance.",
+        "Use the service role to sync Speckit evidence to your data warehouse or customer trust portal with confidence."
+      ]
+    }
+  },
+  "howItWorks": {
+    "hero": {
+      "eyebrow": "How it works",
+      "title": "A continuous loop that brings trust into daily delivery",
+      "description": "Speckit unites planning, shipping, and proving. Every step is automated, traceable, and designed for collaboration."
+    },
+    "stages": [
+      {
+        "name": "Capture",
+        "description": "Specs start in Git-backed docs. Risk, controls, and approvers are defined at the beginning, not the end."
+      },
+      {
+        "name": "Orchestrate",
+        "description": "Controls trigger across pipelines and environments. Exceptions kick off review workflows automatically."
+      },
+      {
+        "name": "Publish",
+        "description": "Evidence lands where it is needed — Supabase, GRC tools, customer trust portals, and analytics stacks."
+      }
+    ],
+    "stageLabel": "Step {count}",
+    "audiences": [
+      {
+        "role": "Platform",
+        "value": "Golden paths with governance built-in. No more waiting for approvals or chasing down sign-offs."
+      },
+      {
+        "role": "Security",
+        "value": "Policy-as-code with transparency. Audit every control execution and exception trail."
+      },
+      {
+        "role": "Compliance",
+        "value": "Evidence on demand. Dashboards map controls to frameworks and highlight gaps instantly."
+      }
+    ],
+    "tooling": {
+      "title": "Bring your own tooling",
+      "description": "Speckit integrates via webhooks, REST APIs, and SDKs. Use our Supabase adapters to sync data across environments with RLS intact.",
+      "items": [
+        "GitHub Actions, CircleCI, GitLab pipelines",
+        "Terraform, Pulumi, CloudFormation",
+        "ServiceNow, Jira, Linear workflow updates",
+        "Supabase, Snowflake, and customer trust portals"
+      ]
+    }
+  },
+  "template": {
+    "hero": {
+      "eyebrow": "Template",
+      "title": "A proven rollout playbook",
+      "description": "Download the six-week plan Speckit uses to launch with platform, security, and compliance teams.",
+      "actions": {
+        "primaryLabel": "Get the template",
+        "primaryHref": "https://github.com/airnub/speckit-templates"
+      }
+    },
+    "steps": [
+      {
+        "title": "Week 1 — Discovery",
+        "description": "Map current controls, tooling, and evidence flows. Identify pilot teams and success metrics."
+      },
+      {
+        "title": "Weeks 2-3 — Orchestration",
+        "description": "Configure Supabase, connect repos, and codify policy gates in pipelines and IaC."
+      },
+      {
+        "title": "Weeks 4-5 — Enablement",
+        "description": "Enable teams with templates, guardrail playbooks, and evidence dashboards."
+      },
+      {
+        "title": "Week 6 — Scale",
+        "description": "Review KPIs, expand to additional services, and integrate evidence feeds into trust portals."
+      }
+    ]
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "See Speckit in action",
+      "description": "Share a bit about your platform program and we will tailor a walkthrough to your goals."
+    },
+    "form": {
+      "title": "Request a demo",
+      "description": "Tell us about your environment and target launch timeline.",
+      "submitLabel": "Request demo",
+      "fields": {
+        "nameLabel": "Full name",
+        "emailLabel": "Work email",
+        "emailRequiredSuffix": "*",
+        "companyLabel": "Company",
+        "focusLabel": "What should we focus on?"
+      }
+    },
+    "shortcuts": {
+      "emailHeading": "Email",
+      "productQuestions": "Product questions: speckit@airnub.io",
+      "security": "Security: security@airnub.io",
+      "docsHeading": "Docs",
+      "docsDescription": "Explore API references and implementation guides.",
+      "docsCtaLabel": "docs.speckit.dev →"
+    }
+  },
+  "solutions": {
+    "hero": {
+      "eyebrow": "Solutions",
+      "title": "Speckit adapts to your security and platform operating model",
+      "description": "Pick a tailored path to orchestrate policy gates, evidence automation, and cross-team collaboration."
+    },
+    "personas": [
+      {
+        "title": "CISO",
+        "description": "Make compliance continuous. Turn control evidence into a daily signal instead of an annual fire drill.",
+        "href": "/solutions/ciso",
+        "ctaLabel": "Explore →"
+      },
+      {
+        "title": "DevSecOps",
+        "description": "Embed guardrails in every pipeline while empowering teams to ship faster with transparency.",
+        "href": "/solutions/devsecops",
+        "ctaLabel": "Explore →"
+      }
+    ]
+  },
+  "solutionsCiso": {
+    "hero": {
+      "eyebrow": "Solutions",
+      "title": "Continuous compliance without manual scramble",
+      "description": "Speckit gives CISOs real-time visibility into control posture, exceptions, and audit readiness."
+    },
+    "outcomesTitle": "Why CISOs choose Speckit",
+    "outcomes": [
+      "Live control status mapped to SOC 2, ISO 27001, HIPAA, and FedRAMP",
+      "Automated SSP narratives and customer trust report feeds",
+      "Evidence retention policies backed by Supabase row-level security"
+    ],
+    "deliverables": {
+      "title": "Deliverables",
+      "cards": [
+        {
+          "title": "Control automation",
+          "description": "Codified guardrails for change management, access reviews, vulnerability management, and incident response."
+        },
+        {
+          "title": "Executive reporting",
+          "description": "Dashboards for board and customer updates with drill-down evidence trails."
+        }
+      ]
+    }
+  },
+  "solutionsDevSecOps": {
+    "hero": {
+      "eyebrow": "Solutions",
+      "title": "Guardrails and speed for every delivery team",
+      "description": "Speckit gives DevSecOps teams programmable controls, observability, and shared context with security and compliance."
+    },
+    "benefitsTitle": "What DevSecOps gains",
+    "benefits": [
+      "Policy-as-code modules for GitHub Actions, GitLab CI, and Jenkins",
+      "Runtime attestations linked to environments and deployments",
+      "Service catalogs with self-serve golden paths and guardrails"
+    ],
+    "capabilities": {
+      "title": "Key capabilities",
+      "cards": [
+        {
+          "title": "Workflow adapters",
+          "description": "Drop-in actions, templates, and CLI commands for pipelines and infrastructure."
+        },
+        {
+          "title": "Observability hooks",
+          "description": "Send control results to Datadog, Grafana, or Slack with deep links into evidence."
+        }
+      ]
     }
   }
 }
