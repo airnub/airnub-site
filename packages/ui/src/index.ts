@@ -1,5 +1,6 @@
 export * from "./components/client/Button";
 export * from "./Container";
+export * from "./Section";
 export * from "./components/client/Header";
 export * from "./components/client/FormMessage";
 export * from "./Footer";

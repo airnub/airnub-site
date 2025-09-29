@@ -33,7 +33,7 @@ export default async function SpeckitHome() {
   const home = messages.home;
 
   return (
-    <div className="space-y-24 pb-24">
+    <main className="flex flex-col">
       <Hero
         eyebrow={home.hero.eyebrow}
         title={home.hero.title}
@@ -161,6 +161,6 @@ export default async function SpeckitHome() {
           logo: <span className="text-sm font-semibold text-foreground">{logo}</span>,
         }))}
       />
-    </div>
+    </main>
   );
 }

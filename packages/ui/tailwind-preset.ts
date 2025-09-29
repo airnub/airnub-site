@@ -87,6 +87,11 @@ const preset = {
           "monospace",
         ],
       },
+      spacing: {
+        "section-sm": "var(--section-gap-sm)",
+        "section-md": "var(--section-gap-md)",
+        "section-lg": "var(--section-gap-lg)",
+      },
       boxShadow: {
         card: "0 1px 2px rgba(0,0,0,.05)",
       },
