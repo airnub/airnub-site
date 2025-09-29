@@ -39,12 +39,12 @@ export default async function PricingPage() {
         <Container className="grid gap-8 lg:grid-cols-3">
           {pricing.tiers.map((tier) => (
             <Card key={tier.name} className="flex h-full flex-col">
-              <CardHeader className="p-8 pb-0">
+              <CardHeader className="gap-3">
                 <CardTitle className="text-2xl">{tier.name}</CardTitle>
                 <p className="text-lg font-semibold text-indigo-600 dark:text-indigo-300">{tier.price}</p>
                 <CardDescription>{tier.description}</CardDescription>
               </CardHeader>
-              <CardContent className="flex flex-1 flex-col justify-between gap-6 p-8 pt-4 text-sm text-muted-foreground">
+              <CardContent className="flex flex-1 flex-col justify-between gap-6 text-sm text-muted-foreground">
                 <ul className="space-y-2">
                   {tier.highlights.map((highlight) => (
                     <li key={highlight}>→ {highlight}</li>

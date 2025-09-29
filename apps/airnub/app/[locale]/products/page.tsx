@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { Button, Container } from "@airnub/ui";
+import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Container } from "@airnub/ui";
 import { getTranslations } from "next-intl/server";
 import { PageHero } from "../../../components/PageHero";
 import { JsonLd } from "../../../components/JsonLd";
@@ -82,22 +82,22 @@ export default async function ProductsPage({
               : {};
 
             return (
-              <article
+              <Card
                 key={offering.id}
-                className="flex h-full flex-col justify-between rounded-3xl border border-border bg-card/60 p-8 shadow-lg shadow-slate-950/40"
+                className="flex h-full flex-col justify-between bg-card/60 shadow-lg shadow-slate-950/40"
               >
-                <div>
+                <CardHeader className="gap-4">
                   <div className="flex items-center gap-3">
-                    <h2 className="text-2xl font-semibold text-foreground">{offering.name}</h2>
+                    <CardTitle className="text-2xl">{offering.name}</CardTitle>
                     {offering.badge ? (
                       <span className="rounded-full border border-sky-500/40 bg-sky-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-sky-300">
                         {offering.badge}
                       </span>
                     ) : null}
                   </div>
-                  <p className="mt-3 text-sm text-muted-foreground">{offering.description}</p>
-                </div>
-                <div className="mt-8">
+                  <CardDescription>{offering.description}</CardDescription>
+                </CardHeader>
+                <CardContent className="mt-auto">
                   <LinkComponent
                     href={offering.href}
                     className="text-sm font-semibold text-sky-400 transition hover:text-sky-300"
@@ -105,8 +105,8 @@ export default async function ProductsPage({
                   >
                     {offeringCta} →
                   </LinkComponent>
-                </div>
-              </article>
+                </CardContent>
+              </Card>
             );
           })}
         </Container>
@@ -115,26 +115,26 @@ export default async function ProductsPage({
       <section>
         <Container className="grid gap-8 lg:grid-cols-2">
           {insights.map((insight) => (
-            <div key={insight.id} className="rounded-3xl border border-border bg-card/70 p-8 shadow-lg shadow-slate-950/40">
-              <h3 className="text-xl font-semibold text-foreground">{insight.title}</h3>
-              {insight.description ? (
-                <p className="mt-3 text-sm text-muted-foreground">{insight.description}</p>
-              ) : null}
-              {insight.bullets ? (
-                <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                  {insight.bullets.map((bullet) => (
-                    <li key={bullet}>→ {bullet}</li>
-                  ))}
-                </ul>
-              ) : null}
-              {insight.paragraphs ? (
-                <div className="mt-3 space-y-3 text-sm text-muted-foreground">
-                  {insight.paragraphs.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                </div>
-              ) : null}
-            </div>
+            <Card key={insight.id} className="bg-card/70 shadow-lg shadow-slate-950/40">
+              <CardHeader className="gap-3">
+                <CardTitle className="text-xl">{insight.title}</CardTitle>
+                {insight.description ? <CardDescription>{insight.description}</CardDescription> : null}
+              </CardHeader>
+              {(insight.bullets || insight.paragraphs) && (
+                <CardContent className="space-y-3 text-sm text-muted-foreground">
+                  {insight.bullets ? (
+                    <ul className="space-y-2">
+                      {insight.bullets.map((bullet) => (
+                        <li key={bullet}>→ {bullet}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+                  {insight.paragraphs
+                    ? insight.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)
+                    : null}
+                </CardContent>
+              )}
+            </Card>
           ))}
         </Container>
       </section>

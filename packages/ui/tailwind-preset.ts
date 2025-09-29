@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 import tailwindTypography from "@tailwindcss/typography";
 import tailwindAnimate from "tailwindcss-animate";
 
-const config = {
+const preset = {
   darkMode: "class",
   theme: {
     container: { center: true, padding: "2rem" },
@@ -16,6 +16,10 @@ const config = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
@@ -52,4 +56,4 @@ const config = {
   plugins: [tailwindTypography, tailwindAnimate],
 } satisfies Config;
 
-export default config;
+export default preset;

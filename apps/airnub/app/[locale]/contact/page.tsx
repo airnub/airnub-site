@@ -43,13 +43,13 @@ function ContactShortcuts({
 }: ContactShortcutsProps) {
   return (
     <div className="space-y-6">
-      <Card className="rounded-3xl bg-card/80 shadow-lg shadow-slate-900/5 backdrop-blur">
-        <CardHeader className="p-6">
+      <Card className="bg-card/80 shadow-lg shadow-slate-900/5 backdrop-blur">
+        <CardHeader>
           <CardTitle className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
             {emailTitle}
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-2 p-6 pt-0 text-sm text-muted-foreground">
+        <CardContent className="space-y-2 text-sm text-muted-foreground">
           <p>
             {emailSales}: <a className="text-sky-600 underline-offset-4 hover:underline dark:text-sky-400" href="mailto:hello@airnub.io">hello@airnub.io</a>
           </p>
@@ -58,13 +58,13 @@ function ContactShortcuts({
           </p>
         </CardContent>
       </Card>
-      <Card className="rounded-3xl bg-card/80 shadow-lg shadow-slate-900/5 backdrop-blur">
-        <CardHeader className="p-6">
+      <Card className="bg-card/80 shadow-lg shadow-slate-900/5 backdrop-blur">
+        <CardHeader>
           <CardTitle className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
             {officeTitle}
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-3 p-6 pt-0 text-sm text-muted-foreground">
+        <CardContent className="space-y-3 text-sm text-muted-foreground">
           <p>{officeDescription}</p>
           <a
             href="https://cal.com/airnub/office-hours"
@@ -118,14 +118,14 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
 
       <section>
         <Container className="grid gap-12 lg:grid-cols-[2fr,1fr]">
-          <Card className="rounded-3xl bg-card/80 shadow-lg shadow-slate-900/5 backdrop-blur">
-            <CardHeader className="p-10">
+          <Card className="bg-card/80 shadow-lg shadow-slate-900/5 backdrop-blur">
+            <CardHeader className="gap-4">
               <CardTitle className="text-xl text-foreground">{t("form.title")}</CardTitle>
               <CardDescription className="text-sm text-muted-foreground">
                 {t("form.description")}
               </CardDescription>
             </CardHeader>
-            <CardContent className="p-10 pt-0">
+            <CardContent>
               <ContactForm
                 action={submitLead}
                 initialState={initialLeadFormState}

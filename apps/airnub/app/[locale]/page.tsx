@@ -155,7 +155,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <Container className="grid gap-10 lg:grid-cols-3">
           {highlightItems.map((item) => (
             <Card key={item.id}>
-              <CardHeader className="p-8">
+              <CardHeader>
                 <CardTitle className="text-xl">{item.title}</CardTitle>
                 <CardDescription>{item.description}</CardDescription>
               </CardHeader>
@@ -185,15 +185,17 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section>
         <Container>
           <Card>
-            <CardContent className="grid gap-12 p-10 sm:p-12 lg:grid-cols-2 lg:items-center">
-              <div>
-                <CardTitle className="text-3xl tracking-tight text-card-foreground sm:text-4xl">
-                  {speckit.title}
-                </CardTitle>
-                <CardDescription className="mt-4 text-base text-muted-foreground">
-                  {speckit.description}
-                </CardDescription>
-                <div className="mt-6 flex flex-wrap gap-4">
+            <CardContent className="grid gap-12 pt-5 lg:grid-cols-2 lg:items-start">
+              <div className="space-y-6">
+                <CardHeader className="gap-4 p-0">
+                  <CardTitle className="text-3xl tracking-tight text-card-foreground sm:text-4xl">
+                    {speckit.title}
+                  </CardTitle>
+                  <CardDescription className="text-base text-muted-foreground">
+                    {speckit.description}
+                  </CardDescription>
+                </CardHeader>
+                <div className="flex flex-wrap gap-4">
                   <Button asChild>
                     <Link href="https://speckit.airnub.io" target="_blank" rel="noreferrer">
                       {speckit.primaryCta}
@@ -205,10 +207,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 </div>
               </div>
               <Card>
-                <CardHeader className="p-8">
+                <CardHeader>
                   <CardTitle className="text-lg">{speckit.outcomesTitle}</CardTitle>
                 </CardHeader>
-                <CardContent className="p-8 pt-0">
+                <CardContent>
                   <ul className="space-y-3 text-sm text-muted-foreground">
                     {speckit.outcomes.map((outcome, index) => {
                       const accentClass = outcomeAccentClasses[
