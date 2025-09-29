@@ -1,6 +1,6 @@
 import "@airnub/ui/styles.css";
 import "../globals.css";
-import { FooterAirnub, HeaderAirnub, ThemeProvider, ToastProvider, type FooterColumn } from "@airnub/ui";
+import { BrandProvider, FooterAirnub, HeaderAirnub, ThemeProvider, ToastProvider, type FooterColumn } from "@airnub/ui";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
@@ -12,6 +12,7 @@ import { assertLocale, locales, type Locale } from "../../i18n/routing";
 import { MaintenanceGate } from "./maintenance/MaintenanceGate";
 import { isMaintenanceModeEnabled } from "../../lib/runtime-flags";
 import { LocaleSwitcher } from "../../components/LocaleSwitcher";
+import { brand as airnubBrand } from "@airnub/brand";
 
 const jsonLd = buildAirnubOrganizationJsonLd();
 
@@ -174,37 +175,39 @@ export default async function LocaleLayout({
       </head>
       <body className="flex min-h-screen flex-col">
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <ThemeProvider>
-            <ToastProvider>
-              <a href="#content" className="skip-link">
-                {common("skipToContent")}
-              </a>
-              <HeaderAirnub
-                navItems={navItems}
-                homeHref={`/${locale}`}
-                homeAriaLabel="Airnub home"
-                githubLabel={common("githubLabel")}
-                themeToggleLabel={common("theme.toggle")}
-                additionalRightSlot={<LocaleSwitcher />}
-              />
-              <main id="content" className="flex-1">
-                <MaintenanceGate
-                  enabled={maintenanceEnabled}
-                  title={maintenanceCopy.title}
-                  description={maintenanceCopy.description}
-                  cta={maintenanceCopy.cta}
-                >
-                  {children}
-                </MaintenanceGate>
-              </main>
-              <FooterAirnub
-                pathPrefix={`/${locale}`}
-                columns={footerColumns}
-                bottomLinks={footerBottomLinks}
-                description={footer("description")}
-              />
-            </ToastProvider>
-          </ThemeProvider>
+          <BrandProvider value={airnubBrand}>
+            <ThemeProvider>
+              <ToastProvider>
+                <a href="#content" className="skip-link">
+                  {common("skipToContent")}
+                </a>
+                <HeaderAirnub
+                  navItems={navItems}
+                  homeHref={`/${locale}`}
+                  homeAriaLabel={`${airnubBrand.name} home`}
+                  githubLabel={common("githubLabel")}
+                  themeToggleLabel={common("theme.toggle")}
+                  additionalRightSlot={<LocaleSwitcher />}
+                />
+                <main id="content" className="flex-1">
+                  <MaintenanceGate
+                    enabled={maintenanceEnabled}
+                    title={maintenanceCopy.title}
+                    description={maintenanceCopy.description}
+                    cta={maintenanceCopy.cta}
+                  >
+                    {children}
+                  </MaintenanceGate>
+                </main>
+                <FooterAirnub
+                  pathPrefix={`/${locale}`}
+                  columns={footerColumns}
+                  bottomLinks={footerBottomLinks}
+                  description={footer("description")}
+                />
+              </ToastProvider>
+            </ThemeProvider>
+          </BrandProvider>
         </NextIntlClientProvider>
       </body>
     </html>
