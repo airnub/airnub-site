@@ -24,8 +24,8 @@ const preset = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--brand-background))",
-        foreground: "hsl(var(--brand-foreground))",
+        background: "rgb(from var(--brand-background) r g b / <alpha-value>)",
+        foreground: "rgb(from var(--brand-foreground) r g b / <alpha-value>)",
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
@@ -39,16 +39,24 @@ const preset = {
           foreground: "hsl(var(--muted-foreground))",
         },
         primary: {
-          DEFAULT: "hsl(var(--brand-primary))",
-          foreground: "hsl(var(--brand-primary-foreground))",
+          DEFAULT: "rgb(from var(--brand-primary) r g b / <alpha-value>)",
+          foreground: "rgb(from var(--brand-primary-foreground) r g b / <alpha-value>)",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
         accent: {
-          DEFAULT: "hsl(var(--brand-accent))",
-          foreground: "hsl(var(--brand-accent-foreground))",
+          DEFAULT: "rgb(from var(--brand-accent) r g b / <alpha-value>)",
+          foreground: "rgb(from var(--brand-accent-foreground) r g b / <alpha-value>)",
+        },
+        brand: {
+          DEFAULT: "rgb(from var(--brand-primary) r g b / <alpha-value>)",
+          foreground: "rgb(from var(--brand-foreground) r g b / <alpha-value>)",
+          subtle: "rgb(from var(--brand-surface-subtle) r g b / <alpha-value>)",
+          accent: "rgb(from var(--brand-surface-accent) r g b / <alpha-value>)",
+          bold: "rgb(from var(--brand-surface-bold) r g b / <alpha-value>)",
+          contrast: "rgb(from var(--brand-primary-foreground) r g b / <alpha-value>)",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",

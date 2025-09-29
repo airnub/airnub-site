@@ -88,7 +88,7 @@ export default async function SpeckitHome() {
           </div>
           <Card className="relative overflow-hidden">
             <div
-              className="absolute inset-0 bg-[radial-gradient(circle_at_top,_hsl(var(--primary)/0.15),_transparent_55%)]"
+              className="absolute inset-0 bg-[radial-gradient(circle_at_top,_color-mix(in_srgb,var(--brand-primary)_15%,transparent),_transparent_55%)]"
               aria-hidden="true"
             />
             <CardContent className="relative space-y-6 pt-5 text-sm text-muted-foreground">

@@ -23,7 +23,7 @@ export function PageHero({
       )}
     >
       <div
-        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_hsl(var(--primary)/0.12)_0,_transparent_55%)]"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_color-mix(in_srgb,var(--brand-primary)_12%,transparent)_0,_transparent_55%)]"
         aria-hidden="true"
       />
       <Container className="max-w-4xl">

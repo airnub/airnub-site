@@ -131,7 +131,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     })),
   } as const;
 
-  const outcomeAccentClasses = ["bg-sky-400", "bg-violet-400", "bg-emerald-400"] as const;
+  const outcomeAccentClasses = ["bg-brand-subtle", "bg-brand-accent", "bg-brand-bold"] as const;
 
   return (
     <div className="space-y-24 pb-24">
