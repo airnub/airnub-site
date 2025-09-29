@@ -22,7 +22,7 @@ import { getCurrentLanguage } from "../lib/language";
 import { getSpeckitMessages } from "../i18n/messages";
 import { supportedLanguages } from "../i18n/config";
 import speckitBrand from "../brand.config";
-import { buildBrandMetadata } from "@airnub/brand";
+import { buildBrandMetadata, speckitNavigation } from "@airnub/brand";
 
 const jsonLd = buildSpeckitSoftwareJsonLd();
 
@@ -81,69 +81,92 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     value: code,
     label: layoutMessages.locale.options[code] ?? code,
   }));
-  const navItems: NavItem[] = [
-    { label: layoutMessages.nav.product, href: "/product" },
-    { label: layoutMessages.nav.howItWorks, href: "/how-it-works" },
-    { label: layoutMessages.nav.solutions, href: "/solutions" },
-    { label: layoutMessages.nav.docs, href: "https://docs.speckit.dev", external: true },
-    { label: layoutMessages.nav.pricing, href: "/pricing" },
-    { label: layoutMessages.nav.trust, href: "https://trust.airnub.io", external: true },
-    { label: layoutMessages.nav.contact, href: "/contact" },
-  ];
+  const getLayoutValue = (key: string): string => {
+    const segments = key.split(".");
+    const namespace = segments.shift();
+    if (namespace !== "layout") {
+      throw new Error(`Invalid layout message key: ${key}`);
+    }
+    let current: unknown = layoutMessages;
+    for (const segment of segments) {
+      if (current && typeof current === "object") {
+        current = (current as Record<string, unknown>)[segment];
+      } else {
+        current = undefined;
+        break;
+      }
+    }
+    if (typeof current !== "string") {
+      throw new Error(`Missing layout message for key: ${key}`);
+    }
+    return current;
+  };
 
-  const footerColumns: FooterColumn[] = [
-    {
-      heading: footerMessages.columns.product.heading,
-      links: [
-        { label: footerMessages.columns.product.overview, href: "/" },
-        { label: footerMessages.columns.product.howItWorks, href: "/how-it-works" },
-        { label: footerMessages.columns.product.integrations, href: "/product#integrations" },
-      ],
-    },
-    {
-      heading: footerMessages.columns.resources.heading,
-      links: [
-        { label: footerMessages.columns.resources.docs, href: "https://docs.speckit.dev", external: true },
-        { label: footerMessages.columns.resources.apiReference, href: "https://docs.speckit.dev/api", external: true },
-        { label: footerMessages.columns.resources.community, href: "https://github.com/airnub/speckit/discussions", external: true },
-      ],
-    },
-    {
-      heading: footerMessages.columns.openSource.heading,
-      links: [
-        { label: footerMessages.columns.openSource.repo, href: "https://github.com/airnub/speckit", external: true },
-        { label: footerMessages.columns.openSource.templates, href: "https://github.com/airnub/speckit-templates", external: true },
-        { label: footerMessages.columns.openSource.issues, href: "https://github.com/airnub/speckit/issues", external: true },
-        { label: footerMessages.columns.openSource.license, href: "https://github.com/airnub/speckit/blob/main/LICENSE", external: true },
-      ],
-    },
-    {
-      heading: footerMessages.columns.trust.heading,
-      links: [
-        { label: footerMessages.columns.trust.trustCenter, href: "https://trust.airnub.io", external: true },
-        { label: footerMessages.columns.trust.status, href: "https://status.airnub.io", external: true },
-        { label: footerMessages.columns.trust.securityTxt, href: "https://trust.airnub.io/.well-known/security.txt", external: true },
-      ],
-    },
-  ];
+  const findContactValue = (keys: ReadonlyArray<keyof typeof speckitBrand.contact>) => {
+    for (const key of keys) {
+      const value = speckitBrand.contact[key];
+      if (value) {
+        return value;
+      }
+    }
+    return undefined;
+  };
+
+  const navItems: NavItem[] = speckitNavigation.header.map((item) => ({
+    label: getLayoutValue(item.labelKey),
+    href: item.href,
+    external: item.external,
+  }));
+
+  const footerColumns: FooterColumn[] = speckitNavigation.footer.groups.map((group) => ({
+    heading: getLayoutValue(group.headingKey),
+    links: group.links.map((link) => ({
+      label: getLayoutValue(link.labelKey),
+      href: link.href,
+      external: link.external,
+    })),
+  }));
+
+  const footerBottomLinks = speckitNavigation.footer.ctas
+    .map((cta) => {
+      let href = cta.href;
+      let label = getLayoutValue(cta.labelKey);
+
+      if (cta.contact) {
+        const contactValue = findContactValue(cta.contact.keys as ReadonlyArray<keyof typeof speckitBrand.contact>);
+        if (!contactValue) {
+          return null;
+        }
+
+        const hrefType = cta.contact.hrefType ?? "mailto";
+        if (hrefType === "mailto") {
+          href = `mailto:${contactValue}`;
+        } else if (hrefType === "tel") {
+          href = `tel:${contactValue}`;
+        }
+
+        const paramKeys = cta.contact.translationParamKeys;
+        const params =
+          paramKeys && paramKeys.length > 0
+            ? Object.fromEntries(paramKeys.map((paramKey) => [paramKey, contactValue]))
+            : { email: contactValue };
+        label = formatTemplate(label, params);
+      }
+
+      if (!href) {
+        return null;
+      }
+
+      return {
+        label,
+        href,
+        external: cta.external,
+      };
+    })
+    .filter((link): link is { label: string; href: string; external?: boolean } => Boolean(link));
 
   const year = new Date().getFullYear();
   const githubUrl = speckitBrand.social.github ?? "https://github.com";
-  const contactEmail =
-    speckitBrand.contact.product ??
-    speckitBrand.contact.general ??
-    speckitBrand.contact.support;
-  const footerContactLabel = contactEmail
-    ? formatTemplate(footerMessages.contact.label, {
-        contactEmail,
-        email: contactEmail,
-        productEmail: contactEmail,
-      })
-    : footerMessages.contact.label;
-  const footerBottomLinks = [
-    ...(contactEmail ? [{ label: footerContactLabel, href: `mailto:${contactEmail}` }] : []),
-    { label: footerMessages.contact.pricing, href: "/pricing" },
-  ];
 
   return (
     <html

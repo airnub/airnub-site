@@ -20,7 +20,12 @@ import { assertLocale, locales, type Locale } from "../../i18n/routing";
 import { MaintenanceGate } from "./maintenance/MaintenanceGate";
 import { isMaintenanceModeEnabled } from "../../lib/runtime-flags";
 import { LocaleSwitcher } from "../../components/LocaleSwitcher";
-import { buildBrandMetadata, resolvedBrandConfig as airnubBrand } from "@airnub/brand";
+import {
+  airnubNavigation,
+  buildBrandMetadata,
+  resolvedBrandConfig as airnubBrand,
+  type BrandContacts,
+} from "@airnub/brand";
 
 const jsonLd = buildAirnubOrganizationJsonLd();
 
@@ -99,75 +104,89 @@ export default async function LocaleLayout({
   const footer = await getTranslations({ locale, namespace: "footer" });
 
   const withLocale = (path: string) => localeHref(locale, path);
-  const navItems = [
-    { label: nav("products"), href: withLocale("/products") },
-    { label: nav("solutions"), href: withLocale("/solutions") },
-    { label: nav("services"), href: withLocale("/services") },
-    { label: nav("resources"), href: withLocale("/resources") },
-    { label: nav("trust"), href: withLocale("/trust") },
-    { label: nav("company"), href: withLocale("/company") },
-    { label: nav("contact"), href: withLocale("/contact") },
-  ];
+
+  const translateLabel = (key: string, values?: Record<string, string>) => {
+    const [namespace, ...segments] = key.split(".");
+    if (!namespace || segments.length === 0) {
+      throw new Error(`Invalid navigation label key: ${key}`);
+    }
+    const path = segments.join(".");
+    if (namespace === "nav") {
+      return nav(path, values);
+    }
+    if (namespace === "footer") {
+      return footer(path, values);
+    }
+    throw new Error(`Unknown navigation namespace "${namespace}" for key "${key}"`);
+  };
 
   const localizeHref = (href: string, external?: boolean) =>
     external || !href.startsWith("/") ? href : withLocale(href);
 
-  const footerColumns: FooterColumn[] = [
-    {
-      heading: footer("columns.products.heading"),
-      links: [
-        { label: footer("columns.products.links.speckit"), href: "https://speckit.airnub.io", external: true },
-      ],
-    },
-    {
-      heading: footer("columns.resources.heading"),
-      links: [
-        { label: footer("columns.resources.links.docs"), href: "https://docs.speckit.dev", external: true },
-        { label: footer("columns.resources.links.blog"), href: localizeHref("/resources#blog") },
-        { label: footer("columns.resources.links.changelog"), href: localizeHref("/resources#changelog") },
-      ],
-    },
-    {
-      heading: footer("columns.openSource.heading"),
-      links: [
-        { label: footer("columns.openSource.links.org"), href: "https://github.com/airnub", external: true },
-        { label: footer("columns.openSource.links.speckit"), href: "https://github.com/airnub/speckit", external: true },
-        { label: footer("columns.openSource.links.templates"), href: "https://github.com/airnub/landing-zones", external: true },
-      ],
-    },
-    {
-      heading: footer("columns.trust.heading"),
-      links: [
-        { label: footer("columns.trust.links.trustCenter"), href: "https://trust.airnub.io", external: true },
-        { label: footer("columns.trust.links.vdp"), href: "https://trust.airnub.io/vdp", external: true },
-        {
-          label: footer("columns.trust.links.securityTxt"),
-          href: "https://trust.airnub.io/.well-known/security.txt",
-          external: true,
-        },
-      ],
-    },
-    {
-      heading: footer("columns.company.heading"),
-      links: [
-        { label: footer("columns.company.links.about"), href: localizeHref("/company") },
-        { label: footer("columns.company.links.careers"), href: localizeHref("/company#careers") },
-        { label: footer("columns.company.links.press"), href: localizeHref("/company#press") },
-        { label: footer("columns.company.links.legal"), href: localizeHref("/company#legal") },
-      ],
-    },
-  ];
+  const findContactValue = (keys: ReadonlyArray<keyof BrandContacts>) => {
+    for (const key of keys) {
+      const value = airnubBrand.contact[key];
+      if (value) {
+        return value;
+      }
+    }
+    return undefined;
+  };
 
-  const salesEmail =
-    airnubBrand.contact.sales ?? airnubBrand.contact.support ?? airnubBrand.contact.general;
+  const navItems = airnubNavigation.header.map((item) => ({
+    label: translateLabel(item.labelKey),
+    href: localizeHref(item.href, item.external),
+    external: item.external,
+  }));
 
-  const footerBottomLinks = [
-    { label: footer("bottom.privacy"), href: localizeHref("/company#privacy") },
-    { label: footer("bottom.terms"), href: localizeHref("/company#terms") },
-    ...(salesEmail
-      ? [{ label: footer("bottom.email", { email: salesEmail }), href: `mailto:${salesEmail}` }]
-      : []),
-  ];
+  const footerColumns: FooterColumn[] = airnubNavigation.footer.groups.map((group) => ({
+    heading: translateLabel(group.headingKey),
+    links: group.links.map((link) => ({
+      label: translateLabel(link.labelKey),
+      href: localizeHref(link.href, link.external),
+      external: link.external,
+    })),
+  }));
+
+  const footerBottomLinks = airnubNavigation.footer.ctas
+    .map((cta) => {
+      let href = cta.href;
+      let translationValues: Record<string, string> | undefined;
+
+      if (cta.contact) {
+        const contactValue = findContactValue(cta.contact.keys);
+        if (!contactValue) {
+          return null;
+        }
+
+        const hrefType = cta.contact.hrefType ?? "mailto";
+        if (hrefType === "mailto") {
+          href = `mailto:${contactValue}`;
+        } else if (hrefType === "tel") {
+          href = `tel:${contactValue}`;
+        }
+
+        const paramKeys = cta.contact.translationParamKeys;
+        if (paramKeys && paramKeys.length > 0) {
+          translationValues = Object.fromEntries(paramKeys.map((paramKey) => [paramKey, contactValue]));
+        } else {
+          translationValues = { email: contactValue };
+        }
+      }
+
+      if (!href) {
+        return null;
+      }
+
+      return {
+        label: translateLabel(cta.labelKey, translationValues),
+        href: localizeHref(href, cta.external),
+        external: cta.external,
+      };
+    })
+    .filter((link): link is { label: string; href: string; external?: boolean } => Boolean(link));
+
+  const salesEmail = findContactValue(["sales", "support", "general"]);
 
   const maintenanceEnabled = await isMaintenanceModeEnabled();
   const maintenanceCopy = {
