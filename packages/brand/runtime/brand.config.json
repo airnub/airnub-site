@@ -20,5 +20,14 @@
     "github": "https://github.com/airnub",
     "x": "https://x.com/airnub",
     "linkedin": "https://www.linkedin.com/company/airnub"
+  },
+  "contact": {
+    "general": "hello@airnub.io",
+    "sales": "hello@airnub.io",
+    "support": "support@airnub.io",
+    "security": "security@airnub.io",
+    "careers": "careers@airnub.io",
+    "press": "press@airnub.io",
+    "partnerships": "partnerships@airnub.io"
   }
 }

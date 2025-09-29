@@ -3,7 +3,7 @@ import { constants } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { resolveBrandConfig } from "@airnub/brand";
+import { airnubNavigation, resolveBrandConfig, speckitNavigation } from "@airnub/brand";
 
 const brand = resolveBrandConfig();
 
@@ -15,6 +15,7 @@ const localBrandSourceDir = path.join(repoRoot, ".brand", "public", "brand");
 const runtimeDir = path.join(repoRoot, "packages", "brand", "runtime");
 const runtimeConfigPath = path.join(runtimeDir, "brand.config.json");
 const runtimeTokensPath = path.join(runtimeDir, "tokens.css");
+const runtimeNavigationPath = path.join(runtimeDir, "navigation.json");
 const apps = ["airnub", "speckit"];
 
 async function pathExists(targetPath: string): Promise<boolean> {
@@ -83,6 +84,12 @@ async function main() {
   await writeFile(runtimeTokensPath, createCssTokens(), "utf8");
   console.log(`Wrote runtime brand config to ${runtimeConfigPath}`);
   console.log(`Wrote runtime CSS tokens to ${runtimeTokensPath}`);
+  const runtimeNavigation = {
+    airnub: airnubNavigation,
+    speckit: speckitNavigation,
+  };
+  await writeFile(runtimeNavigationPath, `${JSON.stringify(runtimeNavigation, null, 2)}\n`, "utf8");
+  console.log(`Wrote runtime navigation to ${runtimeNavigationPath}`);
 }
 
 main().catch((error) => {
