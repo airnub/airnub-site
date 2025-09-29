@@ -12,12 +12,12 @@ import {
   GithubIcon,
   fontSans,
   fontMono,
-  SiteShell,
 } from "@airnub/ui";
 import { JsonLd } from "../components/JsonLd";
 import { buildSpeckitSoftwareJsonLd } from "../lib/jsonld";
 import { SPECKIT_BASE_URL } from "../lib/routes";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
+import { ActiveSiteShell } from "../components/ActiveSiteShell";
 import { getCurrentLanguage } from "../lib/language";
 import { getSpeckitMessages } from "../i18n/messages";
 import { supportedLanguages } from "../i18n/config";
@@ -181,7 +181,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       <body className="flex min-h-screen flex-col">
         <BrandProvider value={speckitBrand}>
           <ThemeProvider>
-            <SiteShell
+            <ActiveSiteShell
               skipToContentLabel={layoutMessages.skipToContent}
               navItems={navItems}
               homeHref="/"
@@ -213,7 +213,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
               footerCopyright={`© ${year} ${speckitBrand.name}. All rights reserved.`}
             >
               {children}
-            </SiteShell>
+            </ActiveSiteShell>
           </ThemeProvider>
         </BrandProvider>
       </body>

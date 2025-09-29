@@ -15,6 +15,8 @@ export type SiteShellProps = {
   headerRightSlot?: ReactNode;
   headerCta?: HeaderProps["cta"];
   headerClassName?: string;
+  headerActiveHref?: HeaderProps["activeHref"];
+  headerIsNavItemActive?: HeaderProps["isNavItemActive"];
   mainClassName?: string;
   footerLogo?: ReactNode;
   footerColumns: FooterColumn[];
@@ -34,6 +36,8 @@ export function SiteShell({
   headerRightSlot,
   headerCta,
   headerClassName,
+  headerActiveHref,
+  headerIsNavItemActive,
   mainClassName,
   footerLogo,
   footerColumns,
@@ -77,6 +81,8 @@ export function SiteShell({
         rightSlot={headerRightSlot}
         cta={headerCta}
         className={headerClassName}
+        activeHref={headerActiveHref}
+        isNavItemActive={headerIsNavItemActive}
       />
       <main id="content" className={clsx("flex-1", mainClassName)}>
         {children}
