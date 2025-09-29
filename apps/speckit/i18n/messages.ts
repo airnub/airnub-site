@@ -107,7 +107,7 @@ type ProductMessages = {
 type HowItWorksMessages = {
   hero: HeroMessages;
   stages: {
-    title: string;
+    name: string;
     description: string;
   }[];
   stageLabel: string;

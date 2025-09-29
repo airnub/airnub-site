@@ -1,8 +1,21 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import type { ReactNode } from "react";
+import { clsx } from "clsx";
 import "@airnub/ui/styles.css";
 import "./globals.css";
-import { FooterSpeckit, HeaderSpeckit, ThemeProvider, type FooterColumn, type NavItem } from "@airnub/ui";
+import {
+  Footer,
+  Header,
+  ThemeProvider,
+  ThemeToggle,
+  type FooterColumn,
+  type NavItem,
+  GithubIcon,
+  fontSans,
+  fontMono,
+} from "@airnub/ui";
+import { SpeckitWordmark } from "@airnub/brand";
 import { JsonLd } from "../components/JsonLd";
 import { buildSpeckitSoftwareJsonLd } from "../lib/jsonld";
 import { SPECKIT_BASE_URL } from "../lib/routes";
@@ -111,10 +124,12 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     },
   ];
 
+  const year = new Date().getFullYear();
+
   return (
     <html
       lang={language}
-      className="font-sans antialiased"
+      className={clsx(fontSans.variable, fontMono.variable, "font-sans antialiased")}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >
@@ -126,27 +141,46 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <a href="#content" className="skip-link">
             {layoutMessages.skipToContent}
           </a>
-          <HeaderSpeckit
+          <Header
+            logo={<SpeckitWordmark className="h-6" />}
             navItems={navItems}
-            themeToggleLabel={layoutMessages.themeToggle}
-            githubLabel={layoutMessages.githubLabel}
-            additionalRightSlot={
-              <LanguageSwitcher
-                initialLanguage={language}
-                label={layoutMessages.languageLabel}
-                options={languageOptions}
-              />
+            homeHref="/"
+            homeAriaLabel="Speckit home"
+            rightSlot={
+              <div className="flex items-center gap-3">
+                <Link
+                  href="https://github.com/airnub/speckit"
+                  className="hidden rounded-full border border-border p-2 text-muted-foreground transition hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring lg:inline-flex"
+                  aria-label={layoutMessages.githubLabel}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <GithubIcon className="h-4 w-4" />
+                </Link>
+                <ThemeToggle className="inline-flex" label={layoutMessages.themeToggle} />
+                <LanguageSwitcher
+                  initialLanguage={language}
+                  label={layoutMessages.languageLabel}
+                  options={languageOptions}
+                />
+              </div>
             }
           />
           <main id="content" className="flex-1">
             {children}
           </main>
-          <FooterSpeckit
+          <Footer
+            logo={<SpeckitWordmark className="h-6" />}
             columns={footerColumns}
-            contactLabel={footerMessages.contact.label}
-            pricingLabel={footerMessages.contact.pricing}
-            pricingHref="/pricing"
             description={footerMessages.description}
+            bottomSlot={
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-muted-foreground">
+                <Link href="mailto:speckit@airnub.io">{footerMessages.contact.label}</Link>
+                <span aria-hidden="true">•</span>
+                <Link href="/pricing">{footerMessages.contact.pricing}</Link>
+              </div>
+            }
+            copyright={`© ${year} Airnub. All rights reserved.`}
           />
         </ThemeProvider>
       </body>
