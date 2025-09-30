@@ -1,0 +1,99 @@
+{
+  "timestamp": "2025-09-30T22:22:36.260Z",
+  "addressed": [
+    "Central brand assets directory exists: `.brand/public/brand`.",
+    "Brand assets are synced to `packages/brand/public/brand`.",
+    "Root script `brand:sync` is present.",
+    "Brand config file is present: packages/brand/src/brand.config.ts"
+  ],
+  "outstanding": [
+    "[airnub] Missing import of brand tokens in `app/layout` (expected `@airnub/brand/runtime/tokens*.css`).",
+    "[airnub] Shared site chrome not detected (expect imports from `@airnub/ui` and usage of <SiteHeader/> + <SiteFooter/>).",
+    "[airnub] Missing `app/icon.tsx` route for favicon generation.",
+    "[airnub] Missing `app/opengraph-image.tsx` route for OG images.",
+    "[airnub] Tailwind not clearly wired to brand preset or CSS variables.",
+    "[airnub] Found images outside `public/brand`: public/logos/cloudyard.svg, public/logos/forge.svg, public/logos/northbeam.svg.",
+    "[speckit] Missing import of brand tokens in `app/layout` (expected `@airnub/brand/runtime/tokens*.css`).",
+    "[speckit] Shared site chrome not detected (expect imports from `@airnub/ui` and usage of <SiteHeader/> + <SiteFooter/>).",
+    "[speckit] Missing `app/icon.tsx` route for favicon generation.",
+    "[speckit] Missing `app/opengraph-image.tsx` route for OG images.",
+    "[speckit] Tailwind not clearly wired to brand preset or CSS variables.",
+    "CI does not run `pnpm brand:sync` before build."
+  ],
+  "apps": [
+    {
+      "app": "airnub",
+      "hasTokensImport": false,
+      "hasSharedHeaderFooter": false,
+      "foundSiteChromeImports": [],
+      "localHeaderFooterFiles": [],
+      "hasIconRoute": false,
+      "hasOGRoute": false,
+      "ogRouteReferencesBrandTemplate": false,
+      "tailwindHasBrandPreset": false,
+      "tailwindFile": "/workspace/airnub-site/apps/airnub/tailwind.config.ts",
+      "hardcodedColorHits": [],
+      "strayImages": [
+        "public/logos/cloudyard.svg",
+        "public/logos/forge.svg",
+        "public/logos/northbeam.svg"
+      ],
+      "assetDrift": {
+        "missingInApp": [],
+        "extraInApp": []
+      }
+    },
+    {
+      "app": "speckit",
+      "hasTokensImport": false,
+      "hasSharedHeaderFooter": false,
+      "foundSiteChromeImports": [
+        "@airnub/ui"
+      ],
+      "localHeaderFooterFiles": [],
+      "hasIconRoute": false,
+      "hasOGRoute": false,
+      "ogRouteReferencesBrandTemplate": false,
+      "tailwindHasBrandPreset": false,
+      "tailwindFile": "/workspace/airnub-site/apps/speckit/tailwind.config.ts",
+      "hardcodedColorHits": [],
+      "strayImages": [],
+      "assetDrift": {
+        "missingInApp": [],
+        "extraInApp": []
+      }
+    }
+  ],
+  "repo": {
+    "rootScripts": {
+      "dev": "turbo run dev --parallel --cache=local:r,remote:r",
+      "build": "turbo run build",
+      "lint": "turbo run lint",
+      "typecheck": "turbo run typecheck",
+      "a11y": "turbo run a11y",
+      "links": "turbo run links",
+      "sbom": "turbo run sbom",
+      "db:types": "supabase gen types typescript --local --schema public > packages/db/src/types.ts",
+      "db:link:staging": "supabase link --project-ref $SUPABASE_STAGING_REF",
+      "db:link:prod": "supabase link --project-ref $SUPABASE_PROD_REF",
+      "db:push": "supabase db push",
+      "db:diff": "supabase db diff --use-mig-dir supabase/migrations",
+      "db:env:local": "node scripts/sync-supabase-env.mjs",
+      "db:reset:local": "supabase stop || true && supabase start && supabase db reset",
+      "brand:sync": "tsx scripts/brand-sync.ts",
+      "prepare": "husky",
+      "docs:dev": "pnpm --filter docs start",
+      "docs:build": "pnpm --filter docs build",
+      "docs:deploy": "pnpm --filter docs deploy",
+      "lint:dark": "grep -R --line-number --color=always 'dark:' apps packages || true",
+      "validate:ui": "bash scripts/validate-ui.sh"
+    },
+    "hasBrandSyncScript": true,
+    "hasBrandCheckScript": false,
+    "brandConfigFile": "/workspace/airnub-site/packages/brand/src/brand.config.ts",
+    "brandAssetsDir": "/workspace/airnub-site/.brand/public/brand",
+    "brandPublicDir": "/workspace/airnub-site/packages/brand/public/brand",
+    "ciBrandSyncPresent": false,
+    "ciBrandCheckPresent": false
+  }
+}
