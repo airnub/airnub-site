@@ -3,8 +3,9 @@ import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Cont
 import { PageHero } from "../../components/PageHero";
 import { getCurrentLanguage } from "../../lib/language";
 import { getSpeckitMessages, type SpeckitMessages } from "../../i18n/messages";
-import { submitLead } from "./actions";
+import { submitLead, type LeadFormState } from "./actions";
 import speckitBrand from "../../brand.config";
+import { ContactForm } from "./ContactForm";
 
 export const dynamic = "force-dynamic";
 
@@ -88,6 +89,30 @@ export default async function ContactPage() {
     speckitBrand.contact.general ??
     speckitBrand.contact.support;
   const securityEmail = speckitBrand.contact.security ?? speckitBrand.contact.general;
+  const initialLeadFormState: LeadFormState = { status: "idle" };
+
+  const errorEmail = productEmail ?? securityEmail ?? undefined;
+  const formattedErrorDescription = errorEmail
+    ? formatTemplate(contact.form.error.description, { email: errorEmail })
+    : contact.form.error.description;
+
+  const formLabels = {
+    name: contact.form.fields.nameLabel,
+    email: contact.form.fields.emailLabel,
+    company: contact.form.fields.companyLabel,
+    focus: contact.form.fields.focusLabel,
+    emailRequiredSuffix: contact.form.fields.emailRequiredSuffix,
+    required: contact.form.requiredLabel,
+    submit: contact.form.submitLabel,
+    success: contact.form.success,
+    error: {
+      title: contact.form.error.title,
+      description: formattedErrorDescription,
+    },
+    validation: contact.form.validation,
+  };
+
+  const toastDismissLabel = contact.form.toastDismissLabel;
 
   return (
     <div className="space-y-16 pb-20">
@@ -105,62 +130,12 @@ export default async function ContactPage() {
               <CardDescription className="text-sm text-muted-foreground">{contact.form.description}</CardDescription>
             </CardHeader>
             <CardContent>
-              <form action={submitLead} className="space-y-6">
-                <div className="grid gap-6 md:grid-cols-2">
-                  <div>
-                    <label htmlFor="full_name" className="block text-sm font-semibold text-foreground">
-                      {contact.form.fields.nameLabel}
-                    </label>
-                    <input
-                      id="full_name"
-                      name="full_name"
-                      type="text"
-                      autoComplete="name"
-                      className="mt-2 w-full rounded-xl border border-input bg-card px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-foreground">
-                      {contact.form.fields.emailLabel}{" "}
-                      <span className="text-rose-400">{contact.form.fields.emailRequiredSuffix}</span>
-                    </label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      autoComplete="email"
-                      className="mt-2 w-full rounded-xl border border-input bg-card px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring"
-                    />
-                  </div>
-                </div>
-                <div className="grid gap-6 md:grid-cols-2">
-                  <div>
-                    <label htmlFor="company" className="block text-sm font-semibold text-foreground">
-                      {contact.form.fields.companyLabel}
-                    </label>
-                    <input
-                      id="company"
-                      name="company"
-                      type="text"
-                      autoComplete="organization"
-                      className="mt-2 w-full rounded-xl border border-input bg-card px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-semibold text-foreground">
-                      {contact.form.fields.focusLabel}
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      className="mt-2 w-full rounded-xl border border-input bg-card px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring"
-                    />
-                  </div>
-                </div>
-                <Button type="submit">{contact.form.submitLabel}</Button>
-              </form>
+              <ContactForm
+                action={submitLead}
+                initialState={initialLeadFormState}
+                labels={formLabels}
+                toastDismissLabel={toastDismissLabel}
+              />
             </CardContent>
           </Card>
           <ContactShortcuts

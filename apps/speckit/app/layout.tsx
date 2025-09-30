@@ -7,6 +7,7 @@ import {
   BrandProvider,
   ThemeProvider,
   ThemeToggle,
+  ToastProvider,
   type FooterColumn,
   type NavItem,
   GithubIcon,
@@ -181,7 +182,8 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       <body className="flex min-h-screen flex-col">
         <BrandProvider value={speckitBrand}>
           <ThemeProvider>
-            <ActiveSiteShell
+            <ToastProvider>
+              <ActiveSiteShell
               skipToContentLabel={layoutMessages.skipToContent}
               navItems={navItems}
               homeHref="/"
@@ -213,7 +215,8 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
               footerCopyright={`© ${year} ${speckitBrand.name}. All rights reserved.`}
             >
               {children}
-            </ActiveSiteShell>
+              </ActiveSiteShell>
+            </ToastProvider>
           </ThemeProvider>
         </BrandProvider>
       </body>

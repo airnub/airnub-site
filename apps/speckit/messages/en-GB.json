@@ -374,6 +374,19 @@
       "title": "Request a demo",
       "description": "Tell us about your environment and target launch timeline.",
       "submitLabel": "Request demo",
+      "requiredLabel": "required",
+      "success": {
+        "title": "Request received",
+        "description": "Thanks for reaching out. We'll respond within one business day."
+      },
+      "error": {
+        "title": "We couldn't send your request",
+        "description": "Please try again or email us at {email}."
+      },
+      "validation": {
+        "email": "Enter a valid work email to continue."
+      },
+      "toastDismissLabel": "Dismiss",
       "fields": {
         "nameLabel": "Full name",
         "emailLabel": "Work email",

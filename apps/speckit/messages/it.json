@@ -380,7 +380,20 @@
         "emailRequiredSuffix": "*",
         "companyLabel": "Azienda",
         "focusLabel": "Su cosa dovremmo concentrarci?"
-      }
+      },
+      "requiredLabel": "Obbligatorio",
+      "success": {
+        "title": "Richiesta ricevuta",
+        "description": "Grazie per averci contattato. Ti risponderemo entro un giorno lavorativo."
+      },
+      "error": {
+        "title": "Non siamo riusciti a inviare la tua richiesta",
+        "description": "Riprova oppure scrivici a {email}."
+      },
+      "validation": {
+        "email": "Inserisci un'e-mail di lavoro valida per continuare."
+      },
+      "toastDismissLabel": "Chiudi"
     },
     "shortcuts": {
       "emailHeading": "E-mail",

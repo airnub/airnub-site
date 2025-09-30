@@ -21,11 +21,54 @@ export async function leadInputFromFormData(formData: FormData): Promise<LeadInp
   };
 }
 
-export async function submitLead(formData: FormData) {
+export type LeadFormState = {
+  status: "idle" | "success" | "error";
+  message?: string;
+  errors?: {
+    email?: string;
+  };
+};
+
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const GENERIC_ERROR_MESSAGE =
+  "We couldn't send your request right now. Please try again in a moment.";
+
+const supabaseErrorMessages: Record<string, string> = {
+  "23505":
+    "Looks like we already have your request. We'll reach out as soon as possible.",
+};
+
+type SupabaseError = {
+  code?: string | null;
+  message?: string | null;
+};
+
+function mapSupabaseErrorMessage(error: SupabaseError | null): string {
+  if (!error) {
+    return GENERIC_ERROR_MESSAGE;
+  }
+
+  if (error.code && supabaseErrorMessages[error.code]) {
+    return supabaseErrorMessages[error.code];
+  }
+
+  return GENERIC_ERROR_MESSAGE;
+}
+
+export async function submitLead(
+  _state: LeadFormState,
+  formData: FormData,
+): Promise<LeadFormState> {
   const input = await leadInputFromFormData(formData);
 
-  if (!input.email) {
-    throw new Error("Email is required.");
+  if (!input.email || !emailPattern.test(input.email)) {
+    return {
+      status: "error",
+      errors: {
+        email: "validation.email",
+      },
+    };
   }
 
   const db: SupabaseDatabaseClient = getServerClient(cookies);
@@ -41,6 +84,13 @@ export async function submitLead(formData: FormData) {
   const { error } = await insertContactLead(db, payload);
 
   if (error) {
-    throw new Error(error.message);
+    return {
+      status: "error",
+      message: mapSupabaseErrorMessage(error),
+    };
   }
+
+  return {
+    status: "success",
+  };
 }
