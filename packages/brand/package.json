@@ -26,6 +26,9 @@
     "./runtime/tokens.css": {
       "default": "./runtime/tokens.css"
     },
+    "./runtime/tokens-speckit.css": {
+      "default": "./runtime/tokens-speckit.css"
+    },
     "./runtime/layout.css": {
       "default": "./runtime/layout.css"
     }
