@@ -380,7 +380,20 @@
         "emailRequiredSuffix": "*",
         "companyLabel": "Unternehmen",
         "focusLabel": "Worauf sollten wir uns konzentrieren?"
-      }
+      },
+      "requiredLabel": "Erforderlich",
+      "success": {
+        "title": "Anfrage erhalten",
+        "description": "Danke für Ihre Nachricht. Wir melden uns innerhalb eines Werktags."
+      },
+      "error": {
+        "title": "Ihre Anfrage konnte nicht gesendet werden",
+        "description": "Bitte versuchen Sie es erneut oder schreiben Sie uns an {email}."
+      },
+      "validation": {
+        "email": "Bitte geben Sie eine gültige geschäftliche E-Mail-Adresse ein."
+      },
+      "toastDismissLabel": "Schließen"
     },
     "shortcuts": {
       "emailHeading": "E-Mail",

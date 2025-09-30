@@ -380,7 +380,20 @@
         "emailRequiredSuffix": "-",
         "companyLabel": "Cuideachta",
         "focusLabel": "Cad ba cheart dúinn díriú air?"
-      }
+      },
+      "requiredLabel": "Riachtanach",
+      "success": {
+        "title": "Iarratas faighte",
+        "description": "Go raibh maith agat as teagmháil a dhéanamh linn. Freagróimid laistigh de lá oibre."
+      },
+      "error": {
+        "title": "Níor éirigh linn d'iarratas a sheoladh",
+        "description": "Bain triail eile as nó seol ríomhphost chugainn ag {email}."
+      },
+      "validation": {
+        "email": "Iontráil ríomhphost oibre bailí chun leanúint ar aghaidh."
+      },
+      "toastDismissLabel": "Dún"
     },
     "shortcuts": {
       "emailHeading": "Ríomhphost a chur chuig",

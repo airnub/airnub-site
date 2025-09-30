@@ -133,6 +133,19 @@ type ContactMessages = {
     title: string;
     description: string;
     submitLabel: string;
+    requiredLabel: string;
+    success: {
+      title: string;
+      description: string;
+    };
+    error: {
+      title: string;
+      description: string;
+    };
+    validation: {
+      email: string;
+    };
+    toastDismissLabel: string;
     fields: {
       nameLabel: string;
       emailLabel: string;
