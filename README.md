@@ -37,7 +37,7 @@ See [Architecture & Rendering](https://airnub.github.io/airnub-site/docs/archite
 
 ## 🎨 Branding & Rebranding
 
-Both marketing apps share a single brand pack so forks only have to update one place.
+Both marketing apps share a single brand pack so forks only have to update one place. Need the condensed playbook? Jump to the [Brand Pack Quickstart](packages/brand/QUICKSTART.md).
 
 - **Source of truth (editable assets):** [`.brand/public/brand/`](.brand/public/brand/)
 - **Runtime package:** [`packages/brand/`](packages/brand/) (ships config, CSS tokens, TypeScript navigation, and the static OG image helper)
@@ -93,6 +93,7 @@ Forks that want to diverge from the default brand can commit their own `.brand/p
 
 - [Architecture & Rendering](https://airnub.github.io/airnub-site/docs/architecture) ([local](docs/docs/architecture.md))
 - [Branding & Rebranding](https://airnub.github.io/airnub-site/docs/branding) ([local](docs/docs/branding.md))
+- [Brand Pack Quickstart](packages/brand/QUICKSTART.md)
 - [Supabase Guide](https://airnub.github.io/airnub-site/docs/supabase) ([local](docs/docs/supabase.md))
 - [Local Development](https://airnub.github.io/airnub-site/docs/development) ([local](docs/docs/development.md))
 - [CI & Contribution Workflow](https://airnub.github.io/airnub-site/docs/ci) ([local](docs/docs/ci.md))
@@ -100,7 +101,7 @@ Forks that want to diverge from the default brand can commit their own `.brand/p
 
 ## Contributing
 
-Follow Conventional Commits (`feat:`, `fix:`, `docs:` …) and keep secrets out of the repository. See the [CI & Contribution Workflow](./docs/ci.md) for enforcement details.
+Follow Conventional Commits (`feat:`, `fix:`, `docs:` …) and keep secrets out of the repository. See the [CI & Contribution Workflow](docs/docs/ci.md) for enforcement details.
 
 ## License
 

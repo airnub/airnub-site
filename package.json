@@ -25,7 +25,8 @@
     "docs:dev": "pnpm --filter docs start",
     "docs:build": "pnpm --filter docs build",
     "docs:deploy": "pnpm --filter docs deploy",
-    "lint:dark": "grep -R --line-number --color=always 'dark:' apps packages || true"
+    "lint:dark": "grep -R --line-number --color=always 'dark:' apps packages || true",
+    "validate:ui": "bash scripts/validate-ui.sh"
   },
   "devDependencies": {
     "@types/react": "^19.1.15",
