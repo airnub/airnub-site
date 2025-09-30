@@ -40,7 +40,7 @@ See [Architecture & Rendering](https://airnub.github.io/airnub-site/docs/archite
 Both marketing apps share a single brand pack so forks only have to update one place.
 
 - **Source of truth (editable assets):** [`.brand/public/brand/`](.brand/public/brand/)
-- **Runtime package:** [`packages/brand/`](packages/brand/) (ships config, CSS tokens, OG template, and navigation JSON)
+- **Runtime package:** [`packages/brand/`](packages/brand/) (ships config, CSS tokens, TypeScript navigation, and the static OG image helper)
 - **Shared UI chrome:** [`packages/ui/`](packages/ui/) (headers, footers, cards, etc.)
 
 ### Quick rebrand checklist
@@ -83,7 +83,9 @@ The sync script copies `.brand/public/brand/` into `packages/brand/public/brand/
 - [`packages/brand/runtime/tokens-speckit.css`](packages/brand/runtime/tokens-speckit.css)
 - [`packages/brand/runtime/navigation.json`](packages/brand/runtime/navigation.json)
 
-Apps import the CSS tokens in `app/layout.tsx` and delegate their Open Graph image + favicons to `@airnub/brand`, so rebrands propagate automatically.
+Apps import the CSS tokens in `app/layout.tsx`, build metadata with `buildBrandMetadata`, and serve the static Open Graph asset through `/api/og` by reading the PNG path exported from `@airnub/brand/server`. Favicons, touch icons, and the default OG URL come from the metadata helper, so rebrands propagate automatically without extra per-app files.
+
+Navigation is defined in TypeScript (`airnubNavigation` / `speckitNavigation` from `@airnub/brand`) and transformed inside each app before rendering. The generated `runtime/navigation.json` is available for tooling and validation but is not what powers the live UI today.
 
 Forks that want to diverge from the default brand can commit their own `.brand/public/brand/` assets, set the appropriate `BRAND_*` environment variables in CI/deploy, and run `pnpm brand:sync` during the build pipeline.
 

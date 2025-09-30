@@ -25,7 +25,7 @@ Running `pnpm brand:sync` copies the source assets into this package, pushes the
 - `brand.config.json` — resolved metadata + colors (includes environment overrides)
 - `tokens.css` — CSS variables consumed by both apps
 - `tokens-speckit.css` — Speckit-specific overrides loaded where needed
-- `navigation.json` — shared navigation definitions for headers/footers
+- `navigation.json` — generated navigation snapshot for tooling (apps read TypeScript definitions at runtime)
 
 ## Rebranding in three steps
 
@@ -65,8 +65,9 @@ Both apps will now pick up the new assets and tokens without touching their own 
 
 - Apps import CSS variables from `@airnub/brand/runtime/tokens.css`
 - Speckit can opt into `@airnub/brand/runtime/tokens-speckit.css` for its accent tweaks
-- OG images are defined in `og/template.tsx` and re-exported by `apps/*/app/opengraph-image.tsx`
-- `@airnub/ui` pulls navigation items from `runtime/navigation.json`
+- `buildBrandMetadata` from [`src/metadata.ts`](./src/metadata.ts) centralises default icons, favicons, and Open Graph metadata for Next.js layouts
+- The `/api/og` routes in each app read the PNG path exported by `@airnub/brand/server` (`ogTemplate`) and stream the static image defined in this package
+- `airnubNavigation` / `speckitNavigation` in [`src/navigation.ts`](./src/navigation.ts) provide the TypeScript definitions the apps adapt into their headers and footers
 
 If you need to override values programmatically, use `resolveBrandConfig` from [`src/brand.config.ts`](./src/brand.config.ts).
 

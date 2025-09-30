@@ -20,10 +20,10 @@ The Airnub monorepo uses a central brand pack so both marketing apps stay in syn
 | Piece | Location | Purpose |
 | --- | --- | --- |
 | Editable assets | `.brand/public/brand/` | Drop-in SVG/PNG source files committed by each fork |
-| Brand package | `packages/brand/` | Exposes config, CSS tokens, OG template, navigation |
-| Runtime tokens | `packages/brand/runtime/` | Generated CSS + JSON consumed at build/runtime |
+| Brand package | `packages/brand/` | Exposes config, CSS tokens, navigation definitions, and the server OG image helper |
+| Runtime outputs | `packages/brand/runtime/` | Generated CSS + JSON consumed at build/runtime |
 | Shared UI | `packages/ui/` | Header, footer, cards, and other brand-aware components |
-| Apps | `apps/airnub`, `apps/speckit` | Import tokens and shared chrome automatically |
+| Apps | `apps/airnub`, `apps/speckit` | Import tokens, metadata helpers, and shared chrome automatically |
 
 ## Rebrand checklist
 
@@ -66,21 +66,20 @@ flowchart LR
   A[.brand/public/brand/*] -- pnpm brand:sync --> B[packages/brand/public/brand/*]
   A -- pnpm brand:sync --> C[apps/*/public/brand/*]
   B -- tokens.json/css --> D[@airnub/brand runtime/*]
-  D --> E[apps import tokens.css + OG template]
+  D --> E[apps import tokens.css + metadata helpers]
   D --> F[@airnub/ui consumes navigation]
 ```
 
 - `packages/brand/runtime/brand.config.json` stores the resolved metadata (including env overrides).
 - `packages/brand/runtime/tokens.css` exposes CSS variables for both apps.
 - `packages/brand/runtime/tokens-speckit.css` contains Speckit-specific tweaks that components import as needed.
-- `packages/brand/runtime/navigation.json` keeps header/footer navigation consistent.
+- `packages/brand/runtime/navigation.json` captures the TypeScript navigation definitions for tooling/QA (the apps import the definitions directly from `@airnub/brand`).
 
 ## Where the apps hook in
 
-- `apps/*/app/layout.tsx` imports `@airnub/brand/runtime/tokens.css`.
-- `apps/*/app/opengraph-image.tsx` re-exports `@airnub/brand/og/template`.
-- `apps/*/app/icon.tsx` loads `/brand/favicon.svg`.
-- `@airnub/ui` components load navigation data from the runtime JSON.
+- `apps/*/app/layout.tsx` imports `@airnub/brand/runtime/tokens.css` and calls `buildBrandMetadata` to populate favicons, touch icons, and Open Graph defaults.
+- `apps/*/app/api/og/route.tsx` reads the PNG path exported from `@airnub/brand/server` (`ogTemplate`) and returns the static social image.
+- `@airnub/ui` receives the TypeScript navigation definitions (`airnubNavigation` / `speckitNavigation`) from each app and renders shared chrome.
 
 Because every app reads from the same runtime outputs, you should **not** keep brand assets or duplicated CSS in app directories (except the generated `public/brand/` copies that the sync script writes).
 
@@ -97,7 +96,7 @@ Because every app reads from the same runtime outputs, you should **not** keep b
 | --- | --- |
 | Logos did not update | Confirm you replaced files in `.brand/public/brand/` **and** ran `pnpm brand:sync`. Check that your build pipeline runs the sync before Next.js compiles. |
 | Colors still default | Ensure the `BRAND_COLOR_*` env vars are available at build time (not just runtime). Remove stale caches in `.next/` if developing locally. |
-| OG image stale | Make sure `app/opengraph-image.tsx` re-exports the template from `@airnub/brand/og/template`. Delete `.next/cache` when testing locally. |
-| Unexpected navigation links | Update `airnubNavigation` / `speckitNavigation` in [`packages/brand/src/index.ts`](../../packages/brand/src/index.ts) and re-run the sync. |
+| OG image stale | Confirm `apps/*/app/api/og/route.tsx` is reading `ogTemplate` from `@airnub/brand/server` and that `og.png` was replaced and synced. Delete `.next/cache` when testing locally. |
+| Unexpected navigation links | Update `airnubNavigation` / `speckitNavigation` in [`packages/brand/src/navigation.ts`](../../packages/brand/src/navigation.ts) and re-run the sync. |
 
 For more detail, refer back to the root [`README.md`](../../README.md#-branding--rebranding) or the package-level [`README`](../../packages/brand/README.md).
