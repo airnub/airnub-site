@@ -116,6 +116,26 @@
         "href": "/contact"
       }
     },
+    "projects": {
+      "title": "Fiosraigh ár luasairí ardáin",
+      "description": "Taispeánann micrea-shuímh thiomnaithe conas a thugann Agentic Delivery Framework agus Speckit uathoibriú atá bunaithe ar mhuinín do fhoirne ardáin.",
+      "visitCta": "Tabhair cuairt ar an suíomh",
+      "docsCta": "Amharc ar na doiciméid",
+      "items": {
+        "adf": {
+          "title": "Agentic Delivery Framework",
+          "description": "Féach patrúin, lámhleabhair agus uathoibriú rialuithe don Agentic Delivery Framework.",
+          "siteHref": "https://adf.airnub.io",
+          "docsHref": "https://docs.speckit.dev/adf"
+        },
+        "speckit": {
+          "title": "Speckit",
+          "description": "Feic conas a rialaíonn Speckit sonraíochtaí, rialuithe agus fianaise le sreafaí oibre cláirnithe.",
+          "siteHref": "https://speckit.airnub.io",
+          "docsHref": "https://docs.speckit.dev"
+        }
+      }
+    },
     "highlights": {
       "unifiedGovernance": {
         "title": "Rialachas aontaithe",
