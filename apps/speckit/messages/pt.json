@@ -33,7 +33,8 @@
       "docs": "Documentos",
       "pricing": "Preço",
       "trust": "Confiar",
-      "contact": "Contato"
+      "contact": "Contato",
+      "quickstart": "Quickstart"
     },
     "footer": {
       "description": "Speckit orquestra o ciclo da especificação ao lançamento com portões programáveis e evidências contínuas.",
@@ -48,7 +49,8 @@
           "heading": "Recursos",
           "docs": "Documentos",
           "apiReference": "Referência da API",
-          "community": "Comunidade"
+          "community": "Comunidade",
+          "quickstart": "Quickstart guide"
         },
         "openSource": {
           "heading": "Código aberto",
@@ -475,6 +477,101 @@
         {
           "title": "Ganchos de observabilidade",
           "description": "Envie os resultados do controle para Datadog, Grafana ou Slack com links profundos em evidências."
+        }
+      ]
+    }
+  },
+  "quickstart": {
+    "hero": {
+      "eyebrow": "Quickstart",
+      "title": "Launch Speckit in four guided commands.",
+      "description": "Use the afternoon-friendly quickstart to sync the template, generate governance scaffolding, verify policies, and launch the TUI coach.",
+      "actions": {
+        "primaryLabel": "Read the docs",
+        "primaryHref": "https://docs.speckit.dev",
+        "secondaryLabel": "Browse templates",
+        "secondaryHref": "https://github.com/airnub/speckit-templates"
+      }
+    },
+    "intro": {
+      "eyebrow": "Get hands-on",
+      "title": "Ship a governed release with the starter workspace",
+      "description": "You only need Node.js 20+, pnpm, and a GitHub repository. Follow the steps below to model your first spec, wire automation, and capture evidence."
+    },
+    "steps": {
+      "heading": "Run the quickstart commands",
+      "description": "Each command runs from your terminal inside the project directory. Replace placeholder names with your own service or repository.",
+      "label": "Step {count}",
+      "items": [
+        {
+          "title": "Initialize the template workspace",
+          "description": "Clone the opinionated Speckit starter so you begin with prewired policies, CI, and documentation structure.",
+          "commandLabel": "Scaffold the repo",
+          "command": "pnpm dlx degit airnub/speckit-templates/quickstart speckit-quickstart",
+          "links": [
+            {
+              "label": "Template overview",
+              "href": "/template"
+            },
+            {
+              "label": "Template repository",
+              "href": "https://github.com/airnub/speckit-templates"
+            }
+          ]
+        },
+        {
+          "title": "Generate specs and automation",
+          "description": "Run the generator to sync your spec definitions into pipelines, policy gates, and evidence collectors.",
+          "commandLabel": "Generate artifacts",
+          "command": "pnpm speckit gen --write",
+          "links": [
+            {
+              "label": "Generator docs",
+              "href": "https://docs.speckit.dev/cli"
+            }
+          ]
+        },
+        {
+          "title": "Verify policies and tests",
+          "description": "Execute the built-in checks to confirm guardrails pass before you open a pull request.",
+          "commandLabel": "Run verification",
+          "command": "pnpm speckit verify",
+          "links": [
+            {
+              "label": "Verification guide",
+              "href": "https://docs.speckit.dev/cli"
+            }
+          ]
+        },
+        {
+          "title": "Coach the rollout with the TUI",
+          "description": "Open the interactive coach to walk policy owners through approvals, evidence, and rollout tasks.",
+          "commandLabel": "Launch the TUI",
+          "command": "pnpm speckit coach",
+          "links": [
+            {
+              "label": "Coach reference",
+              "href": "https://docs.speckit.dev/cli"
+            }
+          ]
+        }
+      ]
+    },
+    "resources": {
+      "title": "Keep exploring",
+      "description": "Expand beyond the quickstart with deeper documentation, rollout templates, and the open-source repo.",
+      "items": [
+        {
+          "label": "Full documentation",
+          "href": "https://docs.speckit.dev"
+        },
+        {
+          "label": "Rollout template",
+          "href": "/template"
+        },
+        {
+          "label": "Speckit on GitHub",
+          "href": "https://github.com/airnub/speckit"
         }
       ]
     }

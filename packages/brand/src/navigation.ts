@@ -214,6 +214,7 @@ export const airnubNavigation: SiteNavigationDefinition = {
 export const speckitNavigation: SiteNavigationDefinition = {
   header: [
     { id: "product", labelKey: "layout.nav.product", href: "/product" },
+    { id: "quickstart", labelKey: "layout.nav.quickstart", href: "/quickstart" },
     { id: "howItWorks", labelKey: "layout.nav.howItWorks", href: "/how-it-works" },
     { id: "solutions", labelKey: "layout.nav.solutions", href: "/solutions" },
     {
@@ -258,6 +259,11 @@ export const speckitNavigation: SiteNavigationDefinition = {
         id: "resources",
         headingKey: "layout.footer.columns.resources.heading",
         links: [
+          {
+            id: "resources.quickstart",
+            labelKey: "layout.footer.columns.resources.quickstart",
+            href: "/quickstart",
+          },
           {
             id: "resources.docs",
             labelKey: "layout.footer.columns.resources.docs",

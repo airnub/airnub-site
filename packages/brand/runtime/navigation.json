@@ -185,6 +185,11 @@
         "href": "/product"
       },
       {
+        "id": "quickstart",
+        "labelKey": "layout.nav.quickstart",
+        "href": "/quickstart"
+      },
+      {
         "id": "howItWorks",
         "labelKey": "layout.nav.howItWorks",
         "href": "/how-it-works"
@@ -244,6 +249,11 @@
           "id": "resources",
           "headingKey": "layout.footer.columns.resources.heading",
           "links": [
+            {
+              "id": "resources.quickstart",
+              "labelKey": "layout.footer.columns.resources.quickstart",
+              "href": "/quickstart"
+            },
             {
               "id": "resources.docs",
               "labelKey": "layout.footer.columns.resources.docs",

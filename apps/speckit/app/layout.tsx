@@ -161,7 +161,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       return {
         label,
         href,
-        external: cta.external,
+        ...(typeof cta.external === "boolean" ? { external: cta.external } : {}),
       };
     })
     .filter((link): link is { label: string; href: string; external?: boolean } => Boolean(link));
