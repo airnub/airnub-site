@@ -20,6 +20,7 @@
     "db:diff": "supabase db diff --use-mig-dir supabase/migrations",
     "db:env:local": "node scripts/sync-supabase-env.mjs",
     "db:reset:local": "supabase stop || true && supabase start && supabase db reset",
+    "i18n:sync": "pnpm dlx tsx tools/i18n-sync.ts --strict",
     "brand:sync": "tsx scripts/brand-sync.ts",
     "prepare": "husky",
     "docs:dev": "pnpm --filter docs start",

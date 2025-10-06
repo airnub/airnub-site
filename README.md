@@ -103,6 +103,16 @@ Forks that want to diverge from the default brand can commit their own `.brand/p
 
 Follow Conventional Commits (`feat:`, `fix:`, `docs:` …) and keep secrets out of the repository. See the [CI & Contribution Workflow](docs/docs/ci.md) for enforcement details.
 
+### Translation sync checklist
+
+Localization files live under `packages/i18n/shared` and `apps/*/messages`. Run the bundled sync script before pushing changes so shared keys, spelling variants, and per-locale overrides stay aligned:
+
+```bash
+pnpm i18n:sync
+```
+
+The CI workflow runs this command for every pull request targeting `main`. Fix any reported issues (missing keys, spelling mismatches, or untranslated strings) and re-run the check locally until it passes.
+
 ## License
 
 Licensed under the terms described in [`LICENSE`](./LICENSE) unless noted otherwise by an individual package or app.
