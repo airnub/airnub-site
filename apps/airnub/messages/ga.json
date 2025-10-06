@@ -100,11 +100,21 @@
       "description": "Cuir muinín i bhfeidhm i ngach píblíne seolta le saineolas Airnub ar ardáin, comhlíonadh agus uathoibriú."
     },
     "hero": {
-      "eyebrow": "Tógann Airnub ardáin forbróirí rialaithe atá réidh don fhiontar.",
-      "title": "Cuir muinín i bhfeidhm ar gach píblíne eisiúna",
-      "description": "Cuidímid le foirne ardáin agus slándála bileoga oibre a athrú go cosaintí códaithe, uathoibriú fianaise agus sreafaí oibre dúchasacha d'fhorbróirí.",
-      "primaryCta": "Labhair lenár bhfoireann",
-      "secondaryCta": "Fiosraigh na táirgí"
+      "eyebrow": "Seoladh: ADF + Speckit",
+      "title": "Bain rialú as seachadadh AI mhaoirsithe le muinín",
+      "description": "Comhcheanglaíonn Airnub an Agentic Delivery Framework, Speckit, agus innealtóirí comhlíonta chun go bhféadfaidh foirne ardáin seirbhísí AI rialaithe a sheoladh le fianaise ón gcéad lá.",
+      "primaryCta": {
+        "label": "Déan iniúchadh ar ADF",
+        "href": "/adf"
+      },
+      "secondaryCta": {
+        "label": "Buail le Speckit",
+        "href": "/speckit"
+      },
+      "tertiaryCta": {
+        "label": "Labhair lenár bhfoireann",
+        "href": "/contact"
+      }
     },
     "highlights": {
       "unifiedGovernance": {

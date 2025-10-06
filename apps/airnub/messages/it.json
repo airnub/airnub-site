@@ -100,11 +100,21 @@
       "description": "Operazionalizza la fiducia in ogni pipeline di rilascio grazie all'esperienza di Airnub in piattaforme, conformità e automazione."
     },
     "hero": {
-      "eyebrow": "Airnub crea piattaforme per sviluppatori governate e pronte per l'azienda.",
-      "title": "Operationalizza la fiducia in ogni pipeline di rilascio",
-      "description": "Aiutiamo i team di piattaforma e sicurezza a sostituire i fogli di calcolo con guardrail codificati, automazione delle evidenze e workflow nativi per gli sviluppatori.",
-      "primaryCta": "Parla con il nostro team",
-      "secondaryCta": "Esplora i prodotti"
+      "eyebrow": "Lancio: ADF + Speckit",
+      "title": "Governa la delivery di IA supervisionata con sicurezza",
+      "description": "Airnub unisce l’Agentic Delivery Framework, Speckit e ingegneri di compliance per permettere ai team piattaforma di lanciare servizi di IA governati con evidenze fin dal primo giorno.",
+      "primaryCta": {
+        "label": "Esplora ADF",
+        "href": "/adf"
+      },
+      "secondaryCta": {
+        "label": "Conosci Speckit",
+        "href": "/speckit"
+      },
+      "tertiaryCta": {
+        "label": "Parla con il nostro team",
+        "href": "/contact"
+      }
     },
     "highlights": {
       "unifiedGovernance": {

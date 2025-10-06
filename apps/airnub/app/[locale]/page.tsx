@@ -93,8 +93,26 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     eyebrow: t("hero.eyebrow"),
     title: t("hero.title"),
     description: t("hero.description"),
-    primaryCta: t("hero.primaryCta"),
-    secondaryCta: t("hero.secondaryCta"),
+    ctas: [
+      {
+        id: "primary",
+        label: t("hero.primaryCta.label"),
+        href: t("hero.primaryCta.href"),
+        variant: "primary" as const,
+      },
+      {
+        id: "secondary",
+        label: t("hero.secondaryCta.label"),
+        href: t("hero.secondaryCta.href"),
+        variant: "secondary" as const,
+      },
+      {
+        id: "tertiary",
+        label: t("hero.tertiaryCta.label"),
+        href: t("hero.tertiaryCta.href"),
+        variant: "ghost" as const,
+      },
+    ],
   } as const;
 
   const highlightItems = highlightKeys.map((key) => ({
@@ -147,12 +165,22 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         description={hero.description}
         actions={
           <>
-            <Button asChild>
-              <LocaleLink href="/contact">{hero.primaryCta}</LocaleLink>
-            </Button>
-            <Button variant="ghost" asChild>
-              <LocaleLink href="/products">{hero.secondaryCta}</LocaleLink>
-            </Button>
+            {hero.ctas.map(({ id, href, label, variant }) => {
+              const isInternal = href.startsWith("/");
+              const link = isInternal ? (
+                <LocaleLink href={href}>{label}</LocaleLink>
+              ) : (
+                <Link href={href} target="_blank" rel="noreferrer">
+                  {label}
+                </Link>
+              );
+
+              return (
+                <Button key={id} variant={variant} asChild>
+                  {link}
+                </Button>
+              );
+            })}
           </>
         }
       />
