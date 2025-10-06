@@ -14,7 +14,7 @@ export function buildSpeckitSoftwareJsonLd() {
     applicationCategory: "DevSecOps Application",
     overrides: {
       description:
-        "End vibe-coding. Ship secure, auditable releases with governed workflows and continuous evidence.",
+        "End vibe‑coding. One spec → compliant releases with governed workflows and continuous evidence.",
       softwareHelp: "https://docs.speckit.dev",
       sameAs,
     },
