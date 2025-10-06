@@ -72,14 +72,16 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Speckit",
-      "title": "End-Vibe-Codierung. ",
-      "description": "Speckkit verwandelt die Einhaltung eines Scrambles in eine kontinuierliche Entwicklernative. ",
+      "eyebrow": "Open source",
+      "title": "Automate platform governance from spec to ship.",
+      "description": "Speckit is the open-source workflow engine for policy gates and evidence. Sync specs to code, run gated releases, and publish audit-ready trails automatically.",
       "actions": {
-        "primaryLabel": "Fordern Sie eine Demo an",
-        "primaryHref": "/Kontakt",
-        "secondaryLabel": "Erforschen von Dokumenten",
-        "secondaryHref": "https://docs.speckit.dev"
+        "primaryLabel": "Read the docs",
+        "primaryHref": "https://airnub.github.io/speckit",
+        "secondaryLabel": "Run the quickstart",
+        "secondaryHref": "/quickstart",
+        "tertiaryLabel": "View on GitHub",
+        "tertiaryHref": "https://github.com/airnub/speckit"
       }
     },
     "features": [

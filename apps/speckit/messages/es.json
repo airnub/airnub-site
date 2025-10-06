@@ -72,14 +72,16 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Mota",
-      "title": "Endvibe codificación. ",
-      "description": "Speckit convierte el cumplimiento de una lucha en un bucle continuo y nativo del desarrollador. ",
+      "eyebrow": "Open source",
+      "title": "Automate platform governance from spec to ship.",
+      "description": "Speckit is the open-source workflow engine for policy gates and evidence. Sync specs to code, run gated releases, and publish audit-ready trails automatically.",
       "actions": {
-        "primaryLabel": "Solicitar una demostración",
-        "primaryHref": "/contacto",
-        "secondaryLabel": "Explorar documentos",
-        "secondaryHref": "https://docs.speckit.dev"
+        "primaryLabel": "Read the docs",
+        "primaryHref": "https://airnub.github.io/speckit",
+        "secondaryLabel": "Run the quickstart",
+        "secondaryHref": "/quickstart",
+        "tertiaryLabel": "View on GitHub",
+        "tertiaryHref": "https://github.com/airnub/speckit"
       }
     },
     "features": [

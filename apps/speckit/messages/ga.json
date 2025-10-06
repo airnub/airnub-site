@@ -72,14 +72,16 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Speiceas",
-      "title": "Deireadh a chur le códú vibe. ",
-      "description": "Casann Speckit comhlíonadh ó scramble go lúb leanúnach, dúchais forbróra. ",
+      "eyebrow": "Open source",
+      "title": "Automate platform governance from spec to ship.",
+      "description": "Speckit is the open-source workflow engine for policy gates and evidence. Sync specs to code, run gated releases, and publish audit-ready trails automatically.",
       "actions": {
-        "primaryLabel": "Taispeántas a iarraidh",
-        "primaryHref": "/teagmháil",
-        "secondaryLabel": "Docs a iniúchadh",
-        "secondaryHref": "https://docs.speckit.dev"
+        "primaryLabel": "Read the docs",
+        "primaryHref": "https://airnub.github.io/speckit",
+        "secondaryLabel": "Run the quickstart",
+        "secondaryHref": "/quickstart",
+        "tertiaryLabel": "View on GitHub",
+        "tertiaryHref": "https://github.com/airnub/speckit"
       }
     },
     "features": [
