@@ -100,11 +100,21 @@
       "description": "Operationalisieren Sie Vertrauen in jeder Pipeline mit der Plattform-, Compliance- und Automatisierungs-Expertise von Airnub."
     },
     "hero": {
-      "eyebrow": "Airnub entwickelt gesteuerte, unternehmensreife Entwicklerplattformen.",
-      "title": "Operationalisieren Sie Vertrauen in jeder Release-Pipeline",
-      "description": "Wir helfen Plattform- und Sicherheitsteams, Tabellen durch codifizierte Leitplanken, Evidence-Automatisierung und entwicklernahe Workflows zu ersetzen.",
-      "primaryCta": "Mit unserem Team sprechen",
-      "secondaryCta": "Produkte entdecken"
+      "eyebrow": "Launch: ADF + Speckit",
+      "title": "Steuern Sie überwachte KI-Auslieferungen mit Vertrauen",
+      "description": "Airnub kombiniert das Agentic Delivery Framework, Speckit und Compliance Engineers, damit Plattformteams gouvernierte KI-Services vom ersten Tag an mit Nachweisen starten können.",
+      "primaryCta": {
+        "label": "ADF entdecken",
+        "href": "/adf"
+      },
+      "secondaryCta": {
+        "label": "Speckit kennenlernen",
+        "href": "/speckit"
+      },
+      "tertiaryCta": {
+        "label": "Mit unserem Team sprechen",
+        "href": "/contact"
+      }
     },
     "highlights": {
       "unifiedGovernance": {

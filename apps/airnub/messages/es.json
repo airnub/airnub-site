@@ -100,11 +100,21 @@
       "description": "Operativiza la confianza en cada canal de entrega gracias a la experiencia de Airnub en plataformas, cumplimiento y automatización."
     },
     "hero": {
-      "eyebrow": "Airnub crea plataformas de desarrolladores gobernadas y listas para la empresa.",
-      "title": "Operativiza la confianza en cada canal de lanzamiento",
-      "description": "Ayudamos a los equipos de plataforma y seguridad a reemplazar hojas de cálculo por barandillas codificadas, automatización de evidencias y flujos de trabajo nativos para desarrolladores.",
-      "primaryCta": "Habla con nuestro equipo",
-      "secondaryCta": "Explorar productos"
+      "eyebrow": "Lanzamiento: ADF + Speckit",
+      "title": "Gobierna el delivery de IA supervisada con confianza",
+      "description": "Airnub combina el Agentic Delivery Framework, Speckit y ingenieros de cumplimiento para que los equipos de plataforma lancen servicios de IA gobernados con evidencia desde el día cero.",
+      "primaryCta": {
+        "label": "Explorar ADF",
+        "href": "/adf"
+      },
+      "secondaryCta": {
+        "label": "Conocer Speckit",
+        "href": "/speckit"
+      },
+      "tertiaryCta": {
+        "label": "Habla con nuestro equipo",
+        "href": "/contact"
+      }
     },
     "highlights": {
       "unifiedGovernance": {

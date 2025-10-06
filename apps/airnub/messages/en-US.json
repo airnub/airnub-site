@@ -100,11 +100,21 @@
       "description": "Operationalize trust across every release pipeline with Airnub's platform engineering, compliance, and automation expertise."
     },
     "hero": {
-      "eyebrow": "Airnub builds governed, enterprise-ready developer platforms.",
-      "title": "Operationalize trust across every release pipeline",
-      "description": "We help platform and security teams replace spreadsheets with codified guardrails, evidence automation, and developer-native workflows.",
-      "primaryCta": "Talk to our team",
-      "secondaryCta": "Explore products"
+      "eyebrow": "Launch: ADF + Speckit",
+      "title": "Govern supervised AI delivery with confidence",
+      "description": "Airnub combines the Agentic Delivery Framework, Speckit, and compliance engineers so platform teams can launch governed AI services with evidence from day zero.",
+      "primaryCta": {
+        "label": "Explore ADF",
+        "href": "/adf"
+      },
+      "secondaryCta": {
+        "label": "Meet Speckit",
+        "href": "/speckit"
+      },
+      "tertiaryCta": {
+        "label": "Talk to our team",
+        "href": "/contact"
+      }
     },
     "highlights": {
       "unifiedGovernance": {

@@ -100,11 +100,21 @@
       "description": "Opérationnalisez la confiance sur chaque pipeline de livraison grâce à l'expertise d'Airnub en ingénierie plateforme, conformité et automatisation."
     },
     "hero": {
-      "eyebrow": "Airnub conçoit des plateformes développeurs gouvernées et prêtes pour l'entreprise.",
-      "title": "Opérationnalisez la confiance sur chaque pipeline de livraison",
-      "description": "Nous aidons les équipes plateforme et sécurité à remplacer les tableurs par des garde-fous codifiés, une automatisation des preuves et des workflows natifs pour les développeurs.",
-      "primaryCta": "Parler avec notre équipe",
-      "secondaryCta": "Explorer les produits"
+      "eyebrow": "Lancement : ADF + Speckit",
+      "title": "Gouvernez la livraison d’IA supervisée en toute confiance",
+      "description": "Airnub associe l’Agentic Delivery Framework, Speckit et des ingénieurs conformité pour aider les équipes plateforme à lancer des services d’IA gouvernés avec des preuves dès le premier jour.",
+      "primaryCta": {
+        "label": "Découvrir ADF",
+        "href": "/adf"
+      },
+      "secondaryCta": {
+        "label": "Rencontrer Speckit",
+        "href": "/speckit"
+      },
+      "tertiaryCta": {
+        "label": "Parler à notre équipe",
+        "href": "/contact"
+      }
     },
     "highlights": {
       "unifiedGovernance": {
