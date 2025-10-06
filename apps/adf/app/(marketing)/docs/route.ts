@@ -6,6 +6,6 @@ export const dynamic = "force-static";
 
 export function GET() {
   return NextResponse.redirect(DOCS_URL, {
-    status: 302,
+    status: 301,
   });
 }
