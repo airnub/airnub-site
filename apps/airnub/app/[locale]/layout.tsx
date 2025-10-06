@@ -23,6 +23,7 @@ import { ActiveSiteShell } from "../../components/ActiveSiteShell";
 import {
   airnubNavigation,
   buildBrandMetadata,
+  resolveMicrositeHref,
   resolvedBrandConfig as airnubBrand,
   type BrandContacts,
 } from "@airnub/brand";
@@ -133,17 +134,20 @@ export default async function LocaleLayout({
     return undefined;
   };
 
-  const navItems = airnubNavigation.header.map((item) => ({
-    label: translateLabel(item.labelKey),
-    href: localizeHref(item.href, item.external),
-    external: item.external,
-  }));
+  const navItems = airnubNavigation.header.map((item) => {
+    const resolvedHref = resolveMicrositeHref(item.href);
+    return {
+      label: translateLabel(item.labelKey),
+      href: localizeHref(resolvedHref, item.external),
+      external: item.external,
+    };
+  });
 
   const footerColumns: FooterColumn[] = airnubNavigation.footer.groups.map((group) => ({
     heading: translateLabel(group.headingKey),
     links: group.links.map((link) => ({
       label: translateLabel(link.labelKey),
-      href: localizeHref(link.href, link.external),
+      href: localizeHref(resolveMicrositeHref(link.href), link.external),
       external: link.external,
     })),
   }));

@@ -1,4 +1,5 @@
 import type { BrandContacts } from "./brand.config";
+import { getMicrositeOrigin } from "./microsites";
 
 export type NavigationLinkDefinition = {
   /**
@@ -69,7 +70,7 @@ export type SiteNavigationDefinition = {
 export const airnubNavigation: SiteNavigationDefinition = {
   header: [
     { id: "products", labelKey: "nav.products", href: "/products" },
-    { id: "adf", labelKey: "nav.adf", href: "https://adf.airnub.io" },
+    { id: "adf", labelKey: "nav.adf", href: getMicrositeOrigin("adf") },
     { id: "solutions", labelKey: "nav.solutions", href: "/solutions" },
     { id: "services", labelKey: "nav.services", href: "/services" },
     { id: "resources", labelKey: "nav.resources", href: "/resources" },
