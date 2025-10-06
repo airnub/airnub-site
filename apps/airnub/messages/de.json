@@ -38,6 +38,7 @@
   },
   "nav": {
     "products": "Produkte",
+    "adf": "Agentic Delivery Framework",
     "solutions": "Lösungen",
     "services": "Services",
     "resources": "Ressourcen",
@@ -51,13 +52,15 @@
       "products": {
         "heading": "Produkte",
         "links": {
-          "speckit": "Speckit"
+          "speckit": "Speckit",
+          "adf": "Agentic Delivery Framework"
         }
       },
       "resources": {
         "heading": "Ressourcen",
         "links": {
           "docs": "Dokumentation",
+          "adfDocs": "ADF Docs",
           "blog": "Blog",
           "changelog": "Änderungsprotokoll"
         }
@@ -126,13 +129,13 @@
           "title": "Agentic Delivery Framework",
           "description": "Erkunden Sie Muster, Playbooks und Kontrollautomatisierung für das Agentic Delivery Framework.",
           "siteHref": "https://adf.airnub.io",
-          "docsHref": "https://docs.speckit.dev/adf"
+          "docsHref": "https://airnub.github.io/agentic-delivery-framework/"
         },
         "speckit": {
           "title": "Speckit",
           "description": "Erfahren Sie, wie Speckit Spezifikationen, Kontrollen und Nachweise mit programmierbaren Workflows steuert.",
           "siteHref": "https://speckit.airnub.io",
-          "docsHref": "https://docs.speckit.dev"
+          "docsHref": "https://airnub.github.io/speckit/"
         }
       }
     },

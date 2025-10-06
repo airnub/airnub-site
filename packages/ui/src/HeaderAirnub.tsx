@@ -9,6 +9,7 @@ import { Logo, useBrand } from "./brand";
 
 const defaultNavItems: NavItem[] = [
   { label: "Products", href: "/products" },
+  { label: "Agentic Delivery Framework", href: "/adf" },
   { label: "Solutions", href: "/solutions" },
   { label: "Services", href: "/services" },
   { label: "Resources", href: "/resources" },
@@ -51,7 +52,7 @@ export function HeaderAirnub({
               className="hidden rounded-full border border-border p-2 text-muted-foreground transition hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring lg:inline-flex"
               aria-label={computedGithubLabel}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               <GithubIcon className="h-4 w-4" />
             </Link>

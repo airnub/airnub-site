@@ -71,7 +71,7 @@ export function Header({
                       resolveIsActive(item) && "bg-muted text-foreground"
                     )}
                     target={item.external ? "_blank" : undefined}
-                    rel={item.external ? "noreferrer" : undefined}
+                    rel={item.external ? "noopener noreferrer" : undefined}
                     aria-current={resolveIsActive(item) ? "page" : undefined}
                   >
                     {item.label}
@@ -121,7 +121,7 @@ export function Header({
                     resolveIsActive(item) && "bg-muted text-foreground"
                   )}
                   target={item.external ? "_blank" : undefined}
-                  rel={item.external ? "noreferrer" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
                   onClick={() => setOpen(false)}
                   aria-current={resolveIsActive(item) ? "page" : undefined}
                 >
