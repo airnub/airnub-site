@@ -129,6 +129,38 @@ type TemplateMessages = {
   steps: FeatureMessages[];
 };
 
+type QuickstartMessages = {
+  hero: DualActionHeroMessages;
+  intro: {
+    eyebrow?: string;
+    title: string;
+    description: string;
+  };
+  steps: {
+    heading: string;
+    description: string;
+    label: string;
+    items: {
+      title: string;
+      description: string;
+      commandLabel?: string;
+      command?: string;
+      links?: {
+        label: string;
+        href: string;
+      }[];
+    }[];
+  };
+  resources: {
+    title: string;
+    description: string;
+    items: {
+      label: string;
+      href: string;
+    }[];
+  };
+};
+
 type ContactMessages = {
   hero: HeroMessages;
   form: {
@@ -216,6 +248,7 @@ type LayoutMessages = {
   };
   nav: {
     product: string;
+    quickstart: string;
     howItWorks: string;
     solutions: string;
     docs: string;
@@ -237,6 +270,7 @@ type LayoutMessages = {
         docs: string;
         apiReference: string;
         community: string;
+        quickstart: string;
       };
       openSource: {
         heading: string;
@@ -265,6 +299,7 @@ export type SpeckitMessages = {
   pricing: PricingMessages;
   product: ProductMessages;
   howItWorks: HowItWorksMessages;
+  quickstart: QuickstartMessages;
   template: TemplateMessages;
   contact: ContactMessages;
   solutions: SolutionsOverviewMessages;
