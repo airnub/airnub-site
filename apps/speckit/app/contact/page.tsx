@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const language = await getCurrentLanguage();
-  const contact = getSpeckitMessages(language).contact;
+  const contact = (await getSpeckitMessages(language)).contact;
   return {
     title: contact.hero.title,
     description: contact.hero.description,
@@ -83,7 +83,7 @@ function ContactShortcuts({ shortcuts, productEmail, securityEmail }: ContactSho
 
 export default async function ContactPage() {
   const language = await getCurrentLanguage();
-  const contact = getSpeckitMessages(language).contact;
+  const contact = (await getSpeckitMessages(language)).contact;
   const productEmail =
     speckitBrand.contact.product ??
     speckitBrand.contact.general ??

@@ -1,11 +1,5 @@
-import enUS from "../messages/en-US.json";
-import enGB from "../messages/en-GB.json";
-import fr from "../messages/fr.json";
-import es from "../messages/es.json";
-import de from "../messages/de.json";
-import pt from "../messages/pt.json";
-import it from "../messages/it.json";
-import ga from "../messages/ga.json";
+import { cache } from "react";
+import { loadMessages } from "@airnub/i18n";
 import { defaultLanguage, supportedLanguages, type SupportedLanguage } from "./config";
 
 type HeroMessages = {
@@ -307,20 +301,16 @@ export type SpeckitMessages = {
   solutionsDevSecOps: DevSecOpsSolutionsMessages;
 };
 
-const registry: Record<SupportedLanguage, SpeckitMessages> = {
-  "en-US": enUS,
-  "en-GB": enGB,
-  fr,
-  es,
-  de,
-  pt,
-  it,
-  ga,
-};
+const resolveSpeckitMessages = cache(async (language: SupportedLanguage) => {
+  const normalizedLanguage = supportedLanguages.includes(language)
+    ? language
+    : defaultLanguage;
+  const messages = await loadMessages("speckit", normalizedLanguage);
+  return messages as SpeckitMessages;
+});
 
-export function getSpeckitMessages(language: SupportedLanguage): SpeckitMessages {
-  if (!supportedLanguages.includes(language)) {
-    return registry[defaultLanguage];
-  }
-  return registry[language] ?? registry[defaultLanguage];
+export function getSpeckitMessages(
+  language: SupportedLanguage
+): Promise<SpeckitMessages> {
+  return resolveSpeckitMessages(language);
 }

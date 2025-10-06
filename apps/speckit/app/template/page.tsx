@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const language = await getCurrentLanguage();
-  const template = getSpeckitMessages(language).template;
+  const template = (await getSpeckitMessages(language)).template;
   return {
     title: template.hero.title,
     description: template.hero.description,
@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function TemplatePage() {
   const language = await getCurrentLanguage();
-  const template = getSpeckitMessages(language).template;
+  const template = (await getSpeckitMessages(language)).template;
 
   return (
     <div className="space-y-16 pb-20">

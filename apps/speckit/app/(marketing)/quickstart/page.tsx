@@ -24,7 +24,7 @@ function isExternalLink(href: string | undefined): boolean {
 
 export async function generateMetadata(): Promise<Metadata> {
   const language = await getCurrentLanguage();
-  const quickstart = getSpeckitMessages(language).quickstart;
+  const quickstart = (await getSpeckitMessages(language)).quickstart;
   return {
     title: quickstart.hero.title,
     description: quickstart.hero.description,
@@ -33,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function QuickstartPage() {
   const language = await getCurrentLanguage();
-  const quickstart = getSpeckitMessages(language).quickstart;
+  const quickstart = (await getSpeckitMessages(language)).quickstart;
 
   return (
     <div className="space-y-16 pb-20">

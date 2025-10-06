@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const language = await getCurrentLanguage();
-  const pricing = getSpeckitMessages(language).pricing;
+  const pricing = (await getSpeckitMessages(language)).pricing;
   return {
     title: pricing.hero.title,
     description: pricing.hero.description,
@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function PricingPage() {
   const language = await getCurrentLanguage();
-  const pricing = getSpeckitMessages(language).pricing;
+  const pricing = (await getSpeckitMessages(language)).pricing;
 
   return (
     <div className="space-y-16 pb-20">

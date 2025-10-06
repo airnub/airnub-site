@@ -1,29 +1,4 @@
 {
-  "common": {
-    "skipToContent": "Aller au contenu principal",
-    "githubLabel": "Airnub sur GitHub",
-    "locale": {
-      "label": "Langue",
-      "options": {
-        "en-US": "Anglais (États-Unis)",
-        "en-GB": "Anglais (Royaume-Uni)",
-        "ga": "Irlandais",
-        "fr": "Français",
-        "es": "Espagnol",
-        "de": "Allemand",
-        "pt": "Portugais",
-        "it": "Italien"
-      }
-    },
-    "theme": {
-      "toggle": "Changer le thème de couleur"
-    },
-    "maintenance": {
-      "title": "Nous nous préparons",
-      "description": "Airnub prépare quelque chose de nouveau. Revenez bientôt ou inscrivez-vous pour recevoir les actualités de lancement.",
-      "cta": "Écrivez-nous à {email}"
-    }
-  },
   "layout": {
     "metadata": {
       "titleDefault": "Airnub — Plateformes développeurs gouvernées",
@@ -35,67 +10,6 @@
   },
   "toast": {
     "dismiss": "Fermer la notification"
-  },
-  "nav": {
-    "products": "Produits",
-    "adf": "Agentic Delivery Framework",
-    "solutions": "Solutions",
-    "services": "Services",
-    "resources": "Ressources",
-    "trust": "Confiance",
-    "company": "Entreprise",
-    "contact": "Contact"
-  },
-  "footer": {
-    "description": "Gouverner le cycle de vie des plateformes développeurs avec confiance, automatisation et preuves continues.",
-    "columns": {
-      "products": {
-        "heading": "Produits",
-        "links": {
-          "speckit": "Speckit",
-          "adf": "Agentic Delivery Framework"
-        }
-      },
-      "resources": {
-        "heading": "Ressources",
-        "links": {
-          "docs": "Documentation",
-          "adfDocs": "ADF Docs",
-          "blog": "Blog",
-          "changelog": "Journal des modifications"
-        }
-      },
-      "openSource": {
-        "heading": "Open source",
-        "links": {
-          "org": "Organisation GitHub",
-          "speckit": "Speckit",
-          "templates": "Modèles d'infrastructure"
-        }
-      },
-      "trust": {
-        "heading": "Confiance",
-        "links": {
-          "trustCenter": "Centre de confiance",
-          "vdp": "VDP",
-          "securityTxt": "security.txt"
-        }
-      },
-      "company": {
-        "heading": "Entreprise",
-        "links": {
-          "about": "À propos",
-          "careers": "Carrières",
-          "press": "Presse",
-          "legal": "Juridique"
-        }
-      }
-    },
-    "bottom": {
-      "privacy": "Confidentialité",
-      "terms": "Conditions",
-      "email": "{email}"
-    }
   },
   "home": {
     "metadata": {

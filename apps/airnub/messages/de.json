@@ -1,29 +1,4 @@
 {
-  "common": {
-    "skipToContent": "Zum Hauptinhalt springen",
-    "githubLabel": "Airnub auf GitHub",
-    "locale": {
-      "label": "Sprache",
-      "options": {
-        "en-US": "Englisch (USA)",
-        "en-GB": "Englisch (UK)",
-        "ga": "Irisch",
-        "fr": "Französisch",
-        "es": "Spanisch",
-        "de": "Deutsch",
-        "pt": "Portugiesisch",
-        "it": "Italienisch"
-      }
-    },
-    "theme": {
-      "toggle": "Farbschema wechseln"
-    },
-    "maintenance": {
-      "title": "Wir bereiten uns vor",
-      "description": "Airnub bereitet etwas Neues vor. Schau bald wieder vorbei oder abonniere Updates zum Start.",
-      "cta": "Schreib uns an {email}"
-    }
-  },
   "layout": {
     "metadata": {
       "titleDefault": "Airnub — Kontrollierte Entwicklerplattformen",
@@ -35,67 +10,6 @@
   },
   "toast": {
     "dismiss": "Benachrichtigung schließen"
-  },
-  "nav": {
-    "products": "Produkte",
-    "adf": "Agentic Delivery Framework",
-    "solutions": "Lösungen",
-    "services": "Services",
-    "resources": "Ressourcen",
-    "trust": "Vertrauen",
-    "company": "Unternehmen",
-    "contact": "Kontakt"
-  },
-  "footer": {
-    "description": "Den Lebenszyklus der Entwicklerplattform mit Vertrauen, Automatisierung und kontinuierlichen Nachweisen steuern.",
-    "columns": {
-      "products": {
-        "heading": "Produkte",
-        "links": {
-          "speckit": "Speckit",
-          "adf": "Agentic Delivery Framework"
-        }
-      },
-      "resources": {
-        "heading": "Ressourcen",
-        "links": {
-          "docs": "Dokumentation",
-          "adfDocs": "ADF Docs",
-          "blog": "Blog",
-          "changelog": "Änderungsprotokoll"
-        }
-      },
-      "openSource": {
-        "heading": "Open Source",
-        "links": {
-          "org": "GitHub-Organisation",
-          "speckit": "Speckit",
-          "templates": "Infrastrukturvorlagen"
-        }
-      },
-      "trust": {
-        "heading": "Vertrauen",
-        "links": {
-          "trustCenter": "Trust Center",
-          "vdp": "VDP",
-          "securityTxt": "security.txt"
-        }
-      },
-      "company": {
-        "heading": "Unternehmen",
-        "links": {
-          "about": "Über uns",
-          "careers": "Karriere",
-          "press": "Presse",
-          "legal": "Rechtliches"
-        }
-      }
-    },
-    "bottom": {
-      "privacy": "Datenschutz",
-      "terms": "Bedingungen",
-      "email": "{email}"
-    }
   },
   "home": {
     "metadata": {
