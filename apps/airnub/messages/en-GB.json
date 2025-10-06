@@ -104,18 +104,18 @@
     },
     "hero": {
       "eyebrow": "Launch: ADF + Speckit",
-      "title": "Govern supervised AI delivery with confidence",
-      "description": "Airnub combines the Agentic Delivery Framework, Speckit, and compliance engineers so platform teams can launch governed AI services with evidence from day zero.",
+      "title": "Build safely with AI from day zero",
+      "description": "Airnub combines the Agentic Delivery Framework, SpecKit, and compliance engineers so platform teams can launch governed AI services with evidence from day zero.",
       "primaryCta": {
         "label": "Explore ADF",
         "href": "https://adf.airnub.io"
       },
       "secondaryCta": {
-        "label": "Meet Speckit",
+        "label": "Explore SpecKit",
         "href": "https://speckit.airnub.io"
       },
       "tertiaryCta": {
-        "label": "Talk to our team",
+        "label": "Contact",
         "href": "/contact"
       }
     },
