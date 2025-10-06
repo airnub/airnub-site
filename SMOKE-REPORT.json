@@ -1,0 +1,61 @@
+{
+  "build": "fail",
+  "typecheck": "fail",
+  "apps": {
+    "airnub": {
+      "present": true,
+      "boot": "fail",
+      "url": "http://localhost:3101"
+    },
+    "speckit": {
+      "present": true,
+      "boot": "fail",
+      "url": "http://localhost:3102"
+    },
+    "adf": {
+      "present": true,
+      "boot": "fail",
+      "url": "http://localhost:3103"
+    }
+  },
+  "linkcheck": {
+    "status": "skipped",
+    "broken": []
+  },
+  "i18n": {
+    "status": "pass",
+    "output": "✅ i18n sync passed for 3 app(s) across 8 locale(s).\nProgress: resolved 1, reused 0, downloaded 0, added 0\nProgress: resolved 31, reused 5, downloaded 0, added 0\nPackages: +5\n+++++\nProgress: resolved 31, reused 5, downloaded 0, added 5, done\n"
+  },
+  "outstanding": [
+    {
+      "priority": 1,
+      "title": "Build failed",
+      "details": "Resolve build failures reported by pnpm -w build.",
+      "scope": "cross"
+    },
+    {
+      "priority": 1,
+      "title": "Typecheck failed",
+      "details": "Resolve TypeScript errors reported by pnpm -w typecheck.",
+      "scope": "cross"
+    },
+    {
+      "priority": 1,
+      "title": "airnub failed to start",
+      "details": "next start did not respond on port 3101.",
+      "scope": "airnub"
+    },
+    {
+      "priority": 1,
+      "title": "speckit failed to start",
+      "details": "next start did not respond on port 3102.",
+      "scope": "speckit"
+    },
+    {
+      "priority": 1,
+      "title": "adf failed to start",
+      "details": "next start did not respond on port 3103.",
+      "scope": "adf"
+    }
+  ]
+}
