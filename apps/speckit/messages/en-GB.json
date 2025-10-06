@@ -72,14 +72,16 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Speckit",
-      "title": "End vibe-coding. Ship secure, auditable releases.",
-      "description": "Speckit turns compliance from a scramble into a continuous, developer-native loop. Govern specs, orchestrate policy gates, and ship evidence on demand.",
+      "eyebrow": "Open source",
+      "title": "Automate platform governance from spec to ship.",
+      "description": "Speckit is the open-source workflow engine for policy gates and evidence. Sync specs to code, run gated releases, and publish audit-ready trails automatically.",
       "actions": {
-        "primaryLabel": "Request a demo",
-        "primaryHref": "/contact",
-        "secondaryLabel": "Explore docs",
-        "secondaryHref": "https://docs.speckit.dev"
+        "primaryLabel": "Read the docs",
+        "primaryHref": "https://airnub.github.io/speckit",
+        "secondaryLabel": "Run the quickstart",
+        "secondaryHref": "/quickstart",
+        "tertiaryLabel": "View on GitHub",
+        "tertiaryHref": "https://github.com/airnub/speckit"
       }
     },
     "features": [

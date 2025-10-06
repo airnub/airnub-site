@@ -72,14 +72,16 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Speckit",
-      "title": "Fin codant d'ambiance. ",
-      "description": "Speckit transforme la conformité d'une brouillage en une boucle continue et native du développeur. ",
+      "eyebrow": "Open source",
+      "title": "Automate platform governance from spec to ship.",
+      "description": "Speckit is the open-source workflow engine for policy gates and evidence. Sync specs to code, run gated releases, and publish audit-ready trails automatically.",
       "actions": {
-        "primaryLabel": "Demander une démo",
-        "primaryHref": "/contact",
-        "secondaryLabel": "Explorer les documents",
-        "secondaryHref": "https://docs.speckit.dev"
+        "primaryLabel": "Read the docs",
+        "primaryHref": "https://airnub.github.io/speckit",
+        "secondaryLabel": "Run the quickstart",
+        "secondaryHref": "/quickstart",
+        "tertiaryLabel": "View on GitHub",
+        "tertiaryHref": "https://github.com/airnub/speckit"
       }
     },
     "features": [

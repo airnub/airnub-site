@@ -31,6 +31,37 @@ export default async function SpeckitHome() {
   const language = await getCurrentLanguage();
   const messages = getSpeckitMessages(language);
   const home = messages.home;
+  const heroActions = home.hero.actions;
+
+  const isExternalLink = (href: string) => /^https?:\/\//.test(href);
+
+  const heroActionItems = [
+    heroActions.primaryLabel
+      ? {
+          label: heroActions.primaryLabel,
+          href: heroActions.primaryHref ?? "https://airnub.github.io/speckit",
+          variant: "primary" as const,
+        }
+      : null,
+    heroActions.secondaryLabel
+      ? {
+          label: heroActions.secondaryLabel,
+          href: heroActions.secondaryHref ?? "/quickstart",
+          variant: "secondary" as const,
+        }
+      : null,
+    heroActions.tertiaryLabel
+      ? {
+          label: heroActions.tertiaryLabel,
+          href: heroActions.tertiaryHref ?? "https://github.com/airnub/speckit",
+          variant: "ghost" as const,
+        }
+      : null,
+  ].filter(Boolean) as {
+    label: string;
+    href: string;
+    variant: "primary" | "secondary" | "ghost";
+  }[];
 
   return (
     <main className="flex flex-col">
@@ -40,24 +71,22 @@ export default async function SpeckitHome() {
         description={home.hero.description}
         variant="gradient"
         actions={
-          <>
-            {home.hero.actions.primaryLabel ? (
-              <Button asChild>
-                <Link href={home.hero.actions.primaryHref ?? "/contact"}>{home.hero.actions.primaryLabel}</Link>
-              </Button>
-            ) : null}
-            {home.hero.actions.secondaryLabel ? (
-              <Button variant="ghost" asChild>
-                <Link
-                  href={home.hero.actions.secondaryHref ?? "https://docs.speckit.dev"}
-                  target={home.hero.actions.secondaryHref?.startsWith("http") ? "_blank" : undefined}
-                  rel={home.hero.actions.secondaryHref?.startsWith("http") ? "noreferrer" : undefined}
-                >
-                  {home.hero.actions.secondaryLabel}
-                </Link>
-              </Button>
-            ) : null}
-          </>
+          heroActionItems.length
+            ? heroActionItems.map((action) => {
+                const external = isExternalLink(action.href);
+                return (
+                  <Button key={action.label} variant={action.variant} asChild>
+                    <Link
+                      href={action.href}
+                      target={external ? "_blank" : undefined}
+                      rel={external ? "noopener" : undefined}
+                    >
+                      {action.label}
+                    </Link>
+                  </Button>
+                );
+              })
+            : undefined
         }
       />
 

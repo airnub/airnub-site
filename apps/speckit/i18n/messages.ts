@@ -20,6 +20,8 @@ type DualActionHeroMessages = HeroMessages & {
     primaryHref?: string;
     secondaryLabel?: string;
     secondaryHref?: string;
+    tertiaryLabel?: string;
+    tertiaryHref?: string;
   };
 };
 
