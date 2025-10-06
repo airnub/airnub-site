@@ -1,12 +1,4 @@
-export type NavigationLinkMessage = {
-  id: string;
-  label: string;
-  href?: string;
-  external?: boolean;
-  description?: string;
-};
-
-export type AdfMessages = typeof adfMessages;
+import { loadMessages } from "@airnub/i18n";
 
 const REPO_URL = "https://github.com/airnub/agentic-delivery-framework";
 const TRUST_CENTER_URL = "https://trust.airnub.io";
@@ -15,71 +7,7 @@ const TEMPLATES_URL =
 const CI_URL =
   "https://github.com/airnub/agentic-delivery-framework/tree/main/ci";
 
-const adfMessages = {
-  layout: {
-    skipToContent: "Skip to main content",
-    githubLabel: "View the Agentic Delivery Framework repository on GitHub",
-    themeToggle: "Toggle theme",
-    nav: {
-      items: [
-        { id: "docs", label: "Docs", external: true },
-        { id: "quickstart", label: "Quickstart", href: "/quickstart" },
-        { id: "trust", label: "Trust Center", href: TRUST_CENTER_URL, external: true },
-      ] satisfies NavigationLinkMessage[],
-    },
-    footer: {
-      description:
-        "ADF gives delivery, security, and compliance teams a shared blueprint for supervising agent-assisted releases.",
-      columns: [
-        {
-          heading: "Get started",
-          links: [
-            { id: "docs", label: "Documentation", external: true },
-            { id: "quickstart", label: "One-day L1 quickstart", href: "/quickstart" },
-          ],
-        },
-        {
-          heading: "Templates",
-          links: [
-            {
-              id: "templates",
-              label: "Workflow templates",
-              href: TEMPLATES_URL,
-              external: true,
-            },
-            {
-              id: "ci",
-              label: "CI gates",
-              href: CI_URL,
-              external: true,
-            },
-          ],
-        },
-        {
-          heading: "Trust & community",
-          links: [
-            {
-              id: "github",
-              label: "GitHub repository",
-              href: REPO_URL,
-              external: true,
-            },
-            {
-              id: "trust",
-              label: "Airnub Trust Center",
-              href: TRUST_CENTER_URL,
-              external: true,
-            },
-          ],
-        },
-      ] satisfies { heading: string; links: NavigationLinkMessage[] }[],
-      bottomLinks: [
-        { id: "github", label: "GitHub", href: REPO_URL, external: true },
-        { id: "trust", label: "Trust Center", href: TRUST_CENTER_URL, external: true },
-        { id: "docs", label: "Docs", external: true },
-      ] satisfies NavigationLinkMessage[],
-    },
-  },
+const adfContent = {
   home: {
     hero: {
       eyebrow: "Open, supervised agent delivery",
@@ -216,6 +144,27 @@ const adfMessages = {
   },
 } as const satisfies Record<string, unknown>;
 
-export function getAdfMessages(): AdfMessages {
-  return adfMessages;
+type SharedAdfMessages = typeof import("../../../packages/i18n/shared/en-US.json")["adf"];
+
+type LayoutMessages = SharedAdfMessages extends { layout: infer L }
+  ? L
+  : never;
+
+type ContentMessages = typeof adfContent;
+
+export type AdfMessages = ContentMessages & { layout: LayoutMessages };
+
+export async function getAdfMessages(locale = "en-US"): Promise<AdfMessages> {
+  const shared = (await loadMessages("adf", locale)) as Partial<SharedAdfMessages>;
+  let layout = shared.layout;
+
+  if (!layout || Object.keys(layout).length === 0) {
+    const fallbackShared = (await loadMessages("adf", "en-US")) as Partial<SharedAdfMessages>;
+    layout = fallbackShared.layout;
+  }
+
+  return {
+    layout: (layout ?? {}) as LayoutMessages,
+    ...adfContent,
+  };
 }

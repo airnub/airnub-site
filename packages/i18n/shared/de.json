@@ -1,0 +1,255 @@
+{
+  "airnub": {
+    "common": {
+      "skipToContent": "Zum Hauptinhalt springen",
+      "githubLabel": "Airnub auf GitHub",
+      "locale": {
+        "label": "Sprache",
+        "options": {
+          "en-US": "Englisch (USA)",
+          "en-GB": "Englisch (UK)",
+          "ga": "Irisch",
+          "fr": "Französisch",
+          "es": "Spanisch",
+          "de": "Deutsch",
+          "pt": "Portugiesisch",
+          "it": "Italienisch"
+        }
+      },
+      "theme": {
+        "toggle": "Farbschema wechseln"
+      },
+      "maintenance": {
+        "title": "Wir bereiten uns vor",
+        "description": "Airnub bereitet etwas Neues vor. Schau bald wieder vorbei oder abonniere Updates zum Start.",
+        "cta": "Schreib uns an {email}"
+      }
+    },
+    "nav": {
+      "products": "Produkte",
+      "adf": "Agentic Delivery Framework",
+      "solutions": "Lösungen",
+      "services": "Services",
+      "resources": "Ressourcen",
+      "trust": "Vertrauen",
+      "company": "Unternehmen",
+      "contact": "Kontakt"
+    },
+    "footer": {
+      "description": "Den Lebenszyklus der Entwicklerplattform mit Vertrauen, Automatisierung und kontinuierlichen Nachweisen steuern.",
+      "columns": {
+        "products": {
+          "heading": "Produkte",
+          "links": {
+            "speckit": "Speckit",
+            "adf": "Agentic Delivery Framework"
+          }
+        },
+        "resources": {
+          "heading": "Ressourcen",
+          "links": {
+            "docs": "Dokumentation",
+            "adfDocs": "ADF Docs",
+            "blog": "Blog",
+            "changelog": "Änderungsprotokoll"
+          }
+        },
+        "openSource": {
+          "heading": "Open Source",
+          "links": {
+            "org": "GitHub-Organisation",
+            "speckit": "Speckit",
+            "templates": "Infrastrukturvorlagen"
+          }
+        },
+        "trust": {
+          "heading": "Vertrauen",
+          "links": {
+            "trustCenter": "Trust Center",
+            "vdp": "VDP",
+            "securityTxt": "security.txt"
+          }
+        },
+        "company": {
+          "heading": "Unternehmen",
+          "links": {
+            "about": "Über uns",
+            "careers": "Karriere",
+            "press": "Presse",
+            "legal": "Rechtliches"
+          }
+        }
+      },
+      "bottom": {
+        "privacy": "Datenschutz",
+        "terms": "Bedingungen",
+        "email": "{email}"
+      }
+    }
+  },
+  "speckit": {
+    "layout": {
+      "skipToContent": "Überspringen Sie zu Inhalten",
+      "themeToggle": "Thema umschalten",
+      "languageLabel": "Sprache",
+      "githubLabel": "Speckit auf GitHub",
+      "locale": {
+        "options": {
+          "en-US": "Englisch (USA)",
+          "en-GB": "Englisch (UK)",
+          "fr": "Französisch",
+          "es": "Spanisch",
+          "de": "Deutsch",
+          "pt": "Portugiesisch",
+          "it": "Italienisch",
+          "ga": "Irisch"
+        }
+      },
+      "nav": {
+        "product": "Produkt",
+        "howItWorks": "Wie es funktioniert",
+        "solutions": "Lösungen",
+        "docs": "Dokumente",
+        "pricing": "Preisgestaltung",
+        "trust": "Vertrauen",
+        "contact": "Kontakt",
+        "quickstart": "Quickstart"
+      },
+      "footer": {
+        "description": "Speckit orchestriert die Strecke von Spezifikation bis Release mit programmierbaren Richtlinien-Gates und kontinuierlichen Nachweisen.",
+        "columns": {
+          "product": {
+            "heading": "Produkt",
+            "overview": "Überblick",
+            "howItWorks": "Wie es funktioniert",
+            "integrations": "Integrationen"
+          },
+          "resources": {
+            "heading": "Ressourcen",
+            "docs": "Dokumente",
+            "apiReference": "API -Referenz",
+            "community": "Gemeinschaft",
+            "quickstart": "Quickstart guide"
+          },
+          "openSource": {
+            "heading": "Open Source",
+            "repo": "Repo",
+            "templates": "Vorlagen",
+            "issues": "Probleme",
+            "license": "Lizenz"
+          },
+          "trust": {
+            "heading": "Vertrauen",
+            "trustCenter": "Vertrauenszentrum",
+            "status": "Status",
+            "securityTxt": "Security.txt"
+          }
+        },
+        "contact": {
+          "label": "{contactEmail}",
+          "pricing": "Preisgestaltung"
+        }
+      }
+    }
+  },
+  "adf": {
+    "layout": {
+      "skipToContent": "Skip to main content",
+      "githubLabel": "View the Agentic Delivery Framework repository on GitHub",
+      "themeToggle": "Toggle theme",
+      "nav": {
+        "items": [
+          {
+            "id": "docs",
+            "label": "Docs",
+            "external": true
+          },
+          {
+            "id": "quickstart",
+            "label": "Quickstart",
+            "href": "/quickstart"
+          },
+          {
+            "id": "trust",
+            "label": "Trust Center",
+            "href": "https://trust.airnub.io",
+            "external": true
+          }
+        ]
+      },
+      "footer": {
+        "description": "ADF gives delivery, security, and compliance teams a shared blueprint for supervising agent-assisted releases.",
+        "columns": [
+          {
+            "heading": "Get started",
+            "links": [
+              {
+                "id": "docs",
+                "label": "Documentation",
+                "external": true
+              },
+              {
+                "id": "quickstart",
+                "label": "One-day L1 quickstart",
+                "href": "/quickstart"
+              }
+            ]
+          },
+          {
+            "heading": "Templates",
+            "links": [
+              {
+                "id": "templates",
+                "label": "Workflow templates",
+                "href": "https://github.com/airnub/agentic-delivery-framework/tree/main/templates",
+                "external": true
+              },
+              {
+                "id": "ci",
+                "label": "CI gates",
+                "href": "https://github.com/airnub/agentic-delivery-framework/tree/main/ci",
+                "external": true
+              }
+            ]
+          },
+          {
+            "heading": "Trust & community",
+            "links": [
+              {
+                "id": "github",
+                "label": "GitHub repository",
+                "href": "https://github.com/airnub/agentic-delivery-framework",
+                "external": true
+              },
+              {
+                "id": "trust",
+                "label": "Airnub Trust Center",
+                "href": "https://trust.airnub.io",
+                "external": true
+              }
+            ]
+          }
+        ],
+        "bottomLinks": [
+          {
+            "id": "github",
+            "label": "GitHub",
+            "href": "https://github.com/airnub/agentic-delivery-framework",
+            "external": true
+          },
+          {
+            "id": "trust",
+            "label": "Trust Center",
+            "href": "https://trust.airnub.io",
+            "external": true
+          },
+          {
+            "id": "docs",
+            "label": "Docs",
+            "external": true
+          }
+        ]
+      }
+    }
+  }
+}

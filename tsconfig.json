@@ -32,7 +32,9 @@
       "@airnub/seo": ["packages/seo/src/index.ts"],
       "@airnub/seo/*": ["packages/seo/src/*"],
       "@airnub/db": ["packages/db/src/index.ts"],
-      "@airnub/db/*": ["packages/db/src/*"]
+      "@airnub/db/*": ["packages/db/src/*"],
+      "@airnub/i18n": ["packages/i18n/merge.ts"],
+      "@airnub/i18n/*": ["packages/i18n/*"]
     }
   },
   "include": [

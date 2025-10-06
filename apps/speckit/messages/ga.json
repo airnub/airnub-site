@@ -1,21 +1,5 @@
 {
   "layout": {
-    "skipToContent": "Scipeáil chuig ábhar",
-    "themeToggle": "Téama toggle",
-    "languageLabel": "Teanga",
-    "githubLabel": "Speckit ar GitHub",
-    "locale": {
-      "options": {
-        "en-US": "Béarla (SAM)",
-        "en-GB": "Béarla (RA)",
-        "fr": "Fraincis",
-        "es": "Spáinnis",
-        "de": "Gearmáinis",
-        "pt": "Portaingéilis",
-        "it": "Iodáilis",
-        "ga": "Gaeilge"
-      }
-    },
     "metadata": {
       "titleDefault": "Speckit — Uathoibriú rialaithe sonraíochtaí",
       "titleTemplate": "%s | Speckit",
@@ -25,51 +9,6 @@
       "ogImageAlt": "Deais ag taispeáint sreafaí rialachais Speckit",
       "openGraphLocale": "ga_IE",
       "twitterDescription": "Códann Speckit rialachas ardáin le sreafaí oibre dúchasacha forbróirí, geataí beartais agus fianaise leanúnach."
-    },
-    "nav": {
-      "product": "Toradh",
-      "howItWorks": "Conas a oibríonn sé",
-      "solutions": "Réitigh",
-      "docs": "Docs",
-      "pricing": "Praghsáil",
-      "trust": "Iontaobhas",
-      "contact": "Lionsa tadhaill",
-      "quickstart": "Quickstart"
-    },
-    "footer": {
-      "description": "Orchstraíonn Speckit an lúb ó shonraíocht go seoladh le geataí beartais inscálaithe agus fianaise leanúnach.",
-      "columns": {
-        "product": {
-          "heading": "Toradh",
-          "overview": "Forbhreathnú",
-          "howItWorks": "Conas a oibríonn sé",
-          "integrations": "Comhtháthú"
-        },
-        "resources": {
-          "heading": "Caisiún",
-          "docs": "Docs",
-          "apiReference": "Tagairt API",
-          "community": "Pobal",
-          "quickstart": "Quickstart guide"
-        },
-        "openSource": {
-          "heading": "Foinse Oscailte",
-          "repo": "Athmhuintearas",
-          "templates": "Teimpléid",
-          "issues": "Saincheist",
-          "license": "Cead"
-        },
-        "trust": {
-          "heading": "Iontaobhas",
-          "trustCenter": "Ionad muiníne",
-          "status": "Stádas",
-          "securityTxt": "slándáil.txt"
-        }
-      },
-      "contact": {
-        "label": "{contactEmail}",
-        "pricing": "Praghsáil"
-      }
     }
   },
   "home": {

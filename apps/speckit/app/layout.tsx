@@ -36,7 +36,7 @@ function formatTemplate(template: string, values: Record<string, string | undefi
 
 export async function generateMetadata(): Promise<Metadata> {
   const language = await getCurrentLanguage();
-  const layoutMessages = getSpeckitMessages(language).layout;
+  const layoutMessages = (await getSpeckitMessages(language)).layout;
   const metadataMessages = layoutMessages.metadata;
   const ogPath = speckitBrand.og ?? "/brand/og.png";
   const ogUrl = new URL(ogPath, SPECKIT_BASE_URL).toString();
@@ -75,7 +75,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const language = await getCurrentLanguage();
-  const messages = getSpeckitMessages(language);
+  const messages = await getSpeckitMessages(language);
   const layoutMessages = messages.layout;
   const footerMessages = layoutMessages.footer;
   const languageOptions = supportedLanguages.map((code) => ({

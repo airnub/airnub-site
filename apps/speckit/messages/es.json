@@ -1,21 +1,5 @@
 {
   "layout": {
-    "skipToContent": "Saltar al contenido",
-    "themeToggle": "Tema de alternar",
-    "languageLabel": "Idioma",
-    "githubLabel": "Speckit en Github",
-    "locale": {
-      "options": {
-        "en-US": "Inglés (EE. UU.)",
-        "en-GB": "Inglés (Reino Unido)",
-        "fr": "Francés",
-        "es": "Español",
-        "de": "Alemán",
-        "pt": "Portugués",
-        "it": "Italiano",
-        "ga": "Irlandés"
-      }
-    },
     "metadata": {
       "titleDefault": "Speckit — Automatización gobernada de especificaciones",
       "titleTemplate": "%s | Speckit",
@@ -25,51 +9,6 @@
       "ogImageAlt": "Panel que muestra los flujos de gobernanza de Speckit",
       "openGraphLocale": "es_ES",
       "twitterDescription": "Speckit codifica la gobernanza de la plataforma con flujos de trabajo nativos para desarrolladores, compuertas de políticas y evidencia continua."
-    },
-    "nav": {
-      "product": "Producto",
-      "howItWorks": "Cómo funciona",
-      "solutions": "Soluciones",
-      "docs": "Documento",
-      "pricing": "Fijación de precios",
-      "trust": "Confianza",
-      "contact": "Contacto",
-      "quickstart": "Quickstart"
-    },
-    "footer": {
-      "description": "Speckit orquesta el ciclo de especificación a lanzamiento con compuertas programables y evidencia continua.",
-      "columns": {
-        "product": {
-          "heading": "Producto",
-          "overview": "Descripción general",
-          "howItWorks": "Cómo funciona",
-          "integrations": "Integración"
-        },
-        "resources": {
-          "heading": "Recursos",
-          "docs": "Documento",
-          "apiReference": "Referencia de API",
-          "community": "Comunidad",
-          "quickstart": "Quickstart guide"
-        },
-        "openSource": {
-          "heading": "Código abierto",
-          "repo": "Repositorio",
-          "templates": "Plantillas",
-          "issues": "Asuntos",
-          "license": "Licencia"
-        },
-        "trust": {
-          "heading": "Confianza",
-          "trustCenter": "Centro de confianza",
-          "status": "Estado",
-          "securityTxt": "Security.txt"
-        }
-      },
-      "contact": {
-        "label": "{contactEmail}",
-        "pricing": "Fijación de precios"
-      }
     }
   },
   "home": {

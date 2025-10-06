@@ -1,21 +1,5 @@
 {
   "layout": {
-    "skipToContent": "Passer au contenu",
-    "themeToggle": "Thème de basculement",
-    "languageLabel": "Langue",
-    "githubLabel": "Speckit sur github",
-    "locale": {
-      "options": {
-        "en-US": "Anglais (États-Unis)",
-        "en-GB": "Anglais (Royaume-Uni)",
-        "fr": "Français",
-        "es": "Espagnol",
-        "de": "Allemand",
-        "pt": "Portugais",
-        "it": "Italien",
-        "ga": "Irlandais"
-      }
-    },
     "metadata": {
       "titleDefault": "Speckit — Automatisation gouvernée des spécifications",
       "titleTemplate": "%s | Speckit",
@@ -25,51 +9,6 @@
       "ogImageAlt": "Tableau de bord présentant les workflows de gouvernance Speckit",
       "openGraphLocale": "fr_FR",
       "twitterDescription": "Speckit code la gouvernance des plateformes avec des workflows natifs développeurs, des garde-fous de politique et des preuves continues."
-    },
-    "nav": {
-      "product": "Produit",
-      "howItWorks": "Comment ça marche",
-      "solutions": "Solutions",
-      "docs": "Docs",
-      "pricing": "Prix",
-      "trust": "Confiance",
-      "contact": "Contact",
-      "quickstart": "Quickstart"
-    },
-    "footer": {
-      "description": "Speckit orchestre la boucle spécification-vers-release avec des garde-fous programmables et des preuves continues.",
-      "columns": {
-        "product": {
-          "heading": "Produit",
-          "overview": "Aperçu",
-          "howItWorks": "Comment ça marche",
-          "integrations": "Intégrations"
-        },
-        "resources": {
-          "heading": "Ressources",
-          "docs": "Docs",
-          "apiReference": "Référence de l'API",
-          "community": "Communauté",
-          "quickstart": "Quickstart guide"
-        },
-        "openSource": {
-          "heading": "Open source",
-          "repo": "Repo",
-          "templates": "Modèles",
-          "issues": "Problèmes",
-          "license": "Licence"
-        },
-        "trust": {
-          "heading": "Confiance",
-          "trustCenter": "Centre de confiance",
-          "status": "Statut",
-          "securityTxt": "security.txt"
-        }
-      },
-      "contact": {
-        "label": "{contactEmail}",
-        "pricing": "Prix"
-      }
     }
   },
   "home": {

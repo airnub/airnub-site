@@ -1,29 +1,4 @@
 {
-  "common": {
-    "skipToContent": "Léim go dtí an t-ábhar",
-    "githubLabel": "Airnub ar GitHub",
-    "locale": {
-      "label": "Teanga",
-      "options": {
-        "en-US": "Béarla (SAM)",
-        "en-GB": "Béarla (RA)",
-        "ga": "Gaeilge",
-        "fr": "Fraincis",
-        "es": "Spáinnis",
-        "de": "Gearmáinis",
-        "pt": "Portaingéilis",
-        "it": "Iodáilis"
-      }
-    },
-    "theme": {
-      "toggle": "Athraigh téama datha"
-    },
-    "maintenance": {
-      "title": "Táimid ag ullmhú",
-      "description": "Tá Airnub ag ullmhú rud éigin nua. Fill ar ais go luath nó cláraigh le haghaidh nuashonruithe seolta.",
-      "cta": "Seol ríomhphost chugainn ag {email}"
-    }
-  },
   "layout": {
     "metadata": {
       "titleDefault": "Airnub — Ardáin forbróirí rialaithe",
@@ -35,67 +10,6 @@
   },
   "toast": {
     "dismiss": "Dún fógra"
-  },
-  "nav": {
-    "products": "Táirgí",
-    "adf": "Agentic Delivery Framework",
-    "solutions": "Réitigh",
-    "services": "Seirbhísí",
-    "resources": "Acmhainní",
-    "trust": "Iontaobhas",
-    "company": "Cuideachta",
-    "contact": "Teagmháil"
-  },
-  "footer": {
-    "description": "Rialaigh saolré ardán na bhforbróirí le muinín, uathoibriú agus fianaise leanúnach.",
-    "columns": {
-      "products": {
-        "heading": "Táirgí",
-        "links": {
-          "speckit": "Speckit",
-          "adf": "Agentic Delivery Framework"
-        }
-      },
-      "resources": {
-        "heading": "Acmhainní",
-        "links": {
-          "docs": "Doiciméadú",
-          "adfDocs": "ADF Docs",
-          "blog": "Blag",
-          "changelog": "Log athruithe"
-        }
-      },
-      "openSource": {
-        "heading": "Foinse oscailte",
-        "links": {
-          "org": "Eagras GitHub",
-          "speckit": "Speckit",
-          "templates": "Teimpléid bonneagair"
-        }
-      },
-      "trust": {
-        "heading": "Iontaobhas",
-        "links": {
-          "trustCenter": "Lárionad iontaobhais",
-          "vdp": "VDP",
-          "securityTxt": "security.txt"
-        }
-      },
-      "company": {
-        "heading": "Cuideachta",
-        "links": {
-          "about": "Fúinn",
-          "careers": "Gairmeacha",
-          "press": "Preas",
-          "legal": "Dlí"
-        }
-      }
-    },
-    "bottom": {
-      "privacy": "Príobháideachas",
-      "terms": "Téarmaí",
-      "email": "{email}"
-    }
   },
   "home": {
     "metadata": {

@@ -20,7 +20,7 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const language = await getCurrentLanguage();
-  const home = getSpeckitMessages(language).home;
+  const home = (await getSpeckitMessages(language)).home;
   return {
     title: home.hero.title,
     description: home.hero.description,
@@ -29,7 +29,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function SpeckitHome() {
   const language = await getCurrentLanguage();
-  const messages = getSpeckitMessages(language);
+  const messages = await getSpeckitMessages(language);
   const home = messages.home;
   const heroActions = home.hero.actions;
 

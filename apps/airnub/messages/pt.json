@@ -1,29 +1,4 @@
 {
-  "common": {
-    "skipToContent": "Ir para o conteúdo principal",
-    "githubLabel": "Airnub no GitHub",
-    "locale": {
-      "label": "Idioma",
-      "options": {
-        "en-US": "Inglês (EUA)",
-        "en-GB": "Inglês (Reino Unido)",
-        "ga": "Irlandês",
-        "fr": "Francês",
-        "es": "Espanhol",
-        "de": "Alemão",
-        "pt": "Português",
-        "it": "Italiano"
-      }
-    },
-    "theme": {
-      "toggle": "Alterar tema de cores"
-    },
-    "maintenance": {
-      "title": "Estamos a preparar tudo",
-      "description": "A Airnub está a preparar algo novo. Volte em breve ou subscreva as atualizações de lançamento.",
-      "cta": "Envie-nos um email para {email}"
-    }
-  },
   "layout": {
     "metadata": {
       "titleDefault": "Airnub — Plataformas governadas para developers",
@@ -35,67 +10,6 @@
   },
   "toast": {
     "dismiss": "Fechar notificação"
-  },
-  "nav": {
-    "products": "Produtos",
-    "adf": "Agentic Delivery Framework",
-    "solutions": "Soluções",
-    "services": "Serviços",
-    "resources": "Recursos",
-    "trust": "Confiança",
-    "company": "Empresa",
-    "contact": "Contacto"
-  },
-  "footer": {
-    "description": "Governar o ciclo de vida da plataforma de desenvolvedores com confiança, automação e evidências contínuas.",
-    "columns": {
-      "products": {
-        "heading": "Produtos",
-        "links": {
-          "speckit": "Speckit",
-          "adf": "Agentic Delivery Framework"
-        }
-      },
-      "resources": {
-        "heading": "Recursos",
-        "links": {
-          "docs": "Documentação",
-          "adfDocs": "ADF Docs",
-          "blog": "Blog",
-          "changelog": "Registo de alterações"
-        }
-      },
-      "openSource": {
-        "heading": "Código aberto",
-        "links": {
-          "org": "Organização GitHub",
-          "speckit": "Speckit",
-          "templates": "Modelos de infraestrutura"
-        }
-      },
-      "trust": {
-        "heading": "Confiança",
-        "links": {
-          "trustCenter": "Centro de confiança",
-          "vdp": "VDP",
-          "securityTxt": "security.txt"
-        }
-      },
-      "company": {
-        "heading": "Empresa",
-        "links": {
-          "about": "Sobre",
-          "careers": "Carreiras",
-          "press": "Imprensa",
-          "legal": "Jurídico"
-        }
-      }
-    },
-    "bottom": {
-      "privacy": "Privacidade",
-      "terms": "Termos",
-      "email": "{email}"
-    }
   },
   "home": {
     "metadata": {

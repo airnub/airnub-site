@@ -8,8 +8,8 @@ const REPO_URL = "https://github.com/airnub/agentic-delivery-framework";
 
 export const dynamic = "force-static";
 
-export function generateMetadata(): Metadata {
-  const messages = getAdfMessages();
+export async function generateMetadata(): Promise<Metadata> {
+  const messages = await getAdfMessages();
   const hero = messages.home.hero;
 
   return {
@@ -18,8 +18,8 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default function MarketingHome() {
-  const messages = getAdfMessages();
+export default async function MarketingHome() {
+  const messages = await getAdfMessages();
   const hero = messages.home.hero;
   const highlights = messages.home.highlights;
 

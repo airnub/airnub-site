@@ -31,7 +31,7 @@ function resolveDocsUrl() {
 const TRUST_CENTER_URL = "https://trust.airnub.io";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const messages = getAdfMessages();
+  const messages = await getAdfMessages();
   const hero = messages.home.hero;
   const ogPath = adfBrand.og ?? "/opengraph-image";
   const ogUrl = new URL(ogPath, ADF_BASE_URL).toString();
@@ -67,8 +67,8 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
-  const messages = getAdfMessages();
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  const messages = await getAdfMessages();
   const layoutMessages = messages.layout;
   const docsUrl = resolveDocsUrl();
 
