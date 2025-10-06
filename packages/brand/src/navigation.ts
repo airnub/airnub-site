@@ -69,6 +69,7 @@ export type SiteNavigationDefinition = {
 export const airnubNavigation: SiteNavigationDefinition = {
   header: [
     { id: "products", labelKey: "nav.products", href: "/products" },
+    { id: "adf", labelKey: "nav.adf", href: "/adf" },
     { id: "solutions", labelKey: "nav.solutions", href: "/solutions" },
     { id: "services", labelKey: "nav.services", href: "/services" },
     { id: "resources", labelKey: "nav.resources", href: "/resources" },
@@ -88,6 +89,12 @@ export const airnubNavigation: SiteNavigationDefinition = {
             href: "https://speckit.airnub.io",
             external: true,
           },
+          {
+            id: "products.adf",
+            labelKey: "footer.columns.products.links.adf",
+            href: "https://adf.airnub.io",
+            external: true,
+          },
         ],
       },
       {
@@ -97,7 +104,13 @@ export const airnubNavigation: SiteNavigationDefinition = {
           {
             id: "resources.docs",
             labelKey: "footer.columns.resources.links.docs",
-            href: "https://docs.speckit.dev",
+            href: "https://airnub.github.io/speckit/",
+            external: true,
+          },
+          {
+            id: "resources.adfDocs",
+            labelKey: "footer.columns.resources.links.adfDocs",
+            href: "https://airnub.github.io/agentic-delivery-framework/",
             external: true,
           },
           {
@@ -220,7 +233,7 @@ export const speckitNavigation: SiteNavigationDefinition = {
     {
       id: "docs",
       labelKey: "layout.nav.docs",
-      href: "https://docs.speckit.dev",
+      href: "https://airnub.github.io/speckit/",
       external: true,
     },
     { id: "pricing", labelKey: "layout.nav.pricing", href: "/pricing" },
@@ -267,13 +280,13 @@ export const speckitNavigation: SiteNavigationDefinition = {
           {
             id: "resources.docs",
             labelKey: "layout.footer.columns.resources.docs",
-            href: "https://docs.speckit.dev",
+            href: "https://airnub.github.io/speckit/",
             external: true,
           },
           {
             id: "resources.apiReference",
             labelKey: "layout.footer.columns.resources.apiReference",
-            href: "https://docs.speckit.dev/api",
+            href: "https://airnub.github.io/speckit/api/",
             external: true,
           },
           {

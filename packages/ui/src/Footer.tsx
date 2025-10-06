@@ -38,7 +38,7 @@ export function Footer({ logo, columns, copyright, bottomSlot, description }: Fo
                       href={link.href}
                       className="transition hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                       target={link.external ? "_blank" : undefined}
-                      rel={link.external ? "noreferrer" : undefined}
+                      rel={link.external ? "noopener noreferrer" : undefined}
                     >
                       <span className="font-medium">{link.label}</span>
                       {link.description ? (
