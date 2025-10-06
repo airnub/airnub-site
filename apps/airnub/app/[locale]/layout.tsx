@@ -188,7 +188,7 @@ export default async function LocaleLayout({
         external: cta.external,
       };
     })
-    .filter((link): link is { label: string; href: string; external?: boolean } => Boolean(link));
+    .filter((link): link is { label: string; href: string; external: boolean | undefined } => Boolean(link));
 
   const salesEmail = findContactValue(["sales", "support", "general"]);
 

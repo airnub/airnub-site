@@ -26,13 +26,10 @@
       }
     },
     "nav": {
-      "products": "Prodotti",
-      "adf": "Agentic Delivery Framework",
-      "solutions": "Soluzioni",
-      "services": "Servizi",
-      "resources": "Risorse",
-      "trust": "Fiducia",
-      "company": "Azienda",
+      "home": "Home",
+      "work": "Servizi",
+      "projects": "Progetti",
+      "about": "Azienda",
       "contact": "Contatti"
     },
     "footer": {

@@ -61,9 +61,9 @@ const speckitOutcomeIds = [
   "automatedEvidence",
 ] as const;
 
-const serviceStepIds = ["assessment", "blueprint", "adoption"] as const;
+const workStepIds = ["assessment", "blueprint", "adoption"] as const;
 
-const serviceCardIds = [
+const workCardIds = [
   "operatingModel",
   "regulatedCloud",
   "innerSource",
@@ -154,18 +154,18 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     })),
   } as const;
 
-  const services = {
-    title: t("services.title"),
-    description: t("services.description"),
-    steps: serviceStepIds.map((id) => ({
+  const work = {
+    title: t("work.title"),
+    description: t("work.description"),
+    steps: workStepIds.map((id) => ({
       id,
-      label: t(`services.steps.${id}.label`),
-      description: t(`services.steps.${id}.description`),
+      label: t(`work.steps.${id}.label`),
+      description: t(`work.steps.${id}.description`),
     })),
-    cards: serviceCardIds.map((id) => ({
+    cards: workCardIds.map((id) => ({
       id,
-      title: t(`services.cards.${id}.title`),
-      description: t(`services.cards.${id}.description`),
+      title: t(`work.cards.${id}.title`),
+      description: t(`work.cards.${id}.description`),
     })),
   } as const;
 
@@ -252,7 +252,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   <CardContent className="pt-0">
                     <div className="flex flex-wrap gap-3">
                       <Button asChild>{siteLink}</Button>
-                      <Button variant="outline" asChild>
+                      <Button variant="ghost" asChild>
                         {docsLink}
                       </Button>
                     </div>
@@ -288,7 +288,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <>
             <Button asChild>{speckitPrimaryLink}</Button>
             <Button variant="ghost" asChild>
-              <LocaleLink href="/products">{speckit.secondaryCta}</LocaleLink>
+              <LocaleLink href="/projects">{speckit.secondaryCta}</LocaleLink>
             </Button>
           </>
         }
@@ -316,9 +316,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       />
 
       <CTASection
-        title={services.title}
-        description={services.description}
-        items={services.steps.map((step) => ({
+        title={work.title}
+        description={work.description}
+        items={work.steps.map((step) => ({
           id: step.id,
           title: step.label,
           description: step.description,
@@ -326,7 +326,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         tone="subtle"
         aside={
           <div className="grid gap-6 md:grid-cols-2">
-            {services.cards.map((card) => (
+            {work.cards.map((card) => (
               <Card key={card.id}>
                 <CardHeader>
                   <CardTitle className="text-lg">{card.title}</CardTitle>

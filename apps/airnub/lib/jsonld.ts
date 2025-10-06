@@ -24,6 +24,7 @@ export function buildAirnubOrganizationJsonLd() {
           ? {
               "@type": "ContactPoint",
               contactType: "sales",
+              telephone: "",
               email: salesEmail,
               availableLanguage: ["English"],
               areaServed: "Global",
@@ -33,6 +34,7 @@ export function buildAirnubOrganizationJsonLd() {
           ? {
               "@type": "ContactPoint",
               contactType: "security",
+              telephone: "",
               email: securityEmail,
             }
           : undefined,
@@ -40,6 +42,7 @@ export function buildAirnubOrganizationJsonLd() {
           ? {
               "@type": "ContactPoint",
               contactType: "press",
+              telephone: "",
               email: pressEmail,
             }
           : undefined,
@@ -60,13 +63,13 @@ export function buildAirnubProductPortfolioJsonLd() {
       },
       {
         name: "Platform blueprints",
-        url: `${AIRNUB_BASE_URL}/services#platform`,
+        url: `${AIRNUB_BASE_URL}/work#platform`,
         description:
           "Reference architectures and paved roads for platform teams.",
       },
       {
         name: "Trust accelerators",
-        url: `${AIRNUB_BASE_URL}/services#trust`,
+        url: `${AIRNUB_BASE_URL}/work#trust`,
         description:
           "Compliance artifacts with automated evidence capture.",
       },

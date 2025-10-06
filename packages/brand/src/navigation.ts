@@ -1,5 +1,4 @@
 import type { BrandContacts } from "./brand.config";
-import { getMicrositeOrigin } from "./microsites";
 
 export type NavigationLinkDefinition = {
   /**
@@ -69,13 +68,10 @@ export type SiteNavigationDefinition = {
 
 export const airnubNavigation: SiteNavigationDefinition = {
   header: [
-    { id: "products", labelKey: "nav.products", href: "/products" },
-    { id: "adf", labelKey: "nav.adf", href: getMicrositeOrigin("adf") },
-    { id: "solutions", labelKey: "nav.solutions", href: "/solutions" },
-    { id: "services", labelKey: "nav.services", href: "/services" },
-    { id: "resources", labelKey: "nav.resources", href: "/resources" },
-    { id: "trust", labelKey: "nav.trust", href: "/trust" },
-    { id: "company", labelKey: "nav.company", href: "/company" },
+    { id: "home", labelKey: "nav.home", href: "/" },
+    { id: "work", labelKey: "nav.work", href: "/work" },
+    { id: "projects", labelKey: "nav.projects", href: "/projects" },
+    { id: "about", labelKey: "nav.about", href: "/about" },
     { id: "contact", labelKey: "nav.contact", href: "/contact" },
   ],
   footer: {
@@ -117,12 +113,14 @@ export const airnubNavigation: SiteNavigationDefinition = {
           {
             id: "resources.blog",
             labelKey: "footer.columns.resources.links.blog",
-            href: "/resources#blog",
+            href: "https://airnub.io/blog",
+            external: true,
           },
           {
             id: "resources.changelog",
             labelKey: "footer.columns.resources.links.changelog",
-            href: "/resources#changelog",
+            href: "https://speckit.airnub.io/changelog",
+            external: true,
           },
         ],
       },
@@ -181,22 +179,22 @@ export const airnubNavigation: SiteNavigationDefinition = {
           {
             id: "company.about",
             labelKey: "footer.columns.company.links.about",
-            href: "/company",
+            href: "/about",
           },
           {
             id: "company.careers",
             labelKey: "footer.columns.company.links.careers",
-            href: "/company#careers",
+            href: "/about#careers",
           },
           {
             id: "company.press",
             labelKey: "footer.columns.company.links.press",
-            href: "/company#press",
+            href: "/about#press",
           },
           {
             id: "company.legal",
             labelKey: "footer.columns.company.links.legal",
-            href: "/company#legal",
+            href: "/about#legal",
           },
         ],
       },
@@ -205,12 +203,12 @@ export const airnubNavigation: SiteNavigationDefinition = {
       {
         id: "privacy",
         labelKey: "footer.bottom.privacy",
-        href: "/company#privacy",
+        href: "/about#legal",
       },
       {
         id: "terms",
         labelKey: "footer.bottom.terms",
-        href: "/company#terms",
+        href: "/about#legal",
       },
       {
         id: "contactEmail",
