@@ -69,7 +69,7 @@ export type SiteNavigationDefinition = {
 export const airnubNavigation: SiteNavigationDefinition = {
   header: [
     { id: "products", labelKey: "nav.products", href: "/products" },
-    { id: "adf", labelKey: "nav.adf", href: "/adf" },
+    { id: "adf", labelKey: "nav.adf", href: "https://adf.airnub.io" },
     { id: "solutions", labelKey: "nav.solutions", href: "/solutions" },
     { id: "services", labelKey: "nav.services", href: "/services" },
     { id: "resources", labelKey: "nav.resources", href: "/resources" },

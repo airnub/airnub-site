@@ -108,11 +108,11 @@
       "description": "A Airnub combina o Agentic Delivery Framework, o Speckit e engenheiros de compliance para que as equipas de plataforma lancem serviços de IA governados com evidências desde o primeiro dia.",
       "primaryCta": {
         "label": "Explorar a ADF",
-        "href": "/adf"
+        "href": "https://adf.airnub.io"
       },
       "secondaryCta": {
         "label": "Conhecer o Speckit",
-        "href": "/speckit"
+        "href": "https://speckit.airnub.io"
       },
       "tertiaryCta": {
         "label": "Fale com a nossa equipa",

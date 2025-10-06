@@ -108,11 +108,11 @@
       "description": "Comhcheanglaíonn Airnub an Agentic Delivery Framework, Speckit, agus innealtóirí comhlíonta chun go bhféadfaidh foirne ardáin seirbhísí AI rialaithe a sheoladh le fianaise ón gcéad lá.",
       "primaryCta": {
         "label": "Déan iniúchadh ar ADF",
-        "href": "/adf"
+        "href": "https://adf.airnub.io"
       },
       "secondaryCta": {
         "label": "Buail le Speckit",
-        "href": "/speckit"
+        "href": "https://speckit.airnub.io"
       },
       "tertiaryCta": {
         "label": "Labhair lenár bhfoireann",
