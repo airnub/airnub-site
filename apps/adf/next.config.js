@@ -1,5 +1,6 @@
 const { defineMonorepoNextConfig } = require("../../next.shared-config.js");
+const withNextIntl = require("next-intl/plugin")("./app/i18n/request.ts");
 
-const config = defineMonorepoNextConfig(__dirname);
+const baseConfig = defineMonorepoNextConfig(__dirname);
 
-module.exports = config;
+module.exports = withNextIntl(baseConfig);

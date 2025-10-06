@@ -1,0 +1,133 @@
+{
+  "layout": {
+    "localeSwitcher": {
+      "label": "Teanga",
+      "options": {
+        "en-US": "Béarla (SAM)",
+        "en-GB": "Béarla (RA)",
+        "ga": "Gaeilge",
+        "fr": "Fraincis",
+        "es": "Spáinnis",
+        "de": "Gearmáinis",
+        "pt": "Portaingéilis",
+        "it": "Iodáilis"
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Seachadadh gníomhairí oscailte faoi mhaoirseacht",
+      "title": "Sonraíocht an Agentic Delivery Framework",
+      "description": "Tugann an sonraíocht ADF playbook aonair do cheannairí Critical Review chun seoltaí maoirseachta a chomhordú. Ailíníonn sí polasaithe, athbhreithnithe agus rialuithe gníomhairí ar fud foirne agus coinneálann sí rianta iniúchta, gabháil fianaise agus cosáin téarnaimh ón tús.",
+      "actions": {
+        "docs": "Léigh an sonraíocht (docs)",
+        "quickstart": "Tús tapa",
+        "github": "Stór GitHub"
+      }
+    },
+    "highlights": [
+      {
+        "title": "Rialachas bunaithe ar CR",
+        "description": "Rialaíonn ceannairí CR an fhoireann, cosáin éalaithe agus nuashonruithe polasaí chun freagracht dhaonna a bheith mar bhunchloch ar gach sreabhadh gníomhaire."
+      },
+      {
+        "title": "Píblíne fho-thasc seicheamhach",
+        "description": "Roinn an seachadadh ina phointí seiceála CR ordaithe le fianaise riachtanach sula n-aistríonn gníomhairí nó uathoibriú go dtí an chéad chéim eile."
+      },
+      {
+        "title": "Pulse laethúil",
+        "description": "Reáchtáil deasghnáth seasta a thaispeánann obair bhacáilte, ualach ceadaithe agus comharthaí riosca ionas gur féidir le CRanna athchothromú go tapa."
+      },
+      {
+        "title": "Bearta fianaise",
+        "description": "Cuir le chéile prompts, aschuir samhlacha, nótaí athbhreithneora agus torthaí tástála i bpacáistí doscriosta atá réidh d'iniúchtaí nó d'anailís iar-imeachta."
+      },
+      {
+        "title": "Geataí CR",
+        "description": "Ionchorpraigh pointí stad daonna i CI/CD ionas nach leanfaidh seoltaí ar aghaidh go dtí go síníonn an CR ceaptha seiceálacha polasaí agus riosca."
+      }
+    ]
+  },
+  "quickstart": {
+    "metadata": {
+      "title": "Tús tapa L1 (faoi mhaoirseacht)",
+      "description": "Seol cosán L1 an Agentic Delivery Framework in aon lá amháin le teimpléid, deasghnátha athbhreithnithe agus cosaintí CI."
+    },
+    "intro": {
+      "eyebrow": "Lá 0 go lá 1",
+      "title": "Tús tapa L1 in aon lá",
+      "description": "Lean an playbook seo chun ADF a phíolótú le sreabhadh maoirsithe agus duine sa lúb. Mapaítear gach seicphointe le teimpléid fianaise agus geataí CI ionas gur féidir le d'fhoireann dul beo le muinín."
+    },
+    "steps": [
+      {
+        "title": "08:30 — Tús agus scóip",
+        "description": "Aontaigh ar an gcás úsáide gníomhaire, socraigh méadrachtaí ratha agus ceap an t-innealtóir maoirseachta agus na hathbhreithnitheoirí."
+      },
+      {
+        "title": "10:00 — Polasaí agus cosaintí",
+        "description": "Saincheap teimpléad polasaí L1: maitrís cheadaithe, teorainneacha samhlacha, critéir ath-tharraingthe agus sínithe slándála."
+      },
+      {
+        "title": "12:00 — Ionstraimíocht sreafa oibre",
+        "description": "Ceangail an CLI nó an SDK, cumasaigh gabháil prompt agus nasc tástálacha uathoibrithe leis an bpríomhpíblíne GitHub Actions."
+      },
+      {
+        "title": "14:00 — Rith trialach agus gabháil fianaise",
+        "description": "Siúil tríd an sreabhadh deireadh go deireadh agus cuir prompts, aschuir agus nótaí athbhreithneora sa teimpléad logála."
+      },
+      {
+        "title": "16:00 — Cleachtadh geataí CI",
+        "description": "Cuir tús leis an jab seolta maoirsithe, réitigh seiceálacha teipthe agus cleacht an pointe stad d'fhaomhadh daonna."
+      },
+      {
+        "title": "17:30 — Go/no-go agus athbhreithnithe",
+        "description": "Athbhreithnigh an fhianaise bhailithe, taifead leanúintí agus dearbhaigh critéir chun leathnú thar an gcohórt phíolótach."
+      }
+    ],
+    "templates": {
+      "title": "Teimpléid sa stór",
+      "items": [
+        {
+          "name": "Bunlíne polasaí L1",
+          "description": "Doiciméad in-eagarthóireachta a chlúdaíonn scóip, samhlacha ceadaithe, cásanna dearga agus sreabhadh ceadaithe."
+        },
+        {
+          "name": "Log reatha agus pacáiste fianaise",
+          "description": "Teimpléad Notion/Markdown a ghabhann prompts, aschuir agus dearbhuithe athbhreithnitheora do gach rith."
+        },
+        {
+          "name": "Playbook oibríochta",
+          "description": "Seicliosta do mhaoirseoirí ar glao le cosáin ardaithe, truicir rollback agus cumarsáid le páirtithe leasmhara."
+        }
+      ]
+    },
+    "ci": {
+      "title": "Achoimre geataí CI",
+      "description": "Seachadtar le ADF seiceálacha GitHub Actions is féidir a chur le píblínte reatha. Mapálann gach geata úinéir rialaithe agus an fhianaise riachtanach.",
+      "gates": [
+        {
+          "name": "Lint polasaí",
+          "detail": "Deimhníonn go bhfuil comhad polasaí L1 sínithe agus bailí don bhrainse."
+        },
+        {
+          "name": "Gabháil prompt & aschuir",
+          "detail": "Cinntíonn go gcuirtear déantáin ó rithanna maoirsithe leis sula ndéantar cumasc."
+        },
+        {
+          "name": "Stad formheasa daonna",
+          "detail": "Éilíonn faomhadh ón innealtóir maoirseachta agus ón athbhreithneoir roimh jobs seolta."
+        }
+      ]
+    },
+    "cta": {
+      "title": "An bhfuil tú réidh gníomhairí a oibriú?",
+      "description": "Lean an tús tapa agus leathnaigh ansin le sreabha L2 uathoibríocha nuair a fhanann do mhéadrachtaí maoirseachta glas.",
+      "primary": "Déan iniúchadh ar na docs",
+      "secondary": "Clónaigh an stór GitHub",
+      "eyebrow": "Na chéad chéimeanna eile"
+    },
+    "timeline": {
+      "title": "Amlíne Lá 1"
+    }
+  }
+}

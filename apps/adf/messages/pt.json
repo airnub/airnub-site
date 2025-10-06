@@ -1,0 +1,133 @@
+{
+  "layout": {
+    "localeSwitcher": {
+      "label": "Idioma",
+      "options": {
+        "en-US": "Inglês (EUA)",
+        "en-GB": "Inglês (Reino Unido)",
+        "ga": "Irlandês",
+        "fr": "Francês",
+        "es": "Espanhol",
+        "de": "Alemão",
+        "pt": "Português",
+        "it": "Italiano"
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Entrega aberta e supervisionada",
+      "title": "Especificação do Agentic Delivery Framework",
+      "description": "A especificação do ADF oferece aos líderes de Critical Review (CR) um único playbook para orquestrar lançamentos supervisionados. Ela alinha políticas, revisões e controles de agentes entre equipes enquanto mantém trilhas de auditoria, captura de evidências e caminhos de recuperação desde o início.",
+      "actions": {
+        "docs": "Ler a especificação (docs)",
+        "quickstart": "Guia rápida",
+        "github": "Repositório GitHub"
+      }
+    },
+    "highlights": [
+      {
+        "title": "Governança focada em CR",
+        "description": "Os líderes de Critical Review definem equipe, caminhos de escalonamento e atualizações de política para que a responsabilidade humana sustente cada fluxo de agente."
+      },
+      {
+        "title": "Pipeline sequencial de subtarefas",
+        "description": "Divida a entrega em checkpoints CR ordenados com evidências obrigatórias antes de agentes ou automações avançarem para a próxima etapa."
+      },
+      {
+        "title": "Pulso diário",
+        "description": "Execute um ritual recorrente que destaca trabalho bloqueado, carga de aprovação e sinais de risco para que os CRs possam reequilibrar rapidamente."
+      },
+      {
+        "title": "Pacotes de evidências",
+        "description": "Agrupe prompts, saídas de modelos, notas de revisão e resultados de testes em pacotes imutáveis prontos para auditorias ou análises pós-incidente."
+      },
+      {
+        "title": "Portões CR",
+        "description": "Codifique pontos de parada humanos na CI/CD para que os lançamentos só avancem quando o CR designado aprovar verificações de política e risco."
+      }
+    ]
+  },
+  "quickstart": {
+    "metadata": {
+      "title": "Guia rápida L1 (supervisionada)",
+      "description": "Coloque o caminho L1 do Agentic Delivery Framework no ar em um dia com modelos, rituais de revisão e proteções de CI."
+    },
+    "intro": {
+      "eyebrow": "Do dia 0 ao dia 1",
+      "title": "Guia rápida L1 em um dia",
+      "description": "Siga este playbook para pilotar o ADF com um fluxo supervisionado e humano no loop. Cada checkpoint é conectado a modelos de evidência e portões de CI para que sua equipe vá a produção com confiança."
+    },
+    "steps": [
+      {
+        "title": "08h30 — Kick-off e escopo",
+        "description": "Combine o caso de uso do agente, defina métricas de sucesso e atribua o engenheiro supervisor e os revisores."
+      },
+      {
+        "title": "10h00 — Política e trilhos de proteção",
+        "description": "Personalize o modelo de política L1: matriz de aprovação, limites de modelo, critérios de rollback e aprovações de segurança."
+      },
+      {
+        "title": "12h00 — Instrumentação do fluxo",
+        "description": "Conecte a CLI ou o SDK, habilite a captura de prompts e integre testes automatizados ao pipeline base do GitHub Actions."
+      },
+      {
+        "title": "14h00 — Simulação e coleta de evidências",
+        "description": "Percorra o fluxo de ponta a ponta registrando prompts, saídas e notas de revisão no modelo de registro de execuções."
+      },
+      {
+        "title": "16h00 — Ensaio dos portões de CI",
+        "description": "Dispare o job de lançamento supervisionado, resolva verificações com falha e pratique o ponto de parada para aprovação humana."
+      },
+      {
+        "title": "17h30 — Go/no-go e retrospectivas",
+        "description": "Revise as evidências coletadas, registre acompanhamentos e confirme critérios para expandir além do grupo piloto."
+      }
+    ],
+    "templates": {
+      "title": "Modelos incluídos no repositório",
+      "items": [
+        {
+          "name": "Baseline da política L1",
+          "description": "Documento editável que cobre escopo, modelos permitidos, cenários críticos e fluxo de aprovação."
+        },
+        {
+          "name": "Registro de execuções e pacote de evidências",
+          "description": "Modelo Notion/Markdown que captura prompts, saídas e atestações de revisão em cada execução."
+        },
+        {
+          "name": "Playbook operacional",
+          "description": "Checklist para supervisores de plantão com caminhos de escalonamento, gatilhos de rollback e comunicação com stakeholders."
+        }
+      ]
+    },
+    "ci": {
+      "title": "Resumo dos portões de CI",
+      "description": "O ADF traz verificações do GitHub Actions que podem ser adicionadas a pipelines existentes. Cada portão mapeia um responsável de controle e as evidências necessárias.",
+      "gates": [
+        {
+          "name": "Lint de política",
+          "detail": "Garante que o arquivo de política L1 esteja aprovado e vigente para o branch."
+        },
+        {
+          "name": "Captura de prompts e saídas",
+          "detail": "Assegura que os artefatos das execuções supervisionadas sejam anexados antes do merge."
+        },
+        {
+          "name": "Bloqueio de aprovação humana",
+          "detail": "Exige aprovações do engenheiro supervisor e do revisor antes dos jobs de lançamento."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Pronto para operacionalizar agentes?",
+      "description": "Siga a guia rápida e depois expanda com fluxos autônomos L2 quando as métricas de supervisão permanecerem verdes.",
+      "primary": "Explorar a documentação",
+      "secondary": "Clonar o repositório",
+      "eyebrow": "Próximos passos"
+    },
+    "timeline": {
+      "title": "Cronograma do dia 1"
+    }
+  }
+}

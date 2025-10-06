@@ -1,4 +1,4 @@
-import { promises as fs } from "node:fs";
+import { promises as fs, existsSync } from "node:fs";
 import path from "node:path";
 
 export type LoadMessagesOptions = {
@@ -35,6 +35,20 @@ function createLocaleChain(locale: string, fallbacks: readonly string[]) {
   }
 
   return ordered;
+}
+
+function findRepoRoot(startDir: string): string {
+  let current = startDir;
+  while (true) {
+    if (existsSync(path.join(current, "pnpm-workspace.yaml"))) {
+      return current;
+    }
+    const parent = path.dirname(current);
+    if (parent === current) {
+      return startDir;
+    }
+    current = parent;
+  }
 }
 
 async function readJsonFile(filePath: string): Promise<JsonObject | null> {
@@ -79,7 +93,7 @@ export async function loadMessages(
   options: LoadMessagesOptions = {}
 ): Promise<Messages> {
   const fallbacks = options.fallbackLocales ?? DEFAULT_FALLBACKS;
-  const repoRoot = process.cwd();
+  const repoRoot = findRepoRoot(process.cwd());
   const sharedDir = path.join(repoRoot, "packages", "i18n", "shared");
   const appMessagesDir = path.join(repoRoot, "apps", app, "messages");
 

@@ -34,7 +34,8 @@
       "@airnub/db": ["packages/db/src/index.ts"],
       "@airnub/db/*": ["packages/db/src/*"],
       "@airnub/i18n": ["packages/i18n/merge.ts"],
-      "@airnub/i18n/*": ["packages/i18n/*"]
+      "@airnub/i18n/*": ["packages/i18n/*"],
+      "@adf/messages/*": ["apps/adf/messages/*"]
     }
   },
   "include": [

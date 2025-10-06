@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getMessages, getTranslations } from "next-intl/server";
 import {
   Button,
   Card,
@@ -10,26 +11,42 @@ import {
   Hero,
   Section,
 } from "@airnub/ui";
-import { getAdfMessages } from "../../../messages";
+import { assertLocale, locales } from "../../../i18n/routing";
+import type { AdfMessages } from "@adf/messages/types";
 
 const DOCS_URL = process.env.NEXT_PUBLIC_DOCS_URL ?? "https://airnub.github.io/agentic-delivery-framework/";
 const REPO_URL = "https://github.com/airnub/agentic-delivery-framework";
 
 export const dynamic = "force-static";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const messages = await getAdfMessages();
-  const meta = messages.quickstart.metadata;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+  const locale = assertLocale(localeParam);
+  const meta = await getTranslations({ locale, namespace: "quickstart.metadata" });
 
   return {
-    title: meta.title,
-    description: meta.description,
+    title: meta("title"),
+    description: meta("description"),
+    alternates: {
+      canonical: `/${locale}/quickstart`,
+      languages: Object.fromEntries(locales.map((code) => [code, `/${code}/quickstart`])),
+    },
   };
 }
 
-export default async function QuickstartPage() {
-  const messages = await getAdfMessages();
-  const { intro, steps, templates, ci, cta } = messages.quickstart;
+export default async function QuickstartPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale: localeParam } = await params;
+  const locale = assertLocale(localeParam);
+  const messages = (await getMessages({ locale })) as unknown as AdfMessages;
+  const { intro, steps, templates, ci, cta, timeline } = messages.quickstart;
 
   return (
     <main className="flex flex-col">
@@ -56,7 +73,7 @@ export default async function QuickstartPage() {
 
       <Section>
         <div className="space-y-8">
-          <h2 className="text-2xl font-semibold tracking-tight text-foreground">Day 1 timeline</h2>
+          <h2 className="text-2xl font-semibold tracking-tight text-foreground">{timeline.title}</h2>
           <div className="grid gap-6 md:grid-cols-2">
             {steps.map((step) => (
               <Card key={step.title} className="h-full">
@@ -71,15 +88,18 @@ export default async function QuickstartPage() {
       </Section>
 
       <Section>
-        <div className="grid gap-6 md:grid-cols-3">
-          {templates.items.map((item) => (
-            <Card key={item.name} className="h-full">
-              <CardHeader>
-                <CardTitle className="text-lg">{item.name}</CardTitle>
-                <CardDescription>{item.description}</CardDescription>
-              </CardHeader>
-            </Card>
-          ))}
+        <div className="space-y-6">
+          <h2 className="text-2xl font-semibold tracking-tight text-foreground">{templates.title}</h2>
+          <div className="grid gap-6 md:grid-cols-3">
+            {templates.items.map((item) => (
+              <Card key={item.name} className="h-full">
+                <CardHeader>
+                  <CardTitle className="text-lg">{item.name}</CardTitle>
+                  <CardDescription>{item.description}</CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
         </div>
       </Section>
 
@@ -106,7 +126,7 @@ export default async function QuickstartPage() {
         <Card className="mx-auto max-w-4xl border-dashed border-primary/40 bg-[var(--brand-surface-subtle)]">
           <CardHeader className="gap-6 text-center">
             <div className="space-y-3">
-              <p className="text-sm font-semibold uppercase tracking-wide text-primary/80">Next steps</p>
+              <p className="text-sm font-semibold uppercase tracking-wide text-primary/80">{cta.eyebrow}</p>
               <CardTitle className="text-2xl sm:text-3xl">{cta.title}</CardTitle>
               <CardDescription className="text-base">{cta.description}</CardDescription>
             </div>

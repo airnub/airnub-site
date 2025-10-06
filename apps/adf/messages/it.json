@@ -1,0 +1,133 @@
+{
+  "layout": {
+    "localeSwitcher": {
+      "label": "Lingua",
+      "options": {
+        "en-US": "Inglese (USA)",
+        "en-GB": "Inglese (Regno Unito)",
+        "ga": "Irlandese",
+        "fr": "Francese",
+        "es": "Spagnolo",
+        "de": "Tedesco",
+        "pt": "Portoghese",
+        "it": "Italiano"
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Delivery aperta e supervisionata",
+      "title": "Specifiche dell'Agentic Delivery Framework",
+      "description": "La specifica ADF offre ai responsabili Critical Review (CR) un unico playbook per orchestrare release supervisionate. Allinea policy, revisioni e controlli sugli agenti tra i team mantenendo sin dall'inizio tracce di audit, raccolta di evidenze e piani di ripristino.",
+      "actions": {
+        "docs": "Leggi la specifica (docs)",
+        "quickstart": "Guida rapida",
+        "github": "Repository GitHub"
+      }
+    },
+    "highlights": [
+      {
+        "title": "Governance CR-first",
+        "description": "I lead CR gestiscono staffing, percorsi di escalation e aggiornamenti di policy affinché la responsabilità umana sostenga ogni flusso degli agenti."
+      },
+      {
+        "title": "Pipeline di sotto-attività sequenziale",
+        "description": "Suddividi la delivery in checkpoint CR ordinati con prove obbligatorie prima che agenti o automazioni passino alla fase successiva."
+      },
+      {
+        "title": "Daily Pulse",
+        "description": "Conduci un rituale quotidiano che mette in evidenza lavoro bloccato, carico di approvazioni e segnali di rischio così che i CR possano riequilibrare rapidamente."
+      },
+      {
+        "title": "Evidence Bundle",
+        "description": "Raggruppa prompt, output dei modelli, note dei revisori e risultati dei test in pacchetti immutabili pronti per audit o post-mortem."
+      },
+      {
+        "title": "Gate CR",
+        "description": "Codifica punti di stop umani nella CI/CD in modo che le release proseguano solo dopo l'approvazione del CR assegnato su policy e controlli di rischio."
+      }
+    ]
+  },
+  "quickstart": {
+    "metadata": {
+      "title": "Guida rapida L1 (supervisionata)",
+      "description": "Attiva il percorso L1 dell'Agentic Delivery Framework in un solo giorno con template, rituali di revisione e guardrail CI."
+    },
+    "intro": {
+      "eyebrow": "Dal giorno 0 al giorno 1",
+      "title": "Guida rapida L1 in un giorno",
+      "description": "Segui questo playbook per avviare ADF con un workflow supervisionato e human-in-the-loop. Ogni checkpoint è collegato a template di evidenza e gate CI per lanciare in produzione con sicurezza."
+    },
+    "steps": [
+      {
+        "title": "08:30 — Kick-off e definizione",
+        "description": "Concorda il caso d'uso dell'agente, definisci le metriche di successo e assegna ingegnere supervisore e revisori."
+      },
+      {
+        "title": "10:00 — Policy e guardrail",
+        "description": "Personalizza il template di policy L1: matrice di approvazione, limiti dei modelli, criteri di rollback e firme di sicurezza."
+      },
+      {
+        "title": "12:00 — Strumentazione del workflow",
+        "description": "Collega CLI o SDK, abilita la cattura dei prompt e integra i test automatizzati nella pipeline GitHub Actions di base."
+      },
+      {
+        "title": "14:00 — Prova generale e raccolta prove",
+        "description": "Percorri il workflow end-to-end registrando prompt, output e note dei revisori nel registro delle esecuzioni."
+      },
+      {
+        "title": "16:00 — Prova dei gate CI",
+        "description": "Avvia il job di release supervisionata, risolvi i check in errore e esercitati con il punto di approvazione umana."
+      },
+      {
+        "title": "17:30 — Go/no-go e retrospettive",
+        "description": "Rivedi le prove raccolte, annota i follow-up e conferma i criteri per espandere oltre il gruppo pilota."
+      }
+    ],
+    "templates": {
+      "title": "Template inclusi nel repository",
+      "items": [
+        {
+          "name": "Baseline policy L1",
+          "description": "Documento modificabile su ambito, modelli consentiti, scenari critici e percorso di approvazione."
+        },
+        {
+          "name": "Registro esecuzioni e pacchetto di evidenze",
+          "description": "Template Notion/Markdown che raccoglie prompt, output e attestazioni dei revisori per ogni run."
+        },
+        {
+          "name": "Playbook operativo",
+          "description": "Checklist per i supervisori in reperibilità con percorsi di escalation, trigger di rollback e comunicazioni agli stakeholder."
+        }
+      ]
+    },
+    "ci": {
+      "title": "Riepilogo dei gate CI",
+      "description": "ADF offre controlli GitHub Actions da integrare nelle pipeline esistenti. Ogni gate è associato a un responsabile e alla prova richiesta.",
+      "gates": [
+        {
+          "name": "Policy lint",
+          "detail": "Verifica che il file di policy L1 sia approvato e in vigore per il branch."
+        },
+        {
+          "name": "Cattura prompt e output",
+          "detail": "Garantisce che gli artefatti delle esecuzioni supervisionate siano allegati prima del merge."
+        },
+        {
+          "name": "Blocco di approvazione umana",
+          "detail": "Richiede l'approvazione dell'ingegnere supervisore e dei revisori prima dei job di rilascio."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Pronti a rendere operativi gli agenti?",
+      "description": "Segui la guida rapida e poi estendi con workflow autonomi L2 quando le metriche di supervisione restano verdi.",
+      "primary": "Esplora la documentazione",
+      "secondary": "Clona il repository GitHub",
+      "eyebrow": "Prossimi passi"
+    },
+    "timeline": {
+      "title": "Cronologia del giorno 1"
+    }
+  }
+}
