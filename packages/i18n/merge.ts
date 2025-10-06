@@ -16,14 +16,25 @@ const DEFAULT_FALLBACKS = ["en-US", "en-GB"] as const;
 
 type AppName = "airnub" | "speckit" | "adf" | (string & {});
 
-function getLocaleCandidates(locale: string, fallbacks: readonly string[]) {
-  const candidates = [locale];
+function createLocaleChain(locale: string, fallbacks: readonly string[]) {
+  const seen = new Set<string>();
+  const fallbackChain: string[] = [];
+
   for (const fallback of fallbacks) {
-    if (!candidates.includes(fallback)) {
-      candidates.push(fallback);
+    if (fallback === locale || seen.has(fallback)) {
+      continue;
     }
+    seen.add(fallback);
+    fallbackChain.push(fallback);
   }
-  return candidates;
+
+  const ordered = fallbackChain.reverse();
+
+  if (!seen.has(locale)) {
+    ordered.push(locale);
+  }
+
+  return ordered;
 }
 
 async function readJsonFile(filePath: string): Promise<JsonObject | null> {
@@ -72,8 +83,12 @@ export async function loadMessages(
   const sharedDir = path.join(repoRoot, "packages", "i18n", "shared");
   const appMessagesDir = path.join(repoRoot, "apps", app, "messages");
 
+  const localeChain = createLocaleChain(locale, fallbacks);
+
   const sharedMessages = await (async () => {
-    for (const candidate of getLocaleCandidates(locale, fallbacks)) {
+    let merged = {} as Messages;
+
+    for (const candidate of localeChain) {
       const candidatePath = path.join(sharedDir, `${candidate}.json`);
       const bundle = await readJsonFile(candidatePath);
       if (!bundle || !isPlainObject(bundle)) {
@@ -81,22 +96,26 @@ export async function loadMessages(
       }
       const scoped = (bundle as SharedBundle)[app];
       if (scoped && isPlainObject(scoped)) {
-        return scoped as Messages;
+        merged = mergeDeep(merged, scoped as Messages);
       }
     }
-    return {} as Messages;
+
+    return merged;
   })();
 
   const appMessages = await (async () => {
-    for (const candidate of getLocaleCandidates(locale, fallbacks)) {
+    let merged = {} as Messages;
+
+    for (const candidate of localeChain) {
       const candidatePath = path.join(appMessagesDir, `${candidate}.json`);
       const bundle = await readJsonFile(candidatePath);
-      if (bundle) {
-        return bundle as Messages;
+      if (bundle && isPlainObject(bundle)) {
+        merged = mergeDeep(merged, bundle as Messages);
       }
     }
-    return {} as Messages;
+
+    return merged;
   })();
 
-  return mergeDeep(sharedMessages as Messages, appMessages as Messages);
+  return mergeDeep(sharedMessages, appMessages);
 }
