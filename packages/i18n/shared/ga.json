@@ -26,13 +26,10 @@
       }
     },
     "nav": {
-      "products": "Táirgí",
-      "adf": "Agentic Delivery Framework",
-      "solutions": "Réitigh",
-      "services": "Seirbhísí",
-      "resources": "Acmhainní",
-      "trust": "Iontaobhas",
-      "company": "Cuideachta",
+      "home": "Baile",
+      "work": "Seirbhísí",
+      "projects": "Tionscadail",
+      "about": "Fúinn",
       "contact": "Teagmháil"
     },
     "footer": {

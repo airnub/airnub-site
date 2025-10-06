@@ -23,7 +23,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam } = await params;
   const locale = assertLocale(localeParam);
-  const t = await getTranslations({ locale, namespace: "company.metadata" });
+  const t = await getTranslations({ locale, namespace: "about.metadata" });
 
   return {
     title: t("title"),
@@ -38,25 +38,25 @@ export default async function CompanyPage({
 }) {
   const { locale: localeParam } = await params;
   const locale = assertLocale(localeParam);
-  const company = await getTranslations({ locale, namespace: "company" });
+  const about = await getTranslations({ locale, namespace: "about" });
 
-  const hero = company.raw("hero") as {
+  const hero = about.raw("hero") as {
     eyebrow: string;
     title: string;
     description: string;
   };
-  const values = company.raw("values") as {
+  const values = about.raw("values") as {
     id: string;
     name: string;
     description: string;
   }[];
-  const careers = company.raw("careers") as {
+  const careers = about.raw("careers") as {
     title: string;
     description: string;
     ctaLabel: string;
     ctaHref: string;
   };
-  const press = company.raw("press") as {
+  const press = about.raw("press") as {
     cards: {
       id: string;
       title: string;
@@ -66,7 +66,7 @@ export default async function CompanyPage({
       external?: boolean;
     }[];
   };
-  const legal = company.raw("legal") as {
+  const legal = about.raw("legal") as {
     title: string;
     items: {
       id: string;
@@ -77,8 +77,7 @@ export default async function CompanyPage({
     }[];
   };
 
-  const salesEmail =
-    airnubBrand.contact.sales ?? airnubBrand.contact.support ?? airnubBrand.contact.general;
+  const salesEmail = airnubBrand.contact.sales ?? airnubBrand.contact.support ?? airnubBrand.contact.general;
   const careersEmail = airnubBrand.contact.careers ?? salesEmail;
   const pressEmail = airnubBrand.contact.press ?? salesEmail;
 

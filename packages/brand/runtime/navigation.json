@@ -2,39 +2,24 @@
   "airnub": {
     "header": [
       {
-        "id": "products",
-        "labelKey": "nav.products",
-        "href": "/products"
+        "id": "home",
+        "labelKey": "nav.home",
+        "href": "/"
       },
       {
-        "id": "adf",
-        "labelKey": "nav.adf",
-        "href": "https://adf.airnub.io"
+        "id": "work",
+        "labelKey": "nav.work",
+        "href": "/work"
       },
       {
-        "id": "solutions",
-        "labelKey": "nav.solutions",
-        "href": "/solutions"
+        "id": "projects",
+        "labelKey": "nav.projects",
+        "href": "/projects"
       },
       {
-        "id": "services",
-        "labelKey": "nav.services",
-        "href": "/services"
-      },
-      {
-        "id": "resources",
-        "labelKey": "nav.resources",
-        "href": "/resources"
-      },
-      {
-        "id": "trust",
-        "labelKey": "nav.trust",
-        "href": "/trust"
-      },
-      {
-        "id": "company",
-        "labelKey": "nav.company",
-        "href": "/company"
+        "id": "about",
+        "labelKey": "nav.about",
+        "href": "/about"
       },
       {
         "id": "contact",
@@ -78,16 +63,18 @@
               "href": "https://airnub.github.io/agentic-delivery-framework/",
               "external": true
             },
-            {
-              "id": "resources.blog",
-              "labelKey": "footer.columns.resources.links.blog",
-              "href": "/resources#blog"
-            },
-            {
-              "id": "resources.changelog",
-              "labelKey": "footer.columns.resources.links.changelog",
-              "href": "/resources#changelog"
-            }
+        {
+          "id": "resources.blog",
+          "labelKey": "footer.columns.resources.links.blog",
+          "href": "https://airnub.io/blog",
+          "external": true
+        },
+        {
+          "id": "resources.changelog",
+          "labelKey": "footer.columns.resources.links.changelog",
+          "href": "https://speckit.airnub.io/changelog",
+          "external": true
+        }
           ]
         },
         {
@@ -142,40 +129,40 @@
           "id": "company",
           "headingKey": "footer.columns.company.heading",
           "links": [
-            {
-              "id": "company.about",
-              "labelKey": "footer.columns.company.links.about",
-              "href": "/company"
-            },
-            {
-              "id": "company.careers",
-              "labelKey": "footer.columns.company.links.careers",
-              "href": "/company#careers"
-            },
-            {
-              "id": "company.press",
-              "labelKey": "footer.columns.company.links.press",
-              "href": "/company#press"
-            },
-            {
-              "id": "company.legal",
-              "labelKey": "footer.columns.company.links.legal",
-              "href": "/company#legal"
-            }
+          {
+            "id": "company.about",
+            "labelKey": "footer.columns.company.links.about",
+            "href": "/about"
+          },
+          {
+            "id": "company.careers",
+            "labelKey": "footer.columns.company.links.careers",
+            "href": "/about#careers"
+          },
+          {
+            "id": "company.press",
+            "labelKey": "footer.columns.company.links.press",
+            "href": "/about#press"
+          },
+          {
+            "id": "company.legal",
+            "labelKey": "footer.columns.company.links.legal",
+            "href": "/about#legal"
+          }
           ]
         }
       ],
       "ctas": [
-        {
-          "id": "privacy",
-          "labelKey": "footer.bottom.privacy",
-          "href": "/company#privacy"
-        },
-        {
-          "id": "terms",
-          "labelKey": "footer.bottom.terms",
-          "href": "/company#terms"
-        },
+      {
+        "id": "privacy",
+        "labelKey": "footer.bottom.privacy",
+        "href": "/about#legal"
+      },
+      {
+        "id": "terms",
+        "labelKey": "footer.bottom.terms",
+        "href": "/about#legal"
+      },
         {
           "id": "contactEmail",
           "labelKey": "footer.bottom.email",

@@ -22,7 +22,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam } = await params;
   const locale = assertLocale(localeParam);
-  const t = await getTranslations({ locale, namespace: "services.metadata" });
+  const t = await getTranslations({ locale, namespace: "work.metadata" });
 
   return {
     title: t("title"),
@@ -30,33 +30,52 @@ export async function generateMetadata({
   };
 }
 
-export default async function ServicesPage({
+export default async function WorkPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale: localeParam } = await params;
   const locale = assertLocale(localeParam);
-  const services = await getTranslations({ locale, namespace: "services" });
+  const work = await getTranslations({ locale, namespace: "work" });
 
-  const hero = services.raw("hero") as {
+  const hero = work.raw("hero") as {
     eyebrow: string;
     title: string;
     description: string;
     primaryCta: { label: string; href: string };
   };
-  const engagements = services.raw("engagements") as {
+  const engagements = work.raw("engagements") as {
     id: string;
     title: string;
     description: string;
     deliverables: string[];
   }[];
-  const deliverablesLabel = services("deliverablesLabel");
-  const outcomes = services.raw("outcomes") as {
+  const deliverablesLabel = work("deliverablesLabel");
+  const outcomes = work.raw("outcomes") as {
     title: string;
     description: string;
     note: string;
   };
+  const solutions = work.raw("solutions") as {
+    hero: { title: string; description: string };
+    sectors: {
+      id: string;
+      name: string;
+      summary: string;
+      bullets: string[];
+    }[];
+    partner: {
+      title: string;
+      description: string;
+      expectationsTitle: string;
+      expectations: string[];
+    };
+  };
+
+  const solutionsIntro = solutions.hero;
+  const sectors = solutions.sectors;
+  const partner = solutions.partner;
 
   return (
     <div className="space-y-16 pb-24 text-muted-foreground">
@@ -97,6 +116,57 @@ export default async function ServicesPage({
               </CardContent>
             </Card>
           ))}
+        </Container>
+      </section>
+
+      <section>
+        <Container className="space-y-10">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-semibold tracking-tight text-foreground">
+              {solutionsIntro.title}
+            </h2>
+            <p className="mt-4 text-base text-muted-foreground">{solutionsIntro.description}</p>
+          </div>
+          <div className="grid gap-8 lg:grid-cols-3">
+            {sectors.map((sector) => (
+              <Card key={sector.id} className="bg-card/60 shadow-lg shadow-slate-950/40">
+                <CardHeader>
+                  <CardTitle className="text-xl">{sector.name}</CardTitle>
+                  <CardDescription>{sector.summary}</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm text-muted-foreground">
+                  <ul className="space-y-2">
+                    {sector.bullets.map((bullet) => (
+                      <li key={bullet}>→ {bullet}</li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section>
+        <Container>
+          <Card className="bg-gradient-to-br from-muted via-background to-muted text-foreground shadow-xl shadow-slate-950/40">
+            <CardContent className="grid gap-10 lg:grid-cols-2 lg:items-center">
+              <CardHeader className="p-0">
+                <CardTitle className="text-3xl tracking-tight">{partner.title}</CardTitle>
+                <CardDescription className="text-sm text-muted-foreground">
+                  {partner.description}
+                </CardDescription>
+              </CardHeader>
+              <div className="rounded-2xl border border-border/10 bg-card/5 p-6 text-sm text-muted-foreground">
+                <p className="font-semibold text-foreground">{partner.expectationsTitle}</p>
+                <ul className="mt-3 space-y-2">
+                  {partner.expectations.map((item) => (
+                    <li key={item}>→ {item}</li>
+                  ))}
+                </ul>
+              </div>
+            </CardContent>
+          </Card>
         </Container>
       </section>
 

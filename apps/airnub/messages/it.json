@@ -33,26 +33,6 @@
         "href": "/contact"
       }
     },
-    "projects": {
-      "title": "Esplora i nostri acceleratori di piattaforma",
-      "description": "Micrositi dedicati mostrano come Agentic Delivery Framework e Speckit portino automazione basata sulla fiducia ai team piattaforma.",
-      "visitCta": "Visita il sito",
-      "docsCta": "Vedi la documentazione",
-      "items": {
-        "adf": {
-          "title": "Agentic Delivery Framework",
-          "description": "Approfondisci pattern, playbook e automazione dei controlli per l’Agentic Delivery Framework.",
-          "siteHref": "https://adf.airnub.io",
-          "docsHref": "https://airnub.github.io/agentic-delivery-framework/"
-        },
-        "speckit": {
-          "title": "Speckit",
-          "description": "Scopri come Speckit governa specifiche, controlli ed evidenze con workflow programmabili.",
-          "siteHref": "https://speckit.airnub.io",
-          "docsHref": "https://airnub.github.io/speckit/"
-        }
-      }
-    },
     "highlights": {
       "unifiedGovernance": {
         "title": "Governance unificata",
@@ -75,6 +55,26 @@
         "northbeam": "Northbeam"
       }
     },
+    "projects": {
+      "title": "Esplora i nostri acceleratori di piattaforma",
+      "description": "Micrositi dedicati mostrano come Agentic Delivery Framework e Speckit portino automazione basata sulla fiducia ai team piattaforma.",
+      "visitCta": "Visita il sito",
+      "docsCta": "Vedi la documentazione",
+      "items": {
+        "adf": {
+          "title": "Agentic Delivery Framework",
+          "description": "Approfondisci pattern, playbook e automazione dei controlli per l’Agentic Delivery Framework.",
+          "siteHref": "https://adf.airnub.io",
+          "docsHref": "https://airnub.github.io/agentic-delivery-framework/"
+        },
+        "speckit": {
+          "title": "Speckit",
+          "description": "Scopri come Speckit governa specifiche, controlli ed evidenze con workflow programmabili.",
+          "siteHref": "https://speckit.airnub.io",
+          "docsHref": "https://airnub.github.io/speckit/"
+        }
+      }
+    },
     "speckit": {
       "title": "Proteggi il ciclo delle specifiche con Speckit",
       "description": "Speckit riunisce gestione del cambiamento, controlli della supply chain e attestazioni runtime. Governa i gate di policy con workflow programmabili e fornisci subito i segnali giusti ad auditor e stakeholder.",
@@ -89,7 +89,7 @@
         }
       }
     },
-    "services": {
+    "work": {
       "title": "Servizi allineati al tuo percorso di piattaforma",
       "description": "Dalle prime landing zone alla scala regolamentata, il nostro team affianca i leader di piattaforma, sicurezza e compliance per ottenere vittorie rapide e maturità nel lungo termine.",
       "steps": {
@@ -126,53 +126,242 @@
       }
     }
   },
-  "contact": {
+  "work": {
     "metadata": {
-      "title": "Contatti",
-      "description": "Contatta Airnub per demo prodotto, partnership o richieste stampa."
+      "title": "Servizi",
+      "description": "Consulenza e enablement che allineano strategia di piattaforma, delivery e conformità."
     },
     "hero": {
-      "eyebrow": "Contatti",
-      "title": "Costruiamo la tua piattaforma orientata alla fiducia",
-      "description": "Raccontaci i tuoi obiettivi e ti metteremo in contatto con gli esperti Airnub giusti."
-    },
-    "form": {
-      "title": "Inviaci un messaggio",
-      "description": "Rispondiamo di solito entro un giorno lavorativo.",
-      "fields": {
-        "name": "Nome e cognome",
-        "email": "Email di lavoro",
-        "company": "Azienda",
-        "message": "In cosa possiamo aiutarti?"
-      },
-      "required": "Obbligatorio",
-      "submit": "Invia messaggio",
-      "success": {
-        "title": "Messaggio inviato",
-        "description": "Grazie per averci scritto. Il nostro team ti contatterà a breve."
-      },
-      "error": {
-        "title": "Si è verificato un errore",
-        "description": "Non è stato possibile inviare la richiesta. Riprova o scrivi a {email}."
-      },
-      "validation": {
-        "email": "Inserisci un'email di lavoro valida."
+      "eyebrow": "Servizi",
+      "title": "Esperti embedded in ogni fase del tuo percorso",
+      "description": "Combiniamo product thinking, compliance e platform engineering per abilitare una delivery affidabile.",
+      "primaryCta": {
+        "label": "Prenota un incontro",
+        "href": "/contact"
       }
     },
-    "shortcuts": {
-      "email": {
-        "title": "Email",
-        "sales": "Vendite e partnership",
-        "security": "Segnalazioni di sicurezza"
+    "deliverablesLabel": "Deliverable chiave",
+    "engagements": [
+      {
+        "id": "platform",
+        "title": "Modello operativo di piattaforma",
+        "description": "Allinea team di piattaforma, sicurezza e compliance con responsabilità chiare, OKR e rituali di governance.",
+        "deliverables": [
+          "Assessment di maturità",
+          "Organigramma target e matrice RACI",
+          "Roadmap con OKR trimestrali"
+        ]
       },
-      "officeHours": {
-        "title": "Orari di consulenza",
-        "description": "Partecipa a una sessione live settimanale per vedere come Airnub e Speckit accelerano la tua roadmap.",
-        "cta": "Prenota una consulenza"
+      {
+        "id": "blueprint",
+        "title": "Design di landing zone e percorsi guidati",
+        "description": "Architetture di riferimento, IaC e policy che offrono esperienze developer con guardrail.",
+        "deliverables": [
+          "Baseline cloud pronta per i regolatori",
+          "Catalogo servizi e kit di avvio",
+          "Policy-as-code mappate ai framework"
+        ]
+      },
+      {
+        "id": "trust",
+        "title": "Preparazione trust & assurance",
+        "description": "Automatizza la raccolta di evidenze e alleggerisci gli audit con i workflow Speckit.",
+        "deliverables": [
+          "Catalogo evidenze e storie di controllo",
+          "Automazione di SBOM, attestazioni e matrice di tracciabilità",
+          "Prove d'audit e enablement degli stakeholder"
+        ]
+      }
+    ],
+    "outcomes": {
+      "title": "Engagement orientati ai risultati",
+      "description": "Colleghiamo ogni progetto a metriche concrete: frequenza di deploy, change failure rate, tempo di preparazione audit e fiducia del cliente.",
+      "note": "Lavoriamo al fianco del tuo team per 6–12 settimane, trasferiamo conoscenza e mettiamo Speckit in produzione per il successo di lungo periodo."
+    },
+    "solutions": {
+      "hero": {
+        "eyebrow": "Soluzioni",
+        "title": "Blueprint di governance su misura per il tuo settore",
+        "description": "Airnub unisce esperienza di piattaforma e conoscenza normativa per progettare, gestire e scalare con chiarezza."
+      },
+      "sectors": [
+        {
+          "id": "financialServices",
+          "name": "Servizi finanziari",
+          "summary": "Bilancia velocità di prodotto con i requisiti FFIEC, PCI DSS e SOX.",
+          "bullets": [
+            "Percorsi guidati per workload ad alta fiducia",
+            "Automazione delle evidenze per auditor e regolatori",
+            "Change control allineato ai sistemi core banking"
+          ]
+        },
+        {
+          "id": "publicSector",
+          "name": "Settore pubblico",
+          "summary": "Accelera iniziative FedRAMP e StateRAMP con guardrail ripetibili.",
+          "bullets": [
+            "Landing zone conformi",
+            "Narrative di controllo automatizzate per gli SSP",
+            "Modelli multi-tenant con supporto alle attestazioni"
+          ]
+        },
+        {
+          "id": "enterpriseSaas",
+          "name": "SaaS enterprise",
+          "summary": "Rilascia con sicurezza in più regioni rispettando SOC 2, ISO 27001 e HIPAA.",
+          "bullets": [
+            "Operating model di piattaforma scalabili",
+            "Cataloghi di servizi con guardrail integrati",
+            "Applicazione delle policy lungo CI/CD e runtime"
+          ]
+        }
+      ],
+      "partner": {
+        "title": "Collabora con strategist di piattaforma e ingegneri di compliance",
+        "description": "I nostri pod multifunzionali combinano prodotto, piattaforma e trust per generare valore dal primo sprint. Co-progettiamo modelli operativi, automatizziamo e facciamo upskill delle tue squadre.",
+        "expectationsTitle": "Cosa aspettarsi:",
+        "expectations": [
+          "Assessment di capacità mappati sulle curve di maturità",
+          "Automazioni delle evidenze con Supabase e standard aperti",
+          "Enablement integrato che lascia le tue squadre autonome"
+        ]
       }
     }
   },
-  "company": {
+  "projects": {
+    "metadata": {
+      "title": "Esplora i nostri acceleratori di piattaforma",
+      "description": "Micrositi dedicati mostrano come Agentic Delivery Framework e Speckit portino automazione basata sulla fiducia ai team piattaforma."
+    },
+    "hero": {
+      "eyebrow": "Prodotti",
+      "title": "Tutto ciò che serve per governare la delivery moderna",
+      "description": "Airnub unisce prodotti, playbook e servizi affidabili per far scalare i team di piattaforma senza rallentare gli sviluppatori."
+    },
+    "catalog": {
+      "title": "Esplora i nostri acceleratori di piattaforma",
+      "description": "Micrositi dedicati mostrano come Agentic Delivery Framework e Speckit portino automazione basata sulla fiducia ai team piattaforma.",
+      "visitCta": "Visita il sito",
+      "docsCta": "Vedi la documentazione",
+      "items": {
+        "adf": {
+          "title": "Agentic Delivery Framework",
+          "description": "Approfondisci pattern, playbook e automazione dei controlli per l’Agentic Delivery Framework.",
+          "siteHref": "https://adf.airnub.io",
+          "docsHref": "https://airnub.github.io/agentic-delivery-framework/"
+        },
+        "speckit": {
+          "title": "Speckit",
+          "description": "Scopri come Speckit governa specifiche, controlli ed evidenze con workflow programmabili.",
+          "siteHref": "https://speckit.airnub.io",
+          "docsHref": "https://airnub.github.io/speckit/"
+        }
+      }
+    },
+    "speckit": {
+      "title": "Proteggi il ciclo delle specifiche con Speckit",
+      "description": "Speckit riunisce gestione del cambiamento, controlli della supply chain e attestazioni runtime. Governa i gate di policy con workflow programmabili e fornisci subito i segnali giusti ad auditor e stakeholder.",
+      "primaryCta": "Visita Speckit",
+      "secondaryCta": "Vedi l'offerta prodotti",
+      "outcomes": {
+        "title": "Risultati",
+        "items": {
+          "governedSpecLoop": "Un ciclo delle specifiche governato mantiene allineate architettura, sicurezza e conformità.",
+          "policyGates": "I gate di policy codificano le approvazioni attraverso CI/CD, cloud e cataloghi di servizi.",
+          "automatedEvidence": "Le evidenze vengono raccolte automaticamente: SBOM, attestazioni e tracciabilità."
+        }
+      }
+    },
+    "guides": {
+      "heading": "Guide in evidenza",
+      "label": "Guida",
+      "items": [
+        {
+          "id": "governancePlaybook",
+          "title": "Playbook di governance di piattaforma",
+          "description": "Un manuale pratico per progettare guardrail senza rallentare i team prodotto.",
+          "href": "https://airnub.io/resources#governance-playbook"
+        },
+        {
+          "id": "slsaChecklist",
+          "title": "Checklist SLSA per la delivery",
+          "description": "Passi per implementare la sicurezza della supply chain dal codice alla produzione.",
+          "href": "https://airnub.io/resources#slsa"
+        },
+        {
+          "id": "evidenceStarter",
+          "title": "Starter evidence-as-code",
+          "description": "Codifica gli artefatti di audit con Supabase, GitHub Actions e Speckit.",
+          "href": "https://airnub.io/resources#evidence"
+        }
+      ]
+    },
+    "updates": {
+      "heading": "Ultimi aggiornamenti",
+      "cta": "Leggi",
+      "items": [
+        {
+          "id": "speckitChangelog",
+          "title": "Speckit v0.8 introduce attestazioni sensibili alla deriva",
+          "date": "Giugno 2024",
+          "href": "https://speckit.airnub.io/changelog"
+        },
+        {
+          "id": "fedramp",
+          "title": "Come Airnub accelera FedRAMP Moderate",
+          "date": "Maggio 2024",
+          "href": "https://airnub.io/blog/fedramp-moderate"
+        },
+        {
+          "id": "platformKpis",
+          "title": "KPIs di piattaforma che collegano fiducia e delivery",
+          "date": "Aprile 2024",
+          "href": "https://airnub.io/blog/platform-kpis"
+        }
+      ]
+    },
+    "officeHours": {
+      "title": "Preferisci una sessione live?",
+      "description": "Partecipa al nostro appuntamento mensile per vedere come i team automatizzano guardrail, raccolta di evidenze e governance dei rilasci con Speckit.",
+      "ctaLabel": "Prenota il mio posto",
+      "ctaHref": "/contact"
+    },
+    "trust": {
+      "hero": {
+        "eyebrow": "Trust",
+        "title": "Trasparenza e garanzie per ogni rilascio",
+        "description": "La nostra postura di sicurezza, privacy e affidabilità è raccolta in un'unica destinazione per una valutazione rapida."
+      },
+      "highlightCta": "Apri la risorsa",
+      "highlights": [
+        {
+          "id": "trustCenter",
+          "title": "Trust Center",
+          "description": "Certificazioni, policy e stato live dei servizi Airnub e Speckit in un unico luogo.",
+          "href": "https://trust.airnub.io"
+        },
+        {
+          "id": "vdp",
+          "title": "Responsible Disclosure",
+          "description": "Processo coordinato con risposta entro 24 ore e dettagli PGP.",
+          "href": "https://trust.airnub.io/vdp"
+        },
+        {
+          "id": "securityTxt",
+          "title": "security.txt",
+          "description": "Contatto ufficiale di sicurezza, chiavi e canali preferiti di divulgazione.",
+          "href": "https://trust.airnub.io/.well-known/security.txt"
+        }
+      ],
+      "request": {
+        "title": "Serve qualcosa di specifico?",
+        "description": "Forniamo questionari di sicurezza, diagrammi architetturali e sintesi di penetration test sotto NDA.",
+        "ctaLabel": "Richiedi documenti",
+        "ctaHref": "/contact"
+      }
+    }
+  },
+  "about": {
     "metadata": {
       "title": "Azienda",
       "description": "Conosci il team Airnub che porta avanti piattaforme governate e una delivery basata sulla fiducia."
@@ -244,268 +433,50 @@
       ]
     }
   },
-  "products": {
+  "contact": {
     "metadata": {
-      "title": "Prodotti",
-      "description": "Scopri le offerte Airnub: Speckit, architetture di riferimento e acceleratori di fiducia."
+      "title": "Contatti",
+      "description": "Contatta Airnub per demo prodotto, partnership o richieste stampa."
     },
     "hero": {
-      "eyebrow": "Prodotti",
-      "title": "Tutto ciò che serve per governare la delivery moderna",
-      "description": "Airnub unisce prodotti, playbook e servizi affidabili per far scalare i team di piattaforma senza rallentare gli sviluppatori.",
-      "primaryCta": {
-        "label": "Richiedi una demo",
-        "href": "/contact"
+      "eyebrow": "Contatti",
+      "title": "Costruiamo la tua piattaforma orientata alla fiducia",
+      "description": "Raccontaci i tuoi obiettivi e ti metteremo in contatto con gli esperti Airnub giusti."
+    },
+    "form": {
+      "title": "Inviaci un messaggio",
+      "description": "Rispondiamo di solito entro un giorno lavorativo.",
+      "fields": {
+        "name": "Nome e cognome",
+        "email": "Email di lavoro",
+        "company": "Azienda",
+        "message": "In cosa possiamo aiutarti?"
+      },
+      "required": "Obbligatorio",
+      "submit": "Invia messaggio",
+      "success": {
+        "title": "Messaggio inviato",
+        "description": "Grazie per averci scritto. Il nostro team ti contatterà a breve."
+      },
+      "error": {
+        "title": "Si è verificato un errore",
+        "description": "Non è stato possibile inviare la richiesta. Riprova o scrivi a {email}."
+      },
+      "validation": {
+        "email": "Inserisci un'email di lavoro valida."
       }
     },
-    "offeringsCta": "Scopri di più",
-    "offerings": [
-      {
-        "id": "speckit",
-        "name": "Speckit",
-        "description": "Controlli di delivery basati su policy, gestione SBOM e automazione delle evidenze per i team di piattaforma.",
-        "href": "https://speckit.airnub.io",
-        "badge": "Portabandiera",
-        "external": true
+    "shortcuts": {
+      "email": {
+        "title": "Email",
+        "sales": "Vendite e partnership",
+        "security": "Segnalazioni di sicurezza"
       },
-      {
-        "id": "platformBlueprints",
-        "name": "Blueprint di piattaforma",
-        "description": "Landing zone, percorsi guidati e cataloghi di servizi pensati per i settori regolati.",
-        "href": "/services#platform",
-        "badge": "Novità"
-      },
-      {
-        "id": "trustAccelerators",
-        "name": "Acceleratori di fiducia",
-        "description": "Kit SOC 2, ISO 27001 e FedRAMP con automazioni di evidenza integrate.",
-        "href": "/services#trust"
+      "officeHours": {
+        "title": "Orari di consulenza",
+        "description": "Partecipa a una sessione live settimanale per vedere come Airnub e Speckit accelerano la tua roadmap.",
+        "cta": "Prenota una consulenza"
       }
-    ],
-    "insights": [
-      {
-        "id": "trustAsFeature",
-        "title": "La fiducia come funzionalità",
-        "description": "Ogni prodotto include guardrail di compliance, evidenze pronte per audit e integrazioni API-first perfette per il tuo stack.",
-        "bullets": [
-          "Attestazioni conformi SLSA e automazione SBOM",
-          "Workflow basati sui ruoli per piattaforma, sicurezza e compliance",
-          "API aperte e adapter per gli strumenti che già usi"
-        ]
-      },
-      {
-        "id": "sharedSupabase",
-        "title": "Fondamenta condivise su Supabase",
-        "paragraphs": [
-          "Il sito corporate Airnub e la microsite Speckit raccolgono lead nello stesso progetto Supabase, mantenendo allineati e sicuri i segnali GTM.",
-          "La sicurezza a livello di riga tutela gli invii mentre i team di piattaforma analizzano le performance con ruoli di servizio."
-        ]
-      }
-    ]
-  },
-  "services": {
-    "metadata": {
-      "title": "Servizi",
-      "description": "Consulenza e enablement che allineano strategia di piattaforma, delivery e conformità."
-    },
-    "hero": {
-      "eyebrow": "Servizi",
-      "title": "Esperti embedded in ogni fase del tuo percorso",
-      "description": "Combiniamo product thinking, compliance e platform engineering per abilitare una delivery affidabile.",
-      "primaryCta": {
-        "label": "Prenota un incontro",
-        "href": "/contact"
-      }
-    },
-    "deliverablesLabel": "Deliverable chiave",
-    "engagements": [
-      {
-        "id": "platform",
-        "title": "Modello operativo di piattaforma",
-        "description": "Allinea team di piattaforma, sicurezza e compliance con responsabilità chiare, OKR e rituali di governance.",
-        "deliverables": [
-          "Assessment di maturità",
-          "Organigramma target e matrice RACI",
-          "Roadmap con OKR trimestrali"
-        ]
-      },
-      {
-        "id": "blueprint",
-        "title": "Design di landing zone e percorsi guidati",
-        "description": "Architetture di riferimento, IaC e policy che offrono esperienze developer con guardrail.",
-        "deliverables": [
-          "Baseline cloud pronta per i regolatori",
-          "Catalogo servizi e kit di avvio",
-          "Policy-as-code mappate ai framework"
-        ]
-      },
-      {
-        "id": "trust",
-        "title": "Preparazione trust & assurance",
-        "description": "Automatizza la raccolta di evidenze e alleggerisci gli audit con i workflow Speckit.",
-        "deliverables": [
-          "Catalogo evidenze e storie di controllo",
-          "Automazione di SBOM, attestazioni e matrice di tracciabilità",
-          "Prove d'audit e enablement degli stakeholder"
-        ]
-      }
-    ],
-    "outcomes": {
-      "title": "Engagement orientati ai risultati",
-      "description": "Colleghiamo ogni progetto a metriche concrete: frequenza di deploy, change failure rate, tempo di preparazione audit e fiducia del cliente.",
-      "note": "Lavoriamo al fianco del tuo team per 6–12 settimane, trasferiamo conoscenza e mettiamo Speckit in produzione per il successo di lungo periodo."
-    }
-  },
-  "solutions": {
-    "metadata": {
-      "title": "Soluzioni",
-      "description": "Percorsi specifici per industria per governare piattaforme in finanza, settore pubblico e SaaS."
-    },
-    "hero": {
-      "eyebrow": "Soluzioni",
-      "title": "Blueprint di governance su misura per il tuo settore",
-      "description": "Airnub unisce esperienza di piattaforma e conoscenza normativa per progettare, gestire e scalare con chiarezza."
-    },
-    "sectors": [
-      {
-        "id": "financialServices",
-        "name": "Servizi finanziari",
-        "summary": "Bilancia velocità di prodotto con i requisiti FFIEC, PCI DSS e SOX.",
-        "bullets": [
-          "Percorsi guidati per workload ad alta fiducia",
-          "Automazione delle evidenze per auditor e regolatori",
-          "Change control allineato ai sistemi core banking"
-        ]
-      },
-      {
-        "id": "publicSector",
-        "name": "Settore pubblico",
-        "summary": "Accelera iniziative FedRAMP e StateRAMP con guardrail ripetibili.",
-        "bullets": [
-          "Landing zone conformi",
-          "Narrative di controllo automatizzate per gli SSP",
-          "Modelli multi-tenant con supporto alle attestazioni"
-        ]
-      },
-      {
-        "id": "enterpriseSaas",
-        "name": "SaaS enterprise",
-        "summary": "Rilascia con sicurezza in più regioni rispettando SOC 2, ISO 27001 e HIPAA.",
-        "bullets": [
-          "Operating model di piattaforma scalabili",
-          "Cataloghi di servizi con guardrail integrati",
-          "Applicazione delle policy lungo CI/CD e runtime"
-        ]
-      }
-    ],
-    "partner": {
-      "title": "Collabora con strategist di piattaforma e ingegneri di compliance",
-      "description": "I nostri pod multifunzionali combinano prodotto, piattaforma e trust per generare valore dal primo sprint. Co-progettiamo modelli operativi, automatizziamo e facciamo upskill delle tue squadre.",
-      "expectationsTitle": "Cosa aspettarsi:",
-      "expectations": [
-        "Assessment di capacità mappati sulle curve di maturità",
-        "Automazioni delle evidenze con Supabase e standard aperti",
-        "Enablement integrato che lascia le tue squadre autonome"
-      ]
-    }
-  },
-  "trust": {
-    "metadata": {
-      "title": "Trust",
-      "description": "Scopri l'approccio Airnub a sicurezza, privacy e divulgazione responsabile."
-    },
-    "hero": {
-      "eyebrow": "Trust",
-      "title": "Trasparenza e garanzie per ogni rilascio",
-      "description": "La nostra postura di sicurezza, privacy e affidabilità è raccolta in un'unica destinazione per una valutazione rapida."
-    },
-    "highlightCta": "Apri la risorsa",
-    "highlights": [
-      {
-        "id": "trustCenter",
-        "title": "Trust Center",
-        "description": "Certificazioni, policy e stato live dei servizi Airnub e Speckit in un unico luogo.",
-        "href": "https://trust.airnub.io"
-      },
-      {
-        "id": "vdp",
-        "title": "Responsible Disclosure",
-        "description": "Processo coordinato con risposta entro 24 ore e dettagli PGP.",
-        "href": "https://trust.airnub.io/vdp"
-      },
-      {
-        "id": "securityTxt",
-        "title": "security.txt",
-        "description": "Contatto ufficiale di sicurezza, chiavi e canali preferiti di divulgazione.",
-        "href": "https://trust.airnub.io/.well-known/security.txt"
-      }
-    ],
-    "request": {
-      "title": "Serve qualcosa di specifico?",
-      "description": "Forniamo questionari di sicurezza, diagrammi architetturali e sintesi di penetration test sotto NDA.",
-      "ctaLabel": "Richiedi documenti",
-      "ctaHref": "/contact"
-    }
-  },
-  "resources": {
-    "metadata": {
-      "title": "Risorse",
-      "description": "Guide, changelog e materiali di enablement per operazionalizzare la fiducia."
-    },
-    "hero": {
-      "eyebrow": "Risorse",
-      "title": "Enablement, aggiornamenti e ricerca per team di piattaforma e sicurezza",
-      "description": "Rimani aggiornato sugli acceleratori di piattaforma Airnub, i rilasci Speckit e le best practice per team software ad alta fiducia."
-    },
-    "guidesHeading": "Guide in evidenza",
-    "guideLabel": "Guida",
-    "guides": [
-      {
-        "id": "governancePlaybook",
-        "title": "Playbook di governance di piattaforma",
-        "description": "Un manuale pratico per progettare guardrail senza rallentare i team prodotto.",
-        "href": "https://airnub.io/resources#governance-playbook"
-      },
-      {
-        "id": "slsaChecklist",
-        "title": "Checklist SLSA per la delivery",
-        "description": "Passi per implementare la sicurezza della supply chain dal codice alla produzione.",
-        "href": "https://airnub.io/resources#slsa"
-      },
-      {
-        "id": "evidenceStarter",
-        "title": "Starter evidence-as-code",
-        "description": "Codifica gli artefatti di audit con Supabase, GitHub Actions e Speckit.",
-        "href": "https://airnub.io/resources#evidence"
-      }
-    ],
-    "updatesHeading": "Ultimi aggiornamenti",
-    "updateCta": "Leggi",
-    "updates": [
-      {
-        "id": "speckitChangelog",
-        "title": "Speckit v0.8 introduce attestazioni sensibili alla deriva",
-        "date": "Giugno 2024",
-        "href": "https://speckit.airnub.io/changelog"
-      },
-      {
-        "id": "fedramp",
-        "title": "Come Airnub accelera FedRAMP Moderate",
-        "date": "Maggio 2024",
-        "href": "https://airnub.io/blog/fedramp-moderate"
-      },
-      {
-        "id": "platformKpis",
-        "title": "KPIs di piattaforma che collegano fiducia e delivery",
-        "date": "Aprile 2024",
-        "href": "https://airnub.io/blog/platform-kpis"
-      }
-    ],
-    "officeHours": {
-      "title": "Preferisci una sessione live?",
-      "description": "Partecipa al nostro appuntamento mensile per vedere come i team automatizzano guardrail, raccolta di evidenze e governance dei rilasci con Speckit.",
-      "ctaLabel": "Prenota il mio posto",
-      "ctaHref": "/contact"
     }
   }
 }
