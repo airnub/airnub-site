@@ -11,6 +11,7 @@ import {
   FeatureGrid,
   Hero,
   LogoCloud,
+  Section,
   CloudyardLogo,
   ForgeLabsLogo,
   NorthbeamLogo,
@@ -67,6 +68,8 @@ const serviceCardIds = [
   "innerSource",
   "trustReadiness",
 ] as const;
+
+const projectIds = ["adf", "speckit"] as const;
 
 const airnubHomeContent = {
   highlights: highlightIds,
@@ -136,6 +139,20 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     outcomes: speckitOutcomeIds.map((id) => ({ id, copy: t(`speckit.outcomes.items.${id}`) })),
   } as const;
 
+  const projects = {
+    title: t("projects.title"),
+    description: t("projects.description"),
+    visitCta: t("projects.visitCta"),
+    docsCta: t("projects.docsCta"),
+    items: projectIds.map((id) => ({
+      id,
+      title: t(`projects.items.${id}.title`),
+      description: t(`projects.items.${id}.description`),
+      siteHref: t(`projects.items.${id}.siteHref`),
+      docsHref: t(`projects.items.${id}.docsHref`),
+    })),
+  } as const;
+
   const services = {
     title: t("services.title"),
     description: t("services.description"),
@@ -184,6 +201,58 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </>
         }
       />
+
+      <Section>
+        <div className="space-y-12">
+          <div className="space-y-4 text-center">
+            <h2 className="text-3xl font-semibold text-foreground sm:text-4xl">
+              {projects.title}
+            </h2>
+            <p className="mx-auto max-w-2xl text-base text-muted-foreground">
+              {projects.description}
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {projects.items.map((project) => {
+              const siteIsInternal = project.siteHref.startsWith("/");
+              const docsIsInternal = project.docsHref.startsWith("/");
+
+              const siteLink = siteIsInternal ? (
+                <LocaleLink href={project.siteHref}>{projects.visitCta}</LocaleLink>
+              ) : (
+                <Link href={project.siteHref} target="_blank" rel="noopener">
+                  {projects.visitCta}
+                </Link>
+              );
+
+              const docsLink = docsIsInternal ? (
+                <LocaleLink href={project.docsHref}>{projects.docsCta}</LocaleLink>
+              ) : (
+                <Link href={project.docsHref} target="_blank" rel="noopener">
+                  {projects.docsCta}
+                </Link>
+              );
+
+              return (
+                <Card key={project.id} className="flex h-full flex-col">
+                  <CardHeader className="flex-1 space-y-3">
+                    <CardTitle className="text-xl">{project.title}</CardTitle>
+                    <CardDescription>{project.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <div className="flex flex-wrap gap-3">
+                      <Button asChild>{siteLink}</Button>
+                      <Button variant="outline" asChild>
+                        {docsLink}
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </Section>
 
       <FeatureGrid
         items={highlightItems.map((item) => ({

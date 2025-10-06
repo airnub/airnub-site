@@ -116,6 +116,26 @@
         "href": "/contact"
       }
     },
+    "projects": {
+      "title": "Entdecken Sie unsere Plattform-Beschleuniger",
+      "description": "Dedizierte Microsites zeigen, wie das Agentic Delivery Framework und Speckit vertrauensbasierte Automatisierung in Plattformteams bringen.",
+      "visitCta": "Website besuchen",
+      "docsCta": "Dokumentation ansehen",
+      "items": {
+        "adf": {
+          "title": "Agentic Delivery Framework",
+          "description": "Erkunden Sie Muster, Playbooks und Kontrollautomatisierung für das Agentic Delivery Framework.",
+          "siteHref": "https://adf.airnub.io",
+          "docsHref": "https://docs.speckit.dev/adf"
+        },
+        "speckit": {
+          "title": "Speckit",
+          "description": "Erfahren Sie, wie Speckit Spezifikationen, Kontrollen und Nachweise mit programmierbaren Workflows steuert.",
+          "siteHref": "https://speckit.airnub.io",
+          "docsHref": "https://docs.speckit.dev"
+        }
+      }
+    },
     "highlights": {
       "unifiedGovernance": {
         "title": "Vereinheitlichte Governance",
