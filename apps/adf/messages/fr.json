@@ -1,0 +1,133 @@
+{
+  "layout": {
+    "localeSwitcher": {
+      "label": "Langue",
+      "options": {
+        "en-US": "Anglais (É.-U.)",
+        "en-GB": "Anglais (R.-U.)",
+        "ga": "Irlandais",
+        "fr": "Français",
+        "es": "Espagnol",
+        "de": "Allemand",
+        "pt": "Portugais",
+        "it": "Italien"
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Livraison ouverte et supervisée",
+      "title": "Spécification de l'Agentic Delivery Framework",
+      "description": "La spécification ADF offre aux responsables Critical Review (CR) un playbook unique pour orchestrer des mises en production supervisées. Elle aligne politiques, revues et contrôles d'agents entre les équipes tout en conservant les traces d'audit, la collecte de preuves et les plans de reprise dès le départ.",
+      "actions": {
+        "docs": "Lire la spécification (docs)",
+        "quickstart": "Démarrage rapide",
+        "github": "Dépôt GitHub"
+      }
+    },
+    "highlights": [
+      {
+        "title": "Gouvernance centrée CR",
+        "description": "Les leads Critical Review pilotent les effectifs, les voies d'escalade et les mises à jour de politique afin que la responsabilité humaine ancre chaque workflow d'agent."
+      },
+      {
+        "title": "Pipeline de sous-tâches séquentiel",
+        "description": "Fractionnez la livraison en points de contrôle CR ordonnés avec preuves obligatoires avant que les agents ou automatisations ne passent à l'étape suivante."
+      },
+      {
+        "title": "Pulse quotidien",
+        "description": "Installez un rituel récurrent qui met en lumière le travail bloqué, la charge d'approbation et les signaux de risque pour permettre aux CR de rééquilibrer rapidement."
+      },
+      {
+        "title": "Packs de preuves",
+        "description": "Regroupez prompts, sorties modèles, notes des réviseurs et résultats de tests dans des ensembles immuables prêts pour les audits ou retours d'expérience."
+      },
+      {
+        "title": "Portes CR",
+        "description": "Codez des points d'arrêt humains dans la CI/CD afin que les mises en production n'avancent que lorsque le CR assigné valide les contrôles de politique et de risque."
+      }
+    ]
+  },
+  "quickstart": {
+    "metadata": {
+      "title": "Démarrage rapide L1 (supervisé)",
+      "description": "Déployez le parcours L1 de l'Agentic Delivery Framework en une journée grâce aux modèles, rituels de revue et garde-fous CI."
+    },
+    "intro": {
+      "eyebrow": "Jour 0 à jour 1",
+      "title": "Démarrage rapide L1 en une journée",
+      "description": "Suivez ce playbook pour piloter ADF avec un workflow supervisé et humain dans la boucle. Chaque jalon est relié à des modèles de preuve et à des portes CI pour que votre équipe puisse passer en production sereinement."
+    },
+    "steps": [
+      {
+        "title": "08h30 — Lancement & cadrage",
+        "description": "Validez le cas d'usage de l'agent, définissez les métriques de réussite et désignez l'ingénieur superviseur ainsi que les réviseurs."
+      },
+      {
+        "title": "10h00 — Politique & garde-fous",
+        "description": "Personnalisez le modèle de politique L1 : matrice d'approbation, limites des modèles, critères de retour arrière et validations sécurité."
+      },
+      {
+        "title": "12h00 — Instrumentation du workflow",
+        "description": "Connectez la CLI ou le SDK, activez la capture des prompts et intégrez des tests automatisés au pipeline GitHub Actions."
+      },
+      {
+        "title": "14h00 — Répétition & collecte de preuves",
+        "description": "Parcourez le workflow de bout en bout en consignant prompts, sorties et notes des réviseurs dans le journal d'exécution."
+      },
+      {
+        "title": "16h00 — Répétition des portes CI",
+        "description": "Déclenchez le job de mise en production supervisée, corrigez les contrôles en échec et entraînez-vous au point d'arrêt d'approbation humaine."
+      },
+      {
+        "title": "17h30 — Go/no-go & rétrospectives",
+        "description": "Examinez les preuves collectées, enregistrez les suivis et confirmez les critères d'élargissement au-delà du groupe pilote."
+      }
+    ],
+    "templates": {
+      "title": "Modèles fournis dans le dépôt",
+      "items": [
+        {
+          "name": "Baseline de politique L1",
+          "description": "Document modifiable couvrant le périmètre, les modèles autorisés, les scénarios critiques et le circuit d'approbation."
+        },
+        {
+          "name": "Journal d'exécution & pack de preuves",
+          "description": "Modèle Notion/Markdown capturant prompts, sorties et attestations des réviseurs pour chaque exécution."
+        },
+        {
+          "name": "Playbook opérationnel",
+          "description": "Checklist pour superviseurs d'astreinte couvrant voies d'escalade, déclencheurs de retour arrière et communication aux parties prenantes."
+        }
+      ]
+    },
+    "ci": {
+      "title": "Résumé des portes CI",
+      "description": "ADF fournit des contrôles GitHub Actions à intégrer dans vos pipelines existants. Chaque porte est associée à un responsable et aux preuves requises.",
+      "gates": [
+        {
+          "name": "Lint de politique",
+          "detail": "Vérifie que le fichier de politique L1 est approuvé et en vigueur pour la branche."
+        },
+        {
+          "name": "Capture des prompts et sorties",
+          "detail": "Garantit que les artefacts des exécutions supervisées sont joints avant la fusion."
+        },
+        {
+          "name": "Arrêt d'approbation humaine",
+          "detail": "Exige les validations de l'ingénieur superviseur et du réviseur avant les jobs de mise en production."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Prêt à opérationnaliser les agents ?",
+      "description": "Suivez le démarrage rapide puis étendez avec des workflows autonomes L2 lorsque vos métriques de supervision restent au vert.",
+      "primary": "Explorer la documentation",
+      "secondary": "Cloner le dépôt GitHub",
+      "eyebrow": "Prochaines étapes"
+    },
+    "timeline": {
+      "title": "Chronologie du jour 1"
+    }
+  }
+}

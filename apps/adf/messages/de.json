@@ -1,0 +1,133 @@
+{
+  "layout": {
+    "localeSwitcher": {
+      "label": "Sprache",
+      "options": {
+        "en-US": "Englisch (USA)",
+        "en-GB": "Englisch (UK)",
+        "ga": "Irisch",
+        "fr": "Französisch",
+        "es": "Spanisch",
+        "de": "Deutsch",
+        "pt": "Portugiesisch",
+        "it": "Italienisch"
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Offene, überwachte Agentenbereitstellung",
+      "title": "Agentic Delivery Framework Spezifikation",
+      "description": "Die ADF-Spezifikation gibt Critical-Review-Verantwortlichen ein einziges Playbook für überwachte Releases. Sie richtet Richtlinien, Reviews und Agentenkontrollen über Teams hinweg aus und hält Audit-Trails, Belegerfassung und Wiederherstellungspfade von Anfang an bereit.",
+      "actions": {
+        "docs": "Spezifikation lesen (Docs)",
+        "quickstart": "Schnellstart",
+        "github": "GitHub-Repo"
+      }
+    },
+    "highlights": [
+      {
+        "title": "CR-first Governance",
+        "description": "Critical-Review-Leads steuern Staffing, Eskalationswege und Richtlinienaktualisierungen, sodass menschliche Verantwortung jede Agenten-Pipeline verankert."
+      },
+      {
+        "title": "Sequenzieller Subtask-Pipeline",
+        "description": "Gliedern Sie die Auslieferung in geordnete CR-Kontrollpunkte mit erforderlichen Nachweisen, bevor Agenten oder Automatisierungen zur nächsten Phase übergehen."
+      },
+      {
+        "title": "Daily Pulse",
+        "description": "Führen Sie ein tägliches Ritual, das blockierte Arbeit, Freigabelast und Risikosignale sichtbar macht, damit CRs schnell neu priorisieren können."
+      },
+      {
+        "title": "Evidence Bundles",
+        "description": "Bündeln Sie Prompts, Modelausgaben, Prüferkommentare und Testergebnisse in unveränderliche Pakete, die für Audits oder Postmortems bereitstehen."
+      },
+      {
+        "title": "CR-Gates",
+        "description": "Verankern Sie menschliche Haltepunkte in CI/CD, sodass Releases erst fortfahren, wenn der zuständige CR Richtlinien- und Risiko-Checks abzeichnet."
+      }
+    ]
+  },
+  "quickstart": {
+    "metadata": {
+      "title": "L1 (Überwacht) Schnellstart",
+      "description": "Bringen Sie den L1-Pfad des Agentic Delivery Frameworks an einem Tag mit Vorlagen, Review-Ritualen und CI-Schutzmaßnahmen live."
+    },
+    "intro": {
+      "eyebrow": "Von Tag 0 zu Tag 1",
+      "title": "Eintägiger L1-Schnellstart",
+      "description": "Nutzen Sie dieses Playbook, um ADF mit einem überwachten, mensch-in-the-loop Workflow zu pilotieren. Jeder Meilenstein ist mit Evidenzvorlagen und CI-Gates verknüpft, damit Ihr Team mit Vertrauen live gehen kann."
+    },
+    "steps": [
+      {
+        "title": "08:30 – Kick-off & Scope",
+        "description": "Einigen Sie sich auf den Agenten-Use-Case, definieren Sie Erfolgsmetriken und benennen Sie Supervising Engineer sowie Reviewer."
+      },
+      {
+        "title": "10:00 – Richtlinie & Leitplanken",
+        "description": "Passen Sie die L1-Richtlinienvorlage an: Genehmigungsmatrix, Modellgrenzen, Rollback-Kriterien und Sicherheitsfreigaben."
+      },
+      {
+        "title": "12:00 – Workflow-Instrumentierung",
+        "description": "Verbinden Sie CLI oder SDK, aktivieren Sie Prompt-Erfassung und integrieren Sie automatisierte Tests in die GitHub-Actions-Pipeline."
+      },
+      {
+        "title": "14:00 – Probedurchlauf & Evidenzerfassung",
+        "description": "Durchlaufen Sie den Workflow End-to-End und protokollieren Sie Prompts, Ausgaben und Reviewer-Notizen in der Run-Log-Vorlage."
+      },
+      {
+        "title": "16:00 – CI-Gate-Generalprobe",
+        "description": "Starten Sie den überwachten Release-Job, beheben Sie fehlgeschlagene Checks und üben Sie den menschlichen Freigabe-Stopp."
+      },
+      {
+        "title": "17:30 – Go/No-Go & Retrospektiven",
+        "description": "Bewerten Sie die gesammelten Nachweise, dokumentieren Sie Follow-ups und bestätigen Sie Kriterien für die Ausweitung über die Pilotgruppe hinaus."
+      }
+    ],
+    "templates": {
+      "title": "Vorlagen im Repository",
+      "items": [
+        {
+          "name": "L1-Richtlinienbaseline",
+          "description": "Editierbares Dokument zu Umfang, erlaubten Modellen, Redline-Szenarien und Freigabewegen."
+        },
+        {
+          "name": "Run-Log & Evidenzpaket",
+          "description": "Notion/Markdown-Vorlage zur Erfassung von Prompts, Ausgaben und Reviewer-Bestätigungen für jeden Lauf."
+        },
+        {
+          "name": "Operations-Playbook",
+          "description": "Checkliste für On-Call-Supervisoren zu Eskalationspfaden, Rollback-Triggern und Stakeholder-Kommunikation."
+        }
+      ]
+    },
+    "ci": {
+      "title": "CI-Gate-Überblick",
+      "description": "ADF liefert GitHub-Actions-Checks, die Sie in bestehende Pipelines übernehmen können. Jedes Gate ist einem Kontrollverantwortlichen und den erforderlichen Nachweisen zugeordnet.",
+      "gates": [
+        {
+          "name": "Policy-Lint",
+          "detail": "Stellt sicher, dass die L1-Richtlinie für den Branch freigegeben und gültig ist."
+        },
+        {
+          "name": "Prompt- & Output-Erfassung",
+          "detail": "Garantiert, dass Artefakte aus überwachten Läufen vor dem Merge angehängt sind."
+        },
+        {
+          "name": "Menschlicher Freigabestopp",
+          "detail": "Erfordert Freigaben von Supervising Engineer und Reviewer vor Release-Jobs."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Bereit, Agenten zu operationalisieren?",
+      "description": "Folgen Sie dem Schnellstart und erweitern Sie anschließend mit L2-Automatisierungen, sobald Ihre Überwachungsmetriken stabil bleiben.",
+      "primary": "Dokumentation erkunden",
+      "secondary": "GitHub-Repo klonen",
+      "eyebrow": "Nächste Schritte"
+    },
+    "timeline": {
+      "title": "Zeitplan Tag 1"
+    }
+  }
+}

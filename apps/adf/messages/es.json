@@ -1,0 +1,133 @@
+{
+  "layout": {
+    "localeSwitcher": {
+      "label": "Idioma",
+      "options": {
+        "en-US": "Inglés (EE. UU.)",
+        "en-GB": "Inglés (RU)",
+        "ga": "Irlandés",
+        "fr": "Francés",
+        "es": "Español",
+        "de": "Alemán",
+        "pt": "Portugués",
+        "it": "Italiano"
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Entrega abierta y supervisada",
+      "title": "Especificación del Agentic Delivery Framework",
+      "description": "La especificación de ADF ofrece a los responsables de Critical Review (CR) un único playbook para orquestar lanzamientos supervisados. Alinea políticas, revisiones y controles de agentes entre equipos mientras mantiene los registros de auditoría, la captura de evidencias y las rutas de recuperación desde el inicio.",
+      "actions": {
+        "docs": "Leer la especificación (docs)",
+        "quickstart": "Guía rápida",
+        "github": "Repositorio de GitHub"
+      }
+    },
+    "highlights": [
+      {
+        "title": "Gobernanza centrada en CR",
+        "description": "Los líderes de Critical Review dirigen la dotación de personal, las rutas de escalado y las actualizaciones de política para que la responsabilidad humana ancle cada flujo de agentes."
+      },
+      {
+        "title": "Canal de subtareas secuencial",
+        "description": "Divida la entrega en puntos de control CR ordenados con evidencia requerida antes de que agentes o automatizaciones avancen a la siguiente fase."
+      },
+      {
+        "title": "Pulso diario",
+        "description": "Ejecute un ritual periódico que haga visibles los bloqueos, la carga de aprobaciones y las señales de riesgo para que los CR puedan reequilibrar rápidamente."
+      },
+      {
+        "title": "Paquetes de evidencia",
+        "description": "Agrupe prompts, salidas de modelos, notas de revisión y resultados de pruebas en paquetes inmutables listos para auditorías o análisis posteriores."
+      },
+      {
+        "title": "Puertas CR",
+        "description": "Codifique puntos de detención humanos dentro de CI/CD para que los lanzamientos solo continúen cuando el CR asignado apruebe las comprobaciones de políticas y riesgos."
+      }
+    ]
+  },
+  "quickstart": {
+    "metadata": {
+      "title": "Guía rápida L1 (supervisada)",
+      "description": "Implemente el camino L1 del Agentic Delivery Framework en un solo día con plantillas, rituales de revisión y barreras de CI."
+    },
+    "intro": {
+      "eyebrow": "Del día 0 al día 1",
+      "title": "Guía rápida L1 en un día",
+      "description": "Siga este playbook para pilotar ADF con un flujo supervisado y humano en el bucle. Cada punto de control se vincula a plantillas de evidencia y puertas de CI para que su equipo pueda salir a producción con confianza."
+    },
+    "steps": [
+      {
+        "title": "08:30 — Lanzamiento y alcance",
+        "description": "Acordar el caso de uso del agente, definir métricas de éxito y asignar al ingeniero supervisor y a las personas revisoras."
+      },
+      {
+        "title": "10:00 — Política y barandillas",
+        "description": "Personalice la plantilla de política L1: matriz de aprobaciones, límites de modelos, criterios de reversión y firmas de seguridad."
+      },
+      {
+        "title": "12:00 — Instrumentación del flujo",
+        "description": "Conecte la CLI o el SDK, habilite la captura de prompts e integre pruebas automatizadas en la canalización base de GitHub Actions."
+      },
+      {
+        "title": "14:00 — Ensayo y captura de evidencias",
+        "description": "Recorra el flujo de extremo a extremo, registrando prompts, salidas y notas de revisión en la plantilla del registro de ejecuciones."
+      },
+      {
+        "title": "16:00 — Ensayo de puertas CI",
+        "description": "Active el trabajo de lanzamiento supervisado, resuelva los chequeos fallidos y practique el punto de detención para aprobación humana."
+      },
+      {
+        "title": "17:30 — Decisión final y retro",
+        "description": "Revise la evidencia reunida, registre seguimientos y confirme los criterios para ampliar más allá del grupo piloto."
+      }
+    ],
+    "templates": {
+      "title": "Plantillas incluidas en el repositorio",
+      "items": [
+        {
+          "name": "Base de política L1",
+          "description": "Documento editable que cubre el alcance, los modelos permitidos, los escenarios críticos y el flujo de aprobaciones."
+        },
+        {
+          "name": "Registro de ejecuciones y paquete de evidencia",
+          "description": "Plantilla en Notion/Markdown que captura prompts, salidas y atestaciones de revisión en cada ejecución."
+        },
+        {
+          "name": "Playbook operativo",
+          "description": "Lista de verificación para supervisores on-call sobre rutas de escalado, activadores de reversión y comunicaciones con stakeholders."
+        }
+      ]
+    },
+    "ci": {
+      "title": "Resumen de puertas CI",
+      "description": "ADF incluye verificaciones de GitHub Actions que puede incorporar a canalizaciones existentes. Cada puerta se asigna a un responsable de control y a la evidencia necesaria.",
+      "gates": [
+        {
+          "name": "Lint de política",
+          "detail": "Verifica que el archivo de política L1 esté aprobado y vigente para la rama."
+        },
+        {
+          "name": "Captura de prompts y salidas",
+          "detail": "Garantiza que los artefactos de ejecuciones supervisadas se adjunten antes del merge."
+        },
+        {
+          "name": "Retención de aprobación humana",
+          "detail": "Requiere aprobaciones del ingeniero supervisor y de la persona revisora antes de los trabajos de lanzamiento."
+        }
+      ]
+    },
+    "cta": {
+      "title": "¿Listo para operacionalizar agentes?",
+      "description": "Siga la guía rápida y después amplíe con flujos autónomos L2 cuando sus métricas de supervisión se mantengan en verde.",
+      "primary": "Explorar la documentación",
+      "secondary": "Clonar el repositorio",
+      "eyebrow": "Próximos pasos"
+    },
+    "timeline": {
+      "title": "Cronograma del día 1"
+    }
+  }
+}
