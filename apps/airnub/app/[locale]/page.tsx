@@ -16,6 +16,7 @@ import {
   ForgeLabsLogo,
   NorthbeamLogo,
 } from "@airnub/ui";
+import { resolveMicrositeHref } from "@airnub/brand";
 import { serverFetch } from "@airnub/seo";
 import { getTranslations } from "next-intl/server";
 import { LocaleLink } from "../../components/LocaleLink";
@@ -100,19 +101,19 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       {
         id: "primary",
         label: t("hero.primaryCta.label"),
-        href: t("hero.primaryCta.href"),
+        href: resolveMicrositeHref(t("hero.primaryCta.href")),
         variant: "primary" as const,
       },
       {
         id: "secondary",
         label: t("hero.secondaryCta.label"),
-        href: t("hero.secondaryCta.href"),
+        href: resolveMicrositeHref(t("hero.secondaryCta.href")),
         variant: "secondary" as const,
       },
       {
         id: "tertiary",
         label: t("hero.tertiaryCta.label"),
-        href: t("hero.tertiaryCta.href"),
+        href: resolveMicrositeHref(t("hero.tertiaryCta.href")),
         variant: "ghost" as const,
       },
     ],
@@ -148,8 +149,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       id,
       title: t(`projects.items.${id}.title`),
       description: t(`projects.items.${id}.description`),
-      siteHref: t(`projects.items.${id}.siteHref`),
-      docsHref: t(`projects.items.${id}.docsHref`),
+      siteHref: resolveMicrositeHref(t(`projects.items.${id}.siteHref`)),
+      docsHref: resolveMicrositeHref(t(`projects.items.${id}.docsHref`)),
     })),
   } as const;
 
@@ -173,6 +174,15 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     { backgroundColor: "var(--brand-accent)" },
     { backgroundColor: "color-mix(in srgb, var(--brand-foreground) 70%, transparent)" },
   ] as const;
+
+  const speckitSiteHref = resolveMicrositeHref("https://speckit.airnub.io");
+  const speckitPrimaryLink = speckitSiteHref.startsWith("/") ? (
+    <LocaleLink href={speckitSiteHref}>{speckit.primaryCta}</LocaleLink>
+  ) : (
+    <Link href={speckitSiteHref} target="_blank" rel="noreferrer">
+      {speckit.primaryCta}
+    </Link>
+  );
 
   return (
     <main className="flex flex-col">
@@ -276,11 +286,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         description={speckit.description}
         actions={
           <>
-            <Button asChild>
-              <Link href="https://speckit.airnub.io" target="_blank" rel="noreferrer">
-                {speckit.primaryCta}
-              </Link>
-            </Button>
+            <Button asChild>{speckitPrimaryLink}</Button>
             <Button variant="ghost" asChild>
               <LocaleLink href="/products">{speckit.secondaryCta}</LocaleLink>
             </Button>
