@@ -147,7 +147,7 @@
       {
         "name": "Scale",
         "price": "$3,400/mo",
-        "description": "For organizations rolling Speckit out across multiple product lines.",
+        "description": "For organisations rolling Speckit out across multiple product lines.",
         "highlights": [
           "Up to 75 engineers",
           "Multi-project Supabase tenancy",
@@ -226,8 +226,8 @@
     },
     "supabaseCard": {
       "title": "Shared Supabase data core",
-      "paragraphs": [
-        "Marketing and product forms feed one Supabase project. Row-level security keeps leads private while your GTM and product teams analyze performance.",
+    "paragraphs": [
+      "Marketing and product forms feed one Supabase project. Row-level security keeps leads private while your GTM and product teams analyse performance.",
         "Use the service role to sync Speckit evidence to your data warehouse or customer trust portal with confidence."
       ]
     }

@@ -38,6 +38,9 @@
       "outputs": [
         "sbom-*.json"
       ]
+    },
+    "i18n:sync": {
+      "outputs": []
     }
   }
 }
