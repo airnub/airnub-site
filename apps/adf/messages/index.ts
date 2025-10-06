@@ -83,30 +83,40 @@ const adfMessages = {
   home: {
     hero: {
       eyebrow: "Open, supervised agent delivery",
-      title: "Agentic Delivery Framework",
+      title: "Agentic Delivery Framework spec",
       description:
-        "ADF standardizes how teams design, review, and evidence agent-supported releases. Combine human approvals, automated checks, and continuous audit trails without slowing delivery.",
+        "The ADF spec gives Critical Review (CR) leads a single playbook for orchestrating supervised releases. Align policy, reviews, and agent controls across teams while keeping audit trails, evidence capture, and recovery paths built-in from the start.",
       actions: {
-        docs: "Read the docs",
-        quickstart: "Launch the one-day quickstart",
-        github: "View on GitHub",
+        docs: "Read the spec (docs)",
+        quickstart: "Quickstart",
+        github: "GitHub repo",
       },
     },
     highlights: [
       {
-        title: "Supervised guardrails",
+        title: "CR-first governance",
         description:
-          "Codify policy gates with human approvals for every agentic workflow stage.",
+          "Critical Review leads own staffing, escalation paths, and policy updates so human accountability anchors every agent workflow.",
       },
       {
-        title: "Evidence from day one",
+        title: "Sequential Subtask Pipeline",
         description:
-          "Capture review notes, prompts, model outputs, and check results in a tamper-evident log.",
+          "Break delivery into ordered CR checkpoints with required evidence before agents or automations advance to the next stage.",
       },
       {
-        title: "Teams aligned",
+        title: "Daily Pulse",
         description:
-          "Give security, compliance, and delivery leads the same operating picture inside CI/CD.",
+          "Run a standing ritual that surfaces blocked work, approval load, and risk signals so CRs can rebalance quickly.",
+      },
+      {
+        title: "Evidence Bundles",
+        description:
+          "Bundle prompts, model outputs, reviewer notes, and test results into immutable packets ready for audits or postmortems.",
+      },
+      {
+        title: "CR gates",
+        description:
+          "Codify human hold points inside CI/CD so releases only proceed once the assigned CR signs off on policy and risk checks.",
       },
     ],
   },
