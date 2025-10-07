@@ -1,9 +1,12 @@
 #!/usr/bin/env tsx
 import { ChildProcess, spawn, spawnSync } from 'node:child_process';
 import fs from 'node:fs';
-import http from 'node:http';
+import http, { type IncomingHttpHeaders } from 'node:http';
 import https from 'node:https';
 import { JSDOM } from 'jsdom';
+import { AIRNUB_BASE_URL } from '../apps/airnub/lib/routes';
+import { SPECKIT_BASE_URL } from '../apps/speckit/lib/routes';
+import { ADF_BASE_URL } from '../apps/adf/lib/routes';
 
 type AppKey = 'airnub' | 'speckit' | 'adf';
 type AppConfig = { key: AppKey; port: number; routes: string[]; start: string };
@@ -21,22 +24,34 @@ const APPS: AppConfig[] = [
   {
     key: 'airnub',
     port: 3101,
-    routes: ['/', '/work', '/projects', '/about', '/contact', '/robots.txt', '/sitemap.xml', '/opengraph-image'],
+    routes: ['/', '/work', '/projects', '/about', '/contact', '/privacy', '/robots.txt', '/sitemap.xml', '/opengraph-image'],
     start: '/',
   },
   {
     key: 'speckit',
     port: 3102,
-    routes: ['/', '/quickstart', '/robots.txt', '/sitemap.xml', '/opengraph-image'],
+    routes: ['/', '/quickstart', '/privacy', '/robots.txt', '/sitemap.xml', '/opengraph-image'],
     start: '/',
   },
   {
     key: 'adf',
     port: 3103,
-    routes: ['/', '/quickstart', '/robots.txt', '/sitemap.xml', '/opengraph-image'],
+    routes: ['/', '/quickstart', '/privacy', '/robots.txt', '/sitemap.xml', '/opengraph-image'],
     start: '/',
   },
 ];
+
+const CANONICAL_ORIGINS: Record<AppKey, string> = {
+  airnub: AIRNUB_BASE_URL,
+  speckit: SPECKIT_BASE_URL,
+  adf: ADF_BASE_URL,
+};
+
+const REQUIRED_SITEMAP_PATHS: Record<AppKey, string[]> = {
+  airnub: ['/', '/work', '/projects', '/about', '/contact'],
+  speckit: ['/', '/quickstart'],
+  adf: ['/', '/quickstart'],
+};
 
 const exists = (p: string) => fs.existsSync(p);
 const ensureDir = (dir: string) => {
@@ -45,8 +60,25 @@ const ensureDir = (dir: string) => {
   }
 };
 
-type FetchResponse = { status: number; ctype: string; html?: string };
-function get(url: string, timeoutMs = 8000): Promise<FetchResponse> {
+type FetchResponse = {
+  status: number;
+  ctype: string;
+  html?: string;
+  finalUrl: string;
+  redirects: string[];
+};
+
+type RawFetchResponse = {
+  status: number;
+  ctype: string;
+  html: string;
+  headers: IncomingHttpHeaders;
+};
+
+const REDIRECT_STATUS_CODES = new Set([301, 302, 303, 307, 308]);
+const MAX_REDIRECTS = 3;
+
+function requestOnce(url: string, timeoutMs: number): Promise<RawFetchResponse> {
   return new Promise((resolve, reject) => {
     const target = new URL(url);
     const client = target.protocol === 'https:' ? https : http;
@@ -55,12 +87,122 @@ function get(url: string, timeoutMs = 8000): Promise<FetchResponse> {
       res.on('data', (chunk) => bufs.push(Buffer.from(chunk)));
       res.on('end', () => {
         const body = Buffer.concat(bufs).toString('utf8');
-        resolve({ status: res.statusCode ?? 0, ctype: String(res.headers['content-type'] ?? ''), html: body });
+        resolve({
+          status: res.statusCode ?? 0,
+          ctype: String(res.headers['content-type'] ?? ''),
+          html: body,
+          headers: res.headers,
+        });
       });
     });
     req.on('error', reject);
     req.setTimeout(timeoutMs, () => req.destroy(new Error('timeout')));
   });
+}
+
+async function get(url: string, timeoutMs = 8000): Promise<FetchResponse> {
+  let currentUrl = url;
+  const redirects: string[] = [];
+
+  for (let attempt = 0; attempt <= MAX_REDIRECTS; attempt += 1) {
+    const res = await requestOnce(currentUrl, timeoutMs);
+    const status = res.status;
+    const location = res.headers.location;
+    const isRedirect = typeof location === 'string' && REDIRECT_STATUS_CODES.has(status);
+
+    if (isRedirect) {
+      if (redirects.length >= MAX_REDIRECTS) {
+        throw new Error(`Too many redirects for ${url}`);
+      }
+      const nextUrl = new URL(location, currentUrl).toString();
+      redirects.push(nextUrl);
+      currentUrl = nextUrl;
+      continue;
+    }
+
+    return {
+      status,
+      ctype: res.ctype,
+      html: res.html,
+      finalUrl: currentUrl,
+      redirects,
+    };
+  }
+
+  throw new Error(`Redirect loop detected for ${url}`);
+}
+
+function normalizePathname(pathname: string): string {
+  if (!pathname) {
+    return '/';
+  }
+  let value = pathname.startsWith('/') ? pathname : `/${pathname}`;
+  if (value.length > 1 && value.endsWith('/')) {
+    value = value.replace(/\/+/g, '/');
+    while (value.length > 1 && value.endsWith('/')) {
+      value = value.slice(0, -1);
+    }
+    if (!value) {
+      value = '/';
+    }
+  }
+  return value;
+}
+
+function isLocalePrefixedMatch(pathname: string, required: string): boolean {
+  const localeMatch = pathname.match(/^\/[a-z]{2}(?:-[A-Z]{2})?(\/.*)?$/);
+  if (!localeMatch) {
+    return false;
+  }
+  const remainder = localeMatch[1] ?? '';
+  const remainderPath = remainder ? normalizePathname(remainder) : '/';
+  return remainderPath === normalizePathname(required);
+}
+
+function extractSitemapLocs(xml: string): string[] {
+  try {
+    const dom = new JSDOM(xml, { contentType: 'text/xml' });
+    return Array.from(dom.window.document.querySelectorAll('loc'))
+      .map((node) => (node.textContent ?? '').trim())
+      .filter(Boolean);
+  } catch (error) {
+    const matches = Array.from(xml.matchAll(/<loc>(.*?)<\/loc>/gi));
+    return matches.map((match) => match[1]?.trim() ?? '').filter(Boolean);
+  }
+}
+
+function validateSitemap(app: AppKey, xml: string): { missing: string[]; locs: string[] } {
+  const locs = extractSitemapLocs(xml);
+  const pathnames = new Set<string>();
+
+  for (const loc of locs) {
+    try {
+      const parsed = new URL(loc);
+      pathnames.add(normalizePathname(parsed.pathname));
+    } catch (error) {
+      // ignore malformed URLs
+    }
+  }
+
+  const required = REQUIRED_SITEMAP_PATHS[app] ?? [];
+  const missing = required.filter((requiredPath) => {
+    const normalized = normalizePathname(requiredPath);
+    if (pathnames.has(normalized)) {
+      return false;
+    }
+    return !Array.from(pathnames).some((pathname) => isLocalePrefixedMatch(pathname, normalized));
+  });
+
+  return { missing, locs };
+}
+
+function hasRobotsSitemap(app: AppKey, body: string): boolean {
+  const origin = CANONICAL_ORIGINS[app];
+  if (!origin) {
+    return false;
+  }
+  const expected = `sitemap: ${new URL('/sitemap.xml', origin).toString()}`.toLowerCase();
+  return body.toLowerCase().includes(expected);
 }
 
 function logFile(path: string, content: string) {
@@ -233,8 +375,21 @@ async function smoke(states: AppStates, built: boolean) {
       }
       try {
         const res = await get(`http://localhost:${config.port}${route}`);
-        entry.routes[route] = { status: res.status, ctype: res.ctype };
-        if (res.status < 200 || res.status >= 400) {
+        const routeResult: Record<string, any> = {
+          status: res.status,
+          ctype: res.ctype,
+          finalUrl: res.finalUrl,
+          redirected: res.redirects.length > 0,
+          redirects: res.redirects,
+        };
+        entry.routes[route] = routeResult;
+        const expectedStatusOverride = route === '/404' ? 404 : null;
+        const isExpectedStatus = expectedStatusOverride !== null && res.status === expectedStatusOverride;
+        if (isExpectedStatus) {
+          routeResult.expectedStatus = expectedStatusOverride;
+          routeResult.notes = ['expected 404'];
+        }
+        if (!isExpectedStatus && (res.status < 200 || res.status >= 400)) {
           report.outstanding.push({ priority: 2, title: `${config.key} ${route} status ${res.status}` });
         }
         if (route === '/robots.txt' && !res.ctype.includes('text')) {
@@ -245,6 +400,25 @@ async function smoke(states: AppStates, built: boolean) {
         }
         if (route === '/opengraph-image' && !res.ctype.startsWith('image')) {
           report.outstanding.push({ priority: 2, title: `${config.key} OG content-type` });
+        }
+        if (route === '/sitemap.xml' && res.html) {
+          const sitemap = validateSitemap(config.key, res.html);
+          routeResult.sitemap = sitemap;
+          if (sitemap.missing.length) {
+            sitemap.missing.forEach((missingPath) => {
+              report.outstanding.push({ priority: 1, title: `${config.key} sitemap missing ${missingPath}` });
+            });
+          }
+        }
+        if (route === '/robots.txt' && res.html) {
+          const robotsCheck = hasRobotsSitemap(config.key, res.html);
+          routeResult.robots = { hasSitemap: robotsCheck };
+          if (!robotsCheck) {
+            report.outstanding.push({
+              priority: 2,
+              title: `${config.key} robots missing sitemap line`,
+            });
+          }
         }
       } catch (error) {
         const message = error instanceof Error ? error.message : String(error);
@@ -276,9 +450,30 @@ async function smoke(states: AppStates, built: boolean) {
     md.push(`- Boot: ${entry.boot === 'pass' ? '✅' : '❌'}`);
     md.push('- Routes:');
     for (const [route, result] of Object.entries(entry.routes)) {
-      const value = result as { status: number; ctype?: string; error?: string };
-      const detail = value.error ? `error: ${value.error}` : `${value.status} ${value.ctype ?? ''}`.trim();
-      md.push(`  - ${route}: ${detail}`);
+      const value = result as {
+        status: number;
+        ctype?: string;
+        error?: string;
+        finalUrl?: string;
+        redirected?: boolean;
+        sitemap?: { missing: string[]; locs: string[] };
+        robots?: { hasSitemap: boolean };
+        notes?: string[];
+      };
+      const baseDetail = value.error ? `error: ${value.error}` : `${value.status} ${value.ctype ?? ''}`.trim();
+      const notes: string[] = [];
+      if (value.sitemap?.missing?.length) {
+        notes.push(`missing: ${value.sitemap.missing.join(', ')}`);
+      }
+      if (value.robots && value.robots.hasSitemap === false) {
+        notes.push('missing sitemap line');
+      }
+      if (value.notes?.length) {
+        notes.push(...value.notes);
+      }
+      const detail = notes.length ? `${baseDetail} (${notes.join('; ')})` : baseDetail;
+      const label = value.redirected && value.finalUrl ? `${route} → ${value.finalUrl}` : route;
+      md.push(`  - ${label}: ${detail}`);
     }
     md.push('');
   }

@@ -8,36 +8,127 @@
       "boot": "pass",
       "routes": {
         "/": {
-          "status": 307,
-          "ctype": ""
+          "status": 200,
+          "ctype": "text/html; charset=utf-8",
+          "finalUrl": "http://localhost:3101/en-US",
+          "redirected": true,
+          "redirects": [
+            "http://localhost:3101/en-US"
+          ]
         },
         "/work": {
-          "status": 307,
-          "ctype": ""
+          "status": 200,
+          "ctype": "text/html; charset=utf-8",
+          "finalUrl": "http://localhost:3101/en-US/work",
+          "redirected": true,
+          "redirects": [
+            "http://localhost:3101/en-US/work"
+          ]
         },
         "/projects": {
-          "status": 307,
-          "ctype": ""
+          "status": 200,
+          "ctype": "text/html; charset=utf-8",
+          "finalUrl": "http://localhost:3101/en-US/projects",
+          "redirected": true,
+          "redirects": [
+            "http://localhost:3101/en-US/projects"
+          ]
         },
         "/about": {
-          "status": 307,
-          "ctype": ""
+          "status": 200,
+          "ctype": "text/html; charset=utf-8",
+          "finalUrl": "http://localhost:3101/en-US/about",
+          "redirected": true,
+          "redirects": [
+            "http://localhost:3101/en-US/about"
+          ]
         },
         "/contact": {
-          "status": 307,
-          "ctype": ""
+          "status": 200,
+          "ctype": "text/html; charset=utf-8",
+          "finalUrl": "http://localhost:3101/en-US/contact",
+          "redirected": true,
+          "redirects": [
+            "http://localhost:3101/en-US/contact"
+          ]
+        },
+        "/privacy": {
+          "status": 200,
+          "ctype": "text/html; charset=utf-8",
+          "finalUrl": "http://localhost:3101/en-US/privacy",
+          "redirected": true,
+          "redirects": [
+            "http://localhost:3101/en-US/privacy"
+          ]
         },
         "/robots.txt": {
           "status": 200,
-          "ctype": "text/plain"
+          "ctype": "text/plain",
+          "finalUrl": "http://localhost:3101/robots.txt",
+          "redirected": false,
+          "redirects": [],
+          "robots": {
+            "hasSitemap": true
+          }
         },
         "/sitemap.xml": {
           "status": 200,
-          "ctype": "application/xml"
+          "ctype": "application/xml",
+          "finalUrl": "http://localhost:3101/sitemap.xml",
+          "redirected": false,
+          "redirects": [],
+          "sitemap": {
+            "missing": [],
+            "locs": [
+              "https://airnub.io/en-US",
+              "https://airnub.io/en-US/work",
+              "https://airnub.io/en-US/projects",
+              "https://airnub.io/en-US/about",
+              "https://airnub.io/en-US/contact",
+              "https://airnub.io/en-GB",
+              "https://airnub.io/en-GB/work",
+              "https://airnub.io/en-GB/projects",
+              "https://airnub.io/en-GB/about",
+              "https://airnub.io/en-GB/contact",
+              "https://airnub.io/ga",
+              "https://airnub.io/ga/work",
+              "https://airnub.io/ga/projects",
+              "https://airnub.io/ga/about",
+              "https://airnub.io/ga/contact",
+              "https://airnub.io/fr",
+              "https://airnub.io/fr/work",
+              "https://airnub.io/fr/projects",
+              "https://airnub.io/fr/about",
+              "https://airnub.io/fr/contact",
+              "https://airnub.io/es",
+              "https://airnub.io/es/work",
+              "https://airnub.io/es/projects",
+              "https://airnub.io/es/about",
+              "https://airnub.io/es/contact",
+              "https://airnub.io/de",
+              "https://airnub.io/de/work",
+              "https://airnub.io/de/projects",
+              "https://airnub.io/de/about",
+              "https://airnub.io/de/contact",
+              "https://airnub.io/pt",
+              "https://airnub.io/pt/work",
+              "https://airnub.io/pt/projects",
+              "https://airnub.io/pt/about",
+              "https://airnub.io/pt/contact",
+              "https://airnub.io/it",
+              "https://airnub.io/it/work",
+              "https://airnub.io/it/projects",
+              "https://airnub.io/it/about",
+              "https://airnub.io/it/contact"
+            ]
+          }
         },
         "/opengraph-image": {
           "status": 200,
-          "ctype": "image/png"
+          "ctype": "image/png",
+          "finalUrl": "http://localhost:3101/opengraph-image",
+          "redirected": false,
+          "redirects": []
         }
       }
     },
@@ -49,23 +140,64 @@
       "routes": {
         "/": {
           "status": 200,
-          "ctype": "text/html; charset=utf-8"
+          "ctype": "text/html; charset=utf-8",
+          "finalUrl": "http://localhost:3102/",
+          "redirected": false,
+          "redirects": []
         },
         "/quickstart": {
           "status": 200,
-          "ctype": "text/html; charset=utf-8"
+          "ctype": "text/html; charset=utf-8",
+          "finalUrl": "http://localhost:3102/quickstart",
+          "redirected": false,
+          "redirects": []
+        },
+        "/privacy": {
+          "status": 200,
+          "ctype": "text/html; charset=utf-8",
+          "finalUrl": "http://localhost:3102/privacy",
+          "redirected": false,
+          "redirects": []
         },
         "/robots.txt": {
           "status": 200,
-          "ctype": "text/plain"
+          "ctype": "text/plain",
+          "finalUrl": "http://localhost:3102/robots.txt",
+          "redirected": false,
+          "redirects": [],
+          "robots": {
+            "hasSitemap": true
+          }
         },
         "/sitemap.xml": {
           "status": 200,
-          "ctype": "application/xml"
+          "ctype": "application/xml",
+          "finalUrl": "http://localhost:3102/sitemap.xml",
+          "redirected": false,
+          "redirects": [],
+          "sitemap": {
+            "missing": [],
+            "locs": [
+              "https://speckit.airnub.io",
+              "https://speckit.airnub.io/product",
+              "https://speckit.airnub.io/quickstart",
+              "https://speckit.airnub.io/how-it-works",
+              "https://speckit.airnub.io/solutions",
+              "https://speckit.airnub.io/solutions/ciso",
+              "https://speckit.airnub.io/solutions/devsecops",
+              "https://speckit.airnub.io/template",
+              "https://speckit.airnub.io/pricing",
+              "https://speckit.airnub.io/contact",
+              "https://speckit.airnub.io/trust"
+            ]
+          }
         },
         "/opengraph-image": {
           "status": 200,
-          "ctype": "image/png"
+          "ctype": "image/png",
+          "finalUrl": "http://localhost:3102/opengraph-image",
+          "redirected": false,
+          "redirects": []
         }
       }
     },
@@ -76,24 +208,76 @@
       "boot": "pass",
       "routes": {
         "/": {
-          "status": 307,
-          "ctype": ""
+          "status": 200,
+          "ctype": "text/html; charset=utf-8",
+          "finalUrl": "http://localhost:3103/en-US",
+          "redirected": true,
+          "redirects": [
+            "http://localhost:3103/en-US"
+          ]
         },
         "/quickstart": {
-          "status": 307,
-          "ctype": ""
+          "status": 200,
+          "ctype": "text/html; charset=utf-8",
+          "finalUrl": "http://localhost:3103/en-US/quickstart",
+          "redirected": true,
+          "redirects": [
+            "http://localhost:3103/en-US/quickstart"
+          ]
+        },
+        "/privacy": {
+          "status": 200,
+          "ctype": "text/html; charset=utf-8",
+          "finalUrl": "http://localhost:3103/en-US/privacy",
+          "redirected": true,
+          "redirects": [
+            "http://localhost:3103/en-US/privacy"
+          ]
         },
         "/robots.txt": {
           "status": 200,
-          "ctype": "text/plain"
+          "ctype": "text/plain",
+          "finalUrl": "http://localhost:3103/robots.txt",
+          "redirected": false,
+          "redirects": [],
+          "robots": {
+            "hasSitemap": true
+          }
         },
         "/sitemap.xml": {
           "status": 200,
-          "ctype": "application/xml"
+          "ctype": "application/xml",
+          "finalUrl": "http://localhost:3103/sitemap.xml",
+          "redirected": false,
+          "redirects": [],
+          "sitemap": {
+            "missing": [],
+            "locs": [
+              "https://adf.airnub.io/en-US",
+              "https://adf.airnub.io/en-US/quickstart",
+              "https://adf.airnub.io/en-GB",
+              "https://adf.airnub.io/en-GB/quickstart",
+              "https://adf.airnub.io/ga",
+              "https://adf.airnub.io/ga/quickstart",
+              "https://adf.airnub.io/fr",
+              "https://adf.airnub.io/fr/quickstart",
+              "https://adf.airnub.io/es",
+              "https://adf.airnub.io/es/quickstart",
+              "https://adf.airnub.io/de",
+              "https://adf.airnub.io/de/quickstart",
+              "https://adf.airnub.io/pt",
+              "https://adf.airnub.io/pt/quickstart",
+              "https://adf.airnub.io/it",
+              "https://adf.airnub.io/it/quickstart"
+            ]
+          }
         },
         "/opengraph-image": {
           "status": 200,
-          "ctype": "image/png"
+          "ctype": "image/png",
+          "finalUrl": "http://localhost:3103/opengraph-image",
+          "redirected": false,
+          "redirects": []
         }
       }
     }
