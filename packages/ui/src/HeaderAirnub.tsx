@@ -12,7 +12,7 @@ const defaultNavItems: NavItem[] = [
   { label: "Agentic Delivery Framework", href: "/adf" },
   { label: "Solutions", href: "/solutions" },
   { label: "Services", href: "/services" },
-  { label: "Resources", href: "/resources" },
+  { label: "Resources", href: "/projects" },
   { label: "Trust", href: "/trust" },
   { label: "Company", href: "/company" },
   { label: "Contact", href: "/contact" },
