@@ -1,7 +1,7 @@
 # Link Check
 
 ## airnub
-- http://localhost:3101/en-US/resources → 404
+- No broken internal links
 
 ## speckit
 - No broken internal links

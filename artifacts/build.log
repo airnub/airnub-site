@@ -7,114 +7,121 @@
 • Running build in 8 packages
 • Remote caching disabled
 docs:build: cache miss, executing 3c391455d2b40451
-@airnub/speckit-app:build: cache miss, executing 32bd282199246072
-@airnub/adf-app:build: cache miss, executing 14fdb10c19a15e96
-@airnub/airnub-app:build: cache miss, executing 1949f7afa6fd4164
+@airnub/speckit-app:build: cache miss, executing bd2f8cbe928d4452
+@airnub/adf-app:build: cache miss, executing 2f566e16c9e21726
+@airnub/airnub-app:build: cache miss, executing 48166f137bafa648
 docs:build: 
 docs:build: > docs@0.0.0 build /workspace/airnub-site/docs
 docs:build: > docusaurus build
 docs:build: 
+@airnub/adf-app:build:  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+@airnub/adf-app:build: 
+@airnub/adf-app:build: > @airnub/adf-app@0.1.0 build /workspace/airnub-site/apps/adf
+@airnub/adf-app:build: > next build
+@airnub/adf-app:build: 
 @airnub/airnub-app:build:  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
 @airnub/airnub-app:build: 
 @airnub/airnub-app:build: > @airnub/airnub-app@0.1.0 build /workspace/airnub-site/apps/airnub
 @airnub/airnub-app:build: > next build
 @airnub/airnub-app:build: 
 @airnub/speckit-app:build:  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
-@airnub/adf-app:build:  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
 @airnub/speckit-app:build: 
 @airnub/speckit-app:build: > @airnub/speckit-app@0.1.0 build /workspace/airnub-site/apps/speckit
 @airnub/speckit-app:build: > next build
 @airnub/speckit-app:build: 
-@airnub/adf-app:build: 
-@airnub/adf-app:build: > @airnub/adf-app@0.1.0 build /workspace/airnub-site/apps/adf
-@airnub/adf-app:build: > next build
-@airnub/adf-app:build: 
 @airnub/airnub-app:build: Attention: Next.js now collects completely anonymous telemetry regarding usage.
 @airnub/airnub-app:build: This information is used to shape Next.js' roadmap and prioritize features.
 @airnub/airnub-app:build: You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
 @airnub/airnub-app:build: https://nextjs.org/telemetry
-@airnub/airnub-app:build: 
-@airnub/airnub-app:build:    ▲ Next.js 15.5.4
-@airnub/airnub-app:build:    - Experiments (use with caution):
-@airnub/airnub-app:build:      · optimizePackageImports
 @airnub/airnub-app:build: 
 @airnub/adf-app:build: Attention: Next.js now collects completely anonymous telemetry regarding usage.
 @airnub/adf-app:build: This information is used to shape Next.js' roadmap and prioritize features.
 @airnub/adf-app:build: You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
 @airnub/adf-app:build: https://nextjs.org/telemetry
 @airnub/adf-app:build: 
+@airnub/airnub-app:build:    ▲ Next.js 15.5.4
+@airnub/airnub-app:build:    - Experiments (use with caution):
+@airnub/airnub-app:build:      · optimizePackageImports
+@airnub/airnub-app:build: 
 @airnub/adf-app:build:    ▲ Next.js 15.5.4
 @airnub/adf-app:build:    - Experiments (use with caution):
 @airnub/adf-app:build:      · optimizePackageImports
 @airnub/adf-app:build: 
-@airnub/airnub-app:build:    Creating an optimized production build ...
 @airnub/speckit-app:build: Attention: Next.js now collects completely anonymous telemetry regarding usage.
 @airnub/speckit-app:build: This information is used to shape Next.js' roadmap and prioritize features.
 @airnub/speckit-app:build: You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
 @airnub/speckit-app:build: https://nextjs.org/telemetry
 @airnub/speckit-app:build: 
-@airnub/adf-app:build:    Creating an optimized production build ...
 @airnub/speckit-app:build:    ▲ Next.js 15.5.4
 @airnub/speckit-app:build:    - Experiments (use with caution):
 @airnub/speckit-app:build:      · optimizePackageImports
 @airnub/speckit-app:build: 
+@airnub/airnub-app:build:    Creating an optimized production build ...
 @airnub/speckit-app:build:    Creating an optimized production build ...
+@airnub/adf-app:build:    Creating an optimized production build ...
 docs:build: [INFO] [en] Creating an optimized production build...
 docs:build: [webpackbar] ℹ Compiling Client
 docs:build: [webpackbar] ℹ Compiling Server
-@airnub/adf-app:build:  ✓ Compiled successfully in 42s
+@airnub/adf-app:build:  ✓ Compiled successfully in 47s
 @airnub/adf-app:build:    Linting and checking validity of types ...
-@airnub/airnub-app:build:  ✓ Compiled successfully in 52s
+@airnub/airnub-app:build:  ✓ Compiled successfully in 58s
 @airnub/airnub-app:build:    Linting and checking validity of types ...
 @airnub/adf-app:build:    Collecting page data ...
-@airnub/speckit-app:build:  ✓ Compiled successfully in 48s
+@airnub/speckit-app:build:  ✓ Compiled successfully in 55s
 @airnub/speckit-app:build:    Linting and checking validity of types ...
-@airnub/adf-app:build:    Generating static pages (0/23) ...
+@airnub/adf-app:build:    Generating static pages (0/32) ...
 @airnub/adf-app:build:  ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
-@airnub/adf-app:build:    Generating static pages (5/23) 
-@airnub/adf-app:build:    Generating static pages (11/23) 
-@airnub/adf-app:build:    Generating static pages (17/23) 
-@airnub/adf-app:build:  ✓ Generating static pages (23/23)
+@airnub/adf-app:build:  ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+@airnub/adf-app:build:    Generating static pages (8/32) 
+@airnub/adf-app:build:    Generating static pages (16/32) 
+@airnub/adf-app:build:    Generating static pages (24/32) 
+@airnub/adf-app:build:  ✓ Generating static pages (32/32)
 @airnub/adf-app:build:    Finalizing page optimization ...
 @airnub/adf-app:build:    Collecting build traces ...
 @airnub/airnub-app:build:    Collecting page data ...
 @airnub/speckit-app:build:    Collecting page data ...
-docs:build: [webpackbar] ✔ Server: Compiled successfully in 1.30m
-@airnub/airnub-app:build:    Generating static pages (0/58) ...
+docs:build: [webpackbar] ✔ Server: Compiled successfully in 1.43m
+@airnub/airnub-app:build:    Generating static pages (0/66) ...
+@airnub/speckit-app:build:    Generating static pages (0/9) ...
 @airnub/airnub-app:build:  ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
 @airnub/airnub-app:build:  ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
-@airnub/airnub-app:build:    Generating static pages (14/58) 
-@airnub/speckit-app:build:    Generating static pages (0/8) ...
-@airnub/airnub-app:build:    Generating static pages (28/58) 
-@airnub/airnub-app:build:    Generating static pages (43/58) 
-@airnub/airnub-app:build:  ✓ Generating static pages (58/58)
-@airnub/speckit-app:build:    Generating static pages (2/8) 
-@airnub/speckit-app:build:    Generating static pages (4/8) 
-@airnub/speckit-app:build:    Generating static pages (6/8) 
-@airnub/speckit-app:build:  ✓ Generating static pages (8/8)
-@airnub/airnub-app:build:    Finalizing page optimization ...
-@airnub/airnub-app:build:    Collecting build traces ...
+@airnub/airnub-app:build:    Generating static pages (16/66) 
+@airnub/speckit-app:build:    Generating static pages (2/9) 
+@airnub/speckit-app:build:    Generating static pages (4/9) 
+@airnub/speckit-app:build:    Generating static pages (6/9) 
+@airnub/speckit-app:build:  ✓ Generating static pages (9/9)
+@airnub/airnub-app:build:    Generating static pages (32/66) 
+@airnub/airnub-app:build:    Generating static pages (49/66) 
+@airnub/airnub-app:build:  ✓ Generating static pages (66/66)
 @airnub/speckit-app:build:    Finalizing page optimization ...
 @airnub/speckit-app:build:    Collecting build traces ...
-docs:build: [webpackbar] ✔ Client: Compiled successfully in 1.66m
+@airnub/airnub-app:build:    Finalizing page optimization ...
+@airnub/airnub-app:build:    Collecting build traces ...
+docs:build: [webpackbar] ✔ Client: Compiled successfully in 1.90m
 @airnub/adf-app:build: 
 @airnub/adf-app:build: Route (app)                                 Size  First Load JS
-@airnub/adf-app:build: ┌ ○ /_not-found                            141 B         102 kB
+@airnub/adf-app:build: ┌ ○ /_not-found                            145 B         102 kB
 @airnub/adf-app:build: ├ ● /[locale]                            1.46 kB         107 kB
 @airnub/adf-app:build: ├   ├ /en-US
 @airnub/adf-app:build: ├   ├ /en-GB
 @airnub/adf-app:build: ├   ├ /ga
 @airnub/adf-app:build: ├   └ [+5 more paths]
-@airnub/adf-app:build: ├ ○ /[locale]/docs                         141 B         102 kB
+@airnub/adf-app:build: ├ ○ /[locale]/docs                         145 B         102 kB
+@airnub/adf-app:build: ├ ● /[locale]/privacy                      145 B         102 kB
+@airnub/adf-app:build: ├   ├ /en-US/privacy
+@airnub/adf-app:build: ├   ├ /en-GB/privacy
+@airnub/adf-app:build: ├   ├ /ga/privacy
+@airnub/adf-app:build: ├   └ [+5 more paths]
 @airnub/adf-app:build: ├ ● /[locale]/quickstart                 1.46 kB         107 kB
 @airnub/adf-app:build: ├   ├ /en-US/quickstart
 @airnub/adf-app:build: ├   ├ /en-GB/quickstart
 @airnub/adf-app:build: ├   ├ /ga/quickstart
 @airnub/adf-app:build: ├   └ [+5 more paths]
-@airnub/adf-app:build: ├ ○ /icon                                  141 B         102 kB
-@airnub/adf-app:build: ├ ○ /opengraph-image                       141 B         102 kB
-@airnub/adf-app:build: ├ ○ /robots.txt                            141 B         102 kB
-@airnub/adf-app:build: └ ○ /sitemap.xml                           141 B         102 kB
+@airnub/adf-app:build: ├ ○ /icon                                  145 B         102 kB
+@airnub/adf-app:build: ├ ○ /opengraph-image                       145 B         102 kB
+@airnub/adf-app:build: ├ ○ /privacy                               145 B         102 kB
+@airnub/adf-app:build: ├ ○ /robots.txt                            145 B         102 kB
+@airnub/adf-app:build: └ ○ /sitemap.xml                           145 B         102 kB
 @airnub/adf-app:build: + First Load JS shared by all             102 kB
 @airnub/adf-app:build:   ├ chunks/719-872ddb219de40336.js       45.9 kB
 @airnub/adf-app:build:   ├ chunks/82b9bf71-cb6db1812630347c.js  54.2 kB
@@ -131,21 +138,22 @@ docs:build: [INFO] Use `npm run serve` command to test your build locally.
 @airnub/speckit-app:build: 
 @airnub/speckit-app:build: Route (app)                                 Size  First Load JS
 @airnub/speckit-app:build: ┌ ƒ /                                    1.47 kB         107 kB
-@airnub/speckit-app:build: ├ ƒ /_not-found                            143 B         102 kB
+@airnub/speckit-app:build: ├ ƒ /_not-found                            145 B         102 kB
 @airnub/speckit-app:build: ├ ƒ /api/og                                157 B         102 kB
 @airnub/speckit-app:build: ├ ƒ /contact                             2.34 kB         114 kB
-@airnub/speckit-app:build: ├ ƒ /how-it-works                          143 B         102 kB
-@airnub/speckit-app:build: ├ ○ /opengraph-image                       143 B         102 kB
+@airnub/speckit-app:build: ├ ƒ /how-it-works                          145 B         102 kB
+@airnub/speckit-app:build: ├ ○ /opengraph-image                       145 B         102 kB
 @airnub/speckit-app:build: ├ ƒ /pricing                             1.47 kB         107 kB
+@airnub/speckit-app:build: ├ ƒ /privacy                               145 B         102 kB
 @airnub/speckit-app:build: ├ ƒ /product                             1.47 kB         107 kB
 @airnub/speckit-app:build: ├ ƒ /quickstart                          1.47 kB         107 kB
-@airnub/speckit-app:build: ├ ○ /robots.txt                            143 B         102 kB
-@airnub/speckit-app:build: ├ ○ /sitemap.xml                           143 B         102 kB
+@airnub/speckit-app:build: ├ ○ /robots.txt                            145 B         102 kB
+@airnub/speckit-app:build: ├ ○ /sitemap.xml                           145 B         102 kB
 @airnub/speckit-app:build: ├ ƒ /solutions                             164 B         106 kB
-@airnub/speckit-app:build: ├ ƒ /solutions/ciso                        143 B         102 kB
-@airnub/speckit-app:build: ├ ƒ /solutions/devsecops                   143 B         102 kB
+@airnub/speckit-app:build: ├ ƒ /solutions/ciso                        145 B         102 kB
+@airnub/speckit-app:build: ├ ƒ /solutions/devsecops                   145 B         102 kB
 @airnub/speckit-app:build: ├ ƒ /template                            1.47 kB         107 kB
-@airnub/speckit-app:build: └ ○ /trust                                 143 B         102 kB
+@airnub/speckit-app:build: └ ○ /trust                                 145 B         102 kB
 @airnub/speckit-app:build: + First Load JS shared by all             102 kB
 @airnub/speckit-app:build:   ├ chunks/719-872ddb219de40336.js       45.9 kB
 @airnub/speckit-app:build:   ├ chunks/82b9bf71-cb6db1812630347c.js  54.2 kB
@@ -157,7 +165,7 @@ docs:build: [INFO] Use `npm run serve` command to test your build locally.
 @airnub/speckit-app:build: 
 @airnub/airnub-app:build: 
 @airnub/airnub-app:build: Route (app)                                 Size  First Load JS  Revalidate  Expire
-@airnub/airnub-app:build: ┌ ○ /_not-found                            146 B         102 kB
+@airnub/airnub-app:build: ┌ ○ /_not-found                            148 B         102 kB
 @airnub/airnub-app:build: ├ ● /[locale]                            1.61 kB         123 kB          1m      1y
 @airnub/airnub-app:build: ├   ├ /en-US                                                             1m      1y
 @airnub/airnub-app:build: ├   ├ /en-GB                                                             1m      1y
@@ -173,7 +181,7 @@ docs:build: [INFO] Use `npm run serve` command to test your build locally.
 @airnub/airnub-app:build: ├   ├ /en-GB/contact                                                     1m      1y
 @airnub/airnub-app:build: ├   ├ /ga/contact                                                        1m      1y
 @airnub/airnub-app:build: ├   └ [+5 more paths]
-@airnub/airnub-app:build: ├ ● /[locale]/privacy                      146 B         102 kB          1m      1y
+@airnub/airnub-app:build: ├ ● /[locale]/privacy                      148 B         102 kB          1m      1y
 @airnub/airnub-app:build: ├   ├ /en-US/privacy                                                     1m      1y
 @airnub/airnub-app:build: ├   ├ /en-GB/privacy                                                     1m      1y
 @airnub/airnub-app:build: ├   ├ /ga/privacy                                                        1m      1y
@@ -183,19 +191,24 @@ docs:build: [INFO] Use `npm run serve` command to test your build locally.
 @airnub/airnub-app:build: ├   ├ /en-GB/projects                                                    1m      1y
 @airnub/airnub-app:build: ├   ├ /ga/projects                                                       1m      1y
 @airnub/airnub-app:build: ├   └ [+5 more paths]
+@airnub/airnub-app:build: ├ ● /[locale]/resources                    148 B         102 kB          1m      1y
+@airnub/airnub-app:build: ├   ├ /en-US/resources                                                   1m      1y
+@airnub/airnub-app:build: ├   ├ /en-GB/resources                                                   1m      1y
+@airnub/airnub-app:build: ├   ├ /ga/resources                                                      1m      1y
+@airnub/airnub-app:build: ├   └ [+5 more paths]
 @airnub/airnub-app:build: ├ ● /[locale]/work                        1.6 kB         123 kB          1m      1y
 @airnub/airnub-app:build: ├   ├ /en-US/work                                                        1m      1y
 @airnub/airnub-app:build: ├   ├ /en-GB/work                                                        1m      1y
 @airnub/airnub-app:build: ├   ├ /ga/work                                                           1m      1y
 @airnub/airnub-app:build: ├   └ [+5 more paths]
-@airnub/airnub-app:build: ├ ○ /admin                                 146 B         102 kB
+@airnub/airnub-app:build: ├ ○ /admin                                 148 B         102 kB
 @airnub/airnub-app:build: ├ ƒ /admin/leads                         2.95 kB         105 kB
 @airnub/airnub-app:build: ├ ○ /admin/sign-in                       1.98 kB         104 kB
 @airnub/airnub-app:build: ├ ƒ /api/og                                157 B         102 kB
-@airnub/airnub-app:build: ├ ○ /opengraph-image                       146 B         102 kB
-@airnub/airnub-app:build: ├ ○ /privacy                               146 B         102 kB
-@airnub/airnub-app:build: ├ ○ /robots.txt                            146 B         102 kB
-@airnub/airnub-app:build: └ ○ /sitemap.xml                           146 B         102 kB
+@airnub/airnub-app:build: ├ ○ /opengraph-image                       148 B         102 kB
+@airnub/airnub-app:build: ├ ○ /privacy                               148 B         102 kB
+@airnub/airnub-app:build: ├ ○ /robots.txt                            148 B         102 kB
+@airnub/airnub-app:build: └ ○ /sitemap.xml                           148 B         102 kB
 @airnub/airnub-app:build: + First Load JS shared by all             102 kB
 @airnub/airnub-app:build:   ├ chunks/719-872ddb219de40336.js       45.9 kB
 @airnub/airnub-app:build:   ├ chunks/82b9bf71-cb6db1812630347c.js  54.2 kB
@@ -211,7 +224,7 @@ docs:build: [INFO] Use `npm run serve` command to test your build locally.
 
  Tasks:    4 successful, 4 total
 Cached:    0 cached, 4 total
-  Time:    2m2.059s 
+  Time:    2m19.665s 
 
 
 

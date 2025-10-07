@@ -196,13 +196,46 @@ function validateSitemap(app: AppKey, xml: string): { missing: string[]; locs: s
   return { missing, locs };
 }
 
-function hasRobotsSitemap(app: AppKey, body: string): boolean {
+type RobotsCheck = { hasSitemap: boolean; hostOk: boolean | null; urls: string[] };
+
+function extractRobotsSitemaps(body: string): string[] {
+  return body
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => /^sitemap:/i.test(line))
+    .map((line) => line.slice(line.indexOf(':') + 1).trim())
+    .filter(Boolean);
+}
+
+function hasRobotsSitemap(app: AppKey, body: string): RobotsCheck {
+  const urls = extractRobotsSitemaps(body);
+  const hasSitemap = urls.length > 0;
   const origin = CANONICAL_ORIGINS[app];
-  if (!origin) {
-    return false;
+
+  if (!hasSitemap) {
+    return { hasSitemap: false, hostOk: null, urls };
   }
-  const expected = `sitemap: ${new URL('/sitemap.xml', origin).toString()}`.toLowerCase();
-  return body.toLowerCase().includes(expected);
+
+  if (!origin) {
+    return { hasSitemap: true, hostOk: null, urls };
+  }
+
+  let expectedOrigin: string;
+  try {
+    expectedOrigin = new URL(origin).origin;
+  } catch {
+    return { hasSitemap: true, hostOk: false, urls };
+  }
+
+  const hostOk = urls.every((url) => {
+    try {
+      return new URL(url).origin === expectedOrigin;
+    } catch {
+      return false;
+    }
+  });
+
+  return { hasSitemap: true, hostOk, urls };
 }
 
 function logFile(path: string, content: string) {
@@ -412,11 +445,16 @@ async function smoke(states: AppStates, built: boolean) {
         }
         if (route === '/robots.txt' && res.html) {
           const robotsCheck = hasRobotsSitemap(config.key, res.html);
-          routeResult.robots = { hasSitemap: robotsCheck };
-          if (!robotsCheck) {
+          routeResult.robots = robotsCheck;
+          if (!robotsCheck.hasSitemap) {
             report.outstanding.push({
               priority: 2,
               title: `${config.key} robots missing sitemap line`,
+            });
+          } else if (robotsCheck.hostOk === false) {
+            report.outstanding.push({
+              priority: 2,
+              title: `${config.key} robots sitemap host mismatch`,
             });
           }
         }
@@ -457,7 +495,7 @@ async function smoke(states: AppStates, built: boolean) {
         finalUrl?: string;
         redirected?: boolean;
         sitemap?: { missing: string[]; locs: string[] };
-        robots?: { hasSitemap: boolean };
+        robots?: RobotsCheck;
         notes?: string[];
       };
       const baseDetail = value.error ? `error: ${value.error}` : `${value.status} ${value.ctype ?? ''}`.trim();
@@ -467,6 +505,9 @@ async function smoke(states: AppStates, built: boolean) {
       }
       if (value.robots && value.robots.hasSitemap === false) {
         notes.push('missing sitemap line');
+      }
+      if (value.robots?.hostOk === false) {
+        notes.push('sitemap host mismatch');
       }
       if (value.notes?.length) {
         notes.push(...value.notes);

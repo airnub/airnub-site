@@ -68,7 +68,11 @@
           "redirected": false,
           "redirects": [],
           "robots": {
-            "hasSitemap": true
+            "hasSitemap": true,
+            "hostOk": true,
+            "urls": [
+              "https://airnub.io/sitemap.xml"
+            ]
           }
         },
         "/sitemap.xml": {
@@ -166,7 +170,11 @@
           "redirected": false,
           "redirects": [],
           "robots": {
-            "hasSitemap": true
+            "hasSitemap": true,
+            "hostOk": true,
+            "urls": [
+              "https://speckit.airnub.io/sitemap.xml"
+            ]
           }
         },
         "/sitemap.xml": {
@@ -241,7 +249,11 @@
           "redirected": false,
           "redirects": [],
           "robots": {
-            "hasSitemap": true
+            "hasSitemap": true,
+            "hostOk": true,
+            "urls": [
+              "https://adf.airnub.io/sitemap.xml"
+            ]
           }
         },
         "/sitemap.xml": {
