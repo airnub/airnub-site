@@ -169,6 +169,11 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
   const year = new Date().getFullYear();
   const githubUrl = speckitBrand.social.github ?? "https://github.com";
+  const analyticsProvider = process.env.NEXT_PUBLIC_ANALYTICS ?? null;
+  const analyticsProviderLower = analyticsProvider?.toLowerCase();
+  const analyticsDomain =
+    analyticsProviderLower === "plausible" ? process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN : undefined;
+  const analyticsGaId = analyticsProviderLower === "ga4" ? process.env.NEXT_PUBLIC_GA4_ID : undefined;
 
   return (
     <html
@@ -181,11 +186,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         <JsonLd data={jsonLd} />
       </head>
       <body className="flex min-h-screen flex-col">
-        <Analytics
-          provider={process.env.NEXT_PUBLIC_ANALYTICS as any}
-          domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
-          gaId={process.env.NEXT_PUBLIC_GA4_ID}
-        />
+        <Analytics provider={analyticsProvider} domain={analyticsDomain} gaId={analyticsGaId} />
         <BrandProvider value={speckitBrand}>
           <ThemeProvider>
             <ToastProvider>

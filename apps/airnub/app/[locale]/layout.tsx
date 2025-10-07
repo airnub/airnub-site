@@ -202,6 +202,11 @@ export default async function LocaleLayout({
   };
 
   const year = new Date().getFullYear();
+  const analyticsProvider = process.env.NEXT_PUBLIC_ANALYTICS ?? null;
+  const analyticsProviderLower = analyticsProvider?.toLowerCase();
+  const analyticsDomain =
+    analyticsProviderLower === "plausible" ? process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN : undefined;
+  const analyticsGaId = analyticsProviderLower === "ga4" ? process.env.NEXT_PUBLIC_GA4_ID : undefined;
 
   return (
     <html
@@ -217,11 +222,7 @@ export default async function LocaleLayout({
         />
       </head>
       <body className="flex min-h-screen flex-col">
-        <Analytics
-          provider={process.env.NEXT_PUBLIC_ANALYTICS as any}
-          domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
-          gaId={process.env.NEXT_PUBLIC_GA4_ID}
-        />
+        <Analytics provider={analyticsProvider} domain={analyticsDomain} gaId={analyticsGaId} />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <BrandProvider value={airnubBrand}>
             <ThemeProvider>
