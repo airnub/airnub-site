@@ -17,6 +17,11 @@
         "href": "/projects"
       },
       {
+        "id": "hire",
+        "labelKey": "nav.hire",
+        "href": "/hire"
+      },
+      {
         "id": "about",
         "labelKey": "nav.about",
         "href": "/about"
@@ -133,6 +138,11 @@
             "id": "company.about",
             "labelKey": "footer.columns.company.links.about",
             "href": "/about"
+          },
+          {
+            "id": "company.hire",
+            "labelKey": "footer.columns.company.links.hire",
+            "href": "/hire"
           },
           {
             "id": "company.careers",

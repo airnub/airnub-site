@@ -71,6 +71,7 @@ export const airnubNavigation: SiteNavigationDefinition = {
     { id: "home", labelKey: "nav.home", href: "/" },
     { id: "work", labelKey: "nav.work", href: "/work" },
     { id: "projects", labelKey: "nav.projects", href: "/projects" },
+    { id: "hire", labelKey: "nav.hire", href: "/hire" },
     { id: "about", labelKey: "nav.about", href: "/about" },
     { id: "contact", labelKey: "nav.contact", href: "/contact" },
   ],
@@ -180,6 +181,11 @@ export const airnubNavigation: SiteNavigationDefinition = {
             id: "company.about",
             labelKey: "footer.columns.company.links.about",
             href: "/about",
+          },
+          {
+            id: "company.hire",
+            labelKey: "footer.columns.company.links.hire",
+            href: "/hire",
           },
           {
             id: "company.careers",

@@ -11,6 +11,7 @@ export * from "./components/client/ToastProvider";
 export * from "./components/card";
 export * from "../providers/theme";
 export { default as Analytics } from "./Analytics";
+export { default as SkipLink } from "./SkipLink";
 export * from "./icons/GithubIcon";
 export * from "./logos";
 export * from "./fonts";

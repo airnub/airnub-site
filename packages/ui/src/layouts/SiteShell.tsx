@@ -7,7 +7,6 @@ import { Logo } from "../brand";
 
 export type SiteShellProps = {
   children: ReactNode;
-  skipToContentLabel: string;
   navItems: NavItem[];
   headerLogo?: ReactNode;
   homeHref?: string;
@@ -28,7 +27,6 @@ export type SiteShellProps = {
 
 export function SiteShell({
   children,
-  skipToContentLabel,
   navItems,
   headerLogo,
   homeHref = "/",
@@ -70,9 +68,6 @@ export function SiteShell({
 
   return (
     <>
-      <a href="#content" className="skip-link">
-        {skipToContentLabel}
-      </a>
       <Header
         logo={resolvedHeaderLogo}
         navItems={navItems}
@@ -84,7 +79,7 @@ export function SiteShell({
         activeHref={headerActiveHref}
         isNavItemActive={headerIsNavItemActive}
       />
-      <main id="content" className={clsx("flex-1", mainClassName)}>
+      <main id="main" role="main" className={clsx("flex-1", mainClassName)}>
         {children}
       </main>
       <Footer

@@ -45,7 +45,7 @@ export default async function MarketingHome({
   const highlights = messages.home.highlights;
 
   return (
-    <main className="flex flex-col">
+    <div className="flex flex-col">
       <Hero
         eyebrow={hero.eyebrow}
         title={hero.title}
@@ -84,6 +84,6 @@ export default async function MarketingHome({
           ))}
         </div>
       </Section>
-    </main>
+    </div>
   );
 }

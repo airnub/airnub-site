@@ -49,7 +49,7 @@ export default async function QuickstartPage({
   const { intro, steps, templates, ci, cta, timeline } = messages.quickstart;
 
   return (
-    <main className="flex flex-col">
+    <div className="flex flex-col">
       <Hero
         eyebrow={intro.eyebrow}
         title={intro.title}
@@ -145,6 +145,6 @@ export default async function QuickstartPage({
           </CardContent>
         </Card>
       </Section>
-    </main>
+    </div>
   );
 }

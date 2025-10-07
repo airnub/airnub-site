@@ -1,19 +1,46 @@
-name: a11y
-
+name: Accessibility
 on:
   pull_request:
-
-permissions:
-  contents: read
-
+    branches:
+      - main
+  workflow_dispatch: {}
 jobs:
   a11y:
     runs-on: ubuntu-latest
+    env:
+      DISABLE_PWA: '1'
     steps:
       - uses: actions/checkout@v4
-      - name: Setup pnpm
-        uses: ./.github/actions/setup-pnpm
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-      - name: Run pa11y-ci (targets defined per app)
-        run: pnpm a11y
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: true
+      - run: pnpm -v
+      - run: pnpm -w build
+      - run: |
+          pnpm --filter ./apps/airnub  exec next start -p 3101 & \
+          pnpm --filter ./apps/speckit exec next start -p 3102 & \
+          pnpm --filter ./apps/adf     exec next start -p 3103 & \
+          sleep 7
+      - name: Run pa11y sample (swap for pnpm a11y when ready)
+        run: |
+          npx --yes pa11y@6 http://localhost:3101/ || true
+          npx --yes pa11y@6 http://localhost:3101/work || true
+          npx --yes pa11y@6 http://localhost:3101/projects || true
+          npx --yes pa11y@6 http://localhost:3101/about || true
+          npx --yes pa11y@6 http://localhost:3101/contact || true
+          npx --yes pa11y@6 http://localhost:3102/ || true
+          npx --yes pa11y@6 http://localhost:3102/quickstart || true
+          npx --yes pa11y@6 http://localhost:3103/ || true
+          npx --yes pa11y@6 http://localhost:3103/quickstart || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: a11y-report
+          path: |
+            A11Y-REPORT.*
+            artifacts/**

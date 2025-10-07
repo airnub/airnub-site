@@ -109,7 +109,12 @@ export function Header({
           </button>
         </div>
       </Container>
-      <div id="mobile-nav" hidden={!open} className="border-t border-border bg-background lg:hidden">
+      <nav
+        id="mobile-nav"
+        hidden={!open}
+        className="border-t border-border bg-background lg:hidden"
+        aria-label="Primary navigation"
+      >
         <Container>
           <ul className="flex flex-col gap-1 py-4 text-base font-medium">
             {navItems.map((item) => (
@@ -146,7 +151,7 @@ export function Header({
             ) : null}
           </ul>
         </Container>
-      </div>
+      </nav>
     </header>
   );
 }

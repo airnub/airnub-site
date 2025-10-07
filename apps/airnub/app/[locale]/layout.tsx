@@ -7,6 +7,7 @@ import {
   GithubIcon,
   type FooterColumn,
   Analytics,
+  SkipLink,
 } from "@airnub/ui";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
@@ -202,7 +203,6 @@ export default async function LocaleLayout({
   };
 
   const year = new Date().getFullYear();
-
   return (
     <html
       lang={locale}
@@ -217,8 +217,9 @@ export default async function LocaleLayout({
         />
       </head>
       <body className="flex min-h-screen flex-col">
+        <SkipLink />
         <Analytics
-          provider={process.env.NEXT_PUBLIC_ANALYTICS as any}
+          provider={(process.env.NEXT_PUBLIC_ANALYTICS ?? undefined) as any}
           domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
           gaId={process.env.NEXT_PUBLIC_GA4_ID}
         />
@@ -227,7 +228,6 @@ export default async function LocaleLayout({
             <ThemeProvider>
               <ToastProvider>
                 <ActiveSiteShell
-                  skipToContentLabel={common("skipToContent")}
                   navItems={navItems}
                   homeHref={`/${locale}`}
                   homeAriaLabel={`${airnubBrand.name} home`}

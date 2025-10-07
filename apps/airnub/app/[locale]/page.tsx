@@ -185,7 +185,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   );
 
   return (
-    <main className="flex flex-col">
+    <div className="flex flex-col">
       <Hero
         eyebrow={hero.eyebrow}
         title={hero.title}
@@ -337,6 +337,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
         }
       />
-    </main>
+    </div>
   );
 }

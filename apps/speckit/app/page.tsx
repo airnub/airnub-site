@@ -64,7 +64,7 @@ export default async function SpeckitHome() {
   }[];
 
   return (
-    <main className="flex flex-col">
+    <div className="flex flex-col">
       <Hero
         eyebrow={home.hero.eyebrow}
         title={home.hero.title}
@@ -190,6 +190,6 @@ export default async function SpeckitHome() {
           logo: <span className="text-sm font-semibold text-foreground">{logo}</span>,
         }))}
       />
-    </main>
+    </div>
   );
 }

@@ -17,6 +17,7 @@ import {
   type FooterColumn,
   type NavItem,
   Analytics,
+  SkipLink,
 } from "@airnub/ui";
 import { buildBrandMetadata } from "@airnub/brand";
 import { JsonLd } from "../../components/JsonLd";
@@ -171,7 +172,6 @@ export default async function LocaleLayout({
 
   const year = new Date().getFullYear();
   const githubUrl = adfBrand.social.github;
-
   return (
     <html
       lang={locale}
@@ -183,8 +183,9 @@ export default async function LocaleLayout({
         <JsonLd data={jsonLd} />
       </head>
       <body className="flex min-h-screen flex-col">
+        <SkipLink />
         <Analytics
-          provider={process.env.NEXT_PUBLIC_ANALYTICS as any}
+          provider={(process.env.NEXT_PUBLIC_ANALYTICS ?? undefined) as any}
           domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
           gaId={process.env.NEXT_PUBLIC_GA4_ID}
         />
@@ -196,7 +197,6 @@ export default async function LocaleLayout({
             <ThemeProvider>
               <ToastProvider>
                 <ActiveSiteShell
-                  skipToContentLabel={layoutMessages.skipToContent}
                   navItems={navItems}
                   homeHref={withLocale("/")}
                   homeAriaLabel={`${adfBrand.name} home`}

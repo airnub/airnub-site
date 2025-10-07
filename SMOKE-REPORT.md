@@ -7,11 +7,13 @@
 - Mode: start
 - Boot: ✅
 - Routes:
-  - /: 307
-  - /work: 307
-  - /projects: 307
-  - /about: 307
-  - /contact: 307
+  - / → http://localhost:3101/en-US: 200 text/html; charset=utf-8
+  - /work → http://localhost:3101/en-US/work: 200 text/html; charset=utf-8
+  - /projects → http://localhost:3101/en-US/projects: 200 text/html; charset=utf-8
+  - /hire → http://localhost:3101/en-US/hire: 200 text/html; charset=utf-8
+  - /about → http://localhost:3101/en-US/about: 200 text/html; charset=utf-8
+  - /contact → http://localhost:3101/en-US/contact: 200 text/html; charset=utf-8
+  - /privacy → http://localhost:3101/en-US/privacy: 200 text/html; charset=utf-8
   - /robots.txt: 200 text/plain
   - /sitemap.xml: 200 application/xml
   - /opengraph-image: 200 image/png
@@ -23,6 +25,7 @@
 - Routes:
   - /: 200 text/html; charset=utf-8
   - /quickstart: 200 text/html; charset=utf-8
+  - /privacy: 200 text/html; charset=utf-8
   - /robots.txt: 200 text/plain
   - /sitemap.xml: 200 application/xml
   - /opengraph-image: 200 image/png
@@ -32,8 +35,9 @@
 - Mode: start
 - Boot: ✅
 - Routes:
-  - /: 307
-  - /quickstart: 307
+  - / → http://localhost:3103/en-US: 200 text/html; charset=utf-8
+  - /quickstart → http://localhost:3103/en-US/quickstart: 200 text/html; charset=utf-8
+  - /privacy → http://localhost:3103/en-US/privacy: 200 text/html; charset=utf-8
   - /robots.txt: 200 text/plain
   - /sitemap.xml: 200 application/xml
   - /opengraph-image: 200 image/png

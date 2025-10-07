@@ -29,6 +29,7 @@
       "home": "Home",
       "work": "Work",
       "projects": "Projects",
+      "hire": "For Recruiters & Clients",
       "about": "About",
       "contact": "Contact"
     },
@@ -71,6 +72,7 @@
           "heading": "Company",
           "links": {
             "about": "About",
+            "hire": "For Recruiters & Clients",
             "careers": "Careers",
             "press": "Press",
             "legal": "Legal"
@@ -81,6 +83,60 @@
         "privacy": "Privacy",
         "terms": "Terms",
         "email": "{email}"
+      }
+    },
+    "pages": {
+      "hire": {
+        "metadata": {
+          "title": "For Recruiters & Clients",
+          "description": "Airnub helps teams adopt agentic coding safely: policy-aware, test-first, and traceable."
+        },
+        "intro": "Airnub helps teams adopt agentic coding safely: policy-aware, test-first, and traceable.",
+        "sections": {
+          "offer": {
+            "title": "What we offer",
+            "items": [
+              {
+                "title": "Agentic Delivery Framework (ADF)",
+                "description": "A lightweight, SOC2/GDPR-aware method for integrating autonomous coding agents into modern SDLCs."
+              },
+              {
+                "title": "SpecKit",
+                "description": "A CLI/TUI for generating strict, language-aware specs that keep agents aligned with requirements and compliance."
+              },
+              {
+                "title": "Enablement",
+                "description": "Playbooks, pilot programs (2–6 weeks), and hands-on pairing to make AI coding stick."
+              }
+            ]
+          },
+          "whyNow": {
+            "title": "Why now",
+            "description": "Prompt fatigue and review overhead are real. Our approach reduces manual churn and preserves velocity without sacrificing control or compliance."
+          },
+          "engagements": {
+            "title": "Engagement models",
+            "items": [
+              {
+                "title": "Pilot",
+                "description": "One repo, one team, measurable outcomes in ≤ 6 weeks."
+              },
+              {
+                "title": "Scale-up",
+                "description": "Multi-team adoption with guardrails, dashboards, and CI gates."
+              },
+              {
+                "title": "Advisory",
+                "description": "Standards, templates, and architecture reviews."
+              }
+            ]
+          },
+          "contact": {
+            "title": "Contact",
+            "description": "Email {email}. We’ll reply within one business day.",
+            "email": "hello@airnub.io"
+          }
+        }
       }
     }
   },

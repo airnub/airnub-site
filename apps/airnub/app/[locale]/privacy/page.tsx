@@ -7,7 +7,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
   const locale = assertLocale(localeParam);
 
   return (
-    <main className="prose mx-auto p-8">
+    <article className="prose mx-auto p-8">
       <h1>Privacy</h1>
       <p>
         We collect minimal usage data to improve the website experience. If analytics are enabled, we use privacy-friendly
@@ -17,6 +17,6 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
       <p>
         Questions? Email <a href="mailto:hello@airnub.io">hello@airnub.io</a>.
       </p>
-    </main>
+    </article>
   );
 }

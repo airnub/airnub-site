@@ -13,11 +13,19 @@ export type FooterProps = {
   copyright: string;
   description?: string;
   bottomSlot?: ReactNode;
+  ariaLabel?: string;
 };
 
-export function Footer({ logo, columns, copyright, bottomSlot, description }: FooterProps) {
+export function Footer({
+  logo,
+  columns,
+  copyright,
+  bottomSlot,
+  description,
+  ariaLabel = "Site footer",
+}: FooterProps) {
   return (
-    <footer className="border-t border-border bg-background py-12 text-sm text-muted-foreground">
+    <footer aria-label={ariaLabel} className="border-t border-border bg-background py-12 text-sm text-muted-foreground">
       <Container>
         <div className="grid gap-8 lg:grid-cols-5">
           <div className="lg:col-span-2">
