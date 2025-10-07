@@ -1,14 +1,43 @@
-name: links
-on: [pull_request]
+name: Links
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: links-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   links:
     runs-on: ubuntu-latest
+    env:
+      DISABLE_PWA: "1"
     steps:
       - uses: actions/checkout@v4
-      - name: Setup pnpm
-        uses: ./.github/actions/setup-pnpm
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-      - name: Run link checks
-        run: pnpm links
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: true
+
+      - run: pnpm -v
+
+      - run: pnpm reports -- --links
+
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-report
+          path: |
+            LINK-REPORT.md
+            artifacts/**
