@@ -13,7 +13,9 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 sudo rm -rf /var/lib/apt/lists/*
 
 # Speed up pnpm (use cache mount)
-pnpm config set store-dir /home/node/.pnpm-store
+PNPM_STORE_DIR="${PNPM_STORE_DIR:-${HOME}/.pnpm-store}"
+mkdir -p "${PNPM_STORE_DIR}"
+pnpm config set store-dir "${PNPM_STORE_DIR}"
 
 echo "[post-create] Installing workspace deps..."
 pnpm -w fetch

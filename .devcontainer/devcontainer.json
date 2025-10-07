@@ -5,23 +5,23 @@
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
     "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/devcontainers/features/node:1": {
-      "version": "24",
+      "version": "22",
       "installPnpm": true,
-      "pnpmVersion": "10.17.1"
+      "pnpmVersion": "9.12.3"
     }
   },
   "hostRequirements": { "cpus": 2, "memory": "4gb", "storage": "16gb" },
 
   "containerEnv": {
-    "PNPM_HOME": "/home/node/.pnpm",
-    "PATH": "${containerEnv:PATH}:/home/node/.pnpm",
+    "PNPM_HOME": "/home/vscode/.pnpm",
+    "PATH": "${containerEnv:PATH}:/home/vscode/.pnpm",
     "AUTO_START_SUPABASE": "false",
     "SUPABASE_VERSION": "latest",
     "NODE_OPTIONS": "--max-old-space-size=4096"
   },
 
   "mounts": [
-    "type=volume,source=pnpm-store,target=/home/node/.pnpm-store",
+    "type=volume,source=pnpm-store,target=/home/vscode/.pnpm-store",
     "type=volume,source=next-cache,target=${containerWorkspaceFolder}/.next/cache"
   ],
 
