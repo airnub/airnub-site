@@ -11,7 +11,11 @@ const intlMiddleware = createMiddleware({
 export default function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  if (pathname.startsWith("/admin")) {
+  if (
+    pathname.startsWith("/admin") ||
+    pathname === "/opengraph-image" ||
+    pathname === "/icon"
+  ) {
     return NextResponse.next();
   }
 
@@ -19,5 +23,5 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next|.*\\..*).*)"],
+  matcher: ["/((?!api|_next|.*\\..*|opengraph-image|icon).*)"],
 };

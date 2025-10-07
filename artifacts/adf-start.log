@@ -1,0 +1,14 @@
+.                                        |  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+apps/adf                                 |  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+apps/airnub                              |  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+apps/speckit                             |  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+packages/brand                           |  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+packages/db                              |  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+packages/seo                             |  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+packages/ui                              |  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+   ▲ Next.js 15.5.4
+   - Local:        http://localhost:3103
+   - Network:      http://172.30.1.2:3103
+
+ ✓ Starting...
+ ✓ Ready in 494ms
