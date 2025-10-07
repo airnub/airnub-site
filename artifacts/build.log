@@ -1,0 +1,112 @@
+ WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+
+> airnub-site@ build /workspace/airnub-site
+> turbo run build
+
+
+Attention:
+Turborepo now collects completely anonymous telemetry regarding usage.
+This information is used to shape the Turborepo roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://turborepo.com/docs/telemetry
+
+turbo 2.5.8
+
+• Packages in scope: @airnub/adf-app, @airnub/airnub-app, @airnub/brand, @airnub/db, @airnub/seo, @airnub/speckit-app, @airnub/ui, docs
+• Running build in 8 packages
+• Remote caching disabled
+docs:build: cache miss, executing fa586c673751e985
+@airnub/adf-app:build: cache miss, executing c9f671dc27f10c56
+@airnub/airnub-app:build: cache miss, executing ae96de794301a3e0
+@airnub/speckit-app:build: cache miss, executing e01a836528359e44
+@airnub/adf-app:build:  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+@airnub/adf-app:build: 
+@airnub/adf-app:build: > @airnub/adf-app@0.1.0 build /workspace/airnub-site/apps/adf
+@airnub/adf-app:build: > next build
+@airnub/adf-app:build: 
+@airnub/airnub-app:build:  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+@airnub/airnub-app:build: 
+@airnub/airnub-app:build: > @airnub/airnub-app@0.1.0 build /workspace/airnub-site/apps/airnub
+@airnub/airnub-app:build: > next build
+@airnub/airnub-app:build: 
+docs:build: 
+docs:build: > docs@0.0.0 build /workspace/airnub-site/docs
+docs:build: > docusaurus build
+docs:build: 
+@airnub/speckit-app:build:  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+@airnub/speckit-app:build: 
+@airnub/speckit-app:build: > @airnub/speckit-app@0.1.0 build /workspace/airnub-site/apps/speckit
+@airnub/speckit-app:build: > next build
+@airnub/speckit-app:build: 
+@airnub/airnub-app:build: Attention: Next.js now collects completely anonymous telemetry regarding usage.
+@airnub/airnub-app:build: This information is used to shape Next.js' roadmap and prioritize features.
+@airnub/airnub-app:build: You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+@airnub/airnub-app:build: https://nextjs.org/telemetry
+@airnub/airnub-app:build: 
+@airnub/speckit-app:build: Attention: Next.js now collects completely anonymous telemetry regarding usage.
+@airnub/speckit-app:build: This information is used to shape Next.js' roadmap and prioritize features.
+@airnub/speckit-app:build: You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+@airnub/speckit-app:build: https://nextjs.org/telemetry
+@airnub/speckit-app:build: 
+@airnub/airnub-app:build:    ▲ Next.js 15.5.4
+@airnub/airnub-app:build:    - Experiments (use with caution):
+@airnub/airnub-app:build:      · optimizePackageImports
+@airnub/airnub-app:build: 
+@airnub/speckit-app:build:    ▲ Next.js 15.5.4
+@airnub/speckit-app:build:    - Experiments (use with caution):
+@airnub/speckit-app:build:      · optimizePackageImports
+@airnub/speckit-app:build: 
+@airnub/adf-app:build: Attention: Next.js now collects completely anonymous telemetry regarding usage.
+@airnub/adf-app:build: This information is used to shape Next.js' roadmap and prioritize features.
+@airnub/adf-app:build: You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+@airnub/adf-app:build: https://nextjs.org/telemetry
+@airnub/adf-app:build: 
+@airnub/airnub-app:build:    Creating an optimized production build ...
+@airnub/speckit-app:build:    Creating an optimized production build ...
+@airnub/adf-app:build:    ▲ Next.js 15.5.4
+@airnub/adf-app:build:    - Experiments (use with caution):
+@airnub/adf-app:build:      · optimizePackageImports
+@airnub/adf-app:build: 
+@airnub/adf-app:build:    Creating an optimized production build ...
+docs:build: [INFO] [en] Creating an optimized production build...
+docs:build: [webpackbar] ℹ Compiling Client
+docs:build: [webpackbar] ℹ Compiling Server
+docs:build: [WARNING] Markdown link with URL `../../README.md#-branding--rebranding` in source file "docs/branding.md" (102:41) couldn't be resolved.
+docs:build: Make sure it references a local Markdown file that exists within the current plugin.
+docs:build: [WARNING] Markdown link with URL `../../packages/brand/README.md` in source file "docs/branding.md" (102:115) couldn't be resolved.
+docs:build: Make sure it references a local Markdown file that exists within the current plugin.
+docs:build: [WARNING] Markdown link with URL `../../README.md#-branding--rebranding` in source file "docs/branding.md" (102:41) couldn't be resolved.
+docs:build: Make sure it references a local Markdown file that exists within the current plugin.
+docs:build: [WARNING] Markdown link with URL `../../packages/brand/README.md` in source file "docs/branding.md" (102:115) couldn't be resolved.
+docs:build: Make sure it references a local Markdown file that exists within the current plugin.
+@airnub/adf-app:build:  ✓ Compiled successfully in 45s
+@airnub/adf-app:build:    Linting and checking validity of types ...
+@airnub/airnub-app:build:  ✓ Compiled successfully in 51s
+@airnub/airnub-app:build:    Linting and checking validity of types ...
+@airnub/speckit-app:build:  ✓ Compiled successfully in 44s
+@airnub/speckit-app:build:    Linting and checking validity of types ...
+@airnub/adf-app:build: Failed to compile.
+@airnub/adf-app:build: 
+@airnub/adf-app:build: ./app/[locale]/(marketing)/page.tsx:3:46
+@airnub/adf-app:build: Type error: Cannot find module 'next-intl/server' or its corresponding type declarations.
+@airnub/adf-app:build: 
+@airnub/adf-app:build: [0m [90m 1 |[39m [36mimport[39m type { [33mMetadata[39m } [36mfrom[39m [32m"next"[39m[33m;[39m
+@airnub/adf-app:build:  [90m 2 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m"next/link"[39m[33m;[39m
+@airnub/adf-app:build: [31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m { getMessages[33m,[39m getTranslations } [36mfrom[39m [32m"next-intl/server"[39m[33m;[39m
+@airnub/adf-app:build:  [90m   |[39m                                              [31m[1m^[22m[39m
+@airnub/adf-app:build:  [90m 4 |[39m [36mimport[39m { [33mButton[39m[33m,[39m [33mCard[39m[33m,[39m [33mCardDescription[39m[33m,[39m [33mCardHeader[39m[33m,[39m [33mCardTitle[39m[33m,[39m [33mHero[39m[33m,[39m [33mSection[39m } [36mfrom[39m [32m"@airnub/ui"[39m[33m;[39m
+@airnub/adf-app:build:  [90m 5 |[39m [36mimport[39m { assertLocale[33m,[39m locales } [36mfrom[39m [32m"../../i18n/routing"[39m[33m;[39m
+@airnub/adf-app:build:  [90m 6 |[39m [36mimport[39m type { [33mAdfMessages[39m } [36mfrom[39m [32m"@adf/messages/types"[39m[33m;[39m[0m
+@airnub/adf-app:build: Next.js build worker exited with code: 1 and signal: null
+@airnub/adf-app:build:  ELIFECYCLE  Command failed with exit code 1.
+@airnub/adf-app:build: ERROR: command finished with error: command (/workspace/airnub-site/apps/adf) /root/.nvm/versions/node/v20.19.4/bin/pnpm run build exited (1)
+@airnub/speckit-app:build:  ELIFECYCLE  Command failed.
+@airnub/adf-app#build: command (/workspace/airnub-site/apps/adf) /root/.nvm/versions/node/v20.19.4/bin/pnpm run build exited (1)
+
+ Tasks:    0 successful, 4 total
+Cached:    0 cached, 4 total
+  Time:    1m11.201s 
+Failed:    @airnub/adf-app#build
+
+ ERROR  run failed: command  exited (1)
+ ELIFECYCLE  Command failed with exit code 1.

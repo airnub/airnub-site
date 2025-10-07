@@ -1,0 +1,38 @@
+ WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+
+> airnub-site@ typecheck /workspace/airnub-site
+> turbo run typecheck
+
+turbo 2.5.8
+
+• Packages in scope: @airnub/adf-app, @airnub/airnub-app, @airnub/brand, @airnub/db, @airnub/seo, @airnub/speckit-app, @airnub/ui, docs
+• Running typecheck in 8 packages
+• Remote caching disabled
+docs:typecheck: cache hit, replaying logs 376cbc4634ae7da5
+docs:typecheck: 
+docs:typecheck: > docs@0.0.0 typecheck /workspace/airnub-site/docs
+docs:typecheck: > tsc
+docs:typecheck: 
+@airnub/adf-app:typecheck: cache miss, executing c525ec627b8dcb6a
+@airnub/speckit-app:typecheck: cache miss, executing 1314d291611b1c5f
+@airnub/airnub-app:typecheck: cache miss, executing 177a840ce1d9394d
+@airnub/adf-app:typecheck:  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+@airnub/adf-app:typecheck: 
+@airnub/adf-app:typecheck: > @airnub/adf-app@0.1.0 typecheck /workspace/airnub-site/apps/adf
+@airnub/adf-app:typecheck: > tsc -p tsconfig.json --noEmit
+@airnub/adf-app:typecheck: 
+@airnub/speckit-app:typecheck:  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+@airnub/speckit-app:typecheck: 
+@airnub/speckit-app:typecheck: > @airnub/speckit-app@0.1.0 typecheck /workspace/airnub-site/apps/speckit
+@airnub/speckit-app:typecheck: > tsc -p tsconfig.json --noEmit
+@airnub/speckit-app:typecheck: 
+@airnub/airnub-app:typecheck:  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+@airnub/airnub-app:typecheck: 
+@airnub/airnub-app:typecheck: > @airnub/airnub-app@0.1.0 typecheck /workspace/airnub-site/apps/airnub
+@airnub/airnub-app:typecheck: > tsc -p tsconfig.json --noEmit
+@airnub/airnub-app:typecheck: 
+
+ Tasks:    4 successful, 4 total
+Cached:    1 cached, 4 total
+  Time:    7.294s 
+

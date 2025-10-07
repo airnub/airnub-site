@@ -1,6 +1,7 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "types": [
       "next",
       "next/image-types/global",
@@ -11,11 +12,44 @@
     "allowJs": false,
     "noEmit": true,
     "esModuleInterop": true,
+    "paths": {
+      "@airnub/brand": [
+        "../../packages/brand/src/index.ts"
+      ],
+      "@airnub/brand/*": [
+        "../../packages/brand/src/*"
+      ],
+      "@airnub/ui": [
+        "../../packages/ui/src/index.ts"
+      ],
+      "@airnub/ui/*": [
+        "../../packages/ui/src/*"
+      ],
+      "@airnub/seo": [
+        "../../packages/seo/src/index.ts"
+      ],
+      "@airnub/seo/*": [
+        "../../packages/seo/src/*"
+      ],
+      "@airnub/db": [
+        "../../packages/db/src/index.ts"
+      ],
+      "@airnub/db/*": [
+        "../../packages/db/src/*"
+      ],
+      "@airnub/i18n": [
+        "../../packages/i18n/merge.ts"
+      ],
+      "@airnub/i18n/*": [
+        "../../packages/i18n/*"
+      ]
+    },
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",

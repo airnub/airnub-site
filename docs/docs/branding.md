@@ -99,4 +99,4 @@ Because every app reads from the same runtime outputs, you should **not** keep b
 | OG image stale | Confirm `apps/*/app/api/og/route.tsx` is reading `ogTemplate` from `@airnub/brand/server` and that `og.png` was replaced and synced. Delete `.next/cache` when testing locally. |
 | Unexpected navigation links | Update `airnubNavigation` / `speckitNavigation` in [`packages/brand/src/navigation.ts`](../../packages/brand/src/navigation.ts) and re-run the sync. |
 
-For more detail, refer back to the root [`README.md`](../../README.md#-branding--rebranding) or the package-level [`README`](../../packages/brand/README.md).
+For more detail, refer back to the root [`README.md`](https://github.com/airnub/airnub-site/blob/main/README.md#-branding--rebranding) or the package-level [`README`](https://github.com/airnub/airnub-site/blob/main/packages/brand/README.md).

@@ -1,0 +1,56 @@
+ WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+
+> airnub-site@ typecheck /workspace/airnub-site
+> turbo run typecheck
+
+turbo 2.5.8
+
+• Packages in scope: @airnub/adf-app, @airnub/airnub-app, @airnub/brand, @airnub/db, @airnub/seo, @airnub/speckit-app, @airnub/ui, docs
+• Running typecheck in 8 packages
+• Remote caching disabled
+@airnub/airnub-app:typecheck: cache miss, executing 8f9e9767cffe74c2
+@airnub/adf-app:typecheck: cache miss, executing 7909e44128f12d57
+@airnub/speckit-app:typecheck: cache miss, executing 73f56832d7360fa6
+docs:typecheck: cache miss, executing 4ec6a07d72deac0c
+@airnub/airnub-app:typecheck:  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+@airnub/airnub-app:typecheck: 
+@airnub/airnub-app:typecheck: > @airnub/airnub-app@0.1.0 typecheck /workspace/airnub-site/apps/airnub
+@airnub/airnub-app:typecheck: > tsc -p tsconfig.json --noEmit
+@airnub/airnub-app:typecheck: 
+@airnub/speckit-app:typecheck:  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+@airnub/speckit-app:typecheck: 
+@airnub/speckit-app:typecheck: > @airnub/speckit-app@0.1.0 typecheck /workspace/airnub-site/apps/speckit
+@airnub/speckit-app:typecheck: > tsc -p tsconfig.json --noEmit
+@airnub/speckit-app:typecheck: 
+@airnub/adf-app:typecheck:  WARN  Unsupported engine: wanted: {"node":">=24.0.0 <25"} (current: {"node":"v20.19.4","pnpm":"10.17.1"})
+@airnub/adf-app:typecheck: 
+@airnub/adf-app:typecheck: > @airnub/adf-app@0.1.0 typecheck /workspace/airnub-site/apps/adf
+@airnub/adf-app:typecheck: > tsc -p tsconfig.json --noEmit
+@airnub/adf-app:typecheck: 
+docs:typecheck: 
+docs:typecheck: > docs@0.0.0 typecheck /workspace/airnub-site/docs
+docs:typecheck: > tsc
+docs:typecheck: 
+@airnub/adf-app:typecheck: app/[locale]/(marketing)/page.tsx(3,46): error TS2307: Cannot find module 'next-intl/server' or its corresponding type declarations.
+@airnub/adf-app:typecheck: app/[locale]/(marketing)/quickstart/page.tsx(3,46): error TS2307: Cannot find module 'next-intl/server' or its corresponding type declarations.
+@airnub/adf-app:typecheck: app/[locale]/layout.tsx(5,40): error TS2307: Cannot find module 'next-intl' or its corresponding type declarations.
+@airnub/adf-app:typecheck: app/[locale]/layout.tsx(6,43): error TS2307: Cannot find module 'next-intl' or its corresponding type declarations.
+@airnub/adf-app:typecheck: app/[locale]/layout.tsx(7,64): error TS2307: Cannot find module 'next-intl/server' or its corresponding type declarations.
+@airnub/adf-app:typecheck: app/i18n/request.ts(1,43): error TS2307: Cannot find module 'next-intl' or its corresponding type declarations.
+@airnub/adf-app:typecheck: app/i18n/request.ts(2,34): error TS2307: Cannot find module 'next-intl/server' or its corresponding type declarations.
+@airnub/adf-app:typecheck: app/i18n/request.ts(6,42): error TS7031: Binding element 'requestLocale' implicitly has an 'any' type.
+@airnub/adf-app:typecheck: components/LocaleSwitcher.tsx(4,27): error TS2307: Cannot find module 'next-intl' or its corresponding type declarations.
+@airnub/adf-app:typecheck: middleware.ts(1,30): error TS2307: Cannot find module 'next-intl/middleware' or its corresponding type declarations.
+@airnub/adf-app:typecheck:  ELIFECYCLE  Command failed with exit code 2.
+@airnub/adf-app:typecheck: ERROR: command finished with error: command (/workspace/airnub-site/apps/adf) /root/.nvm/versions/node/v20.19.4/bin/pnpm run typecheck exited (2)
+@airnub/airnub-app:typecheck:  ELIFECYCLE  Command failed.
+@airnub/speckit-app:typecheck:  ELIFECYCLE  Command failed.
+@airnub/adf-app#typecheck: command (/workspace/airnub-site/apps/adf) /root/.nvm/versions/node/v20.19.4/bin/pnpm run typecheck exited (2)
+
+ Tasks:    1 successful, 4 total
+Cached:    0 cached, 4 total
+  Time:    17.429s 
+Failed:    @airnub/adf-app#typecheck
+
+ ERROR  run failed: command  exited (2)
+ ELIFECYCLE  Command failed with exit code 2.
