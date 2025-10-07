@@ -1,16 +1,25 @@
 #!/usr/bin/env bash
 set -euo pipefail
-[[ "${DEBUG:-false}" == "true" ]] && set -x
 
-need() { command -v "$1" >/dev/null 2>&1; }
+if [[ "${DEBUG:-false}" == "true" ]]; then
+  set -x
+fi
 
-if ! need curl; then echo "[install-supabase-cli] curl is required" >&2; exit 1; fi
+if ! command -v curl >/dev/null 2>&1; then
+  echo "[install-supabase-cli] curl is required" >&2
+  exit 1
+fi
 
 install_packages() {
-  local pkgs=(ca-certificates jq tar sha256sum)
+  local packages=(ca-certificates jq tar)
   local missing=()
-  for p in "${pkgs[@]}"; do dpkg -s "$p" >/dev/null 2>&1 || missing+=("$p"); done
-  if ((${#missing[@]})); then
+  for pkg in "${packages[@]}"; do
+    if ! dpkg -s "$pkg" >/dev/null 2>&1; then
+      missing+=("$pkg")
+    fi
+  done
+
+  if ((${#missing[@]} > 0)); then
     sudo apt-get update
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends "${missing[@]}"
     sudo rm -rf /var/lib/apt/lists/*
@@ -18,41 +27,61 @@ install_packages() {
 }
 
 fetch_latest_version() {
-  local api="https://api.github.com/repos/supabase/cli/releases/latest"
-  if [[ -n "${GITHUB_TOKEN:-}" ]]; then
-    curl -fsSL -H "Authorization: Bearer $GITHUB_TOKEN" "$api" | jq -r '.tag_name'
-  else
-    curl -fsSL "$api" | jq -r '.tag_name'
-  fi
+  curl -fsSL https://api.github.com/repos/supabase/cli/releases/latest | jq -r '.tag_name'
 }
 
 download_and_install() {
   local version="$1"
-  local arch="$(uname -m)"
-  case "$arch" in x86_64|amd64) arch="amd64" ;; aarch64|arm64) arch="arm64" ;; *)
-    echo "[install-supabase-cli] Unsupported arch: $arch" >&2; exit 1 ;; esac
+  local arch
+  arch="$(uname -m)"
+  case "$arch" in
+    x86_64|amd64)
+      arch="amd64"
+      ;;
+    aarch64|arm64)
+      arch="arm64"
+      ;;
+    *)
+      echo "[install-supabase-cli] Unsupported architecture: $arch" >&2
+      exit 1
+      ;;
+  esac
 
-  local tmp_dir; tmp_dir="$(mktemp -d)"
-  local base="https://github.com/supabase/cli/releases/download/${version}"
-  local tarball="supabase_linux_${arch}.tar.gz"
-  curl -fsSL "${base}/${tarball}" -o "${tmp_dir}/supabase.tar.gz"
-  tar -xzf "${tmp_dir}/supabase.tar.gz" -C "$tmp_dir"
+  local tmp_dir
+  tmp_dir="$(mktemp -d)"
 
-  # Optional checksum verification if sums file exists
-  if curl -fsSL "${base}/SHA256SUMS" -o "${tmp_dir}/SHA256SUMS" 2>/dev/null; then
-    (cd "$tmp_dir" && sha256sum -c --ignore-missing SHA256SUMS)
-  fi
+  local archive_url
+  archive_url="https://github.com/supabase/cli/releases/download/${version}/supabase_linux_${arch}.tar.gz"
 
-  sudo install -m 0755 "${tmp_dir}/supabase" /usr/local/bin/supabase
+  curl -fsSL "$archive_url" -o "$tmp_dir/supabase.tar.gz"
+  tar -xzf "$tmp_dir/supabase.tar.gz" -C "$tmp_dir"
+
+  sudo install -m 755 "$tmp_dir/supabase" /usr/local/bin/supabase
+
   rm -rf "$tmp_dir"
 }
 
 main() {
   install_packages
-  local req="${SUPABASE_VERSION:-latest}"
-  local ver
-  if [[ "$req" == "latest" ]]; then ver="$(fetch_latest_version)"; else ver="${req#v}"; ver="v${ver}"; fi
-  download_and_install "$ver"
-  echo -n "[install-supabase-cli] Installed Supabase CLI version: "; supabase --version
+
+  local requested_version
+  requested_version="${SUPABASE_VERSION:-latest}"
+
+  local version
+  if [[ "$requested_version" == "latest" ]]; then
+    version="$(fetch_latest_version)"
+  else
+    if [[ "$requested_version" != v* ]]; then
+      version="v${requested_version}"
+    else
+      version="$requested_version"
+    fi
+  fi
+
+  download_and_install "$version"
+
+  echo -n "[install-supabase-cli] Installed Supabase CLI version: "
+  supabase --version
 }
+
 main "$@"
