@@ -1,5 +1,12 @@
 # Airnub-Site Monorepo
 
+## Status
+
+[![Site smoke](https://github.com/airnub/airnub-site/actions/workflows/site-smoke.yml/badge.svg)](../../actions/workflows/site-smoke.yml)
+[![Links](https://github.com/airnub/airnub-site/actions/workflows/links.yml/badge.svg)](../../actions/workflows/links.yml)
+[![Accessibility](https://github.com/airnub/airnub-site/actions/workflows/a11y.yml/badge.svg)](../../actions/workflows/a11y.yml)
+[![Docs deploy](https://github.com/airnub/airnub-site/actions/workflows/deploy-docs.yml/badge.svg)](../../actions/workflows/deploy-docs.yml)
+
 Marketing sites for Airnub and Speckit that share a Supabase backend, a component library, and Turborepo-powered tooling. Both apps run on the Next.js App Router with incremental static regeneration by default.
 
 ## What's inside

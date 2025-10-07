@@ -30,6 +30,7 @@
       "work": "Seirbhísí",
       "projects": "Tionscadail",
       "about": "Fúinn",
+      "hire": "Do earcaitheoirí agus cliaint",
       "contact": "Teagmháil"
     },
     "footer": {
@@ -71,6 +72,7 @@
           "heading": "Cuideachta",
           "links": {
             "about": "Fúinn",
+            "hire": "Do earcaitheoirí agus cliaint",
             "careers": "Gairmeacha",
             "press": "Preas",
             "legal": "Dlí"

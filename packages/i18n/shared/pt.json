@@ -30,6 +30,7 @@
       "work": "Serviços",
       "projects": "Projetos",
       "about": "Empresa",
+      "hire": "Para recrutadores e clientes",
       "contact": "Contacto"
     },
     "footer": {
@@ -71,6 +72,7 @@
           "heading": "Empresa",
           "links": {
             "about": "Sobre",
+            "hire": "Para recrutadores e clientes",
             "careers": "Carreiras",
             "press": "Imprensa",
             "legal": "Jurídico"
