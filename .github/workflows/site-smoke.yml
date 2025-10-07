@@ -1,0 +1,28 @@
+name: Site smoke
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: corepack enable pnpm && pnpm install --frozen-lockfile
+      - name: Generate reports (build→start→probe)
+        env:
+          DISABLE_PWA: "1"
+        run: pnpm reports
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-reports
+          path: |
+            SMOKE-REPORT.md
+            SMOKE-REPORT.json
+            LINK-REPORT.md
+            artifacts/**

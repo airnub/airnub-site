@@ -10,6 +10,7 @@ export * from "./components/client/ThemeToggle";
 export * from "./components/client/ToastProvider";
 export * from "./components/card";
 export * from "../providers/theme";
+export { default as Analytics } from "./Analytics";
 export * from "./icons/GithubIcon";
 export * from "./logos";
 export * from "./fonts";

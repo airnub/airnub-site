@@ -1,0 +1,102 @@
+{
+  "build": "pass",
+  "apps": {
+    "airnub": {
+      "present": true,
+      "mode": "start",
+      "port": 3101,
+      "boot": "pass",
+      "routes": {
+        "/": {
+          "status": 307,
+          "ctype": ""
+        },
+        "/work": {
+          "status": 307,
+          "ctype": ""
+        },
+        "/projects": {
+          "status": 307,
+          "ctype": ""
+        },
+        "/about": {
+          "status": 307,
+          "ctype": ""
+        },
+        "/contact": {
+          "status": 307,
+          "ctype": ""
+        },
+        "/robots.txt": {
+          "status": 200,
+          "ctype": "text/plain"
+        },
+        "/sitemap.xml": {
+          "status": 200,
+          "ctype": "application/xml"
+        },
+        "/opengraph-image": {
+          "status": 200,
+          "ctype": "image/png"
+        }
+      }
+    },
+    "speckit": {
+      "present": true,
+      "mode": "start",
+      "port": 3102,
+      "boot": "pass",
+      "routes": {
+        "/": {
+          "status": 200,
+          "ctype": "text/html; charset=utf-8"
+        },
+        "/quickstart": {
+          "status": 200,
+          "ctype": "text/html; charset=utf-8"
+        },
+        "/robots.txt": {
+          "status": 200,
+          "ctype": "text/plain"
+        },
+        "/sitemap.xml": {
+          "status": 200,
+          "ctype": "application/xml"
+        },
+        "/opengraph-image": {
+          "status": 200,
+          "ctype": "image/png"
+        }
+      }
+    },
+    "adf": {
+      "present": true,
+      "mode": "start",
+      "port": 3103,
+      "boot": "pass",
+      "routes": {
+        "/": {
+          "status": 307,
+          "ctype": ""
+        },
+        "/quickstart": {
+          "status": 307,
+          "ctype": ""
+        },
+        "/robots.txt": {
+          "status": 200,
+          "ctype": "text/plain"
+        },
+        "/sitemap.xml": {
+          "status": 200,
+          "ctype": "application/xml"
+        },
+        "/opengraph-image": {
+          "status": 200,
+          "ctype": "image/png"
+        }
+      }
+    }
+  },
+  "outstanding": []
+}

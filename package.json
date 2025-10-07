@@ -9,7 +9,7 @@
     "dev": "turbo run dev --parallel --cache=local:r,remote:r",
     "build": "turbo run build",
     "lint": "turbo run lint",
-    "typecheck": "turbo run typecheck",
+    "typecheck": "tsc -b --noEmit",
     "a11y": "turbo run a11y",
     "links": "turbo run links",
     "sbom": "turbo run sbom",
@@ -26,18 +26,24 @@
     "docs:dev": "pnpm --filter docs start",
     "docs:build": "pnpm --filter docs build",
     "docs:deploy": "pnpm --filter docs deploy",
+    "smoke": "tsx tools/reports.ts --smoke",
+    "linkcheck": "tsx tools/reports.ts --links",
+    "reports": "tsx tools/reports.ts --all",
+    "typecheck:turbo": "turbo run typecheck",
     "lint:dark": "grep -R --line-number --color=always 'dark:' apps packages || true",
     "validate:ui": "bash scripts/validate-ui.sh"
   },
   "devDependencies": {
-    "@types/node": "^20.16.11",
+    "@types/node": "^20.11.30",
     "@types/react": "^19.1.15",
     "@types/react-dom": "^19.1.9",
     "globby": "^14.1.0",
     "husky": "^9.1.7",
+    "jsdom": "^24.0.0",
+    "next-intl": "^3.26.5",
     "pa11y-ci": "^4.0.1",
+    "tsx": "^4.7.0",
     "turbo": "^2.5.8",
-    "tsx": "^4.19.2",
-    "typescript": "^5.9.2"
+    "typescript": "^5.5.0"
   }
 }
