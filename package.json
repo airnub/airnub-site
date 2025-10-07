@@ -9,7 +9,7 @@
     "dev": "turbo run dev --parallel --cache=local:r,remote:r",
     "build": "turbo run build",
     "lint": "turbo run lint",
-    "typecheck": "turbo run typecheck",
+    "typecheck": "tsc -b --noEmit",
     "a11y": "turbo run a11y",
     "links": "turbo run links",
     "sbom": "turbo run sbom",
@@ -26,6 +26,9 @@
     "docs:dev": "pnpm --filter docs start",
     "docs:build": "pnpm --filter docs build",
     "docs:deploy": "pnpm --filter docs deploy",
+    "smoke": "tsx tools/smoke.ts",
+    "linkcheck": "tsx tools/link-check.ts",
+    "typecheck:turbo": "turbo run typecheck",
     "lint:dark": "grep -R --line-number --color=always 'dark:' apps packages || true",
     "validate:ui": "bash scripts/validate-ui.sh"
   },
@@ -38,6 +41,7 @@
     "pa11y-ci": "^4.0.1",
     "turbo": "^2.5.8",
     "tsx": "^4.19.2",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "jsdom": "^24.0.0"
   }
 }

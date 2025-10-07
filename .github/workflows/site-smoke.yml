@@ -1,0 +1,25 @@
+name: Site smoke
+on:
+  pull_request:
+    branches: [ main ]
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    env:
+      DISABLE_PWA: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: corepack enable pnpm && pnpm install --frozen-lockfile
+      - run: pnpm -w build
+      - run: pnpm --filter ./apps/airnub exec next start -p 3101 & pnpm --filter ./apps/speckit exec next start -p 3102 & pnpm --filter ./apps/adf exec next start -p 3103 & sleep 5
+      - run: pnpm smoke
+      - run: pnpm linkcheck || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site-smoke-artifacts
+          path: |
+            SMOKE-REPORT.md
+            SMOKE-REPORT.json
+            LINK-REPORT.md

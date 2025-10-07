@@ -6,6 +6,7 @@ import {
   ToastProvider,
   GithubIcon,
   type FooterColumn,
+  Analytics,
 } from "@airnub/ui";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
@@ -216,6 +217,11 @@ export default async function LocaleLayout({
         />
       </head>
       <body className="flex min-h-screen flex-col">
+        <Analytics
+          provider={process.env.NEXT_PUBLIC_ANALYTICS as any}
+          domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
+          gaId={process.env.NEXT_PUBLIC_GA4_ID}
+        />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <BrandProvider value={airnubBrand}>
             <ThemeProvider>
